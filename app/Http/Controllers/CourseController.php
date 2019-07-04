@@ -14,22 +14,17 @@ class CourseController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('index');
+        $this->middleware('auth')->except('show');
     }
 
     /**
      * Display a listing of the resource.
      *
-     * @param $slug
-     * @return \Illuminate\Http\Response
+     * @return void
      */
-    public function index($slug)
+    public function index()
     {
-        dd($slug);
-        $course = Course::where('slug', $slug)->first();
-        return view('course.index', [
-            'course' => $course,
-        ]);
+        // Not yet required
     }
 
     /**
@@ -53,7 +48,6 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->file('image'));
         $course = Course::create($request->all());
 
         $path = Storage::putFile('public', $request->file('image'));
@@ -64,32 +58,21 @@ class CourseController extends Controller
 
         $course->save();
 
-        return redirect()->route('home', $course);
-
-
-//        dd($request->file('files'));
-
-//        if ($request->file('files') != NULL) {
-
-
-//            $course = Course::create($request->all());
-
-
-//        } else {
-//            $course = Course::create($request->all());
-//        }
+        return redirect()->route('course.show', $course);
     }
 
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Course $course
-     * @return void
+     * @param Course $course
+     * @return \Illuminate\Http\Response
      */
     public function show(Course $course)
     {
-        // Not yet required
+        return view('course.index', [
+            'course' => $course,
+        ]);
     }
 
     /**
@@ -117,7 +100,7 @@ class CourseController extends Controller
     {
         $course->update($request->except('slug'));
 
-        return redirect()->route('course.index', $course);
+        return redirect()->route('course.show', $course);
 
     }
 
@@ -133,7 +116,7 @@ class CourseController extends Controller
 
         $course->delete();
 
-        return redirect()->route('course.index');
+        return redirect()->route('home');
 
     }
 

@@ -48,6 +48,8 @@
                     <span>/</span>
                     <a href="{{ route('register') }}">Register</a>
                 @else
+                    <a href="{{ route('course.create') }}">Create course</a>
+                    <span>/</span>
                     <a href="#">{{ Auth::user()->name }}</a>
                     <span>/</span>
                     <a href="{{ route('logout') }}">Logout</a>

@@ -80,7 +80,7 @@
                 @include('course.partials.form')
 
                 <div class="form-group">
-                    <label for="">Прикрепите к посту одну/несколько фотограий</label><br>
+                    <label for="">Выберите обложку вашего курса</label><br>
 
                     <input type="file" name="image">
                     {{--<input class="" type="file" name="file[]" multiple>--}}
