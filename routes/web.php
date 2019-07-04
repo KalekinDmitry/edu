@@ -22,4 +22,7 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::get('logout', 'Auth\LoginController@logout', function () {});
+Route::resource('/course', 'CourseController');
+Route::get('/course/{slug?}', 'CourseController@index')->name('course');
+
+Route::get('logout', 'Auth\LoginController@logout');

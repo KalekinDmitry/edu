@@ -38,7 +38,7 @@
     <div class="header-warp">
         <div class="container">
             <a href="{{ route('home') }}" class="site-logo">
-                <img src="{{ asset('images/logo.png') }}" alt="">
+                <img src="{{ asset('images/logo2.png') }}" alt="">
                 {{--<span style="color: #fff;">HMQ-Education</span >--}}
             </a>
 
