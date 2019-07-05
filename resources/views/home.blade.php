@@ -169,83 +169,39 @@
         </div>
         <div class="course-slider owl-carousel"> <!--   -->
             <!-- course -->
-            <div class="course-item">
-                <figure class="course-preview">
-                    <img src="{{ asset('images/courses/1.jpg') }}" alt="">
-                    <div class="price">$2</div>
-                </figure>
-                <div class="course-content">
-                    <div class="cc-text">
-                        <h5><a href="https://hmq-edu.com/en-course-1-industrial-revolution.html">INDUSTRIAL REVOLUTION
-                                4.0</a></h5>
-                        <p>Introduction to the course</p>
-                        <span><i class="flaticon-student-2"></i>20</span>
-                        <span><i class="flaticon-placeholder"></i>3</span>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star i-fade"></i>
+
+
+            @forelse($courses as $course)
+                <div class="course-item">
+                    <figure class="course-preview">
+                        <img src="{{ asset($course->image )}}" alt="">
+                        <div class="price">$2</div>
+                    </figure>
+                    <div class="course-content">
+                        <div class="cc-text">
+                            <h5><a href="{{route('course.show', $course->slug)}}">{{ $course->title }}</a></h5>
+                            <p>{{ $course->description_short }}</p>
+                            <span><i class="flaticon-student-2"></i>20</span>
+                            <span><i class="flaticon-placeholder"></i>3</span>
+                            <div class="rating">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star i-fade"></i>
+                            </div>
+                        </div>
+                        <div class="seller-info">
+                            <div class="seller-pic set-bg" data-setbg="">[Profile avatar]</div>
+                            <h6>By {{$course->user->name}}, <span>[who is]</span></h6>
                         </div>
                     </div>
-                    <div class="seller-info">
-                        <div class="seller-pic set-bg" data-setbg="{{ asset('images/courses/sellers/1.jpg') }}"></div>
-                        <h6>By Victoria Arabina, <span>Teacher & Coach</span></h6>
-                    </div>
                 </div>
-            </div>
-            <div class="course-item">
-                <figure class="course-preview">
-                    <img src="{{ asset('images/courses/2.jpg') }}" alt="">
-                    <div class="price">$0</div>
-                </figure>
-                <div class="course-content">
-                    <div class="cc-text">
-                        <h5><a href="https://hmq-edu.com/en-course-2-business.html">BUSINESS</a></h5>
-                        <p>How to find your mission in life</p>
-                        <span><i class="flaticon-student-2"></i>20</span>
-                        <span><i class="flaticon-placeholder"></i>3</span>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star i-fade"></i>
-                        </div>
-                    </div>
-                    <div class="seller-info">
-                        <div class="seller-pic set-bg" data-setbg="{{ asset('images/courses/sellers/1.jpg') }}"></div>
-                        <h6>By Victoria Arabina, <span>Teacher & Coach</span></h6>
-                    </div>
-                </div>
-            </div>
-            <div class="course-item">
-                <figure class="course-preview">
-                    <img src="{{ asset('images/courses/3.jpg') }}" alt="">
-                    <div class="price">$5</div>
-                </figure>
-                <div class="course-content">
-                    <div class="cc-text">
-                        <h5><a href="https://hmq-edu.com/en-course-3-personal-development.html">PERSONAL DEVELOPMENT</a>
-                        </h5>
-                        <p>Energy. Introduction</p>
-                        <span><i class="flaticon-student-2"></i>20</span>
-                        <span><i class="flaticon-placeholder"></i>3</span>
-                        <div class="rating">
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star"></i>
-                            <i class="fa fa-star i-fade"></i>
-                        </div>
-                    </div>
-                    <div class="seller-info">
-                        <div class="seller-pic set-bg" data-setbg="{{ asset('images/courses/sellers/1.jpg') }}"></div>
-                        <h6>By Victoria Arabina, <span>Teacher & Coach</span></h6>
-                    </div>
-                </div>
-            </div>
+            @empty
+                <h5>Курсы отсутствуют</h5>
+            @endforelse
+
+
         </div>
     </div>
 </section>
@@ -260,28 +216,28 @@
                 <figure>
                     <img src="{{ asset('images/icons/1.png') }}" alt="">
                 </figure>
-                <h2>250</h2>
+                <h2>{{ $count = DB::table('users')->count()}}</h2>
                 <p>New Students</p>
             </div>
             <div class="col-lg-3 col-sm-6 fact-item">
                 <figure>
                     <img src="{{ asset('images/icons/2.png') }}" alt="">
                 </figure>
-                <h2>1k</h2>
+                <h2>?</h2>
                 <p>Grad Students</p>
             </div>
             <div class="col-lg-3 col-sm-6 fact-item">
                 <figure>
                     <img src="{{ asset('images/icons/3.png') }}" alt="">
                 </figure>
-                <h2>12</h2>
+                <h2>?</h2>
                 <p>Qualified Teachers</p>
             </div>
             <div class="col-lg-3 col-sm-6 fact-item">
                 <figure>
                     <img src="{{ asset('images/icons/4.png') }}" alt="">
                 </figure>
-                <h2>4</h2>
+                <h2>{{ $count = DB::table('courses')->count()}}</h2>
                 <p>Amazing Courses</p>
             </div>
         </div>
@@ -326,7 +282,7 @@
 
 
 <!-- Newslatter section -->
-<section id ="newslatter" class="newslatter-section set-bg" data-setbg="{{ asset('images/newslatter-bg.jpg') }}">
+<section id="newslatter" class="newslatter-section set-bg" data-setbg="{{ asset('images/newslatter-bg.jpg') }}">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">

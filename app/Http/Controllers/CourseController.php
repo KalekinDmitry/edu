@@ -50,6 +50,8 @@ class CourseController extends Controller
     {
         $course = Course::create($request->all());
 
+        $course->tags=str_replace(' ', '', $request->tags);
+
         $path = Storage::putFile('public', $request->file('image'));
 
         $url = Storage::url($path);
@@ -99,6 +101,10 @@ class CourseController extends Controller
     public function update(Request $request, Course $course)
     {
         $course->update($request->except('slug'));
+
+        $course->tags=str_replace(' ', '', $request->tags);;
+
+        $course->save();
 
         return redirect()->route('course.show', $course);
 

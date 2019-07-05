@@ -19,7 +19,7 @@
         <textarea class="form-control" id="description" name="description">{{$course->description ?? ""}}</textarea>
     </div>
     <div class="form-group">
-        <label for="">Ключевые слова</label>
+        <label for="">Ключевые слова (без пробелов)</label>
         <input type="text" class="form-control" name="tags" placeholder="Ключевые слова, через запятую"
                value="{{$course->tags ?? ""}}">
     </div>

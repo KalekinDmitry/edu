@@ -68,27 +68,27 @@
         <br><br><br><br><br><br><br><br>
         {{--<div class="card text-white bg-dark">--}}
 
-            {{--<div class="card-header">--}}
-                {{--Создать--}}
-            {{--</div>--}}
+        {{--<div class="card-header">--}}
+        {{--Создать--}}
+        {{--</div>--}}
 
-            {{--<form class="form-horizontal card-body" action="{{route('course.store')}}" method="post"--}}
-                  {{--enctype="multipart/form-data">--}}
-                {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
+        {{--<form class="form-horizontal card-body" action="{{route('course.store')}}" method="post"--}}
+        {{--enctype="multipart/form-data">--}}
+        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
 
-                {{-- Form include --}}
-                {{--@include('course.partials.form')--}}
+        {{-- Form include --}}
+        {{--@include('course.partials.form')--}}
 
-                {{--<div class="form-group">--}}
-                    {{--<label for="">Выберите обложку вашего курса</label><br>--}}
+        {{--<div class="form-group">--}}
+        {{--<label for="">Выберите обложку вашего курса</label><br>--}}
 
-                    {{--<input type="file" name="image">--}}
-                    {{--<input class="" type="file" name="file[]" multiple>--}}
-                {{--</div>--}}
+        {{--<input type="file" name="image">--}}
+        {{--<input class="" type="file" name="file[]" multiple>--}}
+        {{--</div>--}}
 
-                {{--<input type="hidden" name="created_by" value="{{Auth::id()}}">--}}
-                {{--<input class="btn btn-light" type="submit" value="Сохранить">--}}
-            {{--</form>--}}
+        {{--<input type="hidden" name="created_by" value="{{Auth::id()}}">--}}
+        {{--<input class="btn btn-light" type="submit" value="Сохранить">--}}
+        {{--</form>--}}
         {{--</div>--}}
         <div class="card text-white bg-dark">
 

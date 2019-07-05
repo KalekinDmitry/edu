@@ -55,16 +55,7 @@
             <div class="nav-switch">
                 <i class="fa fa-bars"></i>
             </div>
-            {{--<form onsubmit="if(confirm('Желаете удалить выбранный пост?')){return true}else{return false}"--}}
-                  {{--action="{{route('course.destroy', $course)}}" method="post">--}}
-                {{--<input type="hidden" name="_method" value="DELETE">--}}
-                {{--{{ csrf_field() }}--}}
 
-                {{--<a class="btn btn-default" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">Редактировать</i></a>--}}
-
-                {{--<button type="submit" class="btn btn-dark">Удалить</button>--}}
-
-            {{--</form>--}}
         </div>
     </div>
 </header>
@@ -105,6 +96,16 @@
 
         <div class="row">
             <div class="col col-3">
+                <form onsubmit="if(confirm('Желаете удалить выбранный пост?')){return true}else{return false}"
+                      action="{{route('course.destroy', $course)}}" method="post">
+                    <input type="hidden" name="_method" value="DELETE">
+                    {{ csrf_field() }}
+
+                    <a class="btn btn-default" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">Редактировать</i></a>
+
+                    <button type="submit" class="btn btn-info">Удалить</button>
+
+                </form>
                 <div>
                     <h3 style="padding-bottom:40px; padding-top: 45px;">Table of contents</h3>
                 </div>
@@ -176,22 +177,23 @@
                                     <h5>{{ $course->title }}</h5>
                                     <h5>{{ $course->description_short }}</h5>
                                     <p>{{ $course->description }}</p>
-
+                                    <p>[Video for example]</p>
                                     <div style="text-align: center;">
                                         <iframe width="100%" height="435"
-                                                src="https://youtu.be/Cv9C3sIo5YM" frameborder="0"
+                                                src="https://www.youtube.com/embed/cNZf6nBDE-s" frameborder="0"
                                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                                 allowfullscreen></iframe>
                                     </div>
                                     <div>
                                         <p>
-                                            <b>Tags:</b>
-                                            <a href="#">#seaofopportunities</a>
-                                            <a href="#">#industry4.0</a>
-                                            <a href="#">#robotsarehelpersnotkillers</a>
-                                            <a href="#">#intelligenceartifficielle</a>
-                                            <a href="#">#forbetterplanet</a>
-                                            <a href="#">#educationforall</a>
+                                            @if($course->tags != NULL)
+                                                <b>Tags:</b>
+                                                @foreach(explode(',',$course->tags) as $tag)
+                                                    <a href="#">#{{ $tag }}</a>
+                                                @endforeach
+                                            @else
+                                                No tags
+                                            @endif
                                         </p>
                                     </div>
                                     <span><i class="flaticon-student-2"></i>20</span>
@@ -205,8 +207,8 @@
                                     </div>
                                 </div>
                                 <div class="seller-info">
-                                    <div class="seller-pic set-bg" data-setbg="{{ asset('images/courses/sellers/1.jpg') }}"></div>
-                                    <h6>By Victoria Arabina, <span>Teacher & Coach</span></h6>
+                                    <div class="seller-pic set-bg" data-setbg="">[Profile avatar]</div>
+                                    <h6>By {{$course->user->name}}, <span>[who is]</span></h6>
                                 </div>
                             </div>
                         </div>
