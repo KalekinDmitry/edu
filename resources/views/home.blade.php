@@ -82,7 +82,7 @@
                         social communication skills and increase your professional level.</p>
                     <div class="hero-author">
                         <div class="hero-author-pic set-bg" data-setbg="{{ asset('images/hero-author.jpg') }}"></div>
-                        <h5>By Victoria Arabina, <span>Professional teacher & coach</span></h5>
+                        <h5>By 3toria Arabina, <span>Professional teacher & coach</span></h5>
                         <!-- a href="#" class="site-btn">See Details <i class="fa fa-angle-right"></i></a -->
                     </div>
                 </div>
@@ -406,7 +406,7 @@
                 <li><a href="#contact">Contact us</a></li>
             </ul>
             <div class="footer-logo">
-                <a href="https://hmq-edu.com">
+                <a href="{{ route('home') }}">
                     <img src="{{ asset('images/logo2.png') }}" alt="">
                 </a>
                 <!-- span style="color: #fff;">HMQ-Education</span -->

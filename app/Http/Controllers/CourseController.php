@@ -113,11 +113,13 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-
+//      dd($course);
+//      $user = Auth::user();
+//      if ($user->can('delete', $article)) {
         $course->delete();
 
         return redirect()->route('home');
-
+//      } else return redirect()->route('article.index');
     }
 
 }

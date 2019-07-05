@@ -37,8 +37,8 @@
 <header class="header-section">
     <div class="header-warp">
         <div class="container">
-            <a href="https://hmq-edu.com" class="site-logo">
-                <img src="{{ asset('images/logo.png') }}" alt="">
+            <a href="{{ route('home') }}" class="site-logo">
+                <img src="{{ asset('images/logo2.png') }}" alt="">
                 <!-- span style="color: #fff;">HMQ-Education</span -->
             </a>
             <div class="user-panel">
@@ -55,14 +55,16 @@
             <div class="nav-switch">
                 <i class="fa fa-bars"></i>
             </div>
-            <ul class="main-menu">
-                <!-- li><a href="index.html">Home</a></li -->
+            {{--<form onsubmit="if(confirm('Желаете удалить выбранный пост?')){return true}else{return false}"--}}
+                  {{--action="{{route('course.destroy', $course)}}" method="post">--}}
+                {{--<input type="hidden" name="_method" value="DELETE">--}}
+                {{--{{ csrf_field() }}--}}
 
-                <!-- li><a href="#courses">Courses</a></li -->
-                <!-- li><a href="#about">About us</a></li -->
-                <!-- li><a href="blog.html">News</a></li -->
-                <!-- li><a href="contact.html">Contact us</a></li -->
-            </ul>
+                {{--<a class="btn btn-default" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">Редактировать</i></a>--}}
+
+                {{--<button type="submit" class="btn btn-dark">Удалить</button>--}}
+
+            {{--</form>--}}
         </div>
     </div>
 </header>
@@ -70,7 +72,7 @@
 
 
 <!-- Page top section -->
-<section class="page-top-section set-bg" data-setbg="img/page-top-bg.jpg">
+<section class="page-top-section set-bg" data-setbg="{{ asset('images/page-top-bg.jpg') }}">
     <div class="container text-white">
         <h3>Our Courses</h3>
     </div>
@@ -171,25 +173,13 @@
                             </div -->
                             <div class="course-content">
                                 <div class="cc-text">
-                                    <h5>1.THE FOURTH INDUSTRIAL REVOLUTION</h5>
-                                    <h5>Introduction</h5>
-
-                                    <p>
-                                        We start our course with the most fascinating topic of the world - Transformers!
-                                        Just kidding 🤣 Industry 4.0 and everything related to databases, robots,
-                                        algorithms etc. etc. You are not a programmer? Too complicated?
-                                        Don’t worry as we found a format for everyone! Starting this introduction
-                                        course, covering levels from basic to advanced, we’ll present you with all
-                                        necessary information about today's world.
-                                        In this course you will discover what industry 4.0 is, its history as well as
-                                        main directions of today's technological development.
-                                        In this course you will discover what industry 4.0 is, its history as well as
-                                        main directions of today's technological development.
-                                    </p>
+                                    <h5>{{ $course->title }}</h5>
+                                    <h5>{{ $course->description_short }}</h5>
+                                    <p>{{ $course->description }}</p>
 
                                     <div style="text-align: center;">
                                         <iframe width="100%" height="435"
-                                                src="https://www.youtube.com/embed/KtOT_CXHea8" frameborder="0"
+                                                src="https://youtu.be/Cv9C3sIo5YM" frameborder="0"
                                                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                                 allowfullscreen></iframe>
                                     </div>
@@ -215,7 +205,7 @@
                                     </div>
                                 </div>
                                 <div class="seller-info">
-                                    <div class="seller-pic set-bg" data-setbg="img/courses/sellers/1.jpg"></div>
+                                    <div class="seller-pic set-bg" data-setbg="{{ asset('images/courses/sellers/1.jpg') }}"></div>
                                     <h6>By Victoria Arabina, <span>Teacher & Coach</span></h6>
                                 </div>
                             </div>
@@ -486,12 +476,12 @@
                 <a href=""><i class="fa fa-linkedin"></i></a>
             </div>
             <ul class="footer-menu">
-                <li><a href="https://hmq-edu.com/#about">About us</a></li>
-                <li><a href="https://hmq-edu.com/#courses">Courses</a></li>
+                <li><a href="{{ route('home') }}">About us</a></li>
+                <li><a href="{{ route('home') }}">Courses</a></li>
                 <!-- li><a href="#">Contact us</a></li -->
             </ul>
             <div class="footer-logo">
-                <a href="https://hmq-edu.com">
+                <a href="{{ route('home') }}">
                     <img src="{{ asset('images/logo2.png') }}" alt="">
                 </a>
                 <!-- span style="color: #fff;">HMQ-Education</span -->
