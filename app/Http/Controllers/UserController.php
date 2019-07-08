@@ -35,15 +35,11 @@ class UserController extends Controller
         ]);
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request)
     {
-//        $course->update($request->except('slug'));
-//
-//        $course->tags=str_replace(' ', '', $request->tags);;
-//
-//        $course->save();
-//
-//        return redirect()->route('course.show', $course);
-
+        $user = User::where('id', Auth::user()->id)->first();
+        $user->update($request);
+        $user->save();
+        return redirect()->route('my_settings', $user);
     }
 }

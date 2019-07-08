@@ -56,7 +56,6 @@
             <div class="nav-switch">
                 <i class="fa fa-bars"></i>
             </div>
-
         </div>
     </div>
 </header>

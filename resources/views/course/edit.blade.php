@@ -109,7 +109,6 @@
 
                     <input type="file" name="image">
                 </div>
-                <input type="hidden" name="modified_by" value="{{Auth::id()}}">
                 <input style="color: #000" class="btn btn-light" type="submit" value="To apply">
                 <a style="color: #000" class="btn btn-light" href="{{ route('home') }}">Cancel</a>
             </form>

@@ -62,96 +62,103 @@
 </header>
 <!-- Header section end -->
 
+
 <!-- Create section -->
-<section class="create-section set-bg" data-setbg="{{ asset('images/bg.jpg') }}">
+<section class="create-section">
     <div class="container">
         <br><br><br><br><br><br><br><br>
-        {{--<div class="card text-white bg-dark">--}}
-
-        {{--<div class="card-header">--}}
-        {{--Создать--}}
-        {{--</div>--}}
-
-        {{--<form class="form-horizontal card-body" action="{{route('course.store')}}" method="post"--}}
-        {{--enctype="multipart/form-data">--}}
-        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
-
-        {{-- Form include --}}
-        {{--@include('course.partials.form')--}}
-
-        {{--<div class="form-group">--}}
-        {{--<label for="">Выберите обложку вашего курса</label><br>--}}
-
-        {{--<input type="file" name="image">--}}
-        {{--<input class="" type="file" name="file[]" multiple>--}}
-        {{--</div>--}}
-
-        {{--<input type="hidden" name="created_by" value="{{Auth::id()}}">--}}
-        {{--<input class="btn btn-light" type="submit" value="Сохранить">--}}
-        {{--</form>--}}
-        {{--</div>--}}
-        <div class="card text-white bg-dark">
-
-            <div class="card-header">
-                Редактирование
-            </div>
-
-            <form class="form-horizontal card-body" action="{{route('my_settings_save', $user)}}" method="post"
-                  enctype="multipart/form-data">
-                <input type="hidden" name="_method" value="put">
-                {{ csrf_field() }}
-
-                <div class="form-group">
-                    <div class="form-group">
-                        <label for="">Full name: </label>
-                        <input type="text" class="form-control" name="title" placeholder="Заголовок новости"
-                               maxlength="25"
-                               value="{{$user->name ?? ""}}" required>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card text-dark bg-white">
+                    <div class="card-header">
+                        Profile editing
                     </div>
-                    <div class="form-group">
-                        <label for="">Email</label>
-                        <textarea class="form-control" id="description_short" maxlength="100"
-                                  name="description_short">{{$course->email ?? ""}}</textarea>
-                    </div>
-                    <div class="form-group">
-                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                    <form class="form-horizontal card-body" action="{{route('my_settings_save', $user)}}" method="POST"
+                          enctype="multipart/form-data">
+                        @csrf
+                        <div class="form-group">
+                            <div class="form-group row justify-content-center">
+                                <label for=""></label>
+                                @if($user->avatar)
+                                    <img src="{{ asset($user->avatar )}}" alt="">
+                                @else
+                                    <img src="{{asset('images/no-photo.jpg')}}" alt="">
+                                @endif
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-5 col-form-label text-md-left" for="">Choose your profile images</label><br>
+                                <br>
+                                <input type="file" name="image">
+                            </div>
+                            <hr>
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-left">Name</label>
+                                <div class="col-md-12 text-md-left">
+                                    <input id="name" name="name" type="text" class="form-control"
+                                           value="{{$user->name ?? ""}}" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="email" class="col-md-4 col-form-label text-md-left">Email</label>
+                                <div class="col-md-12 text-md-left">
+                                    <input id="email" name="email" type="email" class="form-control"
+                                           value="{{$user->email ?? ""}}" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="phone" class="col-md-4 col-form-label text-md-left">Phone number</label>
+                                <div class="col-md-12 text-md-left">
+                                    <input id="phone" name="phone" type="number" class="form-control"
+                                           value="{{$user->phone ?? ""}}" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="dob" class="col-md-4 col-form-label text-md-left">Date of Birth</label>
+                                <div class="col-md-12 text-md-left">
+                                    <input id="dob" name="dob" type="date" class="form-control"
+                                           value="{{$user->dob ?? ""}}" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="skills" class="col-md-4 col-form-label text-md-left">Skills</label>
+                                <div class="col-md-12 text-md-left">
+                                    <input id="skills" name="skills" type="text" class="form-control"
+                                           value="{{$user->skills ?? ""}}" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="hobbies" class="col-md-4 col-form-label text-md-left">Hobbies</label>
+                                <div class="col-md-12 text-md-left">
+                                    <input id="hobbies" name="hobbies" type="text" class="form-control"
+                                           value="{{$user->hobbies ?? ""}}" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="signature" class="col-md-4 col-form-label text-md-left">Signature</label>
+                                <div class="col-md-12 text-md-left">
+                                    <input id="signature" name="signature" type="text" class="form-control"
+                                           value="{{$user->signature ?? ""}}" required>
+                                </div>
+                            </div>
 
-                        <div class="col-md-6">
-                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
 
-                            @error('password')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                            @enderror
+                            <div class="form-group row">
+                                <label for="password" class="col-md-4 col-form-label text-md-left">Password</label>
+                                <div class="col-md-12">
+                                    <input id="password" type="password" class="form-control" name="password" autocomplete="new-password">
+                                </div>
+                            </div>
+
+
+
                         </div>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                        <div class="col-md-6">
-                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="">Ключевые слова (без пробелов)</label>
-                        <input type="text" class="form-control" name="tags" placeholder="Ключевые слова, через запятую"
-                               value="{{$course->tags ?? ""}}">
-                    </div>
-                    <div class="form-group">
-                        <label for="">Ссылка на видео</label>
-                        <textarea class="form-control" id="video" maxlength="300"
-                                  name="video">{{$course->video ?? ""}}</textarea>
-                    </div>
+                        <input class="btn btn-dark" type="submit" value="Save">
+                    </form>
+                    <br><br><br>
                 </div>
-
-                <input type="hidden" name="modified_by" value="{{Auth::id()}}">
-                <input class="btn btn-light" type="submit" value="Сохранить">
-            </form>
+            </div>
         </div>
     </div>
-    <br><br>
 </section>
 <!-- Create section end -->
 
@@ -168,12 +175,6 @@
                 <a href=""><i class="fa fa-behance"></i></a>
                 <a href=""><i class="fa fa-linkedin"></i></a>
             </div>
-            {{--<ul class="footer-menu">--}}
-                {{--<li><a href="#courses">Courses</a></li>--}}
-                {{--<li><a href="#about">About us</a></li>--}}
-                {{--<li><a href="#newslatter">News</a></li>--}}
-                {{--<li><a href="#contact">Contact us</a></li>--}}
-            {{--</ul>--}}
             <div class="footer-logo">
                 <a href="https://hmq-edu.com">
                     <img src="{{ asset('images/logo2.png') }}" alt="">
