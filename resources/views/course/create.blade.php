@@ -48,7 +48,7 @@
                     <span>/</span>
                     <a href="{{ route('register') }}">Register</a>
                 @else
-                    <a href="#">{{ Auth::user()->name }}</a>
+                    <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     <span>/</span>
                     <a href="{{ route('logout') }}">Logout</a>
                 @endguest
@@ -69,7 +69,7 @@
         <div class="card text-white bg-dark">
 
             <div class="card-header">
-                Создать
+                Creature
             </div>
 
             <form class="form-horizontal card-body" action="{{route('course.store')}}" method="post"
@@ -80,14 +80,14 @@
                 @include('course.partials.form')
 
                 <div class="form-group">
-                    <label for="">Выберите обложку вашего курса</label><br>
+                    <label for="">Choose your course cover</label><br>
 
                     <input type="file" name="image">
-                    {{--<input class="" type="file" name="file[]" multiple>--}}
                 </div>
 
                 <input type="hidden" name="created_by" value="{{Auth::id()}}">
-                <input class="btn btn-light" type="submit" value="Сохранить">
+                <input style="color:#000" class="btn btn-light" type="submit" value="Create">
+
             </form>
         </div>
     </div>
@@ -146,7 +146,6 @@
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/circle-progress.min.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
-
 
 </body>
 </html>

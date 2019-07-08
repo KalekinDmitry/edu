@@ -72,7 +72,7 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        return view('course.index', [
+        return view('course.show', [
             'course' => $course,
         ]);
     }
@@ -100,6 +100,7 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
+        dd($request->cost);
         $course->update($request->except('slug'));
 
         $course->tags=str_replace(' ', '', $request->tags);;

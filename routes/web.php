@@ -24,4 +24,8 @@ Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/course', 'CourseController');
 
+Route::get('/profile/{id}', 'UserController@show')->name('users_profile');
+Route::get('/myaccount','UserController@edit')->name('my_settings');
+Route::post('/myaccount/save','UserController@update')->name('my_settings_save');
+
 Route::get('logout', 'Auth\LoginController@logout');

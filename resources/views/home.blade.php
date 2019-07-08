@@ -50,7 +50,7 @@
                 @else
                     <a href="{{ route('course.create') }}">Create course</a>
                     <span>/</span>
-                    <a href="#">{{ Auth::user()->name }}</a>
+                    <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     <span>/</span>
                     <a href="{{ route('logout') }}">Logout</a>
                 @endguest
@@ -174,12 +174,16 @@
             @forelse($courses as $course)
                 <div class="course-item">
                     <figure class="course-preview">
-                        <img src="{{ asset($course->image )}}" alt="">
-                        <div class="price">$2</div>
+                        @if($course->image)
+                            <img src="{{ asset($course->image )}}" alt="" style="height: 400px; width: 200px;">
+                        @else
+                            <img src="{{asset('images/no-photo.jpg')}}" alt="" style="height: 100%; width: 100%;">
+                        @endif
+                        <div class="price">${{ $course->cost }}</div>
                     </figure>
                     <div class="course-content">
                         <div class="cc-text">
-                            <h5><a href="{{route('course.show', $course->slug)}}">{{ $course->title }}</a></h5>
+                            <h5><a href="{{route('course.show', $course->id)}}">{{ $course->title }}</a></h5>
                             <p>{{ $course->description_short }}</p>
                             <span><i class="flaticon-student-2"></i>20</span>
                             <span><i class="flaticon-placeholder"></i>3</span>
@@ -193,7 +197,7 @@
                         </div>
                         <div class="seller-info">
                             <div class="seller-pic set-bg" data-setbg="">[Profile avatar]</div>
-                            <h6>By {{$course->user->name}}, <span>[who is]</span></h6>
+                            <h6><a style="color: #fff" href="{{ route('users_profile', $course->user->id) }}">By {{$course->user->name}}</a>, <span>[who is]</span></h6>
                         </div>
                     </div>
                 </div>

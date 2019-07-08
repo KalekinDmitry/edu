@@ -48,7 +48,7 @@
                     <span>/</span>
                     <a href="{{ route('register') }}">Register</a>
                 @else
-                    <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
+                    <a href="#">{{ Auth::user()->name }}</a>
                     <span>/</span>
                     <a href="{{ route('logout') }}">Logout</a>
                 @endguest
@@ -93,25 +93,61 @@
         <div class="card text-white bg-dark">
 
             <div class="card-header">
-                Editing
+                Редактирование
             </div>
 
-            <form class="form-horizontal card-body" action="{{route('course.update', $course)}}" method="post"
+            <form class="form-horizontal card-body" action="{{route('my_settings_save', $user)}}" method="post"
                   enctype="multipart/form-data">
                 <input type="hidden" name="_method" value="put">
                 {{ csrf_field() }}
 
-                {{-- Form include --}}
-                @include('course.partials.form')
-
                 <div class="form-group">
-                    <label for="">Choose a cover if you want to change it</label><br>
+                    <div class="form-group">
+                        <label for="">Full name: </label>
+                        <input type="text" class="form-control" name="title" placeholder="Заголовок новости"
+                               maxlength="25"
+                               value="{{$user->name ?? ""}}" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <textarea class="form-control" id="description_short" maxlength="100"
+                                  name="description_short">{{$course->email ?? ""}}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
-                    <input type="file" name="image">
+                        <div class="col-md-6">
+                            <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+
+                            @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                        <div class="col-md-6">
+                            <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Ключевые слова (без пробелов)</label>
+                        <input type="text" class="form-control" name="tags" placeholder="Ключевые слова, через запятую"
+                               value="{{$course->tags ?? ""}}">
+                    </div>
+                    <div class="form-group">
+                        <label for="">Ссылка на видео</label>
+                        <textarea class="form-control" id="video" maxlength="300"
+                                  name="video">{{$course->video ?? ""}}</textarea>
+                    </div>
                 </div>
+
                 <input type="hidden" name="modified_by" value="{{Auth::id()}}">
-                <input style="color: #000" class="btn btn-light" type="submit" value="To apply">
-                <a style="color: #000" class="btn btn-light" href="{{ route('home') }}">Cancel</a>
+                <input class="btn btn-light" type="submit" value="Сохранить">
             </form>
         </div>
     </div>
@@ -170,6 +206,7 @@
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/circle-progress.min.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
+
 
 </body>
 </html>

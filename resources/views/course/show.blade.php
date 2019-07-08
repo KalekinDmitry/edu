@@ -47,7 +47,7 @@
                     <span>/</span>
                     <a href="{{ route('register') }}">Register</a>
                 @else
-                    <a href="#">{{ Auth::user()->name }}</a>
+                    <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     <span>/</span>
                     <a href="{{ route('logout') }}">Logout</a>
                 @endguest
@@ -208,7 +208,7 @@
                                 </div>
                                 <div class="seller-info">
                                     <div class="seller-pic set-bg" data-setbg="">[Profile avatar]</div>
-                                    <h6>By {{$course->user->name}}, <span>[who is]</span></h6>
+                                    <h6><a style="color: #fff" href="{{ route('users_profile', $course->user->id) }}">By {{$course->user->name}}</a>, <span>[who is]</span></h6>
                                 </div>
                             </div>
                         </div>

@@ -8,7 +8,7 @@ use Illuminate\Support\Str;
 class Course extends Model
 {
     // Mass assigned
-    protected $fillable = ['title', 'slug', 'description_short', 'description', 'tags', 'image', 'video', 'created_by'];
+    protected $fillable = ['title', 'slug', 'description_short', 'description', 'tags', 'image', 'video', 'created_by', 'cost'];
 
     // Mutators
     public function setSlugAttribute($value)
