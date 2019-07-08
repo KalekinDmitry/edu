@@ -22,8 +22,10 @@ class CreateCoursesTable extends Migration
             $table->string('tags')->nullable();
             $table->string('image')->nullable();
             $table->string('video')->nullable();
-            $table->integer('created_by')->nullable();
+            $table->bigInteger('created_by')->nullable()->unsigned();
             $table->timestamps();
+            $table->foreign('created_by')
+                ->references('id')->on("users")->onDelete('set null');
         });
     }
 
