@@ -175,9 +175,9 @@
                 <div class="course-item">
                     <figure class="course-preview">
                         @if($course->image)
-                            <img src="{{ asset($course->image )}}" alt="" style="height: 400px; width: 200px;">
+                            <img src="{{ asset($course->image )}}" alt="">
                         @else
-                            <img src="{{asset('images/no-photo.jpg')}}" alt="" style="height: 100%; width: 100%;">
+                            <img src="{{asset('images/no-photo.jpg')}}" alt="">
                         @endif
                         <div class="price">${{ $course->cost }}</div>
                     </figure>
