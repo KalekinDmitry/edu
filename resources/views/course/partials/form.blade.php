@@ -10,13 +10,14 @@
                value="{{$course->slug ?? ""}}" readonly="">
     </div>
     <div class="form-group">
-        <label for="">Short description</label>
+        <label for="description_short">Short description</label>
         <textarea class="form-control" id="description_short" maxlength="300"
-                  name="description_short">{{$course->description_short ?? ""}}</textarea>
+                  name="description_short" required>{{$course->description_short ?? ""}}</textarea>
     </div>
     <div class="form-group">
-        <label for="">Full description</label>
-        <textarea class="form-control" id="description" name="description">{{$course->description ?? ""}}</textarea>
+        <label for="description">Full description</label>
+        <textarea class="form-control" id="description" name="description"
+                  required>{{$course->description ?? ""}}</textarea>
     </div>
     <div class="form-group">
         <label for="">Tags (no spaces)</label>
@@ -24,13 +25,13 @@
                value="{{$course->tags ?? ""}}">
     </div>
     <div class="form-group">
-        <label for="">Link to video</label>
+        <label for="video">Link to video</label>
         <textarea class="form-control" id="video" maxlength="300"
                   name="video">{{$course->video ?? ""}}</textarea>
     </div>
     <div class="form-group">
         <label for="cost">Set a course price</label>
-        <textarea class="form-control" id="cost" maxlength="100"
-                  name="cost">{{$course->cost ?? ""}}</textarea>
+        <input class="form-control"  type="number" id="cost" maxlength="100"
+               name="cost" min="0" required>{{$course->cost ?? ""}}</input>
     </div>
 </div>
