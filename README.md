@@ -10,7 +10,8 @@ LAMP, Laravel
 -- here soon!  
 
 ### CI
-manual git push
+manual `git push`
+
 
 
 
