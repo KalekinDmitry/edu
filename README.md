@@ -10,7 +10,9 @@ LAMP, Laravel
 -- here soon!
 -- staging  
 
-## CI/CD !!!! @@@ $$$  44445555    22323 6 66 6 677777
+## CI/CD
+Работает! 
+Делайте `git push origin develop` и будет вам счастье!
 
 
 
