@@ -10,6 +10,7 @@ LAMP, Laravel
 -- here soon!
 -- staging
 Кто такой лось, все картинки в гитхаб залил?))
+Ы?
   
 
 ## CI/CD
