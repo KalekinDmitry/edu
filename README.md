@@ -8,10 +8,9 @@ LAMP, Laravel
 
 ### Docs  
 -- here soon!  
--- here we go !
--- OK!!! ))))
--- well) ))
 
+### CI
+manual git push
 
 
 
