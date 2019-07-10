@@ -8,7 +8,9 @@ LAMP, Laravel
 
 ### Docs  
 -- here soon!
--- staging  
+-- staging
+Кто такой лось, все картинки в гитхаб залил?))
+  
 
 ## CI/CD
 Работает! 
