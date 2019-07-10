@@ -127,6 +127,7 @@
                             <ul id="myTab" class="nav nav-pills">
                                 <li class="active"><a href="#detail" data-toggle="tab">About user</a></li>
                                 <li class=""><a href="#contact" data-toggle="tab">Send message (not working yet)</a>
+                                <li class=""><a href="{{route('my_settings')}}">Edit profile</a>
                                 </li>
                             </ul>
                             <div id="myTabContent" class="tab-content">
@@ -153,10 +154,10 @@
                                         </tr>
                                         <tr>
                                             <td class="active">Sex:</td>
-                                            <td>@if($user->sex != NULL)
-                                                    {{ $user->sex }}
-                                                @else
+                                            <td>@if($user->sex == 0 || $user->sex == NULL)
                                                     <strong>Information not specified</strong>
+                                                @else
+                                                    {{ $user->sex }}
                                                 @endif</td>
                                         </tr>
                                         <tr>
