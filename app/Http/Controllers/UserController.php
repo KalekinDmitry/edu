@@ -38,7 +38,15 @@ class UserController extends Controller
     public function update(Request $request)
     {
         $user = User::where('id', Auth::user()->id)->first();
-        $user->update($request);
+        $user->name=$request->name;
+        $user->email=$request->email;
+        $user->phone=$request->phone;
+        $user->dob=$request->dob;
+        $user->skills=$request->skills;
+        $user->hobbies=$request->hobbies;
+        $user->signature=$request->signature;
+        $user->sex=$request->sex;
+        $user->status=$request->status;
         $user->save();
         return redirect()->route('my_settings', $user);
     }
