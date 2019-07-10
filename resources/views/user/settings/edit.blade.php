@@ -48,7 +48,7 @@
                     <span>/</span>
                     <a href="{{ route('register') }}">Register</a>
                 @else
-                    <a href="#">{{ Auth::user()->name }}</a>
+                    <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     <span>/</span>
                     <a href="{{ route('logout') }}">Logout</a>
                 @endguest
@@ -69,13 +69,15 @@
         <br><br><br><br><br><br><br><br>
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <div class="card text-dark bg-white">
+                <div class="border-dark card text-dark bg-white">
                     <div class="card-header">
                         Profile editing
                     </div>
-                    <form class="form-horizontal card-body" action="{{route('my_settings_save', $user)}}" method="POST"
+                    <form class="form-horizontal card-body" action="{{route('my_settings_save', $user)}}" method="post"
                           enctype="multipart/form-data">
-                        @csrf
+                        <input type="hidden" name="_method" value="put">
+                        {{ csrf_field() }}
+
                         <div class="form-group">
                             <div class="form-group row justify-content-center">
                                 <label for=""></label>
@@ -86,16 +88,29 @@
                                 @endif
                             </div>
                             <div class="form-group row">
-                                <label class="col-md-5 col-form-label text-md-left" for="">Choose your profile images</label><br>
-                                <br>
-                                <input type="file" name="image">
+                                <label for="image" class="col-md-4 col-form-label text-md-left">Choose your profile
+                                    images</label><br>
+                                <div class="col-md-12 text-md-left">
+                                    <input id="image" type="file" name="image">
+                                </div>
                             </div>
-                            <hr>
+                            <hr class="border-dark">
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-left">Name</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="name" name="name" type="text" class="form-control"
-                                           value="{{$user->name ?? ""}}" required>
+                                           value="{{$user->name ?? ""}}" minlength="2" required>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="sex" class="col-md-4 col-form-label text-md-left">Choose gender</label>
+                                <div class="col-md-12 text-md-left">
+                                    <select id="sex" name="sex" class="form-control">
+                                        <option value="0" selected="">Not selected</option>
+                                        <option value="1">Male</option>
+                                        <option value="2">Female</option>
+                                    </select>
+
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -109,48 +124,44 @@
                                 <label for="phone" class="col-md-4 col-form-label text-md-left">Phone number</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="phone" name="phone" type="number" class="form-control"
-                                           value="{{$user->phone ?? ""}}" required>
+                                           value="{{$user->phone ?? ""}}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="dob" class="col-md-4 col-form-label text-md-left">Date of Birth</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="dob" name="dob" type="date" class="form-control"
-                                           value="{{$user->dob ?? ""}}" required>
+                                           value="{{$user->dob ?? ""}}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="skills" class="col-md-4 col-form-label text-md-left">Skills</label>
+                                <label for="skills" class="col-md-4 col-form-label text-md-left">Skills (Сomma separated)</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="skills" name="skills" type="text" class="form-control"
-                                           value="{{$user->skills ?? ""}}" required>
+                                           value="{{$user->skills ?? ""}}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="hobbies" class="col-md-4 col-form-label text-md-left">Hobbies</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="hobbies" name="hobbies" type="text" class="form-control"
-                                           value="{{$user->hobbies ?? ""}}" required>
+                                           value="{{$user->hobbies ?? ""}}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="signature" class="col-md-4 col-form-label text-md-left">Signature</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="signature" name="signature" type="text" class="form-control"
-                                           value="{{$user->signature ?? ""}}" required>
+                                           value="{{$user->signature ?? ""}}">
                                 </div>
                             </div>
-
-
                             <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-left">Password</label>
-                                <div class="col-md-12">
-                                    <input id="password" type="password" class="form-control" name="password" autocomplete="new-password">
+                                <label for="status" class="col-md-4 col-form-label text-md-left">Status</label>
+                                <div class="col-md-12 text-md-left">
+                                    <input id="status" name="status" type="text" class="form-control"
+                                           value="{{$user->status ?? ""}}">
                                 </div>
                             </div>
-
-
-
                         </div>
                         <input class="btn btn-dark" type="submit" value="Save">
                     </form>
@@ -161,7 +172,7 @@
     </div>
 </section>
 <!-- Create section end -->
-
+<br>
 <!-- Footer section -->
 <footer class="footer-section spad pb-0">
     <div class="container">
@@ -207,7 +218,8 @@
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 <script src="{{ asset('js/circle-progress.min.js') }}"></script>
 <script src="{{ asset('js/main.js') }}"></script>
-
-
+<script>
+    $("select[name='sex']").val({{$user->sex}}).change();
+</script>
 </body>
 </html>
