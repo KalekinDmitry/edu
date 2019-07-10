@@ -6,7 +6,8 @@
 ### Stack
 LAMP, Laravel
 
-### Docs    
+### Docs  
+-- here soon!  
 
 
 ### License
