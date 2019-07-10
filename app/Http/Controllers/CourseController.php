@@ -49,17 +49,13 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $course = Course::create($request->all());
-
         $course->tags=str_replace(' ', '', $request->tags);
-
-        $path = Storage::putFile('public', $request->file('image'));
-
-        $url = Storage::url($path);
-
-        $course->image = $url;
-
+        if (!empty($request->file('image'))) {
+            $path = Storage::putFile('public', $request->file('image'));
+            $url = Storage::url($path);
+            $course->image = $url;
+        }
         $course->save();
-
         return redirect()->route('course.show', $course);
     }
 
@@ -100,15 +96,15 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        dd($request->cost);
         $course->update($request->except('slug'));
-
         $course->tags=str_replace(' ', '', $request->tags);;
-
+        if (!empty($request->file('image'))) {
+            $path = Storage::putFile('public', $request->file('image'));
+            $url = Storage::url($path);
+            $course->image = $url;
+        }
         $course->save();
-
         return redirect()->route('course.show', $course);
-
     }
 
     /**
