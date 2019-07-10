@@ -13,6 +13,7 @@ LAMP, Laravel
 ## CI/CD
 Работает! 
 Делайте `git push origin develop` и будет вам счастье!
+Обновления тоже норм)
 
 
 
