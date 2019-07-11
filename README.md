@@ -12,7 +12,14 @@ LAMP, Laravel
 ### CI
 manual `git push`
 
+<<<<<<< HEAD
 And autodeploy to master
+=======
+AND updates!
+
+AND so on
+
+работает!
 
 
 
