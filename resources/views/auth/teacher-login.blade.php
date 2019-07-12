@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Admin Login</title>
+    <title>Teacher Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -34,10 +34,10 @@
         <div class="wrap-login100">
             <div class="login100-form-title" style="background-image: url({{ asset('images/bg-01.jpg') }});">
                 <span class="login100-form-title-1">
-                    {{ __('Login as admin') }}
+                    {{ __('Login as teacher') }}
                 </span>
             </div>
-            <form method="POST" action="{{ route('admin.login.submit') }}" class="login100-form validate-form">
+            <form method="POST" action="{{ route('teacher.login.submit') }}" class="login100-form validate-form">
                 @csrf
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                     <span class="label-input100">{{ __('E-Mail Address') }}</span>

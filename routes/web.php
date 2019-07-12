@@ -28,6 +28,12 @@ Route::prefix('admin')->group(function(){
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
 });
 
+Route::prefix('teacher')->group(function(){
+    Route::get('/login', 'Auth\TeacherLoginController@showLoginForm')->name('teacher.login');
+    Route::post('/login', 'Auth\TeacherLoginController@login')->name('teacher.login.submit');
+    Route::get('/', 'TeacherController@index')->name('teacher.dashboard');
+});
+
 
 
 Route::resource('/course', 'CourseController');

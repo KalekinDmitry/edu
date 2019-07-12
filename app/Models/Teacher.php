@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -10,6 +10,7 @@ class Teacher extends Authenticatable
 {
     use Notifiable;
 
+    protected $guard = 'teacher';
     /**
      * The attributes that are mass assignable.
      *
@@ -28,14 +29,19 @@ class Teacher extends Authenticatable
         'password', 'remember_token',
     ];
 
+
+    protected $casts = [
+        'email_verified_at' => 'datetime',
+    ];
+
+    public function courses(){
+        return $this->hasMany('App\Course','created_by');
+    }
+
     /**
      * The attributes that should be cast to native types.
      *
      * @var array
      */
-   /* protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];*/
-
 
 }

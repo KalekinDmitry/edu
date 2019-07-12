@@ -59,7 +59,7 @@ return [
             'driver' => 'session',
             'provider' => 'teachers',
         ],
-        'teacher' => [
+        'teache-api' => [
             'driver' => 'token',
             'provider' => 'teachers',
             'hash'=>false
