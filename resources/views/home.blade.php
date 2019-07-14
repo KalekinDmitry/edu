@@ -34,6 +34,7 @@
 </div>
 
 <!-- Header section -->
+
 <header class="header-section">
 <a style="color:#fff">@lang('content.chlang'):</a>
 <a href="{{ route('setLocale', ['ru']) }}">Русский/</a>
@@ -47,6 +48,7 @@
             </a>
 
             <div class="user-panel">
+            
                 @guest
                     <a href="{{ route('login') }}">Login</a>
                     <span>/</span>
@@ -64,10 +66,10 @@
             </div>
             <ul class="main-menu">
                 <!-- li><a href="index.html">Home</a></li -->
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#about">About us</a></li>
-                <li><a href="#newslatter">News</a></li>
-                <li><a href="#contact">Contact us</a></li>
+                <li><a href="#courses">@lang('content.courses')</a></li>
+                <li><a href="#about">@lang('content.about us')</a></li>
+                <li><a href="#newslatter">@lang('content.news')</a></li>
+                <li><a href="#contact">@lang('content.contact us')</a></li>
             </ul>
         </div>
     </div>
@@ -81,9 +83,8 @@
         <div class="row">
             <div class="col-lg-7">
                 <div class="hero-text text-white">
-                    <h2>Special HMQ-Education Course</h2>
-                    <p>We are pleased to present for you a new educational course that will allow you to improve your
-                        social communication skills and increase your professional level.</p>
+                    <h2>Special HMQ- @lang('content.edcourse') </h2>
+                    <p>@lang('content.presentation')</p>
                     <div class="hero-author">
                         <div class="hero-author-pic set-bg" data-setbg="{{ asset('images/hero-author.jpg') }}"></div>
                         <h5>By 3toria Arabina, <span>Professional teacher & coach</span></h5>
