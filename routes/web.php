@@ -14,25 +14,22 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
 
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::prefix('admin')->group(function(){
-    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.login');
-    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.login.submit');
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
-});
 
-Route::prefix('teacher')->group(function(){
-    Route::get('/login', 'Auth\TeacherLoginController@showLoginForm')->name('teacher.login');
-    Route::post('/login', 'Auth\TeacherLoginController@login')->name('teacher.login.submit');
-    Route::get('/', 'TeacherController@index')->name('teacher.dashboard');
-});
+Route::get('/admin/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.showLoginForm');
+Route::get('/teacher/login', 'Auth\LoginController@showTeacherLoginForm')->name('teacher.showLoginForm');
+Route::get('/teacher/register', 'Auth\RegisterController@showTeacherRegisterForm')->name('teacher.showRegisterForm');
+Route::get('/teacher', 'TeacherController@index')->name('teacher.dashboard');
+Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+
+Route::post('/admin/login', 'Auth\LoginController@adminLogin')->name('admin.loginRequest');
+Route::post('/teacher/login', 'Auth\LoginController@teacherLogin')->name('teacher.loginRequest');
+Route::post('/teacher/register', 'Auth\RegisterController@createTeacher')->name('teacher.registerRequest');
+
 
 
 

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Models\Teacher;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -38,6 +40,28 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
+        $this->middleware('guest:admin');
+        $this->middleware('guest:teacher');
+    }
+
+
+
+    public function showTeacherRegisterForm()
+    {
+    return view('auth.teacher-register'/*, ['url' => 'teacher']*/);
+    }
+
+
+
+    protected function createTeacher(Request $request)
+    {
+        $this->validator($request->all())->validate();
+        $admin = Teacher::create([
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'password' => Hash::make($request['password']),
+        ]);
+        return redirect()->intended('/teacher/login');
     }
 
     /**

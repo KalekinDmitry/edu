@@ -17,27 +17,17 @@ class Handler extends ExceptionHandler
         if($request->expectsJson())
         {
            return response()->json(['message' => $exception->getMessage()], 401);
-        }//from original
-
-        $guard = array_get($exception->guards(),0);
-
-        switch($guard)
-        {
-            case 'admin':
-                $login = 'admin.login';
-                break;
-
-            case 'teacher':
-                $login = "teacher.login";
-                break;
-
-            default:
-                $login = 'login';
-                break;
         }
 
-        //return redirect()->guest($exception->redirectTo() ?? route('login'));//from original
-        return redirect()->route($login);
+        if($request->is('admin') || $request->is('admin/*')){
+            return redirect()->guest('/admin/login');
+        }
+
+        if($request->is('teacher') || $request->is('teacher/*')){
+            return redirect()->guest('/teacher/login');
+        }
+
+        return redirect()->guest(route('login'));
      }
     /**
      * A list of the exception types that are not reported.

@@ -14,7 +14,6 @@ class TeacherController extends Controller
      */
     public function __construct()
     {
-        //
         $this->middleware('auth:teacher');
     }
 
@@ -25,7 +24,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        return view('teacher.dashboard');
+        return view('custom.teacher.dashboard');
     }
 
 }

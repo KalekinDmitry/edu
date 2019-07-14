@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Auth;
 
 class LoginController extends Controller
 {
@@ -35,5 +37,65 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+        $this->middleware('guest:admin')->except('logout');
+        $this->middleware('guest:teacher')->except('logout');
+    }
+
+
+
+    public function showAdminLoginForm()
+    {
+    return view('auth.admin-login');
+    }
+
+
+
+    public function adminLogin(Request $request)
+    {
+        $this->validate($request,[
+            'email' => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+
+        if(Auth::guard('admin')->attempt($credentials, $request->remember)){
+            return redirect()->intended('/admin');
+        }
+        return back()
+        ->withInput($request
+        ->only('email', 'remember'));
+    }
+
+
+
+    public function showTeacherLoginForm()
+    {
+    return view('auth.teacher-login');
+    }
+
+
+
+    public function teacherLogin(Request $request)
+    {
+        $this->validate($request,[
+            'email' => 'required|email',
+            'password' => 'required|min:6'
+        ]);
+
+        $credentials = [
+            'email' => $request->email,
+            'password' => $request->password,
+        ];
+
+        if(Auth::guard('teacher')->attempt($credentials, $request->remember)){
+            return redirect()->intended('/teacher');
+        }
+        return back()
+        ->withInput($request
+        ->only('email', 'remember'));
     }
 }
