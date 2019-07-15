@@ -116,7 +116,7 @@
                 </div>
                 <div class="si-content">
                     <h5>@lang('content.shedule')</h5>
-                    <p>lang('content.shdescribe').</p>
+                    <p>@lang('content.shdescribe').</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 service-item">
@@ -124,8 +124,8 @@
                     <i class="flaticon-idea"></i>
                 </div>
                 <div class="si-content">
-                    <h5>lang('content.flexible')</h5>
-                    <p>lang('content.fldescribe').</p>
+                    <h5>@lang('content.flexible')</h5>
+                    <p>@lang('content.fldescribe').</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 service-item">
@@ -133,8 +133,8 @@
                     <i class="flaticon-medal"></i>
                 </div>
                 <div class="si-content">
-                    <h5>lang('content.upgrade')</h5>
-                    <p>lang('content.upgdescribe'). </p>
+                    <h5>@lang('content.upgrade')</h5>
+                    <p>@lang('content.upgdescribe'). </p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 service-item">
@@ -142,8 +142,8 @@
                     <i class="flaticon-question"></i>
                 </div>
                 <div class="si-content">
-                    <h5>Promts</h5>
-                    <p>Follow the prompts.</p>
+                    <h5>@lang('content.prompts')</h5>
+                    <p>@lang('content.prdescribe').</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 service-item">
@@ -151,8 +151,8 @@
                     <i class="flaticon-learning"></i>
                 </div>
                 <div class="si-content">
-                    <h5>Professionality</h5>
-                    <p>Become a professional with our help.</p>
+                    <h5>@lang('content.prof')</h5>
+                    <p>@lang('content.profdescribe').</p>
                 </div>
             </div>
         </div>

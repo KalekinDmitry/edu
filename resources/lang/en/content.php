@@ -22,6 +22,10 @@ return [
     'fldescribe' => 'Share your ideas and ask questions',
     'upgrade' => 'Upgrade',
     'upgdescribe' => 'Go to the next steps when it will be convenient',
+    'prompts' => 'Prompts',
+    'prdescribe' => 'Follow the prompts',
+    'prof' => 'Professionality',
+    'profdescribe' => 'Become a professional with our help',
 
 
 ];
