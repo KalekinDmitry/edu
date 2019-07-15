@@ -7,7 +7,7 @@
     <meta name="keywords" content="academica, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon"/>
+    <link href="{{config('static.static')}}/img/favicon.ico" rel="shortcut icon"/>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800"
@@ -38,7 +38,7 @@
     <div class="header-warp">
         <div class="container">
             <a href="{{ route('home') }}" class="site-logo">
-                <img src="{{ asset('images/logo2.png') }}" alt="">
+                <img src="{{config('static.static')}}/img/logo2.png" alt="">
                 <!-- span style="color: #fff;">HMQ-Education</span -->
             </a>
             <div class="user-panel">
@@ -63,7 +63,7 @@
 
 
 <!-- Page top section -->
-<section class="page-top-section set-bg" data-setbg="{{ asset('images/page-top-bg.jpg') }}">
+<section class="page-top-section set-bg" data-setbg="{{config('static.static')}}/img/page-top-bg.jpg">
     <div class="container text-white">
         <h3>Our Courses</h3>
     </div>
@@ -484,7 +484,7 @@
             </ul>
             <div class="footer-logo">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('images/logo2.png') }}" alt="">
+                    <img src="{{config('static.static')}}/img/logo2.png" alt="">
                 </a>
                 <!-- span style="color: #fff;">HMQ-Education</span -->
             </div>

@@ -17,13 +17,13 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: "Flaticon";
-    src: url("./Flaticon.svg#Flaticon") format("svg");
+    src: url("../icon-fonts/Flaticon.svg#Flaticon") format("svg");
   }
 }
 
 [class^="flaticon-"]:before, [class*=" flaticon-"]:before,
-[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
-  font-family: Flaticon;
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {
+    font-family: Flaticon;
   font-style: normal;
 }
 
