@@ -164,13 +164,12 @@
 <section class="courses-section">
     <div class="container">
         <div class="sec-title text-center">
-            <span>Only  the best</span>
+            <span>@lang('content.otb')</span>
             <a id="courses"></a>
-            <h2>Courses</h2>
-            <p>You can use our trial period and make your own decision whether you want to know more or not.</p>
-            <h5>How much</h5>
-            <p>First week is free of any charge, since 2nd week courses will be deeper and more professional. So, it
-                will cost minimum amount of 20 cents per week. </p>
+            <h2>@lang('content.courses')</h2>
+            <p>@lang('content.txtunderotb').</p>
+            <h5>@lang('content.hm')</h5>
+            <p>@lang('content.txtunderhm'). </p>
         </div>
         <div class="course-slider owl-carousel"> <!--   -->
             <!-- course -->
@@ -187,7 +186,7 @@
                         @if( $course->cost > 0)
                             <div class="price">${{ $course->cost }}</div>
                         @else
-                            <div class="price">FREE</div>
+                            <div class="price">@lang('content.free')</div>
                         @endif
                         {{--                        <div class="price">${{ $course->cost }}</div>--}}
                     </figure>
@@ -214,7 +213,7 @@
                     </div>
                 </div>
             @empty
-                <h5>Курсы отсутствуют</h5>
+                <h5>@lang('content.nocourses')</h5>
             @endforelse
 
 
@@ -233,28 +232,28 @@
                     <img src="{{ asset('images/icons/1.png') }}" alt="">
                 </figure>
                 <h2>{{ $count = DB::table('users')->count()}}</h2>
-                <p>New Students</p>
+                <p>@lang('content.newstudents')</p>
             </div>
             <div class="col-lg-3 col-sm-6 fact-item">
                 <figure>
                     <img src="{{ asset('images/icons/2.png') }}" alt="">
                 </figure>
                 <h2>?</h2>
-                <p>Grad Students</p>
+                <p>@lang('content.gradstudents')</p>
             </div>
             <div class="col-lg-3 col-sm-6 fact-item">
                 <figure>
                     <img src="{{ asset('images/icons/3.png') }}" alt="">
                 </figure>
                 <h2>?</h2>
-                <p>Qualified Teachers</p>
+                <p>@lang('content.qualteachers')</p>
             </div>
             <div class="col-lg-3 col-sm-6 fact-item">
                 <figure>
                     <img src="{{ asset('images/icons/4.png') }}" alt="">
                 </figure>
                 <h2>{{ $count = DB::table('courses')->count()}}</h2>
-                <p>Amazing Courses</p>
+                <p>@lang('content.amazingcourses')</p>
             </div>
         </div>
     </div>
@@ -267,23 +266,14 @@
         <div class="row">
             <div class="col-lg-7 about-text">
                 <a id="about"></a>
-                <h3>What is it about?</h3>
-                <p>Hello, dear friend! </p>
-                <p>We introduce you to a new product developed by team of creators and professionals especially for you.
-                    It's your time of success, knowledge, new projects, travels, meetings, abundance, time of your
-                    life!</p>
-                <p>We begin this educational program, because we believe that the main source of development of our
-                    planet is in your luck and your possibilities of success. We have created a program for ourselves
-                    and for you, for our common family of people of the New World.</p>
-                <p>We have prepared a course to develop contemporary skill as well as your ability to learn
-                    continuously. The format of this educational course is created as the most optimal to allow you to
-                    use it in any moment.</p>
-                <p>Every week we will add lectures in audio format on the most interesting topics of modern society. So
-                    far we have identified 4 main categories: technology and business; self-development and emotional
-                    intelligence; marketing and promotion; culture and art.</p>
-                <p>Starting 3rd week we will add video lectures on key subjects by top managers from world most famous
-                    corporations and gurus in their categories.</p>
-                <p><b>Join us!</b></p>
+                <h3>@lang('content.wiia')?</h3>
+                <p>@lang('content.greeting')! </p>
+                <p>@lang('content.wiiaparagraph1')!</p>
+                <p>@lang('content.wiiaparagraph2').</p>
+                <p>@lang('content.wiiaparagraph3').</p>
+                <p>@lang('content.wiiaparagraph4').</p>
+                <p>@lang('content.wiiaparagraph5').</p>
+                <p><b>@lang('content.join us')!</b></p>
 
             </div>
             <div class="col-lg-5">
@@ -303,17 +293,17 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="sec-title text-white sec-style-2">
-                    <span>Newsletter</span>
-                    <h2>Stay updated</h2>
+                    <span>@lang('content.newsletter')</span>
+                    <h2>@lang('content.stay updated')</h2>
                 </div>
             </div>
 
             <div class="col-lg-9 nl-form-warp">
                 <form class="newslatter-form">
-                    <input type="text" placeholder="Your E-mail">
-                    <button class="site-btn">Subscribe <i class="fa fa-angle-right"></i></button>
+                    <input type="text" placeholder="@lang('content.your') E-mail">
+                    <button class="site-btn">@lang('content.subscribe') <i class="fa fa-angle-right"></i></button>
                 </form>
-                <p>Subscribe to our newsletter to be always up to date.</p>
+                <p>@lang('content.sbstxt').</p>
             </div>
         </div>
     </div>
@@ -325,7 +315,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 contact-text">
-                <h3>Stay in touch</h3>
+                <h3>@lang('content.stay in touch')</h3>
                 <p></p>
                 <ul class="contact-info">
                     <li><a href="mailto:hmq.edu@gmail.com">hmq.edu@gmail.com</a></li>
@@ -337,17 +327,17 @@
                 <form class="contact-form">
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" placeholder="Your Name">
+                            <input type="text" placeholder="@lang('content.yname')">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" placeholder="Your E-mail">
+                            <input type="text" placeholder="@lang('content.your') E-mail">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" placeholder="Subject">
+                            <input type="text" placeholder="@lang('content.subj')">
                         </div>
                         <div class="col-md-12">
-                            <textarea placeholder="Message"></textarea>
-                            <button class="site-btn">Send <i class="fa fa-angle-right"></i></button>
+                            <textarea placeholder="@lang('content.message')"></textarea>
+                            <button class="site-btn">@lang('content.send') <i class="fa fa-angle-right"></i></button>
                         </div>
                     </div>
                 </form>
@@ -372,10 +362,10 @@
                 <a href=""><i class="fa fa-linkedin"></i></a>
             </div>
             <ul class="footer-menu">
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#about">About us</a></li>
-                <li><a href="#newslatter">News</a></li>
-                <li><a href="#contact">Contact us</a></li>
+                <li><a href="#courses">@lang('content.courses')</a></li>
+                <li><a href="#about">@lang('content.about us')</a></li>
+                <li><a href="#newslatter">@lang('content.news')</a></li>
+                <li><a href="#contact">@lang('content.contact us')</a></li>
             </ul>
             <div class="footer-logo">
                 <a href="{{ route('home') }}">

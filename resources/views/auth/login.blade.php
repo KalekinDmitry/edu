@@ -34,7 +34,7 @@
         <div class="wrap-login100">
             <div class="login100-form-title" style="background-image: url({{ asset('images/bg-01.jpg') }});">
                 <span class="login100-form-title-1">
-                    {{ __('Login') }}
+                    @lang('content.loginbtn')
                 </span>
             </div>
             <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
