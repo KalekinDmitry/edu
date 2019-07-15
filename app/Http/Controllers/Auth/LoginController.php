@@ -100,4 +100,9 @@ class LoginController extends Controller
         ->withInput($request
         ->only('email', 'remember'));
     }
+
+    public function showLoginForm()
+    {
+        return view('auth.login');
+    }
 }
