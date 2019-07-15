@@ -41,7 +41,7 @@ class CoursePolicy
      */
     public function create(User $user)
     {
-        // ЕСЛИ ЮЗЕР - ЭТО ПРЕПОД
+        //
     }
 
     /**
@@ -51,7 +51,7 @@ class CoursePolicy
      * @param  \App\Course $course
      * @return mixed
      */
-    public function update(User $user, Course $course)
+    public function edit(User $user, Course $course)
     {
         return $user->id == $course->created_by;
     }
@@ -65,7 +65,7 @@ class CoursePolicy
      */
     public function update(User $user, Course $course)
     {
-        //
+        return $user->id == $course->created_by;
     }
 
     /**
@@ -75,9 +75,9 @@ class CoursePolicy
      * @param  \App\Course $course
      * @return mixed
      */
-    public function delete(User $user, Course $course)
+    public function destroy(User $user, Course $course)
     {
-        //
+        return $user->id == $course->created_by;
     }
 
     /**
