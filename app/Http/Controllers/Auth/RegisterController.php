@@ -55,13 +55,13 @@ class RegisterController extends Controller
 
     protected function createTeacher(Request $request)
     {
-        $this->validator($request->all())->validate();
+        $this->teacherValidator($request->all())->validate();
         $admin = Teacher::create([
             'name' => $request['name'],
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        return redirect()->intended('/teacher/login');
+        return redirect()->intended('/teacher');
     }
 
     /**
@@ -73,8 +73,17 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'max:255'],
+            'name' => ['required', 'string', 'min:3', 'max:255', 'alpha_dash'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+    }
+
+    protected function teacherValidator(array $data)
+    {
+        return Validator::make($data, [
+            'name' => ['required', 'string', 'min:3', 'max:255', 'alpha_dash'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:teachers'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }

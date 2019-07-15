@@ -66,6 +66,7 @@ class LoginController extends Controller
             return redirect()->intended('/admin');
         }
         return back()
+        ->withErrors(['email' => "Wrong email or password"])
         ->withInput($request
         ->only('email', 'remember'));
     }
@@ -95,6 +96,7 @@ class LoginController extends Controller
             return redirect()->intended('/teacher');
         }
         return back()
+        ->withErrors(['email' => "Wrong email or password"])
         ->withInput($request
         ->only('email', 'remember'));
     }
