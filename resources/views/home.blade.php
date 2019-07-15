@@ -50,15 +50,15 @@
             <div class="user-panel">
             
                 @guest
-                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('login') }}">@lang('content.loginbtn')</a>
                     <span>/</span>
-                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('register') }}">@lang('content.regbtn')</a>
                 @else
-                    <a href="{{ route('course.create') }}">Create course</a>
+                    <a href="{{ route('course.create') }}">@lang('content.create course')</a>
                     <span>/</span>
                     <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     <span>/</span>
-                    <a href="{{ route('logout') }}">Logout</a>
+                    <a href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
                 @endguest
             </div>
             <div class="nav-switch">
@@ -87,7 +87,7 @@
                     <p>@lang('content.presentation')</p>
                     <div class="hero-author">
                         <div class="hero-author-pic set-bg" data-setbg="{{ asset('images/hero-author.jpg') }}"></div>
-                        <h5>By 3toria Arabina, <span>Professional teacher & coach</span></h5>
+                        <h5>By 3toria Arabina, <span>@lang('content.prtc')</span></h5>
                         <!-- a href="#" class="site-btn">See Details <i class="fa fa-angle-right"></i></a -->
                     </div>
                 </div>
@@ -106,8 +106,8 @@
                     <i class="flaticon-apple"></i>
                 </div>
                 <div class="si-content">
-                    <h5>Communication</h5>
-                    <p>Chat with the teacher directly</p>
+                    <h5>@lang('content.communication')</h5>
+                    <p>@lang('content.comdescribe').</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 service-item">
@@ -115,8 +115,8 @@
                     <i class="flaticon-mortarboard"></i>
                 </div>
                 <div class="si-content">
-                    <h5>Shedule</h5>
-                    <p>Get knowledge at your convenience</p>
+                    <h5>@lang('content.shedule')</h5>
+                    <p>lang('content.shdescribe').</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 service-item">
@@ -124,8 +124,8 @@
                     <i class="flaticon-idea"></i>
                 </div>
                 <div class="si-content">
-                    <h5>Flexible</h5>
-                    <p>Share your ideas and ask questions.</p>
+                    <h5>lang('content.flexible')</h5>
+                    <p>lang('content.fldescribe').</p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 service-item">
@@ -133,8 +133,8 @@
                     <i class="flaticon-medal"></i>
                 </div>
                 <div class="si-content">
-                    <h5>Upgrade</h5>
-                    <p>Go to the next steps when it will be convenient. </p>
+                    <h5>lang('content.upgrade')</h5>
+                    <p>lang('content.upgdescribe'). </p>
                 </div>
             </div>
             <div class="col-lg-4 col-md-6 service-item">
