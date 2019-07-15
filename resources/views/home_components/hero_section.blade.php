@@ -1,4 +1,4 @@
-<section class="hero-section set-bg" data-setbg="https://static.hmq-edu.com/img/bg.jpg">
+<section class="hero-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
@@ -7,7 +7,7 @@
                     <p>We are pleased to present for you a new educational course that will allow you to improve your
                         social communication skills and increase your professional level.</p>
                     <div class="hero-author">
-                        <div class="hero-author-pic set-bg" data-setbg="https://static.hmq-edu.com/img/hero-author.jpg"></div>
+                        <div class="hero-author-pic set-bg" data-setbg="{{config('static.static')}}/img/hero-author.jpg"></div>
                         <h5>By Victoria Arabina, <span>Professional teacher & coach</span></h5>
                     </div>
                 </div>

@@ -24,7 +24,7 @@
             </div>
             <div class="col-lg-5">
                 <figure class="pt-lg-0 pt-5">
-                    <img src="https://static.hmq-edu.com/img/about.jpg" alt="">
+                    <img src="{{config('static.static')}}/img/about.jpg" alt="">
                 </figure>
             </div>
         </div>

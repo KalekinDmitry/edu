@@ -1,4 +1,4 @@
-<section id="newslatter" class="newslatter-section set-bg" data-setbg="https://static.hmq-edu.com/img/newslatter-bg.jpg">
+<section id="newslatter" class="newslatter-section set-bg" data-setbg="{{config('static.static')}}/img/newslatter-bg.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">

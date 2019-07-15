@@ -7,7 +7,7 @@
     <meta name="keywords" content="academica, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link href="https://static.hmq-edu.com/img/favicon.ico" rel="shortcut icon"/>
+    <link href="{{config('static.static')}}/img/favicon.ico" rel="shortcut icon"/>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800"
@@ -19,12 +19,12 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-    {{--<link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">--}}
-    {{--<link rel="stylesheet" type="text/css" href="https://static.hmq-edu.com/css/bootstrap.min.css">--}}
-    {{--<link rel="stylesheet" type="text/css" href="https://static.hmq-edu.com/css/font-awesome.min.css">--}}
-    {{--<link rel="stylesheet" type="text/css" href="https://static.hmq-edu.com/css/flaticon.css">--}}
-    {{--<link rel="stylesheet" type="text/css" href="https://static.hmq-edu.com/css/owl.carousel.css">--}}
-    {{--<link rel="stylesheet" type="text/css" href="https://static.hmq-edu.com/css/style.css">--}}
+    {{--<link rel="stylesheet" type="text/css" href="{{config('static.static')}}/font-awesome/4.2.0/css/font-awesome.min.css">--}}
+    {{--<link rel="stylesheet" type="text/css" href="{{config('static.static')}}/css/bootstrap.min.css">--}}
+    {{--<link rel="stylesheet" type="text/css" href="{{config('static.static')}}/css/font-awesome.min.css">--}}
+    {{--<link rel="stylesheet" type="text/css" href="{{config('static.static')}}/css/flaticon.css">--}}
+    {{--<link rel="stylesheet" type="text/css" href="{{config('static.static')}}/css/owl.carousel.css">--}}
+    {{--<link rel="stylesheet" type="text/css" href="{{config('static.static')}}/css/style.css">--}}
 
 
     <!--[if lt IE 9]>
@@ -45,7 +45,7 @@
     <div class="header-warp">
         <div class="container">
             <a href="{{ route('home') }}" class="site-logo">
-                <img src="https://static.hmq-edu.com/img/logo2.png" alt="">
+                <img src="{{config('static.static')}}/img/logo2.png" alt="">
                 {{--<span style="color: #fff;">HMQ-Education</span >--}}
             </a>
 
@@ -126,7 +126,7 @@
             </ul>
             <div class="footer-logo">
                 <a href="{{ route('home') }}">
-                    <img src="https://static.hmq-edu.com/img/logo2.png" alt="">
+                    <img src="{{config('static.static')}}/img/logo2.png" alt="">
                 </a>
                 <!-- span style="color: #fff;">HMQ-Education</span -->
             </div>

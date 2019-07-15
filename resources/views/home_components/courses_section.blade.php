@@ -13,13 +13,13 @@
             <!-- course -->
 
 
-            @forelse($courses as $course)
+            @foreach($courses as $course)
                 <div class="course-item">
                     <figure class="course-preview">
                         @if($course->image)
                             <img src="{{ asset($course->image )}}" alt="">
                         @else
-                            <img src="https://static.hmq-edu.com/img/" alt="">
+                            <img src="{{config('static.static')}}/img/no-photo.jpg" alt="">
                         @endif
                         @if( $course->cost > 0)
                             <div class="price">${{ $course->cost }}</div>
@@ -49,11 +49,7 @@
                         </div>
                     </div>
                 </div>
-            @empty
-                <h5>Курсы отсутствуют</h5>
-            @endforelse
-
-
+            @endforeach
         </div>
     </div>
 </section>
