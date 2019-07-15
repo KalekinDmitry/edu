@@ -22,6 +22,8 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+
 Route::resource('/course', 'CourseController');
 
 Route::get('/profile/{id}', 'UserController@show')->name('users_profile');
