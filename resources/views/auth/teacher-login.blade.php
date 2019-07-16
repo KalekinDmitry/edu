@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>@lang('content.login btn')</title>
+    <title>Teacher Login</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -34,15 +34,15 @@
         <div class="wrap-login100">
             <div class="login100-form-title" style="background-image: url({{ asset('images/bg-01.jpg') }});">
                 <span class="login100-form-title-1">
-                    @lang('content.loginbtn')
+                    {{ __('Login as teacher') }}
                 </span>
             </div>
-            <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
+            <form method="POST" action="{{ route('teacher.loginRequest') }}" class="login100-form validate-form">
                 @csrf
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
-                    <span class="label-input100">@lang('content.emaddr')</span>
+                    <span class="label-input100">{{ __('E-Mail Address') }}</span>
                     <input class="form-control @error('email') is-invalid @enderror input100" id="email" type="email"
-                           name="email" placeholder="@lang('content.entemail')" value="{{ old('email') }}" required
+                           name="email" placeholder="Enter e-mail address" value="{{ old('email') }}" required
                            autocomplete="email" autofocus>
                     @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -52,10 +52,10 @@
                     <span class="focus-input100"></span>
                 </div>
                 <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                    <span class="label-input100">@lang('content.psw')</span>
+                    <span class="label-input100">{{ __('Password') }}</span>
                     <input id="password" type="password"
                            class="form-control @error('password') is-invalid @enderror input100" name="password"
-                           placeholder="@lang('content.entpsw')" required autocomplete="current-password">
+                           placeholder="Enter password" required autocomplete="current-password">
                     @error('password')
                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -68,22 +68,22 @@
                         <input class="input-checkbox100 form-check-input" type="checkbox" name="remember"
                                id="remember" {{ old('remember') ? 'checked' : '' }}>
                         <label class="label-checkbox100 form-check-label" for="remember">
-                            @lang('content.remme')
+                            {{ __('Remember Me') }}
                         </label>
                     </div>
                     <div>
                         @if (Route::has('password.request'))
                             <a class="btn btn-link txt1" href="{{ route('password.request') }}">
-                                @lang('content.forgpsw')
+                                {{ __('Forgot Your Password?') }}
                             </a>
                         @endif
                     </div>
                 </div>
                 <div class="container-login100-form-btn">
                     <button type="submit" class="login100-form-btn">
-                        @lang('content.ent')
+                        {{ __('Login') }}
                     </button>
-                    <a class="login100-form-btn" href="{{ route('home') }}">@lang('content.bckhome')</a>
+                    <a class="login100-form-btn" href="{{ route('home') }}">Back Home</a>
                 </div>
             </form>
         </div>

@@ -8,8 +8,8 @@ return [
     'chlang' => 'Choose language',
     'edcourse' => 'Education Course',
     'presentation' => 'We are pleased to present for you a new educational course that will allow you to improve your social communication skills and increase your professional level.',
-    'loginbtn' => 'Login',
-    'regbtn' => 'Register',
+    'loginbtn' => 'Login', # Авторизация
+    'regbtn' => 'Register', # Регистрация
     'create course' => 'Create course',
     'logoutbtn' => 'Logout',
     'comname' => 'By 3toria Arabina',
@@ -64,6 +64,23 @@ return [
     'message' => 'Message',
     'subj' => 'Subject',
     'send' => 'Send',
+    'emaddr' => 'E-Mail Address',
+    'psw' => 'Password',
+    'entemail' => 'Enter e-mail address',
+    'entpsw' => 'Enter password',
+    'remme' => 'Remember me',
+    'forgpsw' => 'Forgot your password',
+    'bckhome' => 'Back Home',
+    'ent' => 'Login', # Войти
+    'reg' => 'Register', # Зарегестрироваться
+    'nm' => 'Name', 
+    'enm' => 'Enter username',
+    'cnfrmpsw' => 'Confirm password',
+    'laa' => 'Login as admin',
+    
+
+
+
 
 
 

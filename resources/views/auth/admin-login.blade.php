@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>@lang('content.login btn')</title>
+    <title>@lang('content.laa')</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--===============================================================================================-->
@@ -34,15 +34,15 @@
         <div class="wrap-login100">
             <div class="login100-form-title" style="background-image: url({{ asset('images/bg-01.jpg') }});">
                 <span class="login100-form-title-1">
-                    @lang('content.loginbtn')
+                    @lang('content.laa')
                 </span>
             </div>
-            <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
+            <form method="POST" action="{{ route('admin.loginRequest') }}" class="login100-form validate-form">
                 @csrf
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                     <span class="label-input100">@lang('content.emaddr')</span>
                     <input class="form-control @error('email') is-invalid @enderror input100" id="email" type="email"
-                           name="email" placeholder="@lang('content.entemail')" value="{{ old('email') }}" required
+                           name="email" placeholder="@lang('content.entemaill')" value="{{ old('email') }}" required
                            autocomplete="email" autofocus>
                     @error('email')
                     <span class="invalid-feedback" role="alert">
@@ -93,7 +93,7 @@
 <!--===============================================================================================-->
 <script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
 <!--===============================================================================================-->
-<script src="">{{ asset('vendor/animsition/js/animsition.min.js') }}</script>
+<script src="{{ asset('vendor/animsition/js/animsition.min.js') }}"></script>
 <!--===============================================================================================-->
 <script src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
