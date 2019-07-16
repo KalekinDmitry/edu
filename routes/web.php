@@ -20,6 +20,7 @@ Auth::routes();
 Route::get('/', 'HomeController@index')->name('home');
 
 
+
 Route::get('/admin/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.showLoginForm');
 Route::get('/teacher/login', 'Auth\LoginController@showTeacherLoginForm')->name('teacher.showLoginForm');
 Route::get('/teacher/register', 'Auth\RegisterController@showTeacherRegisterForm')->name('teacher.showRegisterForm');
@@ -32,7 +33,7 @@ Route::post('/teacher/register', 'Auth\RegisterController@registerTeacher')->nam
 //Route::post('/register', 'Auth\RegisterController@createUser')->name('user.registerRequest');
 
 
-
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 
 Route::resource('/course', 'CourseController');
 
