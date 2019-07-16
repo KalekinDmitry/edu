@@ -36,7 +36,7 @@
                         {{ __('Register as a teacher') }}
                     </span>
             </div>
-            <form method="POST" action="{{ url("/teacher/register")}}" class="login100-form validate-form">
+            <form method="POST" action="{{ route('teacher.registerRequest') }}" class="login100-form validate-form">
                 @csrf
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Name is required">
                     <span class="label-input100">{{ __('Name') }}</span>

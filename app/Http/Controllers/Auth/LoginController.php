@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Http\Requests\Admin\AdminLoginRequest;
+use App\Http\Requests\Teacher\TeacherLoginRequest;
+use App\Http\Requests\User\UserLoginRequest;
+
 use Auth;
 
 class LoginController extends Controller
@@ -24,14 +28,12 @@ class LoginController extends Controller
 
     /**
      * Where to redirect users after login.
-     *
      * @var string
      */
     protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
-     *
      * @return void
      */
     public function __construct()
@@ -45,25 +47,20 @@ class LoginController extends Controller
 
     public function showAdminLoginForm()
     {
-    return view('auth.admin-login');
+        return view('auth.admin-login');
     }
 
 
 
-    public function adminLogin(Request $request)
+    public function adminLogin(AdminLoginRequest $request)
     {
-        $this->validate($request,[
-            'email' => 'required|email',
-            'password' => 'required|min:6'
-        ]);
-
         $credentials = [
             'email' => $request->email,
             'password' => $request->password,
         ];
 
         if(Auth::guard('admin')->attempt($credentials, $request->remember)){
-            return redirect()->intended('/admin');
+            return redirect()->intended(route('admin.dashboard'));
         }
         return back()
         ->withErrors(['email' => "Wrong email or password"])
@@ -80,20 +77,15 @@ class LoginController extends Controller
 
 
 
-    public function teacherLogin(Request $request)
+    public function teacherLogin(TeacherLoginRequest $request)
     {
-        $this->validate($request,[
-            'email' => 'required|email',
-            'password' => 'required|min:6'
-        ]);
-
         $credentials = [
             'email' => $request->email,
             'password' => $request->password,
         ];
 
         if(Auth::guard('teacher')->attempt($credentials, $request->remember)){
-            return redirect()->intended('/teacher');
+            return redirect()->intended(route('teacher.dashboard'));
         }
         return back()
         ->withErrors(['email' => "Wrong email or password"])

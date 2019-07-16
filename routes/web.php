@@ -28,7 +28,8 @@ Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 
 Route::post('/admin/login', 'Auth\LoginController@adminLogin')->name('admin.loginRequest');
 Route::post('/teacher/login', 'Auth\LoginController@teacherLogin')->name('teacher.loginRequest');
-Route::post('/teacher/register', 'Auth\RegisterController@createTeacher')->name('teacher.registerRequest');
+Route::post('/teacher/register', 'Auth\RegisterController@registerTeacher')->name('teacher.registerRequest');
+//Route::post('/register', 'Auth\RegisterController@createUser')->name('user.registerRequest');
 
 
 

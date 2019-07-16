@@ -6,9 +6,13 @@ use App\User;
 use App\Models\Teacher;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Http\Requests\User\UserRegisterRequest;
+use App\Http\Requests\Teacher\TeacherRegisterRequest;
 
 class RegisterController extends Controller
 {
@@ -27,7 +31,6 @@ class RegisterController extends Controller
 
     /**
      * Where to redirect users after registration.
-     *
      * @var string
      */
     protected $redirectTo = '/';
@@ -44,53 +47,59 @@ class RegisterController extends Controller
         $this->middleware('guest:teacher');
     }
 
-
-
     public function showTeacherRegisterForm()
     {
-    return view('auth.teacher-register'/*, ['url' => 'teacher']*/);
+        return view('auth.teacher-register');
     }
 
-
-
-    protected function createTeacher(Request $request)
-    {
-        $this->teacherValidator($request->all())->validate();
-        $admin = Teacher::create([
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'password' => Hash::make($request['password']),
-        ]);
-        return redirect()->intended('/teacher');
-    }
-
-    /**
-     * Get a validator for an incoming registration request.
+     /**
+     * Handle a registration request for the application.
      *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
+     * @param  \Illuminate\Http\Requests\TeacherRegisterRequest  $request
+     * @return \Illuminate\Http\Response
      */
-    protected function validator(array $data)
+    public function registerTeacher(TeacherRegisterRequest $request)
     {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'min:3', 'max:255', 'alpha_dash'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
-    }
+        event(new Registered($teacher = $this->createTeacher($request->all())));
 
-    protected function teacherValidator(array $data)
-    {
-        return Validator::make($data, [
-            'name' => ['required', 'string', 'min:3', 'max:255', 'alpha_dash'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:teachers'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+        Auth::guard('teacher')->login($teacher, false);
+
+        return $this->registered($request, $teacher)
+                        ?: redirect(route('teacher.dashboard'));
     }
 
     /**
      * Create a new user instance after a valid registration.
-     *
+     * @param  array  $data
+     * @return \App\Models\Teacher
+     */
+    protected function createTeacher(array $data)
+    {
+        return Teacher::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
+    }
+
+    /**
+     * Handle a registration request for the application.
+     * @param  \Illuminate\Http\Requests\UserRegisterRequest  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(UserRegisterRequest $request)
+    {
+
+        event(new Registered($user = $this->create($request->all())));
+
+        $this->guard()->login($user);
+
+        return $this->registered($request, $user)
+                        ?: redirect($this->redirectPath());
+    }
+
+    /**
+     * Create a new user instance after a valid registration.
      * @param  array  $data
      * @return \App\User
      */

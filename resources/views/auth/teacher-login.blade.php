@@ -37,7 +37,7 @@
                     {{ __('Login as teacher') }}
                 </span>
             </div>
-            <form method="POST" action="{{ url('/teacher/login') }}" class="login100-form validate-form">
+            <form method="POST" action="{{ route('teacher.loginRequest') }}" class="login100-form validate-form">
                 @csrf
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                     <span class="label-input100">{{ __('E-Mail Address') }}</span>
