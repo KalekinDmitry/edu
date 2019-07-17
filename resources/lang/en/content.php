@@ -77,6 +77,31 @@ return [
     'enm' => 'Enter username',
     'cnfrmpsw' => 'Confirm password',
     'laa' => 'Login as admin',
+    'lat' => 'Login as teacher',
+    'tchreg' => 'Register as a teacher',
+    'verify' => 'Verify Your Email Address',
+    'verfb' => 'A fresh verification link has been sent to your email address',
+    'chem' => 'Before proceeding, please check your email for a verification link',
+    'ifnotrec' => 'If you did not receive the email',
+    'reqanbtn' => 'click here to request another',
+    'resetpsw' => 'Reset Password',
+    'sendpswbtn' => 'Send Password Reset Link',
+    'headline' => 'Headline',
+    'slug' => 'Slug (Automatically generated)',
+    'autogen' => 'Automatically generated',
+    'shortdescription' => 'Short description',
+    'fulldescription' => 'Full description',
+    'tagsns' => 'Tags (no spaces)',
+    'tagssep' => 'Tags separated by commas',
+    'linktovideo' => 'Link to video',
+    'setcrsprice' => 'Set a course price',
+    'creature' => 'Creature',
+    'choosecrscover' => 'Choose your course cover',
+    'create' => 'Create',
+    
+
+
+
     
 
 

@@ -44,13 +44,13 @@
 
             <div class="user-panel">
                 @guest
-                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('login') }}">@lang('content.loginbtn')</a>
                     <span>/</span>
-                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('register') }}">@lang('content.regbtn')</a>
                 @else
                     <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     <span>/</span>
-                    <a href="{{ route('logout') }}">Logout</a>
+                    <a href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
                 @endguest
             </div>
             <div class="nav-switch">
@@ -68,7 +68,7 @@
         <div class="card text-white bg-dark">
 
             <div class="card-header">
-                Creature
+                @lang('content.creature')
             </div>
 
             <form class="form-horizontal card-body" action="{{route('course.store')}}" method="post"
@@ -79,13 +79,13 @@
                 @include('course.partials.form')
 
                 <div class="form-group">
-                    <label for="">Choose your course cover</label><br>
+                    <label for="">@lang('content.choosecrscover')</label><br>
 
                     <input type="file" name="image">
                 </div>
 
                 <input type="hidden" name="created_by" value="{{Auth::id()}}">
-                <input style="color:#000" class="btn btn-light" type="submit" value="Create">
+                <input style="color:#000" class="btn btn-light" type="submit" value="@lang('content.create')">
 
             </form>
         </div>
@@ -108,10 +108,10 @@
                 <a href=""><i class="fa fa-linkedin"></i></a>
             </div>
             <ul class="footer-menu">
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#about">About us</a></li>
-                <li><a href="#newslatter">News</a></li>
-                <li><a href="#contact">Contact us</a></li>
+                <li><a href="#courses">@lang('content.courses')</a></li>
+                <li><a href="#about">@lang('content.about us')</a></li>
+                <li><a href="#newslatter">@lang('content.news')</a></li>
+                <li><a href="#contact">@lang('content.contact us')</a></li>
             </ul>
             <div class="footer-logo">
                 <a href="https://hmq-edu.com">
