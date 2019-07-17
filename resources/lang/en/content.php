@@ -96,21 +96,25 @@ return [
     'linktovideo' => 'Link to video',
     'setcrsprice' => 'Set a course price',
     'creature' => 'Creature',
-    'choosecrscover' => 'Choose your course cover',
+    'choosecrscover' => 'Choose your course cover', # Выберите обложку вашего курса
     'create' => 'Create',
-    
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
+    'save' => 'Save',
+    'editing' => 'Editing',
+    'chcovifch' => 'Choose a cover if you want to change it',
+    'cancel' => 'Cancel',
+    'cnfrmdel' => 'Would you like to delete the selected post',
+    'del' => 'Delete',
+    'edit' => 'Edit',
+    'tableofcontent' => 'Table of content',
+    '4rev' => 'The fourth industrial revolution',
+    'intro' => 'Introduction',
+    'missioninlife' => 'How to find
+    your mission in life',
+    'business' => 'Business',
+    'persdev' => 'Personal development',
+    'energy' => 'Energy',
+    'notags' => 'No tags',
+    'profav' => 'Profile avatar',
+    'admdash' => 'Admin dashboard',
+    'logntf' => 'You are logged in',
 ];
