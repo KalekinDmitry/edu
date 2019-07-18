@@ -1,0 +1,15 @@
+12-Jul: 
+-8 hours
+-tables, migrations, login
+
+13-Jul:
+-9 hours
+-registration
+
+15-Jul:
+-6 hours
+-login refactoring
+
+16-Jul:
+-9 hours
+-registration refactoring, footer and header templates
