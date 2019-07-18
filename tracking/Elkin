@@ -1,0 +1,5 @@
+July 12(2 hours): Splitting into sections. Work with statics server.
+July 13(1 hours): Change the way files are received (pictures, fonts), creating CORS Settings
+July 15(2 hours): Setting ENV files for server statics. Correction of ready-made templates of the main page.
+July 16(3 hours): Courses CRUD
+July 17(3 hours): Implementation of action policy; CRUD reworking considering the new role system
