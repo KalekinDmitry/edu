@@ -7,7 +7,7 @@
     <meta name="keywords" content="academica, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon"/>
+    <link href="{{config('static.static')}}/img/favicon.ico" rel="shortcut icon"/>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800"
@@ -38,7 +38,7 @@
     <div class="header-warp">
         <div class="container">
             <a href="{{ route('home') }}" class="site-logo">
-                <img src="{{ asset('images/logo2.png') }}" alt="">
+                <img src="{{config('static.static')}}/img/logo2.png" alt="">
                 {{--<span style="color: #fff;">HMQ-Education</span >--}}
             </a>
 
@@ -62,7 +62,7 @@
 <!-- Header section end -->
 
 <!-- Create section -->
-<section class="create-section set-bg" data-setbg="{{ asset('images/bg.jpg') }}">
+<section class="create-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">
     <div class="container">
         <br><br><br><br><br><br><br><br>
         <div class="card text-white bg-dark">
@@ -84,7 +84,6 @@
                     <input type="file" name="image">
                 </div>
 
-                <input type="hidden" name="created_by" value="{{Auth::id()}}">
                 <input style="color:#000" class="btn btn-light" type="submit" value="Create">
 
             </form>
@@ -115,7 +114,7 @@
             </ul>
             <div class="footer-logo">
                 <a href="https://hmq-edu.com">
-                    <img src="{{ asset('images/logo2.png') }}" alt="">
+                    <img src="{{config('static.static')}}/img/logo2.png" alt="">
                 </a>
                 <!-- span style="color: #fff;">HMQ-Education</span -->
             </div>
