@@ -26,6 +26,8 @@ Route::get('/teacher/login', 'Auth\LoginController@showTeacherLoginForm')->name(
 Route::get('/teacher/register', 'Auth\RegisterController@showTeacherRegisterForm')->name('teacher.showRegisterForm');
 Route::get('/teacher', 'TeacherController@index')->name('teacher.dashboard');
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+Route::get('/teacher/profile/{id}', 'TeacherController@show')->name('teachers_profile');
+Route::get('/admin/profile/{id}', 'AdminController@show')->name('admins_profile');
 
 Route::post('/admin/login', 'Auth\LoginController@adminLogin')->name('admin.loginRequest');
 Route::post('/teacher/login', 'Auth\LoginController@teacherLogin')->name('teacher.loginRequest');

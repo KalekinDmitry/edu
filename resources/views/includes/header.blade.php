@@ -3,8 +3,8 @@
         <div class="container">
             <a href="{{ route('home') }}" class="site-logo">
                 <img src="{{ asset('images/logo2.png') }}" alt="">
-                {{--<span style="color: #fff;">HMQ-Education</span >--}}
             </a>
+
 
             <div class="user-panel">
                 @guest
@@ -12,16 +12,33 @@
                     <span>/</span>
                     <a href="{{ route('register') }}">Register</a>
                 @else
-                    <a href="{{ route('course.create') }}">Create course</a>
-                    <span>/</span>
-                    <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
-                    <span>/</span>
-                    <a href="{{ route('logout') }}">Logout</a>
+                    @auth('web')
+                        <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
+                        <span>/</span>
+                        <a href="{{ route('logout') }}">Logout</a>
+                    @endauth
+                    @auth('teacher')
+                        <a href="{{ route('course.create') }}">Create course</a>
+                        <span>/</span>
+                        <a href="{{ route('teachers_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
+                        <span>/</span>
+                        <a href="{{ route('logout') }}">Logout</a>
+                    @endauth
+                    @auth('admin')
+                        <a href="{{ route('admins_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
+                        <span>/</span>
+                        <a href="{{ route('logout') }}">Logout</a>
+                    @endauth
                 @endguest
+
             </div>
+
             <div class="nav-switch">
                 <i class="fa fa-bars"></i>
             </div>
+
+
+
             <ul class="main-menu">
                 <!-- li><a href="index.html">Home</a></li -->
                 <li><a href="#courses">Courses</a></li>
