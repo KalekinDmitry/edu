@@ -2,7 +2,7 @@
 
 namespace App\Policies;
 
-use App\User;
+use App\Models\Teacher;
 use App\Course;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
@@ -13,94 +13,94 @@ class CoursePolicy
     /**
      * Determine whether the user can view any courses.
      *
-     * @param  \App\User $user
+     * @param Teacher $teacher
      * @return mixed
      */
-    public function viewAny(User $user)
+    public function viewAny(Teacher $teacher)
     {
-        //
+        // Not required
     }
 
     /**
      * Determine whether the user can view the course.
      *
-     * @param  \App\User $user
+     * @param Teacher $teacher
      * @param  \App\Course $course
      * @return mixed
      */
-    public function view(User $user, Course $course)
+    public function view(Teacher $teacher, Course $course)
     {
-        //
+        // Not required
     }
 
     /**
      * Determine whether the user can create courses.
      *
-     * @param  \App\User $user
+     * @param Teacher $teacher
      * @return mixed
      */
-    public function create(User $user)
+    public function create(Teacher $teacher)
     {
-        //
+        // This makes the middleware(auth:teacher) in the CourseController
     }
 
     /**
      * Determine whether the user can edit the course.
      *
-     * @param  \App\User $user
+     * @param User $teacher
      * @param  \App\Course $course
      * @return mixed
      */
-    public function edit(User $user, Course $course)
+    public function edit(Teacher $teacher, Course $course)
     {
-        return $user->id == $course->created_by;
+        return $teacher->id == $course->created_by;
     }
 
     /**
      * Determine whether the user can update the course.
      *
-     * @param  \App\User $user
+     * @param Teacher $teacher
      * @param  \App\Course $course
      * @return mixed
      */
-    public function update(User $user, Course $course)
+    public function update(Teacher $teacher, Course $course)
     {
-        return $user->id == $course->created_by;
+        return $teacher->id == $course->created_by;
     }
 
     /**
      * Determine whether the user can delete the course.
      *
-     * @param  \App\User $user
+     * @param Teacher $teacher
      * @param  \App\Course $course
      * @return mixed
      */
-    public function destroy(User $user, Course $course)
+    public function destroy(Teacher $teacher, Course $course)
     {
-        return $user->id == $course->created_by;
+        return $teacher->id == $course->created_by;
     }
 
     /**
      * Determine whether the user can restore the course.
      *
-     * @param  \App\User $user
+     * @param Teacher $teacher
      * @param  \App\Course $course
      * @return mixed
      */
-    public function restore(User $user, Course $course)
+    public function restore(Teacher $teacher, Course $course)
     {
-        //
+        // Not required
     }
 
     /**
      * Determine whether the user can permanently delete the course.
      *
-     * @param  \App\User $user
+     * @param Teacher $teacher
      * @param  \App\Course $course
      * @return mixed
      */
-    public function forceDelete(User $user, Course $course)
+    public function forceDelete(Teacher $teacher, Course $course)
     {
-        //
+        // Not required
     }
 }

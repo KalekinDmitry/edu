@@ -14,7 +14,7 @@ class CourseController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('show');
+        $this->middleware('auth:teacher')->except('show');
     }
 
     /**
@@ -48,8 +48,11 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($user = Auth::user()->name);
         $course = Course::create($request->all());
         $course->tags = str_replace(' ', '', $request->tags);
+        $course->created_by = Auth::user()->id;
+
         if (!empty($request->file('image'))) {
             $path = Storage::putFile('public', $request->file('image'));
             $url = Storage::url($path);
@@ -81,9 +84,8 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        $user = Auth::user();
-
-        if ($user->can('edit', $course)) {
+        $teacher = Auth::user();
+        if ($teacher->can('edit', $course)) {
             return view('course.edit', [
                 'course' => $course,
                 'delimiter' => ''

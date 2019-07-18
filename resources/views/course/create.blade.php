@@ -84,7 +84,6 @@
                     <input type="file" name="image">
                 </div>
 
-                <input type="hidden" name="created_by" value="{{Auth::id()}}">
                 <input style="color:#000" class="btn btn-light" type="submit" value="Create">
 
             </form>

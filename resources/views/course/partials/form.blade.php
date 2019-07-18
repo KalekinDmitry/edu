@@ -32,6 +32,6 @@
     <div class="form-group">
         <label for="cost">Set a course price</label>
         <input class="form-control"  type="number" id="cost" max="100"
-               name="cost" min="0" required>{{$course->cost ?? ""}}</input>
+               name="cost" min="0" required value="{{$course->cost ?? ""}}">
     </div>
 </div>
