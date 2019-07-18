@@ -1,9 +1,29 @@
 <header class="header-section">
     <div class="header-warp">
         <div class="container">
-            <a href="{{ route('home') }}" class="site-logo">
-                <img src="{{ asset('images/logo2.png') }}" alt="">
-            </a>
+            @guest
+                <a href="{{ route('home') }}" class="site-logo">
+                    <img src="{{ asset('images/logo2.png') }}" alt="">
+                </a>
+            @else
+                @auth('web')
+                    <a href="{{ route('home') }}" class="site-logo">
+                        <img src="{{ asset('images/logo2.png') }}" alt="">
+                    </a>
+                @endauth
+
+                @auth('teacher')
+                    <a href="{{ route('teacher.dashboard') }}" class="site-logo">
+                        <img src="{{ asset('images/logo2.png') }}" alt="">
+                    </a>
+                @endauth
+
+                @auth('admin')
+                    <a href="{{ route('admin.dashboard') }}" class="site-logo">
+                        <img src="{{ asset('images/logo2.png') }}" alt="">
+                    </a>
+                @endauth
+            @endguest
 
             <div class="user-panel">
                 @guest
@@ -11,23 +31,7 @@
                     <span>/</span>
                     <a href="{{ route('register') }}">Register</a>
                 @else
-                    @auth('web')
-                        <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
-                        <span>/</span>
-                        <a href="{{ route('logout') }}">Logout</a>
-                    @endauth
-                    @auth('teacher')
-                        <a href="{{ route('course.create') }}">Create course</a>
-                        <span>/</span>
-                        <a href="{{ route('teacher_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
-                        <span>/</span>
-                        <a href="{{ route('logout') }}">Logout</a>
-                    @endauth
-                    @auth('admin')
-                        <a href="{{ route('admin_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
-                        <span>/</span>
-                        <a href="{{ route('logout') }}">Logout</a>
-                    @endauth
+                    @include('includes.headerMenu')
                 @endguest
 
             </div>
