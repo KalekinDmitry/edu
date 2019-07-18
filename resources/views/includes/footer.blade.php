@@ -18,7 +18,7 @@
             </ul>
             <div class="footer-logo">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('images/logo2.png') }}" alt="">
+                    <img src="{{config('static.static')}}/img/logo2.png" alt="">
                 </a>
                 <!-- span style="color: #fff;">HMQ-Education</span -->
             </div>
