@@ -44,13 +44,13 @@
 
             <div class="user-panel">
                 @guest
-                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('login') }}">@lang('content.ent')</a>
                     <span>/</span>
-                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('register') }}">@lang('content.reg')</a>
                 @else
                     <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     <span>/</span>
-                    <a href="{{ route('logout') }}">Logout</a>
+                    <a href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
                 @endguest
             </div>
             <div class="nav-switch">
@@ -71,7 +71,7 @@
             <div class="col-md-8">
                 <div class="border-dark card text-dark bg-white">
                     <div class="card-header">
-                        Profile editing
+                        @lang('content.profediting')
                     </div>
                     <form class="form-horizontal card-body" action="{{route('my_settings_save', $user)}}" method="post"
                           enctype="multipart/form-data">
@@ -88,82 +88,81 @@
                                 @endif
                             </div>
                             <div class="form-group row">
-                                <label for="image" class="col-md-4 col-form-label text-md-left">Choose your profile
-                                    images</label><br>
+                                <label for="image" class="col-md-4 col-form-label text-md-left">@lang('content.chprofimg')</label><br>
                                 <div class="col-md-12 text-md-left">
                                     <input id="image" type="file" name="image">
                                 </div>
                             </div>
                             <hr class="border-dark">
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-left">Name</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-left">@lang('content.nm')</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="name" name="name" type="text" class="form-control"
                                            value="{{$user->name ?? ""}}" minlength="2" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="sex" class="col-md-4 col-form-label text-md-left">Choose gender</label>
+                                <label for="sex" class="col-md-4 col-form-label text-md-left">@lang('content.chgender')</label>
                                 <div class="col-md-12 text-md-left">
                                     <select id="sex" name="sex" class="form-control">
-                                        <option value="0" selected="">Not selected</option>
-                                        <option value="1">Male</option>
-                                        <option value="2">Female</option>
+                                        <option value="0" selected="">@lang('content.notselected')</option>
+                                        <option value="1">@lang('content.male')</option>
+                                        <option value="2">@lang('content.fem')</option>
                                     </select>
 
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-left">Email</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-left">@lang('content.eml')</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="email" name="email" type="email" class="form-control"
                                            value="{{$user->email ?? ""}}" required>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="phone" class="col-md-4 col-form-label text-md-left">Phone number</label>
+                                <label for="phone" class="col-md-4 col-form-label text-md-left">@lang('content.phonenum')</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="phone" name="phone" type="number" class="form-control"
                                            value="{{$user->phone ?? ""}}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="dob" class="col-md-4 col-form-label text-md-left">Date of Birth</label>
+                                <label for="dob" class="col-md-4 col-form-label text-md-left">@lang('content.dobth')</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="dob" name="dob" type="date" class="form-control"
                                            value="{{$user->dob ?? ""}}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="skills" class="col-md-4 col-form-label text-md-left">Skills (Сomma separated)</label>
+                                <label for="skills" class="col-md-4 col-form-label text-md-left">@lang('content.skills')</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="skills" name="skills" type="text" class="form-control"
                                            value="{{$user->skills ?? ""}}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="hobbies" class="col-md-4 col-form-label text-md-left">Hobbies</label>
+                                <label for="hobbies" class="col-md-4 col-form-label text-md-left">@lang('content.hobbies')</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="hobbies" name="hobbies" type="text" class="form-control"
                                            value="{{$user->hobbies ?? ""}}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="signature" class="col-md-4 col-form-label text-md-left">Signature</label>
+                                <label for="signature" class="col-md-4 col-form-label text-md-left">@lang('content.signature')/label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="signature" name="signature" type="text" class="form-control"
                                            value="{{$user->signature ?? ""}}">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="status" class="col-md-4 col-form-label text-md-left">Status</label>
+                                <label for="status" class="col-md-4 col-form-label text-md-left">@lang('content.status')</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="status" name="status" type="text" class="form-control"
                                            value="{{$user->status ?? ""}}">
                                 </div>
                             </div>
                         </div>
-                        <input class="btn btn-dark" type="submit" value="Save">
+                        <input class="btn btn-dark" type="submit" value="@lang('content.save')">
                     </form>
                     <br><br><br>
                 </div>

@@ -117,4 +117,38 @@ return [
     'profav' => 'Profile avatar',
     'admdash' => 'Admin dashboard',
     'logntf' => 'You are logged in',
+    'tchdash' => 'Teacher dashboard',
+    'ruser' => 'Regular user',
+    'infonotspec' => 'Information not specified',
+    'about user' => 'About user',
+    'sendmsg' => 'Send message (not working yet)',
+    'editprof' => 'Edit profile',
+    'profdate' => 'Profile date',
+    'regd' => 'Registered',
+    'birthday' => 'Date of Birth (YMD)',
+    'sex' => 'Sex',
+    'phonenum' => 'Phone Number',
+    'userrating' => 'User rating', # Рейтинг пользователя
+    'entynm' => 'Enter your name', # Укажите Ваше Имя
+    'yphn' => 'Your phone number',
+    'yem' => 'Your E-mail',
+    'agreement' => 'I agree to the terms',
+    'msgtxt' => 'Text of your message',
+    'txtwillbesent' => 'Message text will be sent to user',
+    'profediting' => 'Profile editing',
+    'chprofimg' => 'Choose your profile image',
+    'chgender' => 'Choose gender',
+    'notselected' => 'Not selected',
+    'male' => 'Male',
+    'fem' => 'Female',
+    'eml' => 'E-mail',
+    'dobth' => 'Date of Birth',
+    'skills' => 'Skills (Comma separated)',
+    'hobbies' => 'Hobbies',
+    'signature' => 'Signature',
+    'status' => 'Status',
+    
+
+
+
 ];

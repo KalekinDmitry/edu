@@ -49,15 +49,15 @@
 
             <div class="user-panel">
                 @guest
-                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('login') }}">@lang('content.ent')</a>
                     <span>/</span>
-                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('register') }}">@lang('content.reg')</a>
                 @else
-                    <a href="{{ route('course.create') }}">Create course</a>
+                    <a href="{{ route('course.create') }}">@lang('content.create course')</a>
                     <span>/</span>
                     <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     <span>/</span>
-                    <a href="{{ route('logout') }}">Logout</a>
+                    <a href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
                 @endguest
             </div>
             <div class="nav-switch">
@@ -65,10 +65,10 @@
             </div>
             {{--<ul class="main-menu">--}}
             {{--<!-- li><a href="index.html">Home</a></li -->--}}
-            {{--<li><a href="#courses">Courses</a></li>--}}
-            {{--<li><a href="#about">About us</a></li>--}}
-            {{--<li><a href="#newslatter">News</a></li>--}}
-            {{--<li><a href="#contact">Contact us</a></li>--}}
+            {{--<li><a href="#courses">@lang('content.courses')</a></li>--}}
+            {{--<li><a href="#about">@lang('content.about us')</a></li>--}}
+            {{--<li><a href="#newslatter">@lang('content.news')</a></li>--}}
+            {{--<li><a href="#contact">@lang('content.contact us')</a></li>--}}
             {{--</ul>--}}
         </div>
     </div>
@@ -86,7 +86,7 @@
                         <div class="panel-heading">
                             <header class="panel-title">
                                 <div class="text-center">
-                                    <strong>Regular User</strong>
+                                    <strong>@lang('content.ruser')</strong>
                                 </div>
                             </header>
                         </div>
@@ -100,13 +100,13 @@
                                 <h3>@if($user->name != NULL)
                                         {{ $user->name }}
                                     @else
-                                        <strong>Information not specified</strong>
+                                        <strong>@lang('content.infonotspec')</strong>
                                     @endif</h3>
                                 <small class="label label-warning">
                                     @if($user->signature != NULL)
                                         {{ $user->signature }}
                                     @else
-                                        <strong>Information not specified</strong>
+                                        <strong>@lang('content.infonotspec')</strong>
                                     @endif
                                 </small>
                                 <br>
@@ -125,47 +125,47 @@
                     <div class="panel">
                         <div class="panel-body">
                             <ul id="myTab" class="nav nav-pills">
-                                <li class="active"><a href="#detail" data-toggle="tab">About user</a></li>
-                                <li class=""><a href="#contact" data-toggle="tab">Send message (not working yet)</a>
-                                <li class=""><a href="{{route('my_settings')}}">Edit profile</a>
+                                <li class="active"><a href="#detail" data-toggle="tab">@lang('content.about user')</a></li>
+                                <li class=""><a href="#contact" data-toggle="tab">@lang('content.sendmsg')</a>
+                                <li class=""><a href="{{route('my_settings')}}">@lang('content.editprof')</a>
                                 </li>
                             </ul>
                             <div id="myTabContent" class="tab-content">
                                 <hr>
                                 <div class="tab-pane fade active in" id="detail">
-                                    <h4>Profile date:</h4>
+                                    <h4>@lang('content.profdate'):</h4>
                                     <table class="table table-th-block">
                                         <tbody>
                                         <tr>
-                                            <td class="active">Registered:</td>
+                                            <td class="active">@lang('content.regd'):</td>
                                             <td>@if($user->created_at != NULL)
                                                     {{ $user->created_at }}
                                                 @else
-                                                    <strong>Information not specified</strong>
+                                                    <strong>@lang('content.infonotspec')</strong>
                                                 @endif</td>
                                         </tr>
                                         <tr>
-                                            <td class="active">Date of Birth (YMD):</td>
+                                            <td class="active">@lang('content.birthday'):</td>
                                             <td>@if($user->dob != NULL)
                                                     {{ $user->dob }}
                                                 @else
-                                                    <strong>Information not specified</strong>
+                                                    <strong>@lang('content.infonotspec')</strong>
                                                 @endif</td>
                                         </tr>
                                         <tr>
-                                            <td class="active">Sex:</td>
+                                            <td class="active">@lang('content.sex'):</td>
                                             <td>@if($user->sex == 0 || $user->sex == NULL)
-                                                    <strong>Information not specified</strong>
+                                                    <strong>@lang('content.infonotspec')</strong>
                                                 @else
                                                     {{ $user->sex }}
                                                 @endif</td>
                                         </tr>
                                         <tr>
-                                            <td class="active">Phone Number:</td>
+                                            <td class="active">@lang('content.phonenum'):</td>
                                             <td>@if($user->phone != NULL)
                                                     {{ $user->phone }}
                                                 @else
-                                                    <strong>Information not specified</strong>
+                                                    <strong>@lang('content.infonotspec')</strong>
                                                 @endif</td>
                                         </tr>
                                         <tr>
@@ -175,7 +175,7 @@
                                                         <small class="label label-warning">{{ $skill }}</small>
                                                     @endforeach
                                                 @else
-                                                    <strong>Information not specified</strong>
+                                                    <strong>@lang('content.infonotspec')</strong>
                                                 @endif</td>
                                         </tr>
                                         <tr>
@@ -183,7 +183,7 @@
                                             <td>@if($user->hobbies != NULL)
                                                     {{ $user->hobbies }}
                                                 @else
-                                                    <strong>Information not specified</strong>
+                                                    <strong>@lang('content.infonotspec')</strong>
                                                 @endif</td>
                                         </tr>
                                         <tr>
@@ -191,11 +191,11 @@
                                             <td>@if($user->status != NULL)
                                                     {{ $user->status }}
                                                 @else
-                                                    <strong>Information not specified</strong>
+                                                    <strong>@lang('content.infonotspec')</strong>
                                                 @endif</td>
                                         </tr>
                                         {{--<tr>--}}
-                                        {{--<td class="active">Рейтинг пользователя:</td>--}}
+                                        {{--<td class="active">@lang('content.userrating'):</td>--}}
                                         {{--<td><i class="fa fa-star" style="color:red"></i> <i class="fa fa-star"--}}
                                         {{--style="color:red"></i>--}}
                                         {{--<i class="fa fa-star" style="color:red"></i> <i class="fa fa-star"--}}
@@ -210,34 +210,34 @@
                                     <p></p>
                                     {{--<form role="form">--}}
                                     {{--<div class="form-group">--}}
-                                    {{--<label>Ваше имя</label>--}}
+                                    {{--<label>@lang('content.yname')</label>--}}
                                     {{--<input type="text" class="form-control rounded"--}}
-                                    {{--placeholder="Укажите Ваше Имя">--}}
+                                    {{--placeholder="@lang('content.entynm')">--}}
                                     {{--</div>--}}
                                     {{--<div class="form-group">--}}
-                                    {{--<label>Ваш телефон</label>--}}
+                                    {{--<label>@lang('content.yphn')</label>--}}
                                     {{--<input type="text" class="form-control rounded"--}}
                                     {{--placeholder="(+7)(095)123456">--}}
                                     {{--</div>--}}
                                     {{--<div class="form-group">--}}
-                                    {{--<label>E-mail адрес</label>--}}
-                                    {{--<input type="email" class="form-control rounded" placeholder="Ваш Е-майл">--}}
+                                    {{--<label>@lang('content.emaddr')</label>--}}
+                                    {{--<input type="email" class="form-control rounded" placeholder="@lang('content.yem')">--}}
                                     {{--</div>--}}
                                     {{--<div class="form-group">--}}
                                     {{--<div class="checkbox">--}}
                                     {{--<label>--}}
-                                    {{--<input type="checkbox"> Согласен с условиями--}}
+                                    {{--<input type="checkbox"> @lang('content.agreement')--}}
                                     {{--</label>--}}
                                     {{--</div>--}}
                                     {{--</div>--}}
                                     {{--<div class="form-group">--}}
-                                    {{--<label>Текст Вашего сообщения</label>--}}
+                                    {{--<label>@lang('content.msgtxt')</label>--}}
                                     {{--<textarea class="form-control rounded" style="height: 100px;"></textarea>--}}
-                                    {{--<p class="help-block">Текст сообщения будет отправлен пользователю</p>--}}
+                                    {{--<p class="help-block">@lang('content.txtwillbesent')</p>--}}
                                     {{--</div>--}}
                                     {{--<div class="form-group">--}}
                                     {{--<button type="submit" class="btn btn-success" data-original-title=""--}}
-                                    {{--title="">Отправить--}}
+                                    {{--title="">@lang('content.send')--}}
                                     {{--</button>--}}
                                     {{--</div>--}}
                                     {{--</form>--}}
