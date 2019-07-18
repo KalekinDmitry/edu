@@ -48,7 +48,6 @@ class CourseController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($user = Auth::user()->name);
         $course = Course::create($request->all());
         $course->tags = str_replace(' ', '', $request->tags);
         $course->created_by = Auth::user()->id;
@@ -102,8 +101,8 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        $user = Auth::user();
-        if ($user->can('update', $course)) {
+        $teacher = Auth::user();
+        if ($teacher->can('update', $course)) {
             $course->update($request->except('slug'));
             $course->tags = str_replace(' ', '', $request->tags);;
             if (!empty($request->file('image'))) {
@@ -125,8 +124,8 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-        $user = Auth::user();
-        if ($user->can('destroy', $course)) {
+        $teacher = Auth::user();
+        if ($teacher->can('destroy', $course)) {
             $course->delete();
             return redirect()->route('home');
         } else return redirect()->route('course.show', $course);
