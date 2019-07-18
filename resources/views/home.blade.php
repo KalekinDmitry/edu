@@ -50,13 +50,13 @@
             </a>
 
             <div class="user-panel">
+                <a href="{{ route('course.create') }}">Create course</a>
+                <span>/</span>
                 @guest
                     <a href="{{ route('login') }}">Login</a>
                     <span>/</span>
                     <a href="{{ route('register') }}">Register</a>
                 @else
-                    <a href="{{ route('course.create') }}">Create course</a>
-                    <span>/</span>
                     <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     <span>/</span>
                     <a href="{{ route('logout') }}">Logout</a>
