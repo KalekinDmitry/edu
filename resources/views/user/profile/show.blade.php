@@ -57,8 +57,16 @@
                         <div class="panel-body">
                             <ul id="myTab" class="nav nav-pills">
                                 <li class="active"><a href="#detail" data-toggle="tab">About user</a></li>
-                                <li class=""><a href="#contact" data-toggle="tab">Send message (not working yet)</a>
-                                <li class=""><a href="{{route('my_settings')}}">Edit profile</a>
+                                <li class=""><a href="#contact" data-toggle="tab">Send message (not working yet)</a></li>
+                                @auth('web')
+                                    <li class=""><a href="{{route('my_settings')}}">Edit user profile</a>
+                                @endauth
+                                @auth('teacher')
+                                    <li class=""><a href="{{route('teacher_settings')}}">Edit teacher profile</a>
+                                @endauth
+                                @auth('admin')
+                                    <li class=""><a href="{{route('admin_settings')}}">Edit admin profile</a>
+                                @endauth
                                 </li>
                             </ul>
                             <div id="myTabContent" class="tab-content">

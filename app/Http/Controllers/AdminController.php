@@ -9,6 +9,7 @@ use Auth;
 
 class AdminController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -39,6 +40,14 @@ class AdminController extends Controller
             $user = Admin::where('id', Auth::user()->id)->first();
         }
         return view('user.profile.show', [
+            'user' => $user,
+        ]);
+    }
+
+    public function edit()
+    {
+        $user = Admin::where('id', Auth::user()->id)->first();
+        return view('user.settings.edit', [
             'user' => $user,
         ]);
     }

@@ -5,7 +5,6 @@
                 <img src="{{ asset('images/logo2.png') }}" alt="">
             </a>
 
-
             <div class="user-panel">
                 @guest
                     <a href="{{ route('login') }}">Login</a>
@@ -20,12 +19,12 @@
                     @auth('teacher')
                         <a href="{{ route('course.create') }}">Create course</a>
                         <span>/</span>
-                        <a href="{{ route('teachers_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
+                        <a href="{{ route('teacher_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                         <span>/</span>
                         <a href="{{ route('logout') }}">Logout</a>
                     @endauth
                     @auth('admin')
-                        <a href="{{ route('admins_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
+                        <a href="{{ route('admin_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                         <span>/</span>
                         <a href="{{ route('logout') }}">Logout</a>
                     @endauth

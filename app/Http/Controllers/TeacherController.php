@@ -42,4 +42,12 @@ class TeacherController extends Controller
         ]);
     }
 
+    public function edit()
+    {
+        $user = Teacher::where('id', Auth::user()->id)->first();
+        return view('user.settings.edit', [
+            'user' => $user,
+        ]);
+    }
+
 }
