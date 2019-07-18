@@ -20,11 +20,20 @@ Route::get('/', 'HomeController@index')->name('home');
 
 
 
-Route::get('/admin/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.showLoginForm');
+
 Route::get('/teacher/login', 'Auth\LoginController@showTeacherLoginForm')->name('teacher.showLoginForm');
 Route::get('/teacher/register', 'Auth\RegisterController@showTeacherRegisterForm')->name('teacher.showRegisterForm');
 Route::get('/teacher', 'TeacherController@index')->name('teacher.dashboard');
+Route::get('/teacher/profile/edit', 'TeacherController@edit')->name('teacher_settings');
+Route::get('/teacher/profile/{id}', 'TeacherController@show')->name('teacher_profile');
+
+
+Route::get('/admin/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.showLoginForm');
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
+Route::get('/admin/profile/edit', 'AdminController@edit')->name('admin_settings');
+Route::get('/admin/profile/{id}', 'AdminController@show')->name('admin_profile');
+
+
 
 Route::post('/admin/login', 'Auth\LoginController@adminLogin')->name('admin.loginRequest');
 Route::post('/teacher/login', 'Auth\LoginController@teacherLogin')->name('teacher.loginRequest');

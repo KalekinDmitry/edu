@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Course;
+use App\Models\Admin;
 use Illuminate\Http\Request;
+use Auth;
+
 
 class AdminController extends Controller
 {
+
     /**
      * Create a new controller instance.
      *
@@ -25,6 +28,28 @@ class AdminController extends Controller
     public function index()
     {
         return view('custom.admin.dashboard');
+    }
+
+    public function show(Request $request)
+    {
+        if ($user = Admin::where('id', $request->id)->first()) {
+            //"Password protection"
+            $user->password = NULL;
+        } else {
+            //Redirect to yourself
+            $user = Admin::where('id', Auth::user()->id)->first();
+        }
+        return view('user.profile.show', [
+            'user' => $user,
+        ]);
+    }
+
+    public function edit()
+    {
+        $user = Admin::where('id', Auth::user()->id)->first();
+        return view('user.settings.edit', [
+            'user' => $user,
+        ]);
     }
 
 }
