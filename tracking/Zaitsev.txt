@@ -13,3 +13,7 @@
 16-Jul:
 -9 hours
 -registration refactoring, footer and header templates
+
+18-Jul:
+-7 hours
+-main menu template(differrent for each rype of users), header Brand redirections, PR
