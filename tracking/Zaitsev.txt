@@ -17,3 +17,7 @@
 18-Jul:
 -7 hours
 -main menu template(differrent for each rype of users), header Brand redirections, PR
+
+19-Jul:
+-7 hours
+-lessons CRUD
