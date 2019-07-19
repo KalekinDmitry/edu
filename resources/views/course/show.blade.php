@@ -1,65 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>HMQ-Education</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Academica Learning Page Template">
-    <meta name="keywords" content="academica, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
-    <link href="{{config('static.static')}}/img/favicon.ico" rel="shortcut icon"/>
+@extends('layouts.app')
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800"
-          rel="stylesheet">
-
-    <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-
-
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
-</head>
-<body>
-<!-- Page Preloder -->
-<div id="preloder">
-    <div class="loader"></div>
-</div>
-
-<!-- Header section -->
-<header class="header-section">
-    <div class="header-warp">
-        <div class="container">
-            <a href="{{ route('home') }}" class="site-logo">
-                <img src="{{config('static.static')}}/img/logo2.png" alt="">
-                <!-- span style="color: #fff;">HMQ-Education</span -->
-            </a>
-            <div class="user-panel">
-                @guest
-                    <a href="{{ route('login') }}">Login</a>
-                    <span>/</span>
-                    <a href="{{ route('register') }}">Register</a>
-                @else
-                    <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
-                    <span>/</span>
-                    <a href="{{ route('logout') }}">Logout</a>
-                @endguest
-            </div>
-            <div class="nav-switch">
-                <i class="fa fa-bars"></i>
-            </div>
-
-        </div>
-    </div>
-</header>
-<!-- Header section end -->
+@section('content')
 
 
 <!-- Page top section -->
@@ -100,12 +41,14 @@
                       action="{{route('course.destroy', $course)}}" method="post">
                     <input type="hidden" name="_method" value="DELETE">
                     {{ csrf_field() }}
-
-                    <a class="btn btn-default" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">Редактировать</i></a>
-
-                    <button type="submit" class="btn btn-info">Удалить</button>
-
+                    <a class="btn btn-default col-md-6" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">Редактировать</i></a>
+                    <button type="submit" class="btn btn-info col-md-5">Удалить</button>
                 </form>
+                <br>
+                <div class="container">
+                    <a class="btn btn-warning col-md-12" href="{{ route('lesson.create', $course) }}">Add new lesson</a>
+                </div>
+
                 <div>
                     <h3 style="padding-bottom:40px; padding-top: 45px;">Table of contents</h3>
                 </div>
@@ -420,98 +363,4 @@
     </div>
 </section>
 <!-- Courses section end -->
-
-
-<!-- Footer section -->
-<footer class="footer-section spad pb-0">
-    <div class="container">
-        <!-- div class="text-center">
-            <a href="#" class="site-btn">Enroll Now <i class="fa fa-angle-right"></i></a>
-        </div>
-        <div class="row text-white spad">
-            <div class="col-lg-3 col-sm-6 footer-widget">
-                <h4>Engeneering</h4>
-                <ul>
-                    <li><a href="#">Applied Studies</a></li>
-                    <li><a href="#">Computer Engeneering</a></li>
-                    <li><a href="#">Software Engeneering</a></li>
-                    <li><a href="#">Informational Engeneering</a></li>
-                    <li><a href="#">System Engeneering</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-sm-6 footer-widget">
-                <h4>Business School</h4>
-                <ul>
-                    <li><a href="#">Applied Studies</a></li>
-                    <li><a href="#">Computer Engeneering</a></li>
-                    <li><a href="#">Software Engeneering</a></li>
-                    <li><a href="#">Informational Engeneering</a></li>
-                    <li><a href="#">System Engeneering</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-sm-6 footer-widget">
-                <h4>Art & Design</h4>
-                <ul>
-                    <li><a href="#">Graphic Design</a></li>
-                    <li><a href="#">Motion Graphics & 3D</a></li>
-                    <li><a href="#">Classichal Painting</a></li>
-                    <li><a href="#">Sculpture</a></li>
-                    <li><a href="#">Fashion Design</a></li>
-                </ul>
-            </div>
-            <div class="col-lg-3 col-sm-6 footer-widget">
-                <h4>Higher Education</h4>
-                <ul>
-                    <li><a href="#">Applied Studies</a></li>
-                    <li><a href="#">Computer Engeneering</a></li>
-                    <li><a href="#">Software Engeneering</a></li>
-                    <li><a href="#">Informational Engeneering</a></li>
-                    <li><a href="#">System Engeneering</a></li>
-                </ul>
-            </div>
-        </div -->
-        <div class="footer-bottom">
-
-            <div class="social">
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
-            </div>
-            <ul class="footer-menu">
-                <li><a href="{{ route('home') }}">About us</a></li>
-                <li><a href="{{ route('home') }}">Courses</a></li>
-                <!-- li><a href="#">Contact us</a></li -->
-            </ul>
-            <div class="footer-logo">
-                <a href="{{ route('home') }}">
-                    <img src="{{config('static.static')}}/img/logo2.png" alt="">
-                </a>
-                <!-- span style="color: #fff;">HMQ-Education</span -->
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12">
-                <p class="text-white  text-center">
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                    All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by
-                    <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-            </div>
-
-        </div>
-    </div>
-</footer>
-<!-- Footer section end -->
-
-
-<!--====== Javascripts & Jquery ======-->
-<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('js/circle-progress.min.js') }}"></script>
-<script src="{{ asset('js/main.js') }}"></script>
-
-
-</body>
-</html>
+@endsection

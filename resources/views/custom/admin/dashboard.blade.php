@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<section class="hero-section set-bg" data-setbg="{{ asset('images/bg.jpg') }}">
+<section class="hero-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg" >
     <div class="container">
         <div class="row">
             <div class="col-md-10">

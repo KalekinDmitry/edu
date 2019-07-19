@@ -63,9 +63,9 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($lesson)
+    public function show(Lesson $lesson)
     {
-        return veiw('lesson.show', ['lesson' => $lesson]);
+        return view('lesson.show', ['lesson' => $lesson]);
     }
 
     /**

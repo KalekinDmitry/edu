@@ -3,24 +3,24 @@
         <div class="container">
             @guest
                 <a href="{{ route('home') }}" class="site-logo">
-                    <img src="{{ asset('images/logo2.png') }}" alt="">
+                    <img src="{{config('static.static')}}/img/logo2.png" alt="">
                 </a>
             @else
                 @auth('web')
                     <a href="{{ route('home') }}" class="site-logo">
-                        <img src="{{ asset('images/logo2.png') }}" alt="">
+                        <img src="{{config('static.static')}}/img/logo2.png"  alt="">
                     </a>
                 @endauth
 
                 @auth('teacher')
                     <a href="{{ route('teacher.dashboard') }}" class="site-logo">
-                        <img src="{{ asset('images/logo2.png') }}" alt="">
+                        <img src="{{config('static.static')}}/img/logo2.png"  alt="">
                     </a>
                 @endauth
 
                 @auth('admin')
                     <a href="{{ route('admin.dashboard') }}" class="site-logo">
-                        <img src="{{ asset('images/logo2.png') }}" alt="">
+                        <img src="{{config('static.static')}}/img/logo2.png"  alt="">
                     </a>
                 @endauth
             @endguest

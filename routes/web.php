@@ -44,6 +44,8 @@ Route::post('/teacher/register', 'Auth\RegisterController@registerTeacher')->nam
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 
 Route::resource('/course', 'CourseController');
+Route::resource('/lesson', 'LessonController');
+
 
 Route::get('/profile/{id}', 'UserController@show')->name('users_profile');
 Route::get('/myaccount','UserController@edit')->name('my_settings');
