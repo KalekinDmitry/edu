@@ -1,10 +1,7 @@
 <?php
-
 namespace Tests\Feature;
-
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-
 class ExampleTest extends TestCase
 {
     /**
@@ -14,8 +11,8 @@ class ExampleTest extends TestCase
      */
     public function testBasicTest()
     {
-        $response = $this->get('/');
-
+        $this->withoutMiddleware();
+        $response = $this->call('get', '/');
         $response->assertStatus(200);
     }
 }
