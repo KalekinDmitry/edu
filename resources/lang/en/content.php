@@ -12,7 +12,7 @@ return [
     'regbtn' => 'Register', # Регистрация
     'create course' => 'Create course',
     'logoutbtn' => 'Logout',
-    'comname' => 'By 3toria Arabina',
+    'comname' => 'By Vitoria Arabina',
     'prtc' => 'Professional teacher & coach',
     'communication' => 'Communication',
     'comdescribe' => 'Chat with the teacher directly',

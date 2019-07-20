@@ -7,7 +7,7 @@
                     <p>@lang('content.presentation').</p>
                     <div class="hero-author">
                         <div class="hero-author-pic set-bg" data-setbg="{{config('static.static')}}/img/hero-author.jpg"></div>
-                        <h5>By Victoria Arabina, <span>@lang('content.prtc')</span></h5>
+                        <h5>@lang('content.comname'), <span>@lang('content.prtc')</span></h5>
                     </div>
                 </div>
             </div>
