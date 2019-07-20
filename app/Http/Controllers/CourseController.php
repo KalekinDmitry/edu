@@ -14,7 +14,7 @@ class CourseController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth')->except('show');
+        $this->middleware('auth:teacher')->except('show');
     }
 
     /**
@@ -49,7 +49,9 @@ class CourseController extends Controller
     public function store(Request $request)
     {
         $course = Course::create($request->all());
-        $course->tags=str_replace(' ', '', $request->tags);
+        $course->tags = str_replace(' ', '', $request->tags);
+        $course->created_by = Auth::user()->id;
+
         if (!empty($request->file('image'))) {
             $path = Storage::putFile('public', $request->file('image'));
             $url = Storage::url($path);
@@ -81,10 +83,13 @@ class CourseController extends Controller
      */
     public function edit(Course $course)
     {
-        return view('course.edit', [
-            'course' => $course,
-            'delimiter' => ''
-        ]);
+        $teacher = Auth::user();
+        if ($teacher->can('edit', $course)) {
+            return view('course.edit', [
+                'course' => $course,
+                'delimiter' => ''
+            ]);
+        } else return redirect()->route('course.show', $course);
     }
 
     /**
@@ -96,15 +101,18 @@ class CourseController extends Controller
      */
     public function update(Request $request, Course $course)
     {
-        $course->update($request->except('slug'));
-        $course->tags=str_replace(' ', '', $request->tags);;
-        if (!empty($request->file('image'))) {
-            $path = Storage::putFile('public', $request->file('image'));
-            $url = Storage::url($path);
-            $course->image = $url;
-        }
-        $course->save();
-        return redirect()->route('course.show', $course);
+        $teacher = Auth::user();
+        if ($teacher->can('update', $course)) {
+            $course->update($request->except('slug'));
+            $course->tags = str_replace(' ', '', $request->tags);;
+            if (!empty($request->file('image'))) {
+                $path = Storage::putFile('public', $request->file('image'));
+                $url = Storage::url($path);
+                $course->image = $url;
+            }
+            $course->save();
+            return redirect()->route('course.show', $course);
+        } else return redirect()->route('course.show', $course);
     }
 
     /**
@@ -116,13 +124,11 @@ class CourseController extends Controller
      */
     public function destroy(Course $course)
     {
-//      dd($course);
-//      $user = Auth::user();
-//      if ($user->can('delete', $article)) {
-        $course->delete();
+        $teacher = Auth::user();
+        if ($teacher->can('destroy', $course)) {
+            $course->delete();
+            return redirect()->route('home');
+        } else return redirect()->route('course.show', $course);
 
-        return redirect()->route('home');
-//      } else return redirect()->route('article.index');
     }
-
 }

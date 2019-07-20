@@ -2,7 +2,7 @@
 ------------------------------------
   Academica - Learning Page Template
   Version: 1.0
- ------------------------------------ 
+ ------------------------------------
  ====================================*/
 
 
@@ -15,7 +15,7 @@ body {
 	height: 100%;
 	font-family: 'Raleway', sans-serif;
 	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
+	-font-smoothing: antialiased;
 }
 
 h1,
@@ -404,7 +404,7 @@ ol {
 	margin: 0 auto;
 	overflow: overlay;
 	padding: 50px 0;
-	border-bottom: 3px solid #f3e830;
+	border-bottom: 3px solid #fee110;
 }
 
 .user-panel {
