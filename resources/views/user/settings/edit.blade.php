@@ -94,7 +94,7 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="signature" class="col-md-4 col-form-label text-md-left">@lang('content.signature')/label>
+                                <label for="signature" class="col-md-4 col-form-label text-md-left">@lang('content.signature')</label>
                                 <div class="col-md-12 text-md-left">
                                     <input id="signature" name="signature" type="text" class="form-control"
                                            value="{{$user->signature ?? ""}}">

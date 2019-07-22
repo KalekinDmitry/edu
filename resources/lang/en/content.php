@@ -8,8 +8,8 @@ return [
     'chlang' => 'Choose language',
     'edcourse' => 'Education Course',
     'presentation' => 'We are pleased to present for you a new educational course that will allow you to improve your social communication skills and increase your professional level.',
-    'loginbtn' => 'Login', # Авторизация
-    'regbtn' => 'Register', # Регистрация
+    'loginbtn' => 'Login',
+    'regbtn' => 'Register',
     'create course' => 'Create course',
     'logoutbtn' => 'Logout',
     'comname' => 'By Vitoria Arabina',
@@ -29,7 +29,7 @@ return [
     'otb' => 'Only the best',
     'txtunderotb' => 'You can use our trial period and make your own decision whether you want to know more or not',
     'hm' => 'How much',
-    'txtunderhm' => 'irst week is free of any charge, since 2nd week courses will be deeper and more professional. So, it
+    'txtunderhm' => 'First week is free of any charge, since 2nd week courses will be deeper and more professional. So, it
     will cost minimum amount of 20 cents per week',
     'free' => 'FREE',
     'nocourses' => 'There are no courses',

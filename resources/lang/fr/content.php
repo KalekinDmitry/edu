@@ -8,8 +8,8 @@ return [
     'chlang' => 'Choisissez la langue',
     'edcourse' => 'Cours d`éducation',
     'presentation' => 'Nous avons le plaisir de vous présenter un nouveau cours éducatif qui vous permettra d’améliorer vos compétences en communication sociale et d’améliorer votre niveau professionnel.',
-    'loginbtn' => 'Autorisation', # Авторизация
-    'regbtn' => 'Registre', # Регистрация
+    'loginbtn' => 'Autorisation',
+    'regbtn' => 'Registre',
     'create course' => 'Créer un cours',
     'logoutbtn' => 'Connectez - Out',
     'comname' => 'Par Vitoria Arabina',
@@ -71,8 +71,8 @@ return [
     'remme' => 'Souviens-toi de moi',
     'forgpsw' => 'Mot de passe oublié',
     'bckhome' => 'Retour à la maison',
-    'ent' => 'S`identifier', # Войти
-    'reg' => 'Registre', # Зарегестрироваться
+    'ent' => 'S`identifier',
+    'reg' => 'Registre',
     'nm' => 'Prénom', 
     'enm' => 'Saisissez votre nom d`utilisateur',
     'cnfrmpsw' => 'Confirmez le mot de passe',
@@ -96,7 +96,7 @@ return [
     'linktovideo' => 'Lien vers la vidéo',
     'setcrsprice' => 'Fixer un prix de cours',
     'creature' => 'Créature',
-    'choosecrscover' => 'Choisissez votre couverture de cours', # Выберите обложку вашего курса
+    'choosecrscover' => 'Choisissez votre couverture de cours',
     'create' => 'Créer',
     'save' => 'Sauvegarder',
     'editing' => 'Édition',
@@ -128,8 +128,8 @@ return [
     'birthday' => 'Date de naissance (AMJ)',
     'sex' => 'Sexe',
     'phonenum' => 'Numéro de téléphone',
-    'userrating' => 'Note de l`utilisateur', # Рейтинг пользователя
-    'entynm' => 'Entrez votre nom', # Укажите Ваше Имя
+    'userrating' => 'Note de l`utilisateur',
+    'entynm' => 'Entrez votre nom',
     'yphn' => 'Votre numéro de téléphone',
     'yem' => 'Votre e-mail',
     'agreement' => 'J`accepte les conditions',

@@ -59,7 +59,7 @@
                                 <li class="active"><a href="#detail" data-toggle="tab">@lang('content.about user')</a></li>
                                 <li class=""><a href="#contact" data-toggle="tab">@lang('content.sendmsg')</a></li>
                                 @auth('web')
-                                    <li class=""><a href="{{route('my_settings')}}">@lang('content.edusprog')</a>
+                                    <li class=""><a href="{{route('my_settings')}}">@lang('content.edusprof')</a>
                                 @endauth
                                 @auth('teacher')
                                     <li class=""><a href="{{route('teacher_settings')}}">@lang('content.edtchprof')</a>

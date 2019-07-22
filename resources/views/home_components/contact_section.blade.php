@@ -20,7 +20,7 @@
                             <input type="text" placeholder="@lang('content.your') E-mail">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" placeholder="@lang('content.subj">
+                            <input type="text" placeholder="@lang('content.subj')">
                         </div>
                         <div class="col-md-12">
                             <textarea placeholder="@lang('content.message')"></textarea>
