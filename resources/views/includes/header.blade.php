@@ -41,7 +41,6 @@
             </div>
 
 
-
             <ul class="main-menu">
                 <!-- li><a href="index.html">Home</a></li -->
                 <li><a href="#courses">Courses</a></li>

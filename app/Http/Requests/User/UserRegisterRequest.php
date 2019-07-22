@@ -26,11 +26,12 @@ class UserRegisterRequest extends FormRequest
         return [
             'name' => 'required|string|min:3|max:255|alpha_dash',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' =>'required|string|min:6|confirmed'
+            'password' => 'required|string|min:6|confirmed'
         ];
     }
 
-    public function messages(){
+    public function messages()
+    {
         return [
             'name.required' => 'Enter name',
             'name.min' => 'Name is to short',

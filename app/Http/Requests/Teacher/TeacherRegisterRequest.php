@@ -26,11 +26,12 @@ class TeacherRegisterRequest extends FormRequest
         return [
             'name' => 'required|string|min:6|max:255|alpha_dash',
             'email' => 'required|string|email|max:255|unique:teachers',
-            'password' =>'required|string|min:9|confirmed'
+            'password' => 'required|string|min:9|confirmed'
         ];
     }
 
-    public function messages(){
+    public function messages()
+    {
         return [
             'name.required' => 'Enter name',
             'name.min' => 'Name is to short',
