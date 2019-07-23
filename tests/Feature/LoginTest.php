@@ -2,87 +2,76 @@
 
 namespace Tests\Feature;
 
+use App\User;
+use Illuminate\Support\Facades\Hash;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 class LoginTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function testExample()
+    protected function successfulLoginRoute()
     {
-        $response = $this->get('/');
+        return route('home');
+    }
 
-        $response->assertStatus(200);
+    protected function loginGetRoute()
+    {
+        return route('login');
+    }
+
+    protected function loginPostRoute()
+    {
+        return route('login');
+    }
+
+    protected function logoutRoute()
+    {
+        return route('logout');
+    }
+
+    protected function successfulLogoutRoute()
+    {
+        return '/';
+    }
+
+    protected function guestMiddlewareRoute()
+    {
+        return route('home');
+    }
+
+    protected function getTooManyLoginAttemptsMessage()
+    {
+        return sprintf('/^%s$/', str_replace('\:seconds', '\d+', preg_quote(__('auth.throttle'), '/')));
+    }
+
+    public function testUserCanViewALoginForm()
+    {
+        $response = $this->get($this->loginGetRoute());
+        $response->assertSuccessful();
+        $response->assertViewIs('auth.login');
+    }
+
+    public function testUserCannotViewALoginFormWhenAuthenticated()
+    {
+        $user = factory(User::class)->make();
+        $response = $this->actingAs($user)->get($this->loginGetRoute());
+        $response->assertRedirect($this->guestMiddlewareRoute());
+    }
+
+    public function testUserCanLoginWithCorrectCredentials()
+    {
+        $user = factory(User::class)->create([
+            'password' => Hash::make($password = 'password'),
+        ]);
+        $response = $this->post($this->loginPostRoute(), [
+            'email' => $user->email,
+            'password' => $password,
+        ]);
+        $response->assertRedirect($this->successfulLoginRoute());
+        $this->assertAuthenticatedAs($user);
     }
 }
-
-//namespace Tests\Feature\Auth;
-//use App\User;
-//use Tests\TestCase;
-//use Illuminate\Support\Facades\Auth;
-//use Illuminate\Support\Facades\Hash;
-//use Illuminate\Foundation\Testing\RefreshDatabase;
-//
-//class LoginTest extends TestCase
-//{
-//    use RefreshDatabase;
-//    protected function successfulLoginRoute()
-//    {
-//        return route('home');
-//    }
-//    protected function loginGetRoute()
-//    {
-//        return route('login');
-//    }
-//    protected function loginPostRoute()
-//    {
-//        return route('login');
-//    }
-//    protected function logoutRoute()
-//    {
-//        return route('logout');
-//    }
-//    protected function successfulLogoutRoute()
-//    {
-//        return '/';
-//    }
-//    protected function guestMiddlewareRoute()
-//    {
-//        return route('home');
-//    }
-//    protected function getTooManyLoginAttemptsMessage()
-//    {
-//        return sprintf('/^%s$/', str_replace('\:seconds', '\d+', preg_quote(__('auth.throttle'), '/')));
-//    }
-//    public function testUserCanViewALoginForm()
-//    {
-//        $response = $this->get($this->loginGetRoute());
-//        $response->assertSuccessful();
-//        $response->assertViewIs('auth.login');
-//    }
-//    public function testUserCannotViewALoginFormWhenAuthenticated()
-//    {
-//        $user = factory(User::class)->make();
-//        $response = $this->actingAs($user)->get($this->loginGetRoute());
-//        $response->assertRedirect($this->guestMiddlewareRoute());
-//    }
-//    public function testUserCanLoginWithCorrectCredentials()
-//    {
-//        $user = factory(User::class)->create([
-//            'password' => Hash::make($password = 'i-love-laravel'),
-//        ]);
-//        $response = $this->post($this->loginPostRoute(), [
-//            'email' => $user->email,
-//            'password' => $password,
-//        ]);
-//        $response->assertRedirect($this->successfulLoginRoute());
-//        $this->assertAuthenticatedAs($user);
-//    }
 //    public function testRememberMeFunctionality()
 //    {
 //        $user = factory(User::class)->create([
