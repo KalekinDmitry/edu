@@ -42,11 +42,12 @@
                     <input type="hidden" name="_method" value="DELETE">
                     {{ csrf_field() }}
                     <a class="btn btn-default col-md-6" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">Редактировать</i></a>
+                    <a class="btn btn-warning col-md-6" href="{{ route('lesson.create', $course->id) }}">Add new lesson</a>
                     <button type="submit" class="btn btn-info col-md-5">Удалить</button>
                 </form>
                 <br>
                 <div class="container">
-                    <a class="btn btn-warning col-md-12" href="{{ route('lesson.create', $course) }}">Add new lesson</a>
+
                 </div>
 
                 <div>

@@ -6,6 +6,7 @@ use App\Course;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 
 class LessonController extends Controller
 {
@@ -27,14 +28,19 @@ class LessonController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Course $course
      * @return \Illuminate\Http\Response
      */
     public function create(Course $course)
     {
         $teacher = Auth::user();
-        if($teacher->can('create', $course )){
+        if($teacher->can('create', [Lesson::class, $course])){
             return view('lesson.create');
-        }else return redirect()->route('course.show', $course);
+        }else {
+            return redirect()
+            ->route('course.show', $course)
+            ->with(['message'=>'Permisson denied']);
+        }
 
     }
 
@@ -47,14 +53,16 @@ class LessonController extends Controller
     public function store(Request $request, Course $course)
     {
         $teacher = Auth::user();
-        if($teacher->can('store', $course)){
+        if($teacher->can('store', [Lesson::class, $course])){
             $lesson = Lesson::create($request->all());
             $lesson->slug = Str::slug($lesson->title);
             $lesson->course_id = $course->id;
             $lesson->save();
             return redirect()->route('lesson.show', $lesson->id);
         }
-        else return redirect()->route('course.show', $course);
+        else return redirect()
+        ->route('course.show', $course)
+        ->with(['message'=>'Permission denied']);
     }
 
     /**
@@ -71,15 +79,17 @@ class LessonController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param Course $lesson
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lesson $lesson, Course $course)
+    public function edit(Course $course, Lesson $lesson)
     {
         $teacher = Auth::user();
-        if($teacher->can('edit', $lesson, $course)){
-            return view('lesson.edit',['lesson' => $lesson] );
-        }else return redirect()->route('course.show', $course);
+        if($teacher->can('edit', [$lesson, $course])){
+            return view('lesson.edit', ['lesson' => $lesson, 'course' => $course]);
+        }else return redirect()
+        ->route('course.show', $course)
+        ->with(['message' => 'permission denied']);
     }
 
     /**
@@ -92,12 +102,14 @@ class LessonController extends Controller
     public function update(Request $request, Lesson $lesson, Course $course)
     {
         $teacher = Auth::user();
-        if($teacher->can('update', $lesson, $course)){
+        if($teacher->can('update', [$lesson, $course])){
             $lesson->update($request->except('slug'));
             $lesson->save();
             return redirect()->route('lesson.show', $lesson);
         }
-        else return redirect()->route('course.show', $lesson);
+        else return redirect()
+        ->route('course.show', $course)
+        ->with(['message'=>'permission enied']);
     }
 
     /**
@@ -109,9 +121,12 @@ class LessonController extends Controller
     public function destroy(Lesson $lesson, Course $course)
     {
         $teacher = Auth::user();
-        if($teacher->can('destroy', $lesson, $course)){
+        if($teacher->can('destroy', [$lesson, $course])){
             $lesson->delete();
-        }
-        return redirect()->route('course.show', $course);
+            return redirect()->route('course.show', $course);
+        } else return redirect()
+        ->route('course.show', $course)
+        ->with(['message'=>'permission denied']);
+
     }
 }

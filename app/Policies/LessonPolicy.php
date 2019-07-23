@@ -21,29 +21,33 @@ class LessonPolicy
         //
     }
 
-    public function  create(Teacher $teacher, Course $course)
-    {
-        return $teacher->id == $course->creator_id;
+    /**
+     * @param Course $course
+     */
+    public function  create(Teacher $teacher, Course $course){
+
+        //dd(__METHOD__, $course);
+        return $teacher->id == $course->created_by;
     }
 
     public function  store(Teacher $teacher, Course $course)
     {
-        return $teacher->id == $course->creator_id;
+        return $teacher->id == $course->created_by;
     }
 
     public function  edit(Teacher $teacher, Lesson $lesson, Course $course)
     {
-        return $lesson->course_id == $course->id && $teacher->id == $course->creator_id;
+       // return $lesson->course_id == $course->id && $teacher->id == $course->created_by;
     }
 
     public function  update(Teacher $teacher, Lesson $lesson, Course $course)
     {
-        return $lesson->course_id == $course->id && $teacher->id == $course->creator_id;
+        //return $lesson->course_id == $course->id && $teacher->id == $course->created_by;
     }
 
     public function  destroy(Teacher $teacher, Lesson $lesson, Course $course)
     {
-        return $lesson->course_id == $course->id && $teacher->id == $course->creator_id;
+        //return $lesson->course_id == $course->id && $teacher->id == $course->created_by;
     }
 
     /*public function  forceDelete(Teacher $teacher, Lesson $lesson, Course $course)
