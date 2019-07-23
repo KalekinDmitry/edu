@@ -43,13 +43,13 @@
             </a>
             <div class="user-panel">
                 @guest
-                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('login') }}">@lang('content.loginbtn')</a>
                     <span>/</span>
-                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('register') }}">@lang('content.regbtn')</a>
                 @else
                     <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     <span>/</span>
-                    <a href="{{ route('logout') }}">Logout</a>
+                    <a href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
                 @endguest
             </div>
             <div class="nav-switch">
@@ -65,7 +65,7 @@
 <!-- Page top section -->
 <section class="page-top-section set-bg" data-setbg="{{config('static.static')}}/img/page-top-bg.jpg">
     <div class="container text-white">
-        <h3>Our Courses</h3>
+        <h3>@lang('content.ourcour')</h3>
     </div>
 </section>
 <!--  Page top end -->
@@ -96,25 +96,25 @@
 
         <div class="row">
             <div class="col col-3">
-                <form onsubmit="if(confirm('Желаете удалить выбранный пост?')){return true}else{return false}"
+                <form onsubmit="if(confirm('@lang('content.cnfrmdel')?')){return true}else{return false}"
                       action="{{route('course.destroy', $course)}}" method="post">
-                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" name="_method" value="@lang('content.del')">
                     {{ csrf_field() }}
 
-                    <a class="btn btn-default" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">Редактировать</i></a>
+                    <a class="btn btn-default" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">@lang('content.edit')</i></a>
 
-                    <button type="submit" class="btn btn-info">Удалить</button>
+                    <button type="submit" class="btn btn-info">@lang('content.del')</button>
 
                 </form>
                 <div>
-                    <h3 style="padding-bottom:40px; padding-top: 45px;">Table of contents</h3>
+                    <h3 style="padding-bottom:40px; padding-top: 45px;">@lang('content.tableofcontent')</h3>
                 </div>
 
-                <h5 style="font-size: 18px; padding-bottom:10px;">📂 1. The fourth industrial revolution</h5>
+                <h5 style="font-size: 18px; padding-bottom:10px;">📂 1. @lang('content.4rev')</h5>
 
                 <div class="list-group">
                     <a href="#" style="font-size: 14px;" class="list-group-item list-group-item-action active">📄
-                        Introduction</a>
+                        @lang('content.intro')</a>
                     <a style="font-size: 14px; color: gray;" class="list-group-item list-group-item-action disabled">🔒
                         TODO: 1</a>
                     <a style="font-size: 14px; color: gray;" class="list-group-item list-group-item-action disabled">🔒
@@ -125,11 +125,10 @@
                         TODO: 4</a>
                 </div>
 
-                <h5 style="font-size: 18px; padding-bottom:10px; padding-top: 20px;">📂 2. Business</h5>
+                <h5 style="font-size: 18px; padding-bottom:10px; padding-top: 20px;">📂 2. @lang('content.business')</h5>
 
                 <div class="list-group">
-                    <a href="#" style="font-size: 14px;" class="list-group-item list-group-item-action">📄 How to find
-                        your mission in life</a>
+                    <a href="#" style="font-size: 14px;" class="list-group-item list-group-item-action">📄 @lang('content.missioninlife')</a>
                     <a style="font-size: 14px; color: gray;" class="list-group-item list-group-item-action disabled">🔒
                         TODO: 1</a>
                     <a style="font-size: 14px; color: gray;" class="list-group-item list-group-item-action disabled">🔒
@@ -140,10 +139,10 @@
                         TODO: 4</a>
                 </div>
 
-                <h5 style="font-size: 18px; padding-bottom:10px; padding-top: 20px;">📂 3. Personal development</h5>
+                <h5 style="font-size: 18px; padding-bottom:10px; padding-top: 20px;">📂 3. @lang('content.persdev')</h5>
 
                 <div class="list-group">
-                    <a href="#" style="font-size: 14px;" class="list-group-item list-group-item-action">📄 Energy</a>
+                    <a href="#" style="font-size: 14px;" class="list-group-item list-group-item-action">📄 @lang('content.energy')</a>
                     <a style="font-size: 14px; color: gray;" class="list-group-item list-group-item-action disabled">🔒
                         TODO: 1</a>
                     <a style="font-size: 14px; color: gray;" class="list-group-item list-group-item-action disabled">🔒
@@ -192,7 +191,7 @@
                                                     <a href="#">#{{ $tag }}</a>
                                                 @endforeach
                                             @else
-                                                No tags
+                                            @lang('content.notags')
                                             @endif
                                         </p>
                                     </div>
@@ -207,8 +206,8 @@
                                     </div>
                                 </div>
                                 <div class="seller-info">
-                                    <div class="seller-pic set-bg" data-setbg="">[Profile avatar]</div>
-                                    <h6><a style="color: #fff" href="{{ route('users_profile', $course->teacher->id) }}">By {{$course->teacher->name}}</a>, <span>[who is]</span></h6>
+                                    <div class="seller-pic set-bg" data-setbg="">[@lang('content.profav')]</div>
+                                    <h6><a style="color: #fff" href="{{ route('users_profile', $course->teacher->id) }}">By {{$course->teacher->name}}</a>, <span>[@lang('content.wi')]</span></h6>
                                 </div>
                             </div>
                         </div>
@@ -478,8 +477,8 @@
                 <a href=""><i class="fa fa-linkedin"></i></a>
             </div>
             <ul class="footer-menu">
-                <li><a href="{{ route('home') }}">About us</a></li>
-                <li><a href="{{ route('home') }}">Courses</a></li>
+                <li><a href="{{ route('home') }}">@lang('content.about us')</a></li>
+                <li><a href="{{ route('home') }}">@lang('content.courses')</a></li>
                 <!-- li><a href="#">Contact us</a></li -->
             </ul>
             <div class="footer-logo">

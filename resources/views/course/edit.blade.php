@@ -44,13 +44,13 @@
 
             <div class="user-panel">
                 @guest
-                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('login') }}">@lang('content.loginbtn')</a>
                     <span>/</span>
-                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('register') }}">@lang('content.regbtn')</a>
                 @else
                     <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     <span>/</span>
-                    <a href="{{ route('logout') }}">Logout</a>
+                    <a href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
                 @endguest
             </div>
             <div class="nav-switch">
@@ -69,7 +69,7 @@
         <div class="card text-white bg-dark">
 
             <div class="card-header">
-                Editing
+                @lang('content.editing')
             </div>
 
             <form class="form-horizontal card-body" action="{{route('course.update', $course)}}" method="post"
@@ -81,12 +81,12 @@
                 @include('course.partials.form')
 
                 <div class="form-group">
-                    <label for="">Choose a cover if you want to change it</label><br>
+                    <label for="">@lang('content.chcovifch')</label><br>
 
                     <input type="file" name="image">
                 </div>
                 <input style="color: #000" class="btn btn-light" type="submit" value="To apply">
-                <a style="color: #000" class="btn btn-light" href="{{ route('home') }}">Cancel</a>
+                <a style="color: #000" class="btn btn-light" href="{{ route('home') }}">@lang('content.cancel')</a>
             </form>
         </div>
     </div>

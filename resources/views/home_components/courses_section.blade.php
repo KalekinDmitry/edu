@@ -1,13 +1,12 @@
 <section class="courses-section">
     <div class="container">
         <div class="sec-title text-center">
-            <span>Only  the best</span>
+            <span>@lang('content.otb')</span>
             <a id="courses"></a>
-            <h2>Courses</h2>
-            <p>You can use our trial period and make your own decision whether you want to know more or not.</p>
-            <h5>How much</h5>
-            <p>First week is free of any charge, since 2nd week courses will be deeper and more professional. So, it
-                will cost minimum amount of 20 cents per week. </p>
+            <h2>@lang('content.courses')</h2>
+            <p>@lang('content.txtunderotb').</p>
+            <h5>@lang('content.hm')</h5>
+            <p>@lang('content.txtunderhm'). </p>
         </div>
         <div class="course-slider owl-carousel"> <!--   -->
             <!-- course -->
@@ -24,7 +23,7 @@
                         @if( $course->cost > 0)
                             <div class="price">${{ $course->cost }}</div>
                         @else
-                            <div class="price">FREE</div>
+                            <div class="price">@lang('content.free')</div>
                         @endif
                     </figure>
                     <div class="course-content">

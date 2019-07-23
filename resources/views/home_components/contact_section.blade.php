@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-4 contact-text">
-                <h3>Stay in touch</h3>
+                <h3>@lang('content.stay in touch')</h3>
                 <p></p>
                 <ul class="contact-info">
                     <li><a href="mailto:hmq.edu@gmail.com">hmq.edu@gmail.com</a></li>
@@ -14,17 +14,17 @@
                 <form class="contact-form">
                     <div class="row">
                         <div class="col-md-12">
-                            <input type="text" placeholder="Your Name">
+                            <input type="text" placeholder="@lang('content.yname')">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" placeholder="Your E-mail">
+                            <input type="text" placeholder="@lang('content.your') E-mail">
                         </div>
                         <div class="col-md-6">
-                            <input type="text" placeholder="Subject">
+                            <input type="text" placeholder="@lang('content.subj')">
                         </div>
                         <div class="col-md-12">
-                            <textarea placeholder="Message"></textarea>
-                            <button class="site-btn">Send <i class="fa fa-angle-right"></i></button>
+                            <textarea placeholder="@lang('content.message')"></textarea>
+                            <button class="site-btn">@lang('content.send') <i class="fa fa-angle-right"></i></button>
                         </div>
                     </div>
                 </form>
