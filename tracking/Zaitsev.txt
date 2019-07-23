@@ -21,3 +21,8 @@
 19-Jul:
 -7 hours
 -lessons CRUD
+
+
+23-Jul:
+-6 hours
+-lessons CRUD policies
