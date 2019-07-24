@@ -52,3 +52,5 @@ Route::get('/myaccount','UserController@edit')->name('my_settings');
 Route::put('/myaccount/save','UserController@update')->name('my_settings_save');
 
 Route::get('logout', 'Auth\LoginController@logout');
+
+Route::get('setlocale/{locale}', 'LocaleController@setLocale')->name('setLocale');

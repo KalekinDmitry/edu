@@ -1,4 +1,8 @@
 <header class="header-section">
+<a style="color:#fff">@lang('content.chlang'):</a>
+<a href="{{ route('setLocale', ['ru']) }}">Русский/</a>
+<a  href="{{ route('setLocale', ['en']) }}">English/</a>
+<a  href="{{ route('setLocale', ['fr']) }}">Francais</a>
     <div class="header-warp">
         <div class="container">
             @guest
@@ -44,10 +48,10 @@
 
             <ul class="main-menu">
                 <!-- li><a href="index.html">Home</a></li -->
-                <li><a href="#courses">Courses</a></li>
-                <li><a href="#about">About us</a></li>
-                <li><a href="#newslatter">News</a></li>
-                <li><a href="#contact">Contact us</a></li>
+                <li><a href="#courses">@lang('content.courses')</a></li>
+                <li><a href="#about">@lang('content.about us')</a></li>
+                <li><a href="#newslatter">@lang('content.news')</a></li>
+                <li><a href="#contact">@lang('content.contact us')</a></li>
             </ul>
         </div>
     </div>

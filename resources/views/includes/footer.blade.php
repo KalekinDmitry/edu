@@ -2,8 +2,7 @@
 <footer class="footer-section spad pb-0">
         <div class="container">
             <!-- div class="text-center">
-                <a href="#" class="site-btn">Enroll Now <i class="fa fa-angle-right"></i></a>
-            </div>
+            <a href="#" class="site-btn">Enroll Now <i class="fa fa-angle-right"></i></a>
             <div class="row text-white spad">
                 <div class="col-lg-3 col-sm-6 footer-widget">
                     <h4>Engeneering</h4>
@@ -47,16 +46,19 @@
                 </div>
             </div -->
             <div class="footer-bottom">
-
                 <div class="social">
+                    <a href=""><i class="fa fa-pinterest"></i></a>
                     <a href=""><i class="fa fa-facebook"></i></a>
                     <a href=""><i class="fa fa-twitter"></i></a>
+                    <a href=""><i class="fa fa-dribbble"></i></a>
+                    <a href=""><i class="fa fa-behance"></i></a>
                     <a href=""><i class="fa fa-linkedin"></i></a>
                 </div>
                 <ul class="footer-menu">
-                    <li><a href="{{ route('home') }}">@lang('content.about us')</a></li>
-                    <li><a href="{{ route('home') }}">@lang('content.courses')</a></li>
-                    <!-- li><a href="#">Contact us</a></li -->
+                    <li><a href="#courses">@lang('content.courses')</a></li>
+                    <li><a href="#about">@lang('content.about us')</a></li>
+                    <li><a href="#newslatter">@lang('content.news')</a></li>
+                    <li><a href="#contact">@lang('content.contact us')</a></li>
                 </ul>
                 <div class="footer-logo">
                     <a href="{{ route('home') }}">

@@ -6,28 +6,28 @@
                     <img src="{{config('static.static')}}/img/icons/1.png" alt="">
                 </figure>
                 <h2>{{ $count = DB::table('users')->count()}}</h2>
-                <p>New Students</p>
+                <p>@lang('content.newstudents')</p>
             </div>
             <div class="col-lg-3 col-sm-6 fact-item">
                 <figure>
                     <img src="{{config('static.static')}}/img/icons/2.png" alt="">
                 </figure>
                 <h2>?</h2>
-                <p>Grad Students</p>
+                <p>@lang('content.gradstudents')</p>
             </div>
             <div class="col-lg-3 col-sm-6 fact-item">
                 <figure>
                     <img src="{{config('static.static')}}/img/icons/3.png" alt="">
                 </figure>
                 <h2>?</h2>
-                <p>Qualified Teachers</p>
+                <p>@lang('content.qualteachers')</p>
             </div>
             <div class="col-lg-3 col-sm-6 fact-item">
                 <figure>
                     <img src="{{config('static.static')}}/img/icons/4.png" alt="">
                 </figure>
                 <h2>{{ $count = DB::table('courses')->count()}}</h2>
-                <p>Amazing Courses</p>
+                <p>@lang('content.amazingcourses')</p>
             </div>
         </div>
     </div>
