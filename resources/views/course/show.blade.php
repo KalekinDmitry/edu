@@ -41,14 +41,11 @@
                       action="{{route('course.destroy', $course)}}" method="post">
                     <input type="hidden" name="_method" value="DELETE">
                     {{ csrf_field() }}
-                    <a class="btn btn-default col-md-6" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">Редактировать</i></a>
+                    <a class="btn btn-default" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">@lang('content.edit')</i></a>
                     <a class="btn btn-warning col-md-6" href="{{ route('lesson.create', $course->id) }}">Add new lesson</a>
-                    <button type="submit" class="btn btn-info col-md-5">Удалить</button>
+                    <button type="submit" class="btn btn-info">@lang('content.del')</button>
                 </form>
                 <br>
-                <div class="container">
-
-                </div>
 
                 <div>
                     <h3 style="padding-bottom:40px; padding-top: 45px;">Table of contents</h3>

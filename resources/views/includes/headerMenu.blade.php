@@ -21,6 +21,6 @@
             <a class="dropdown-item" style="background-color: #3B3444" href="#">Messages</a>
         @endauth
 
-        <a class="dropdown-item" style="background-color: #3B3444" href="{{ route('logout') }}">Logout</a>
+        <a class="dropdown-item" style="background-color: #3B3444" href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
   </div>
 </div>
