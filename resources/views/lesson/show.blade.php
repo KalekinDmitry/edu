@@ -3,12 +3,10 @@
 @section('content')
 
 <section class="hero-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg" >
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <div class="hero-text text-white">
-                    <h2>{{ $lesson->title }}</h2>
-                </div>
+    <div class="row justify-content-center">
+        <div class="col-md-7">
+            <div class="hero-text text-white">
+                <h2>Lesson: {{ $lesson->title }}</h2>
             </div>
         </div>
     </div>
@@ -37,6 +35,14 @@
                             </div>
                             <div class="col-md-4" style="color:crimson">
                                 <strong>{{ $lesson->dislikes }}</strong> users disliked this lesson
+                            </div>
+
+                            <div class="col-md-4" style="color:dodgerblue">
+                                @if($lesson->is_published)
+                                    <strong>Published</strong>
+                                @else
+                                    Not published
+                                @endif
                             </div>
                         </div>
                     </div>
