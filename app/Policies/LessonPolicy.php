@@ -37,17 +37,17 @@ class LessonPolicy
 
     public function  edit(Teacher $teacher, Lesson $lesson, Course $course)
     {
-       // return $lesson->course_id == $course->id && $teacher->id == $course->created_by;
+       return $lesson->course_id == $course->id && $teacher->id == $course->created_by;
     }
 
     public function  update(Teacher $teacher, Lesson $lesson, Course $course)
     {
-        //return $lesson->course_id == $course->id && $teacher->id == $course->created_by;
+        return $lesson->course_id == $course->id && $teacher->id == $course->created_by;
     }
 
     public function  destroy(Teacher $teacher, Lesson $lesson, Course $course)
     {
-        //return $lesson->course_id == $course->id && $teacher->id == $course->created_by;
+        return $lesson->course_id == $course->id && $teacher->id == $course->created_by;
     }
 
     /*public function  forceDelete(Teacher $teacher, Lesson $lesson, Course $course)
