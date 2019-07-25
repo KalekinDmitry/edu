@@ -26,3 +26,7 @@
 23-Jul:
 -6 hours
 -lessons CRUD policies
+
+24-Jul:
+-8 hours
+-lessons CRUD views
