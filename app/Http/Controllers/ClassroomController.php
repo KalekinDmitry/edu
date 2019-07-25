@@ -13,7 +13,7 @@ class ClassroomController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth.teacher')->except('show');
+        $this->middleware('auth:teacher')->except('show');
     }
 
     /**
@@ -33,10 +33,7 @@ class ClassroomController extends Controller
      */
     public function create()
     {
-        $teacher = Auth::user();
-        if($teacher->can('create', [Classroom::class])){
-            return view('classroom.create');
-        }
+        return view('classroom.create');
     }
 
     /**
@@ -48,16 +45,12 @@ class ClassroomController extends Controller
     public function store(Request $request)
     {
         $teacher = Auth::user();
+        $classroom = Classroom::create($request->input());
+        $classroom->slug = Str::slug($classroom->name);
+        $classroom->teacher_id = $teacher->id;
+        $classroom->save();
+        return redirect()->route('classroom.show',$classroom);
 
-        if($teacher->can('store', [Classroom::class])){
-            $classroom = Classroom::create($request->input());
-            $classroom->slug = Str::slug($classroom->name);
-            $classroom->teacher_id = $teacher->id;
-            $classroom->save();
-            return redirect()->route('classroom.show',$classroom);
-        }else{
-            return redirect()->route('teacher.dashboard')->with(['message' => 'Permission denied']);
-        }
     }
 
     /**
@@ -68,7 +61,7 @@ class ClassroomController extends Controller
      */
     public function show(Classroom $classroom)
     {
-        return view('classroom.show', $classroom);
+        return view('classroom.show', ['classroom'=>$classroom]);
     }
 
     /**
@@ -82,7 +75,7 @@ class ClassroomController extends Controller
         $teacher = Auth::user();
 
         if($teacher->can('edit', $classroom )){
-            return view('classroom.edit',  $classroom);
+            return view('classroom.edit',  ['classroom' =>$classroom]);
         } else return redirect()
         ->route('teacher.dashboard')
         ->with(['message' => 'permission denied']);
@@ -99,7 +92,7 @@ class ClassroomController extends Controller
     {
         $teacher = Auth::user();
         if($teacher->can('update', $classroom)){
-            $classroom->update($request->excerpt('slug'));
+            $classroom->update($request->except('slug'));
             $classroom->save();
             return redirect()->route('classroom.show', $classroom);
         }else{
@@ -116,6 +109,7 @@ class ClassroomController extends Controller
     public function destroy(Classroom $classroom)
     {
         $teacher = Auth::user();
+        dd($classroom);
         if($teacher->can('destroy', $classroom)){
             $classroom->delete();
             return redirect()->route('teacher.dashboard');

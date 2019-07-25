@@ -16,7 +16,7 @@ class ClassroomsTableSeeder extends Seeder
         $data = [
             [
                 'name' => 'test classroom',
-                'slug' =>Str::slug('sets classroom'),
+                'slug' =>Str::slug('test classroom'),
                 'teacher_id' => $teacherID,
             ]
         ];
