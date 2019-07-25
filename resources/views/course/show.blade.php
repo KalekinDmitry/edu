@@ -44,7 +44,7 @@
                     {{ csrf_field() }}
 
                     <a class="btn btn-default" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">@lang('content.edit')</i></a>
-                    <a class="btn btn-warning col-md-6" href="{{ route('lesson.create', $course->id) }}">Add new lesson</a>
+                    <a class="btn btn-warning col-md-6" href="{{ route('lesson.create', $course->id) }}">@lang('content.addnewlesson')</a>
                     <button type="submit" class="btn btn-info">@lang('content.del')</button>
 
                 </form>
@@ -120,7 +120,7 @@
                                     <h5>{{ $course->title }}</h5>
                                     <h5>{{ $course->description_short }}</h5>
                                     <p>{{ $course->description }}</p>
-                                    <p>[Video for example]</p>
+                                    <p>[@lang('content.vidfe')]</p>
                                     <div style="text-align: center;">
                                         <iframe width="100%" height="435"
                                                 src="https://www.youtube.com/embed/cNZf6nBDE-s" frameborder="0"
@@ -151,7 +151,7 @@
                                 </div>
                                 <div class="seller-info">
                                     <div class="seller-pic set-bg" data-setbg="">[@lang('content.profav')]</div>
-                                    <h6><a style="color: #fff" href="{{ route('users_profile', $course->teacher->id) }}">By {{$course->teacher->name}}</a>, <span>[@lang('content.wi')]</span></h6>
+                                    <h6><a style="color: #fff" href="{{ route('users_profile', $course->teacher->id) }}">@lang('content.by') {{$course->teacher->name}}</a>, <span>[@lang('content.wi')]</span></h6>
                                 </div>
                             </div>
                         </div>
