@@ -44,7 +44,7 @@
                 </div>
 
             <div class="col-md-7" >
-                <button class = "site-btn col-md-4" type="submit" value="create">Create<i class="fa fa-angle-right"></i></button>
+                <button class = "site-btn col-md-4" type="submit" value="create">@lang('content.create')<i class="fa fa-angle-right"></i></button>
             </div>
 
         </div>
