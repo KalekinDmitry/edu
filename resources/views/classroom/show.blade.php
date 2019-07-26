@@ -13,17 +13,34 @@
     <div class="row justify-content-center">
         <div class="card col-md-6">
             <div class="card-body">
-                <div class="card-header" style="color:darkslategray">
+                <div class="card-title" style="color:darkslategray">
                     <strong>Classrom: {{ $classroom->name }}</strong>
                 </div>
-                <br>
+                <div class="card-header" style="color:gray">
+                    <strong>Participants</strong>
+                </div>
+                <ul classs="list-group list-group-flush">
+                    @foreach($classroom->users()->get() as $user)
+                            <li class="list-group-item">{{ $user->name}}</li>
+                    @endforeach
+                </ul>
+                <div class="card-header" style="color:gray">
+                    <strong>Included courses</strong>
+                </div>
+                <ul classs="list-group list-group-flush">
+                    @foreach($classroom->courses()->get() as $course)
+                            <li class="list-group-item">{{ $course->title }}</li>
+                    @endforeach
+                </ul>
                 <form  onsubmit="if(confirm('Realy delete?')){return true}else{return false}"
                     action="{{ route('classroom.destroy', [$classroom->id]) }}" method="post">
                     <input type="hidden" name="_method" value="delete">
                     {{ csrf_field() }}
                     <a href="{{ route('classroom.edit',[$classroom->id]) }}" class="site-btn col-md-4">Edit classroom</a>
                     <button type="submit" class="btn btn-danger col-md-4">Delete Classroom</button>
+
                 </form>
+                <br>
             </div>
         </div>
     </div>

@@ -18,7 +18,12 @@ class ClassroomsTableSeeder extends Seeder
                 'name' => 'test classroom',
                 'slug' =>Str::slug('test classroom'),
                 'teacher_id' => $teacherID,
-            ]
+            ],
+            [
+                'name' => 'test classroom 2',
+                'slug' =>Str::slug('test classroom 2'),
+                'teacher_id' => $teacherID,
+            ],
         ];
 
         DB::table('classrooms')->insert($data);

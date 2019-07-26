@@ -11,14 +11,35 @@ class ClassroomUserTableSeeder extends Seeder
      */
     public function run()
     {
-        $userID= 1;
-        $classroomID = 1;
 
         $data = [
             [
-                'user_id' => $userID,
-                'classroom_id' => $classroomID
-            ]
+                'user_id' => 1,
+                'classroom_id' => 1
+            ],
+            [
+                'user_id' => 2,
+                'classroom_id' => 1
+            ],
+            [
+                'user_id' => 4,
+                'classroom_id' => 1
+            ],
+
+
+
+            [
+                'user_id' => 1,
+                'classroom_id' => 2
+            ],
+            [
+                'user_id' => 2,
+                'classroom_id' => 2
+            ],
+            [
+                'user_id' => 3,
+                'classroom_id' => 2
+            ],
         ];
 
         DB::table('classroom_user')->insert($data);

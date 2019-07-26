@@ -61,6 +61,7 @@ class ClassroomController extends Controller
      */
     public function show(Classroom $classroom)
     {
+        $usersList = $classroom->users();
         return view('classroom.show', ['classroom'=>$classroom]);
     }
 
