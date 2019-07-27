@@ -1,7 +1,51 @@
+<!-- Footer section -->
 <footer class="footer-section spad pb-0">
     <div class="container">
+        <!-- div class="text-center">
+        <a href="#" class="site-btn">Enroll Now <i class="fa fa-angle-right"></i></a>
+        <div class="row text-white spad">
+            <div class="col-lg-3 col-sm-6 footer-widget">
+                <h4>Engeneering</h4>
+                <ul>
+                    <li><a href="#">Applied Studies</a></li>
+                    <li><a href="#">Computer Engeneering</a></li>
+                    <li><a href="#">Software Engeneering</a></li>
+                    <li><a href="#">Informational Engeneering</a></li>
+                    <li><a href="#">System Engeneering</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6 footer-widget">
+                <h4>Business School</h4>
+                <ul>
+                    <li><a href="#">Applied Studies</a></li>
+                    <li><a href="#">Computer Engeneering</a></li>
+                    <li><a href="#">Software Engeneering</a></li>
+                    <li><a href="#">Informational Engeneering</a></li>
+                    <li><a href="#">System Engeneering</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6 footer-widget">
+                <h4>Art & Design</h4>
+                <ul>
+                    <li><a href="#">Graphic Design</a></li>
+                    <li><a href="#">Motion Graphics & 3D</a></li>
+                    <li><a href="#">Classichal Painting</a></li>
+                    <li><a href="#">Sculpture</a></li>
+                    <li><a href="#">Fashion Design</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 col-sm-6 footer-widget">
+                <h4>Higher Education</h4>
+                <ul>
+                    <li><a href="#">Applied Studies</a></li>
+                    <li><a href="#">Computer Engeneering</a></li>
+                    <li><a href="#">Software Engeneering</a></li>
+                    <li><a href="#">Informational Engeneering</a></li>
+                    <li><a href="#">System Engeneering</a></li>
+                </ul>
+            </div>
+        </div -->
         <div class="footer-bottom">
-
             <div class="social">
                 <a href=""><i class="fa fa-pinterest"></i></a>
                 <a href=""><i class="fa fa-facebook"></i></a>
@@ -23,7 +67,6 @@
                 <!-- span style="color: #fff;">HMQ-Education</span -->
             </div>
         </div>
-
         <div class="row">
             <div class="col-12">
                 <p class="text-white  text-center">

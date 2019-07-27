@@ -1,8 +1,8 @@
 <header class="header-section">
-<a style="color:#fff">@lang('content.chlang'):</a>
-<a href="{{ route('setLocale', ['ru']) }}">Русский/</a>
-<a  href="{{ route('setLocale', ['en']) }}">English/</a>
-<a  href="{{ route('setLocale', ['fr']) }}">Francais</a>
+    <a style="color:#fff">@lang('content.chlang'):</a>
+    <a href="{{ route('setLocale', ['ru']) }}">Русский/</a>
+    <a href="{{ route('setLocale', ['en']) }}">English/</a>
+    <a href="{{ route('setLocale', ['fr']) }}">Francais</a>
     <div class="header-warp">
         <div class="container">
             @guest
