@@ -30,8 +30,83 @@
                         </div>
 
                         <div class="col-md-10">
-                                <a href="#" class="btn btn-info col-md-4">Add participants</a>
-                                <a href="#" class="btn btn-danger col-md-4">Include courses</a>
+
+
+
+                                <button type="button" class="btn btn-primary col-md-3" data-toggle="modal" data-target=".bd-example-modal-md-users">Invite users</button>
+                                <div class="modal fade bd-example-modal-md-users" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel2" aria-hidden="true">
+                                    <div class="modal-dialog modal-md">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Invite users</h4>
+
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+
+                                            </div>
+
+                                            {{-- TOOD make search form --}}
+
+                                            <br>
+                                            @foreach($users as $user)
+                                                <div class="row justify-content-center">
+                                                    <div class="col-md-8">
+                                                        {{ $user->name}}
+                                                    </div>
+                                                    <a href="#" class="btn btn-secondary col-md-2">invite</a>
+                                                </div>
+                                            @endforeach
+                                            <br>
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <button type="button" class="btn btn-primary col-md-3" data-toggle="modal" data-target=".bd-example-modal-sm-courses">Include courses</button>
+                                <div class="modal fade bd-example-modal-sm-courses" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel2" aria-hidden="true">
+                                    <div class="modal-dialog modal-md">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h4 class="modal-title">Include courses</h4>
+
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+
+                                            </div>
+                                            <br>
+                                            <div class="row justify-content-center">
+                                                <div class="col-md-8">
+                                                    <strong>Course title</strong>
+                                                </div>
+                                                {{-- <a href="#" class="btn btn-secondary  col-md-2">exclude</a> --}}
+                                                <div class="col-md-3">
+                                                    <strong>Include</strong>
+                                                </div>
+                                            </div>
+                                            <br>
+
+                                            @foreach($courses as $course)
+                                                <div class="row justify-content-center">
+                                                    <div class="col-md-8">
+                                                        {{ $course->title }}
+                                                    </div>
+                                                    {{-- <a href="#" class="btn btn-secondary  col-md-2">include</a> --}}
+                                                    <div class="col-md-3">
+                                                        <input class="col-md-3" type="checkbox" name="includedCourses[]" value="{{ $course->id }}">
+                                                    </div>
+                                                </div>
+                                            @endforeach
+                                            <br>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
                         <br><br><br>
                         <div class="col-md-10">

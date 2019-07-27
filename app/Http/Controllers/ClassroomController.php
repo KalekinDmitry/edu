@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Course;
 use App\Models\Classroom;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
@@ -33,7 +35,14 @@ class ClassroomController extends Controller
      */
     public function create()
     {
-        return view('classroom.create');
+        $notIncludedUsers = User::get();
+
+        $notIncludedCourses = Course::where('created_by', Auth::user()->id)->get();
+
+        return view('classroom.create', [
+                'users' => $notIncludedUsers,
+                'courses' => $notIncludedCourses,
+        ]);
     }
 
     /**
@@ -48,6 +57,15 @@ class ClassroomController extends Controller
         $classroom = Classroom::create($request->input());
         $classroom->slug = Str::slug($classroom->name);
         $classroom->teacher_id = $teacher->id;
+
+        if($request->input('includedCourses')){
+            $classroom->courses()->attach($request->input('includedCourses'));
+        }
+
+        /*if($request->input('users')){
+            $classroom->users()->attach($request->input('users'));
+        }*/
+
         $classroom->save();
         return redirect()->route('classroom.show',$classroom);
 
@@ -61,8 +79,9 @@ class ClassroomController extends Controller
      */
     public function show(Classroom $classroom)
     {
-        $usersList = $classroom->users();
-        return view('classroom.show', ['classroom'=>$classroom]);
+        $usersList = $classroom->users()->get();
+        $coursesList = $classroom->courses()->get();
+        return view('classroom.show', ['classroom'=>$classroom, 'users' => $usersList, 'courses' => $coursesList]);
     }
 
     /**
@@ -75,8 +94,29 @@ class ClassroomController extends Controller
     {
         $teacher = Auth::user();
 
+
         if($teacher->can('edit', $classroom )){
-            return view('classroom.edit',  ['classroom' =>$classroom]);
+            $includedUsers = $classroom->users()->get();
+
+            $includedUsersID = $classroom->users()->pluck('users.id')->toArray();
+            $notIncludedUsers = User::get()->except($includedUsersID);
+
+
+            $includedCourses = $classroom->courses()->get();
+
+            $includedCoursesID = $classroom->courses()->pluck('courses.id')->toArray();
+            $notIncludedCourses = Course::where('created_by', Auth::user()->id)->get()->except($includedCoursesID);
+
+
+            return view('classroom.edit',  [
+                'classroom' => $classroom,
+                'includedUsers' => $includedUsers,
+                'notIncludedUsers' => $notIncludedUsers,
+                'includedCourses' => $includedCourses,
+                'notIncludedCourses' => $notIncludedCourses,
+                ]);
+
+
         } else return redirect()
         ->route('teacher.dashboard')
         ->with(['message' => 'permission denied']);
@@ -93,6 +133,23 @@ class ClassroomController extends Controller
     {
         $teacher = Auth::user();
         if($teacher->can('update', $classroom)){
+
+            if($request->input('newIncludedCourses')){
+                $classroom->courses()->attach($request->input('newIncludedCourses'));
+            }
+
+            if($request->input('excludedCourses')){
+                $classroom->courses()->detach($request->input('excludedCourses'));
+            }
+
+            /*if($request->input('users')){
+                $classroom->users()->attach($request->input('users'));
+            }*/
+
+            if($request->input('excludedUsers')){
+                $classroom->users()->detach($request->input('excludedUsers'));
+            }
+
             $classroom->update($request->except('slug'));
             $classroom->save();
             return redirect()->route('classroom.show', $classroom);

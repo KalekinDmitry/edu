@@ -20,7 +20,7 @@
                     <strong>Participants</strong>
                 </div>
                 <ul classs="list-group list-group-flush">
-                    @foreach($classroom->users()->get() as $user)
+                    @foreach($users as $user)
                             <li class="list-group-item">{{ $user->name}}</li>
                     @endforeach
                 </ul>
@@ -28,7 +28,7 @@
                     <strong>Included courses</strong>
                 </div>
                 <ul classs="list-group list-group-flush">
-                    @foreach($classroom->courses()->get() as $course)
+                    @foreach($courses as $course)
                             <li class="list-group-item">{{ $course->title }}</li>
                     @endforeach
                 </ul>
