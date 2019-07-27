@@ -14,6 +14,7 @@ public/hot
 storage/*.key
 .env.*.php
 .env.php
+.env.testing
 .env
 .idea/*
 Homestead.yaml

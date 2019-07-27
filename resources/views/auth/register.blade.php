@@ -63,7 +63,9 @@
                 </div>
                 <div class="wrap-input100 validate-input m-b-18">
                     <span class="label-input100">@lang('content.psw')</span>
-                    <input data-validate="Password is required" id="password" type="password" class="form-control @error('password') is-invalid @enderror input100" placeholder="@lang('content.entpsw')" name="password"
+                    <input data-validate="Password is required" id="password" type="password"
+                           class="form-control @error('password') is-invalid @enderror input100"
+                           placeholder="@lang('content.entpsw')" name="password"
                            required autocomplete="new-password">
                     @error('password')
                     <span class="invalid-feedback" role="alert">

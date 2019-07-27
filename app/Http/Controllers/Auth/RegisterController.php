@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use App\Models\Teacher;
-use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Teacher\TeacherRegisterRequest;
+use App\Http\Requests\User\UserRegisterRequest;
+use App\Models\Teacher;
+use App\User;
+use Illuminate\Auth\Events\Registered;
+use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Http\Requests\User\UserRegisterRequest;
-use App\Http\Requests\Teacher\TeacherRegisterRequest;
 
 class RegisterController extends Controller
 {
@@ -52,10 +50,10 @@ class RegisterController extends Controller
         return view('auth.teacher-register');
     }
 
-     /**
+    /**
      * Handle a registration request for the application.
      *
-     * @param  \Illuminate\Http\Requests\TeacherRegisterRequest  $request
+     * @param  \Illuminate\Http\Requests\TeacherRegisterRequest $request
      * @return \Illuminate\Http\Response
      */
     public function registerTeacher(TeacherRegisterRequest $request)
@@ -65,12 +63,12 @@ class RegisterController extends Controller
         Auth::guard('teacher')->login($teacher, false);
 
         return $this->registered($request, $teacher)
-                        ?: redirect(route('teacher.dashboard'));
+            ?: redirect(route('teacher.dashboard'));
     }
 
     /**
      * Create a new user instance after a valid registration.
-     * @param  array  $data
+     * @param  array $data
      * @return \App\Models\Teacher
      */
     protected function createTeacher(array $data)
@@ -84,7 +82,7 @@ class RegisterController extends Controller
 
     /**
      * Handle a registration request for the application.
-     * @param  \Illuminate\Http\Requests\UserRegisterRequest  $request
+     * @param  \Illuminate\Http\Requests\UserRegisterRequest $request
      * @return \Illuminate\Http\Response
      */
     public function register(UserRegisterRequest $request)
@@ -95,12 +93,12 @@ class RegisterController extends Controller
         $this->guard()->login($user);
 
         return $this->registered($request, $user)
-                        ?: redirect($this->redirectPath());
+            ?: redirect($this->redirectPath());
     }
 
     /**
      * Create a new user instance after a valid registration.
-     * @param  array  $data
+     * @param  array $data
      * @return \App\User
      */
     protected function create(array $data)
