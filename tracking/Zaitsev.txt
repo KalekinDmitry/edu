@@ -30,3 +30,11 @@
 24-Jul:
 -8 hours
 -lessons CRUD views
+
+25-Jul:
+-4 hours
+-classrooms backend
+
+26-Jul:
+-5 hours
+-classrooms backend and views
