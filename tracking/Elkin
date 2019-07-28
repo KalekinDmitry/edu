@@ -1,5 +1,11 @@
-July 12(2 hours): Splitting into sections. Work with statics server.
-July 13(1 hours): Change the way files are received (pictures, fonts), creating CORS Settings
-July 15(2 hours): Setting ENV files for server statics. Correction of ready-made templates of the main page.
-July 16(3 hours): Courses CRUD
-July 17(3 hours): Implementation of action policy; CRUD reworking considering the new role system
+July 12(2 hours): Splitting into sections. Work with statics server;
+July 13(1 hours): Change the way files are received (pictures, fonts); Creating CORS Settings;
+July 15(2 hours): Setting ENV files for server statics; Correction of ready-made templates of the main page;
+July 16(3 hours): Courses CRUD;
+July 17(3 hours): Implementation of action policy; CRUD reworking considering the new role system;
+July 22(4 hours): Scheduling tasks; Setting phpunit.hml; Creating a test database; Initial Settings for Tests; Create a simple test;
+July 23(6 hours): Login/Register tests for Users;
+July 24(3 hours): Create factories for Teacher and Admin; Bugfix; Add manual for tests running;
+July 25(4 hours): Login/Register tests for teacher;
+July 26(2 hours): Register tests for Admin;
+July 27(0,5 hours): 
