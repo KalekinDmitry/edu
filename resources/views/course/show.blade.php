@@ -43,6 +43,12 @@
                         <input type="hidden" name="_method" value="@lang('content.del')">
                         {{ csrf_field() }}
 
+<<<<<<< HEAD
+=======
+                    <a class="btn btn-default" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">@lang('content.edit')</i></a>
+                    <a class="btn btn-warning col-md-6" href="{{ route('lesson.create', $course->id) }}">@lang('content.addnewlesson')</a>
+                    <button type="submit" class="btn btn-info">@lang('content.del')</button>
+>>>>>>> 88d340a7c0581ac092763a137ae38ea7cf046def
 
                         <a class="btn btn-default" href="{{route('course.edit', $course->id)}}"><i
                                     class="fa fa-edit">@lang('content.edit')</i></a>
@@ -122,6 +128,7 @@
                     <!-- ---------------------------------------------------------------------------------- -->
 
 
+<<<<<<< HEAD
                     <!-- div class="sec-title text-center">
                         <span>Only  the best</span>
                         <h2>How to find your mission in life</h2>
@@ -167,6 +174,43 @@
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star i-fade"></i>
                                         </div>
+=======
+                <!-- div class="sec-title text-center">
+                    <span>Only  the best</span>
+                    <h2>How to find your mission in life</h2>
+                </div -->
+                <div class="row courses-page">
+                    <!-- course -->
+                    <div class="col-lg-12">
+                        <div class="course-item featured">
+                            <!-- div class="course-preview set-bg" data-setbg="img/courses/7.jpg">
+                                <div class="price">$25</div>
+                                <div class="featur-badges">Featured</div>
+                            </div -->
+                            <div class="course-content">
+                                <div class="cc-text">
+                                    <h5>{{ $course->title }}</h5>
+                                    <h5>{{ $course->description_short }}</h5>
+                                    <p>{{ $course->description }}</p>
+                                    <p>[@lang('content.vidfe')]</p>
+                                    <div style="text-align: center;">
+                                        <iframe width="100%" height="435"
+                                                src="https://www.youtube.com/embed/cNZf6nBDE-s" frameborder="0"
+                                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                                allowfullscreen></iframe>
+                                    </div>
+                                    <div>
+                                        <p>
+                                            @if($course->tags != NULL)
+                                                <b>Tags:</b>
+                                                @foreach(explode(',',$course->tags) as $tag)
+                                                    <a href="#">#{{ $tag }}</a>
+                                                @endforeach
+                                            @else
+                                            @lang('content.notags')
+                                            @endif
+                                        </p>
+>>>>>>> 88d340a7c0581ac092763a137ae38ea7cf046def
                                     </div>
                                     <div class="seller-info">
                                         <div class="seller-pic set-bg" data-setbg="">[@lang('content.profav')]</div>
@@ -175,6 +219,13 @@
                                             <span>[@lang('content.wi')]</span></h6>
                                     </div>
                                 </div>
+<<<<<<< HEAD
+=======
+                                <div class="seller-info">
+                                    <div class="seller-pic set-bg" data-setbg="">[@lang('content.profav')]</div>
+                                    <h6><a style="color: #fff" href="{{ route('users_profile', $course->teacher->id) }}">@lang('content.by') {{$course->teacher->name}}</a>, <span>[@lang('content.wi')]</span></h6>
+                                </div>
+>>>>>>> 88d340a7c0581ac092763a137ae38ea7cf046def
                             </div>
                         </div>
                         <!-- div class="col-lg-4 col-md-6">

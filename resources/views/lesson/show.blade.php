@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
-                <h2>Lesson: {{ $lesson->title }}</h2>
+                <h2>@lang('content.lesson'): {{ $lesson->title }}</h2>
             </div>
         </div>
     </div>
@@ -31,28 +31,28 @@
                     <div class="container">
                         <div class="row justify-content-left" style="background-color:lightgrey">
                             <div class="col-md-4" style="color:green">
-                                <strong>{{ $lesson->likes }}</strong> users liked this lesson
+                                <strong>{{ $lesson->likes }}</strong> @lang('content.uslikes')
                             </div>
                             <div class="col-md-4" style="color:crimson">
-                                <strong>{{ $lesson->dislikes }}</strong> users disliked this lesson
+                                <strong>{{ $lesson->dislikes }}</strong> @lang('content.usdislikes')
                             </div>
 
                             <div class="col-md-4" style="color:dodgerblue">
                                 @if($lesson->is_published)
-                                    <strong>Published</strong>
+                                    <strong>@lang('content.pubd')</strong>
                                 @else
-                                    Not published
+                                    @lang('content.npubd')
                                 @endif
                             </div>
                         </div>
                     </div>
                     <br>
-                    <form  onsubmit="if(confirm('Realy delete?')){return true}else{return false}"
+                    <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
                         action="{{ route('lesson.destroy', [$course->id, $lesson->id]) }}" method="post">
-                        <input type="hidden" name="_method" value="delete">
+                        <input type="hidden" name="_method" value="@lang('content.del')">
                         {{ csrf_field() }}
-                        <a href="{{ route('lesson.edit',[$course->id, $lesson->id]) }}" class="site-btn col-md-4">Edit lesson</a>
-                        <button type="submit" class="btn btn-danger col-md-4">Delete Lesson</button>
+                        <a href="{{ route('lesson.edit',[$course->id, $lesson->id]) }}" class="site-btn col-md-4">@lang('content.edles')</a>
+                        <button type="submit" class="btn btn-danger col-md-4">@lang('content.delles')</button>
                     </form>
 
                 </div>
