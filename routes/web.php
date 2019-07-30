@@ -43,14 +43,29 @@ Route::post('/teacher/register', 'Auth\RegisterController@registerTeacher')->nam
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 
+
+
+
+
 Route::resource('/course', 'CourseController');
 Route::resource('/course/{course}/lesson', 'LessonController');
 Route::resource('/teacher/classroom', 'ClassroomController');
+
+Route::resource('/teacher/classroom/invite', 'ClassroomInviteController', [
+    'names' => [
+        'store' => 'classroomInvite.store',
+    ]
+]);
+
+
+
 //Route::get('/course/{course}/lesson/create', 'LessonController@create')->name('lesson.create');
 
 Route::get('/profile/{id}', 'UserController@show')->name('users_profile');
 Route::get('/myaccount','UserController@edit')->name('my_settings');
 Route::put('/myaccount/save','UserController@update')->name('my_settings_save');
+
+
 
 Route::get('logout', 'Auth\LoginController@logout');
 

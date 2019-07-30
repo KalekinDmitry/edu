@@ -82,7 +82,13 @@
                                             <div class="col-md-8">
                                                 {{ $NIuser->name }}
                                             </div>
-                                            <a href="#" class="btn btn-secondary  col-md-2">invite</a>
+                                            {{-- <a href="{{ route('classroom.inviteUser', [ 'classroom'=> $classroom->id, 'user'=>$NIuser->id]) }}" class="btn btn-secondary  col-md-2">invite</a> --}}
+                                            <form class="form" action="{{ route('classroomInvite.store')}}" method="POST" enctype="multipart/form-data">
+                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                <input type="hidden" name="user_id" value="{{ $NIuser->id }}">
+                                                <input type="hidden" name="classroom_id" value="{{ $classroom->id }}">
+                                                <button class = "btn btn-secondary col-md-2" type="submit" value="store">invitesdfgv</button>
+                                            </form>
                                         </div>
                                     @endforeach
                                     <br>

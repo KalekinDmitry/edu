@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Models\Classroom;
 use Illuminate\Http\Request;
+use App\Models\ClassroomInvite;
 
 class ClassroomInviteController extends Controller
 {
@@ -10,7 +13,7 @@ class ClassroomInviteController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:teacher')->except('show');
+        //$this->middleware('auth:teacher');
     }
 
     /**
@@ -20,7 +23,7 @@ class ClassroomInviteController extends Controller
      */
     public function index()
     {
-        //
+        dd(__METHOD__);
     }
 
     /**
@@ -30,6 +33,8 @@ class ClassroomInviteController extends Controller
      */
     public function create()
     {
+
+        dd(__METHOD__);
 
     }
 
@@ -41,7 +46,9 @@ class ClassroomInviteController extends Controller
      */
     public function store(Request $request)
     {
-
+        dd(__METHOD__);
+        $classroomInvite = ClassroomInvite::create($request->input());
+        $classroomInvite->save();
     }
 
     /**
@@ -52,6 +59,7 @@ class ClassroomInviteController extends Controller
      */
     public function show(Classroom $classroom)
     {
+        dd(__METHOD__);
 
     }
 
@@ -63,7 +71,7 @@ class ClassroomInviteController extends Controller
      */
     public function edit(Classroom $classroom)
     {
-
+        dd(__METHOD__);
     }
 
     /**
@@ -75,7 +83,7 @@ class ClassroomInviteController extends Controller
      */
     public function update(Request $request, Classroom $classroom)
     {
-
+        dd(__METHOD__);
     }
 
     /**
@@ -86,6 +94,6 @@ class ClassroomInviteController extends Controller
      */
     public function destroy(Classroom $classroom)
     {
-
+        dd(__METHOD__);
     }
 }

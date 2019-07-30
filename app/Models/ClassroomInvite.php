@@ -9,8 +9,8 @@ class ClassroomInvite extends Model
 {
     use SoftDeletes;
 
-    public $fillable = [
-        'teacher_id', 'classroom_id', 'title', 'slug', 'message'
+    protected $fillable = [
+        'user_id', 'classroom_id',
     ];
 
     public function classroom()
@@ -20,7 +20,7 @@ class ClassroomInvite extends Model
 
     public function user()
     {
-        return $this->belogsTo('App\User', 'user_id', 'id');
+        return $this->belongsTo('App\User', 'user_id', 'id');
     }
 
 }
