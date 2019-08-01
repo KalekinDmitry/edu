@@ -38,3 +38,25 @@
 26-Jul:
 -5 hours
 -classrooms backend and views
+
+27-Jul;
+-6 hours
+-invites back and views
+
+29-Jul;
+-2 hours
+-Administrating (vendor folders)
+
+30-Jul;
+-2 hours
+-Administrating (vendor folders)
+
+31-Jul;
+-4 hours
+-Administrating(database users, .env files, .config files)
+
+1-Aug;
+-6 hours
+-invites back and views. merdge to in dev.
+
+
