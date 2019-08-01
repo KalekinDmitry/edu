@@ -7,6 +7,7 @@ use App\Course;
 use App\Models\Classroom;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\ClassroomInvite;
 use Illuminate\Support\Facades\Auth;
 
 class ClassroomController extends Controller
@@ -15,7 +16,7 @@ class ClassroomController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:teacher')->except('show');
+        $this->middleware('auth:teacher')->except('show', 'update');
     }
 
     /**
@@ -99,7 +100,13 @@ class ClassroomController extends Controller
             $includedUsers = $classroom->users()->get();
 
             $includedUsersID = $classroom->users()->pluck('users.id')->toArray();
-            $notIncludedUsers = User::get()->except($includedUsersID);
+            $invitedUsersID = ClassroomInvite::where('classroom_id', $classroom->id)->pluck('user_id')->toArray();
+
+
+
+            $notIncludedUsers = User::get()->except($includedUsersID)->except($invitedUsersID);
+            //dd($invitedUsersID, $notIncludedUsers);
+
 
 
             $includedCourses = $classroom->courses()->get();
@@ -131,8 +138,12 @@ class ClassroomController extends Controller
      */
     public function update(Request $request, Classroom $classroom)
     {
-        $teacher = Auth::user();
-        if($teacher->can('update', $classroom)){
+        //$teacher = Auth::user();
+        //if($teacher->can('update', $classroom)){
+
+            //dd($request->input('newIncludedUsers'));
+
+
 
             if($request->input('newIncludedCourses')){
                 $classroom->courses()->attach($request->input('newIncludedCourses'));
@@ -142,20 +153,22 @@ class ClassroomController extends Controller
                 $classroom->courses()->detach($request->input('excludedCourses'));
             }
 
-            /*if($request->input('users')){
-                $classroom->users()->attach($request->input('users'));
-            }*/
+            if($request->input('newIncludedUsers')){
+                $classroom->users()->attach($request->input('newIncludedUsers'));
+            }
 
             if($request->input('excludedUsers')){
                 $classroom->users()->detach($request->input('excludedUsers'));
             }
 
             $classroom->update($request->except('slug'));
+
+
             $classroom->save();
             return redirect()->route('classroom.show', $classroom);
-        }else{
-            return redirect()->route('classroom.show', $classroom)->with(['message'=>'Permission denied']);
-        }
+       /// }else{
+           //return redirect()->route('classroom.show', $classroom)->with(['message'=>'Permission denied']);
+        //}
     }
 
     /**
@@ -167,7 +180,6 @@ class ClassroomController extends Controller
     public function destroy(Classroom $classroom)
     {
         $teacher = Auth::user();
-        dd($classroom);
         if($teacher->can('destroy', $classroom)){
             $classroom->delete();
             return redirect()->route('teacher.dashboard');

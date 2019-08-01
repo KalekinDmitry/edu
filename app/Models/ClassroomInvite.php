@@ -10,7 +10,7 @@ class ClassroomInvite extends Model
     use SoftDeletes;
 
     protected $fillable = [
-        'user_id', 'classroom_id',
+        'user_id', 'classroom_id', 'message_title', 'title_slug', 'message_text',
     ];
 
     public function classroom()

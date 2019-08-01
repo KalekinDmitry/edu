@@ -16,7 +16,7 @@
         <div class="card col-md-6">
             <div class="card-body">
                 <div class="card-title" style="color:darkslategray">
-                    <strong>Eddit classrom: {{ $classroom->name }}</strong>
+                    <strong>Edit classrom: {{ $classroom->name }}</strong>
                 </div>
                 <form class="contact-form" action="{{ route('classroom.update', [$classroom->id]) }}" method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="_method" value="put">
@@ -82,13 +82,7 @@
                                             <div class="col-md-8">
                                                 {{ $NIuser->name }}
                                             </div>
-                                            {{-- <a href="{{ route('classroom.inviteUser', [ 'classroom'=> $classroom->id, 'user'=>$NIuser->id]) }}" class="btn btn-secondary  col-md-2">invite</a> --}}
-                                            <form class="form" action="{{ route('classroomInvite.store')}}" method="POST" enctype="multipart/form-data">
-                                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                                <input type="hidden" name="user_id" value="{{ $NIuser->id }}">
-                                                <input type="hidden" name="classroom_id" value="{{ $classroom->id }}">
-                                                <button class = "btn btn-secondary col-md-2" type="submit" value="store">invitesdfgv</button>
-                                            </form>
+                                            <a href="{{ route('classroomInvite.create', ['classrom' => $classroom->id, 'user' => $NIuser->id])}}" class="btn btn-secondary col-md-2" >invite</a>
                                         </div>
                                     @endforeach
                                     <br>

@@ -20,6 +20,9 @@ class CreateClassroomInvitesTable extends Migration
 
             $table->bigInteger('classroom_id')->unsigned();
             $table->bigInteger('user_id')->unsigned();
+            $table->string('message_title')->nullable()->default(null);
+            $table->string('title_slug')->nullable()->default(null);
+            $table->text('message_text')->nullable()->default(null);
 
             $table->foreign('classroom_id')->references('id')->on('classrooms');
             $table->foreign('user_id')->references('id')->on('users');

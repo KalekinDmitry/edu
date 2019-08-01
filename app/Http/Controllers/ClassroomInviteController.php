@@ -31,10 +31,10 @@ class ClassroomInviteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Classroom $classroom, User $user)
     {
 
-        dd(__METHOD__);
+        return  view('classroom.invite.create', ['classroom' => $classroom, 'user' => $user] );
 
     }
 
@@ -44,11 +44,14 @@ class ClassroomInviteController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Classroom $classroom, User $user)
     {
-        dd(__METHOD__);
         $classroomInvite = ClassroomInvite::create($request->input());
+        $classroomInvite->classroom_id = $classroom->id;
+        $classroomInvite->user_id = $user->id;
         $classroomInvite->save();
+
+        return redirect()->back();
     }
 
     /**
@@ -92,8 +95,12 @@ class ClassroomInviteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Classroom $classroom)
+    public function destroy(Classroom $classroom, User $user, ClassroomInvite $invite)
     {
-        dd(__METHOD__);
+        //dd($invite);
+
+        $invite->delete();
+        return redirect()->route('user.invites');
+
     }
 }
