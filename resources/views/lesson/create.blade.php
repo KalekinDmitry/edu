@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="hero-text text-white">
-                    <h3>Create lesson</h3>
+                    <h3>@lang('content.create lesson')</h3>
                 </div>
             </div>
         </div>
@@ -18,15 +18,15 @@
         <div class="row justify-content-center">
 
                 <div class="col-md-7">
-                    <input type="text" maxlength="64" name="title" placeholder="Lesson title"  required>
+                    <input type="text" maxlength="64" name="title" placeholder="@lang('content.ltitle')"  required>
                     <input type="hidden" name="slug">
                     <input type="hidden" name="course_id" value="{{ $course->id }}">
                 </div>
                 <div class="col-md-7">
-                    <input type="text"  maxlength="256"  name="excerpt" placeholder="Excerpt" required>
+                    <input type="text"  maxlength="256"  name="excerpt" placeholder="@lang('content.excerpt')" required>
                 </div>
                 <div class="col-md-7">
-                    <textarea placeholder="Content" name="content_html" required></textarea>
+                    <textarea placeholder="@lang('content.cont')" name="content_html" required></textarea>
                 </div>
 
                 <div class="col-md-7" >
@@ -37,14 +37,14 @@
                                 <input  type="checkbox" name="is_published" id="publish" value="1" checked="unchecked">
                             </div>
                             <div class="col-md-1"  >
-                                <label  class="label" for="publish" type="text" style="color:white" ><strong>Publish lesson?</strong></label>
+                                <label  class="label" for="publish" type="text" style="color:white" ><strong>@lang('content.pl')?</strong></label>
                             </div>
                         </div>
                     </div>
                 </div>
 
             <div class="col-md-7" >
-                <button class = "site-btn col-md-4" type="submit" value="create">Create<i class="fa fa-angle-right"></i></button>
+                <button class = "site-btn col-md-4" type="submit" value="create">@lang('content.create')<i class="fa fa-angle-right"></i></button>
             </div>
 
         </div>

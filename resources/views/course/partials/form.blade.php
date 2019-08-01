@@ -31,7 +31,7 @@
     </div>
     <div class="form-group">
         <label for="cost">@lang('content.setcrsprice')</label>
-        <input class="form-control"  type="number" id="cost" max="100"
+        <input class="form-control" type="number" id="cost" max="100"
                name="cost" min="0" required value="{{$course->cost ?? ""}}">
     </div>
 </div>

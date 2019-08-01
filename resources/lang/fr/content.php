@@ -157,7 +157,25 @@ return [
     'edusprof' => 'Editer le profil utilisateur',
     'edtchprof' => 'Modifier le profil de l`enseignant',
     'edadmprof' => 'Editer le profil administrateur',
-    
+    'addnewlesson' => 'Ajouter une nouvelle leçon',
+    'vidfe' => 'Vidéo par exemple',
+    'by' => 'Par',
+    'create lesson' => 'Créer une leçon', 
+    'ltitle' => 'Titre de la leçon',
+    'excerpt' => 'Extrait',
+    'cont' => 'Contenu',
+    'pl' => 'Publier le cours',
+    'title' => 'Titre',
+    'edles' => 'Modifier le cours',
+    'put' => 'Mettre',
+    'update' => 'Mettre à jour',
+    'lesson' => 'Leçon',
+    'uslikes' => 'les utilisateurs ont aimé cette leçon',
+    'usdislikes' =>  'les utilisateurs ont détesté cette leçon',
+    'pubd' => 'Publié',
+    'npubd' => 'Non publié',
+    'delles' => 'Supprimer le cours',
+    'reallydel' => 'Vraiment supprimer',
 
 
 

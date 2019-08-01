@@ -1,8 +1,8 @@
 <header class="header-section">
-<a style="color:#fff">@lang('content.chlang'):</a>
-<a href="{{ route('setLocale', ['ru']) }}">Русский/</a>
-<a  href="{{ route('setLocale', ['en']) }}">English/</a>
-<a  href="{{ route('setLocale', ['fr']) }}">Francais</a>
+    <a style="color:#fff">@lang('content.chlang'):</a>
+    <a href="{{ route('setLocale', ['ru']) }}">Русский/</a>
+    <a href="{{ route('setLocale', ['en']) }}">English/</a>
+    <a href="{{ route('setLocale', ['fr']) }}">Francais</a>
     <div class="header-warp">
         <div class="container">
             @guest
@@ -12,19 +12,19 @@
             @else
                 @auth('web')
                     <a href="{{ route('home') }}" class="site-logo">
-                        <img src="{{config('static.static')}}/img/logo2.png"  alt="">
+                        <img src="{{config('static.static')}}/img/logo2.png" alt="">
                     </a>
                 @endauth
 
                 @auth('teacher')
                     <a href="{{ route('teacher.dashboard') }}" class="site-logo">
-                        <img src="{{config('static.static')}}/img/logo2.png"  alt="">
+                        <img src="{{config('static.static')}}/img/logo2.png" alt="">
                     </a>
                 @endauth
 
                 @auth('admin')
                     <a href="{{ route('admin.dashboard') }}" class="site-logo">
-                        <img src="{{config('static.static')}}/img/logo2.png"  alt="">
+                        <img src="{{config('static.static')}}/img/logo2.png" alt="">
                     </a>
                 @endauth
             @endguest
@@ -43,7 +43,6 @@
             <div class="nav-switch">
                 <i class="fa fa-bars"></i>
             </div>
-
 
 
             <ul class="main-menu">

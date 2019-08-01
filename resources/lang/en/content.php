@@ -71,8 +71,8 @@ return [
     'remme' => 'Remember me',
     'forgpsw' => 'Forgot your password',
     'bckhome' => 'Back Home',
-    'ent' => 'Login', # Войти
-    'reg' => 'Register', # Зарегестрироваться
+    'ent' => 'Login', 
+    'reg' => 'Register', 
     'nm' => 'Name', 
     'enm' => 'Enter username',
     'cnfrmpsw' => 'Confirm password',
@@ -96,7 +96,7 @@ return [
     'linktovideo' => 'Link to video',
     'setcrsprice' => 'Set a course price',
     'creature' => 'Creature',
-    'choosecrscover' => 'Choose your course cover', # Выберите обложку вашего курса
+    'choosecrscover' => 'Choose your course cover', 
     'create' => 'Create',
     'save' => 'Save',
     'editing' => 'Editing',
@@ -128,8 +128,8 @@ return [
     'birthday' => 'Date of Birth (YMD)',
     'sex' => 'Sex',
     'phonenum' => 'Phone Number',
-    'userrating' => 'User rating', # Рейтинг пользователя
-    'entynm' => 'Enter your name', # Укажите Ваше Имя
+    'userrating' => 'User rating', 
+    'entynm' => 'Enter your name', 
     'yphn' => 'Your phone number',
     'yem' => 'Your E-mail',
     'agreement' => 'I agree to the terms',
@@ -157,6 +157,27 @@ return [
     'edusprof' => 'Edit user profile',
     'edtchprof' => 'Edit teacher profile',
     'edadmprof' => 'Edit admin profile',
+    'addnewlesson' => 'Add new lesson',
+    'vidfe' => 'Video for example',
+    'by' => 'By',
+    'create lesson' => 'Create lesson', 
+    'ltitle' => 'Lesson title',
+    'excerpt' => 'Excerpt',
+    'cont' => 'Content',
+    'pl' => 'Publish lesson',
+    'title' => 'Title',
+    'edles' => 'Edit lesson',
+    'put' => 'Put',
+    'update' => 'Update',
+    'lesson' => 'Lesson',
+    'uslikes' => 'users liked this lesson',
+    'usdislikes' =>  'users disliked this lesson',
+    'pubd' => 'Published',
+    'npubd' => 'Not published',
+    'delles' => 'Delete lesson',
+    'reallydel' => 'Really delete',
+
+
     
 
 
