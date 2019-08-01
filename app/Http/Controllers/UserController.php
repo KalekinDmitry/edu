@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\User;
 use Illuminate\Http\Request;
+use App\Models\ClassroomInvite;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
@@ -26,6 +27,16 @@ class UserController extends Controller
         return view('user.profile.show', [
             'user' => $user,
         ]);
+    }
+
+    public function showInvites(){
+        $user = User::where('id', Auth::user()->id)->first();
+
+        $invites = ClassroomInvite::where('user_id', $user->id)->get();
+
+        //dd($invites);
+
+        return view('user.invites',['invites' => $invites]);
     }
 
     public function edit()

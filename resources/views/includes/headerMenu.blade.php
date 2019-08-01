@@ -8,7 +8,7 @@
             <a class="dropdown-item" style="background-color: #3B3444"
                href="{{ route('users_profile', Auth::user()->id) }}"><strong>@lang('content.profile')</strong></a>
             <a class="dropdown-item" style="background-color: #3B3444" href="#">@lang('content.mycour')</a>
-            <a class="dropdown-item" style="background-color: #3B3444" href="#">@lang('content.messages')</a>
+            <a class="dropdown-item" style="background-color: #3B3444" href="{{ route('user.invites')}}">@lang('content.messages')</a>
         @endauth
 
         @auth('teacher')

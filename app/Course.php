@@ -28,4 +28,9 @@ class Course extends Model
     {
         return $this->hasMany('App\Models\Lesson', 'course_id');
     }
+
+    public function classrooms()
+    {
+        return $this->belongsToMany('App\Models\Classroom', 'classroom_course', 'course_id', 'classroom_id');
+    }
 }
