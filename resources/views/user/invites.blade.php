@@ -28,7 +28,7 @@
                         {{ csrf_field() }}
                         <button class = "site-btn col-md-4" type="submit" value="@lang('content.update')">@lang('content.flw')<i class="fa fa-angle-right"></i></button>
                     </form>
-                    <form  onsubmit="if(confirm('@lang(content.reallydel)?')){return true}else{return false}"
+                    <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
                         action="{{ route('classroomInvite.destroy', ['classroom' => $invite->classroom_id, 'user' => $invite->user_id, 'invite' => $invite->id]) }}" method="post">
                         <input type="hidden" name="_method" value="@lang('content.del')">
                         {{ csrf_field() }}
