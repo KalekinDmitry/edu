@@ -22,5 +22,34 @@
                 </div>
             </div>
         </div>
+
+        <div class="row justify-content-center">
+            <div class="card col-md-6">
+                <div class="card-body">
+                    <div class="card-title" style="color:darkslategray">
+                        <strong>Classrooms overview</strong>
+                    </div>
+                    @foreach($classrooms as $classroom)
+                        <div class="card-header col-md-12" style="color:gray">
+                            <strong>{{  $classroom->name }}</strong>
+                        </div>
+                        <form  onsubmit="if(confirm('Realy delete?')){return true}else{return false}"
+                            action="{{ route('classroom.destroy', [$classroom->id]) }}" method="post">
+                            <input type="hidden" name="_method" value="delete">
+                            {{ csrf_field() }}
+                            <a href="{{ route('classroom.edit',[$classroom->id]) }}" class="site-btn col-md-4">Edit classroom</a>
+                            <button type="submit" class="btn btn-danger col-md-4">Delete Classroom</button>
+
+                        </form>
+                    @endforeach
+                        <br>
+                        <a href="{{ route('classroom.create') }}" class="btn btn-info col-md-4">Create new</a>
+
+                </div>
+            </div>
+
+
+        </div>
+
     </section>
 @endsection
