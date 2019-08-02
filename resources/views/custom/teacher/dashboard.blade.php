@@ -37,13 +37,13 @@
                             action="{{ route('classroom.destroy', [$classroom->id]) }}" method="post">
                             <input type="hidden" name="_method" value="delete">
                             {{ csrf_field() }}
-                            <a href="{{ route('classroom.edit',[$classroom->id]) }}" class="site-btn col-md-4">Edit classroom</a>
-                            <button type="submit" class="btn btn-danger col-md-4">Delete </button>
+                            <a href="{{ route('classroom.edit',[$classroom->id]) }}" class="site-btn col-md-6">Edit classroom</a>
+                            <button type="submit" class="site-btn-danger col-md-5">Delete </button>
 
                         </form>
                     @endforeach
                         <br>
-                        <a href="{{ route('classroom.create') }}" class="btn btn-info col-md-4">Create new</a>
+                        <a href="{{ route('classroom.create') }}" class="site-btn-info col-md-4">Create new</a>
 
                 </div>
             </div>
@@ -62,12 +62,13 @@
                             <input type="hidden" name="_method" value="delete">
                             {{ csrf_field() }}
                             <a href="{{ route('course.edit',[$course->id]) }}" class="site-btn col-md-4">Edit course</a>
-                            <button type="submit" class="btn btn-danger col-md-4">Delete course</button>
+                            <a href="{{ route('course.show',[$course->id]) }}" class="site-btn-info col-md-4">Edit course</a>
+                            <button type="submit" class="site-btn-danger col-md-4">Delete course</button>
 
                         </form>
                     @endforeach
                         <br>
-                        <a href="{{ route('course.create') }}" class="btn btn-info col-md-4">Create new</a>
+                        <a href="{{ route('course.create') }}" class="site-btn-info col-md-3">Create new</a>
 
                 </div>
             </div>
