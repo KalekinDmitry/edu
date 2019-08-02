@@ -199,6 +199,10 @@ return [
     'include' => 'Include',
     'crclassrm' => 'Create classroom',
     'invite' => 'Invite',
+    'invuser' => 'Invite user',
+    'ttcr' => 'to the classroom'
+    'mtitle' => 'Message title',
+    'mtext' => 'Message text',
     
 
 
