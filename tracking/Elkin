@@ -8,4 +8,8 @@ July 23(6 hours): Login/Register tests for Users;
 July 24(3 hours): Create factories for Teacher and Admin; Bugfix; Add manual for tests running;
 July 25(4 hours): Login/Register tests for teacher;
 July 26(2 hours): Register tests for Admin;
-July 27(0,5 hours): 
+July 27(0,5 hours): Fix merge problem, fix other problems;
+July 30(2 hours): Search for a suitable template; Fix login and registration images display;
+July 31(4 hours): Installing a template(not to the end);
+July 1(8 hours): Installing a template; Uploading content to a static server; Templating; Componentization; Dashboard, profiles and users monitoring pages (front);
+July 2(4 hours): Dashboard, profiles and users monitoring pages (Backend); Replacing words with flags on the main header; Fix merge problems;
