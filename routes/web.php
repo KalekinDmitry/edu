@@ -32,6 +32,9 @@ Route::get('/admin/login', 'Auth\LoginController@showAdminLoginForm')->name('adm
 Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
 Route::get('/admin/profile/edit', 'AdminController@edit')->name('admin_settings');
 Route::get('/admin/profile/{id}', 'AdminController@show')->name('admin_profile');
+Route::get('/admin/tables/users', 'AdminController@showUsersList')->name('users.list');
+Route::get('/admin/tables/teachers', 'AdminController@showTeachersList')->name('teachers.list');
+Route::get('/admin/tables/admins', 'AdminController@showAdminsList')->name('admins.list');
 
 
 

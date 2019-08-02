@@ -1,26 +1,35 @@
-@extends('layouts.app')
+@extends('custom.admin.layouts.app')
 
 @section('content')
 
-    <section class="hero-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10">
-                    <div class="hero-text text-white">
-                        {{-- <div class="card-header">@lang('content.admdash')</div> --}}
-                        <h2>@lang('content.admdash')</h2>
-                        <div class="card-body">
-                            @if (session('status'))
-                                <div class="alert alert-success" role="alert">
-                                    {{ session('status') }}
-                                </div>
-                            @endif
+    <body>
 
-                            <h3>@lang('content.logntf')!</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <section id="container" class="">
+
+        <section id="main-content">
+
+            <section class="wrapper">
+
+                @include('custom.admin.dashboard_components.breadcrumbs')
+
+                @include('custom.admin.dashboard_components.statusbar')
+
+                @include('custom.admin.dashboard_components.firstline')
+
+                @include('custom.admin.dashboard_components.secondline')
+
+                @include('custom.admin.dashboard_components.adminchat')
+
+                @include('custom.admin.dashboard_components.calendar')
+
+            </section>
+
+            @include('custom.admin.dashboard_components.licensetext')
+
+        </section>
+
     </section>
+
+    </body>
+
 @endsection
