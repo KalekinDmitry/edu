@@ -37,13 +37,13 @@
                             action="{{ route('classroom.destroy', [$classroom->id]) }}" method="post">
                             <input type="hidden" name="_method" value="@lang('content.del')">
                             {{ csrf_field() }}
-                            <a href="{{ route('classroom.edit',[$classroom->id]) }}" class="site-btn col-md-4">@lang('content.edclass')</a>
-                            <button type="submit" class="btn btn-danger col-md-4">@lang('content.del') </button>
+                            <a href="{{ route('classroom.edit',[$classroom->id]) }}" class="site-btn col-md-6">@lang('content.edclass')</a>
+                            <button type="submit" class="site-btn-danger col-md-5">@lang('content.del') </button>
 
                         </form>
                     @endforeach
                         <br>
-                        <a href="{{ route('classroom.create') }}" class="btn btn-info col-md-4">@lang('content.crnew')</a>
+                        <a href="{{ route('classroom.create') }}" class="site-btn-info col-md-4">@lang('content.crnew')</a>
 
                 </div>
             </div>
@@ -62,12 +62,13 @@
                             <input type="hidden" name="_method" value="@lang('content.del')">
                             {{ csrf_field() }}
                             <a href="{{ route('course.edit',[$course->id]) }}" class="site-btn col-md-4">@lang('content.edcour')</a>
-                            <button type="submit" class="btn btn-danger col-md-4">@lang('content.delcour')</button>
+                            <a href="{{ route('course.show',[$course->id]) }}" class="site-btn-info col-md-4">@lang('content.look')</a>
+                            <button type="submit" class="site-btn-danger col-md-4">@lang('content.delcour')</button>
 
                         </form>
                     @endforeach
                         <br>
-                        <a href="{{ route('course.create') }}" class="btn btn-info col-md-4">@lang('content.crnew')</a>
+                        <a href="{{ route('course.create') }}" class="site-btn-info col-md-3">@lang('content.crnew')</a>
 
                 </div>
             </div>

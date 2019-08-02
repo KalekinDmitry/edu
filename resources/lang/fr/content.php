@@ -203,7 +203,8 @@ return [
     'ttcr' => 'à la classe',
     'mtitle' => 'Titre du message',
     'mtext' => 'Texte du message',
-
+    'look' => 'Regardez',
+    
 
 
 ];

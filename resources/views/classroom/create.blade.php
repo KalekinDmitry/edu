@@ -33,7 +33,7 @@
 
 
 
-                                <button type="button" class="btn btn-primary col-md-3" data-toggle="modal" data-target=".bd-example-modal-md-users">@lang('content.invus')</button>
+                                <button type="button" class="site-btn-info col-md-4" data-toggle="modal" data-target=".bd-example-modal-md-users">@lang('content.invus')</button>
                                 <div class="modal fade bd-example-modal-md-users" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel2" aria-hidden="true">
                                     <div class="modal-dialog modal-md">
                                         <div class="modal-content">
@@ -68,7 +68,7 @@
 
 
 
-                                <button type="button" class="btn btn-primary col-md-3" data-toggle="modal" data-target=".bd-example-modal-sm-courses">@lang('content.includecour')</button>
+                                <button type="button" class="site-btn-danger col-md-4" data-toggle="modal" data-target=".bd-example-modal-sm-courses">@lang('content.includecour')</button>
                                 <div class="modal fade bd-example-modal-sm-courses" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel2" aria-hidden="true">
                                     <div class="modal-dialog modal-md">
                                         <div class="modal-content">

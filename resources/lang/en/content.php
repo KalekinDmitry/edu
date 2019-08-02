@@ -71,9 +71,9 @@ return [
     'remme' => 'Remember me',
     'forgpsw' => 'Forgot your password',
     'bckhome' => 'Back Home',
-    'ent' => 'Login', 
-    'reg' => 'Register', 
-    'nm' => 'Name', 
+    'ent' => 'Login',
+    'reg' => 'Register',
+    'nm' => 'Name',
     'enm' => 'Enter username',
     'cnfrmpsw' => 'Confirm password',
     'laa' => 'Login as admin',
@@ -96,7 +96,7 @@ return [
     'linktovideo' => 'Link to video',
     'setcrsprice' => 'Set a course price',
     'creature' => 'Creature',
-    'choosecrscover' => 'Choose your course cover', 
+    'choosecrscover' => 'Choose your course cover',
     'create' => 'Create',
     'save' => 'Save',
     'editing' => 'Editing',
@@ -128,8 +128,8 @@ return [
     'birthday' => 'Date of Birth (YMD)',
     'sex' => 'Sex',
     'phonenum' => 'Phone Number',
-    'userrating' => 'User rating', 
-    'entynm' => 'Enter your name', 
+    'userrating' => 'User rating',
+    'entynm' => 'Enter your name',
     'yphn' => 'Your phone number',
     'yem' => 'Your E-mail',
     'agreement' => 'I agree to the terms',
@@ -157,10 +157,10 @@ return [
     'edusprof' => 'Edit user profile',
     'edtchprof' => 'Edit teacher profile',
     'edadmprof' => 'Edit admin profile',
-    'addnewlesson' => 'Add new lesson',
+    'addnewlesson' => 'Add lesson',
     'vidfe' => 'Video for example',
     'by' => 'By',
-    'create lesson' => 'Create lesson', 
+    'create lesson' => 'Create lesson',
     'ltitle' => 'Lesson title',
     'excerpt' => 'Excerpt',
     'cont' => 'Content',
@@ -203,13 +203,14 @@ return [
     'ttcr' => 'to the classroom',
     'mtitle' => 'Message title',
     'mtext' => 'Message text',
+    'look' => 'Look',
 
 
 
 
 
 
-    
+
 
 
 

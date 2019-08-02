@@ -32,7 +32,7 @@
                         action="{{ route('classroomInvite.destroy', ['classroom' => $invite->classroom_id, 'user' => $invite->user_id, 'invite' => $invite->id]) }}" method="post">
                         <input type="hidden" name="_method" value="@lang('content.del')">
                         {{ csrf_field() }}
-                        <button type="submit" class="btn btn-danger col-md-4">@lang('content.del')</button>
+                        <button type="submit" class="site-btn-danger col-md-4">@lang('content.del')</button>
                     </form>
                 </div>
             </div>
