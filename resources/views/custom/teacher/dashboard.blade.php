@@ -33,7 +33,7 @@
                         <div class="card-header col-md-12" style="color:gray">
                             <strong>{{  $classroom->name }}</strong>
                         </div>
-                        <form  onsubmit="if(confirm('@lang(content.reallydel)?')){return true}else{return false}"
+                        <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
                             action="{{ route('classroom.destroy', [$classroom->id]) }}" method="post">
                             <input type="hidden" name="_method" value="@lang('content.del')">
                             {{ csrf_field() }}
