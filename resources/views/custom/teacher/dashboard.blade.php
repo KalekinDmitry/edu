@@ -62,7 +62,7 @@
                             <input type="hidden" name="_method" value="delete">
                             {{ csrf_field() }}
                             <a href="{{ route('course.edit',[$course->id]) }}" class="site-btn col-md-4">Edit course</a>
-                            <a href="{{ route('course.show',[$course->id]) }}" class="site-btn-info col-md-4">Edit course</a>
+                            <a href="{{ route('course.show',[$course->id]) }}" class="site-btn-info col-md-4">Look</a>
                             <button type="submit" class="site-btn-danger col-md-4">Delete course</button>
 
                         </form>
