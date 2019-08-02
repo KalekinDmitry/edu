@@ -176,6 +176,30 @@ return [
     'npubd' => 'Not published',
     'delles' => 'Delete lesson',
     'reallydel' => 'Really delete',
+    'edclass' => 'Edit classroom',
+    'invs' => 'Invites',
+    'flw' => 'Follow',
+    'asus' => 'As user',
+    'astch' => 'As teacher',
+    'clovrvw' => 'Classrooms overview',
+    'crnew' => 'Create new',
+    'courovrvw' => 'Courses overview',
+    'edcour' => 'Edit course',
+    'delcour' => 'Delete course',
+    'classrm' => 'Classroom',
+    'prtnts' => 'Participants',
+    'inclcour' => 'Included courses',
+    'delclassrm' => 'Delete Classroom',
+    'classrmnm' => 'Classroom name',
+    'usnm' => 'User name',
+    'exclude' => 'Exclude',
+    'invus' => 'Invite users',
+    'ctitle' => 'Course title',
+    'includecour' => 'Include courses',
+    'include' => 'Include',
+
+
+
 
 
     

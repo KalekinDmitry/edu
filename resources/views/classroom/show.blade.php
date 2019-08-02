@@ -14,10 +14,10 @@
         <div class="card col-md-6">
             <div class="card-body">
                 <div class="card-title" style="color:darkslategray">
-                    <strong>Classrom: {{ $classroom->name }}</strong>
+                    <strong>@lang('content.classrm'): {{ $classroom->name }}</strong>
                 </div>
                 <div class="card-header" style="color:gray">
-                    <strong>Participants</strong>
+                    <strong>@lang('content.prtnts')</strong>
                 </div>
                 <ul classs="list-group list-group-flush">
                     @foreach($users as $user)
@@ -25,19 +25,19 @@
                     @endforeach
                 </ul>
                 <div class="card-header" style="color:gray">
-                    <strong>Included courses</strong>
+                    <strong>@lang('content.inclcour')</strong>
                 </div>
                 <ul classs="list-group list-group-flush">
                     @foreach($courses as $course)
                             <li class="list-group-item">{{ $course->title }}</li>
                     @endforeach
                 </ul>
-                <form  onsubmit="if(confirm('Realy delete?')){return true}else{return false}"
+                <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
                     action="{{ route('classroom.destroy', [$classroom->id]) }}" method="post">
-                    <input type="hidden" name="_method" value="delete">
+                    <input type="hidden" name="_method" value="@lang('content.del')">
                     {{ csrf_field() }}
-                    <a href="{{ route('classroom.edit',[$classroom->id]) }}" class="site-btn col-md-4">Edit classroom</a>
-                    <button type="submit" class="btn btn-danger col-md-4">Delete Classroom</button>
+                    <a href="{{ route('classroom.edit',[$classroom->id]) }}" class="site-btn col-md-4">@lang('content.edclass')</a>
+                    <button type="submit" class="btn btn-danger col-md-4">@lang('content.delclassrm')</button>
 
                 </form>
                 <br>
