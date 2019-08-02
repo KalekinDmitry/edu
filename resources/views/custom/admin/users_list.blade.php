@@ -10,11 +10,9 @@
 
             <section class="wrapper">
 
-                @include('custom.admin.profile_components.breadcrumbs')
+                @include('custom.admin.users_list_components.breadcrumbs')
 
-                @include('custom.admin.profile_components.owninformation')
-
-                @include('custom.admin.profile_components.addpanel')
+                @include('custom.admin.users_list_components.table')
 
             </section>
 

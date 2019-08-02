@@ -24,9 +24,9 @@
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="#">Users</a></li>
-                    <li><a class="" href="#">Teachers</a></li>
-                    <li><a class="" href="#">Admins</a></li>
+                    <li><a class="" href="{{ route('users.list') }}">Users</a></li>
+                    <li><a class="" href="{{ route('teachers.list') }}">Teachers</a></li>
+                    <li><a class="" href="{{ route('admins.list') }}">Admins</a></li>
                 </ul>
             </li>
 
