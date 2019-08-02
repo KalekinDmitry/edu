@@ -84,7 +84,7 @@
                     <input type="file" name="image">
                 </div>
 
-                <input style="color:#000" class="btn btn-light" type="submit" value="Create">
+                <input style="color:#000" class="btn btn-light" type="submit" value="@lang('content.create')">
 
             </form>
         </div>

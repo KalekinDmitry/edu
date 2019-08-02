@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
+use App\Models\Teacher;
+use App\User;
 use Auth;
 use Illuminate\Http\Request;
 
@@ -39,8 +41,29 @@ class AdminController extends Controller
             //Redirect to yourself
             $user = Admin::where('id', Auth::user()->id)->first();
         }
-        return view('user.profile.show', [
+        return view('custom.admin.profile', [
             'user' => $user,
+        ]);
+    }
+
+    public function showUsersList()
+    {
+        return view('custom.admin.users_list', [
+            'users' => User::paginate(10)
+        ]);
+    }
+
+    public function showTeachersList()
+    {
+        return view('custom.admin.users_list', [
+            'users' => Teacher::paginate(10)
+        ]);
+    }
+
+    public function showAdminsList()
+    {
+        return view('custom.admin.users_list', [
+            'users' => Admin::paginate(10)
         ]);
     }
 
