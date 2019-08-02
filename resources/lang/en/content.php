@@ -197,6 +197,9 @@ return [
     'ctitle' => 'Course title',
     'includecour' => 'Include courses',
     'include' => 'Include',
+    'crclassrm' => 'Create classroom',
+    'invite' => 'Invite',
+    
 
 
 
