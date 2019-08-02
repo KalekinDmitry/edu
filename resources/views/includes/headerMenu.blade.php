@@ -1,3 +1,8 @@
+@guest
+    <a href="{{ route('login') }}">@lang('content.loginbtn')</a>
+    <span>/</span>
+    <a href="{{ route('register') }}">@lang('content.regbtn')</a>
+@else
 <div class="dropdown">
     <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -29,3 +34,4 @@
            href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
     </div>
 </div>
+@endguest

@@ -30,14 +30,7 @@
             @endguest
 
             <div class="user-panel">
-                @guest
-                    <a href="{{ route('login') }}">@lang('content.loginbtn')</a>
-                    <span>/</span>
-                    <a href="{{ route('register') }}">@lang('content.regbtn')</a>
-                @else
                     @include('includes.headerMenu')
-                @endguest
-
             </div>
 
             <div class="nav-switch">
