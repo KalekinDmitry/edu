@@ -19,7 +19,7 @@
                     <strong>@lang('content.edclass'): {{ $classroom->name }}</strong>
                 </div>
                 <form class="contact-form" action="{{ route('classroom.update', [$classroom->id]) }}" method="POST" enctype="multipart/form-data">
-                    <input type="hidden" name="_method" value="@lang('content.put')">
+                    <input type="hidden" name="_method" value="put">
                     {{ csrf_field() }}
                     <div class="row justify-content-end">
 

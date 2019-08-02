@@ -14,7 +14,7 @@
 
 
     <form class="contact-form" action="{{ route('lesson.update', [$course->id, $lesson->id]) }}" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="_method" value="@lang('content.put')">
+        <input type="hidden" name="_method" value="put">
         {{ csrf_field() }}
         <div class="row justify-content-center">
 
@@ -48,7 +48,7 @@
                 </div>
 
             <div class="col-md-7" >
-                <button class = "site-btn col-md-4" type="submit" value="@lang('content.update')">@lang('content.update')<i class="fa fa-angle-right"></i></button>
+                <button class = "site-btn col-md-4" type="submit" value="update">@lang('content.update')<i class="fa fa-angle-right"></i></button>
             </div>
 
         </div>
