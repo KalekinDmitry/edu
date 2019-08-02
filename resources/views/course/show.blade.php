@@ -40,9 +40,9 @@
                           action="{{route('course.destroy', $course)}}" method="post">
                         <input type="hidden" name="_method" value="@lang('content.del')">
                         {{ csrf_field() }}
-                    <a class="btn btn-default" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">@lang('content.edit')</i></a>
-                    <a class="btn btn-warning col-md-6" href="{{ route('lesson.create', $course->id) }}">@lang('content.addnewlesson')</a>
-                    <button type="submit" class="btn btn-info">@lang('content.del')</button>
+                    <a class="btn btn-default col-md-12" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">@lang('content.edit')</i></a>
+                    <a class="site-btn-info-sm col-md-6" href="{{ route('lesson.create', $course->id) }}">@lang('content.addnewlesson')</a>
+                    <button type="submit" class="site-btn-danger-sm col-md-5">@lang('content.del')</button>
 
 
                     </form>

@@ -52,7 +52,7 @@
                         <input type="hidden" name="_method" value="@lang('content.del')">
                         {{ csrf_field() }}
                         <a href="{{ route('lesson.edit',[$course->id, $lesson->id]) }}" class="site-btn col-md-4">@lang('content.edles')</a>
-                        <button type="submit" class="btn btn-danger col-md-4">@lang('content.delles')</button>
+                        <button type="submit" class="site-btn-danger col-md-4">@lang('content.delles')</button>
                     </form>
 
                 </div>

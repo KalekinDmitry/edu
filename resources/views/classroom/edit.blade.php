@@ -61,7 +61,7 @@
                             @endforeach
                         </div>
 
-                        <button type="button" class="btn btn-primary col-md-3" data-toggle="modal" data-target=".bd-example-modal-lg-users">Invite users</button>
+                        <button type="button" class="site-btn-info col-md-3" data-toggle="modal" data-target=".bd-example-modal-lg-users">Invite users</button>
                         <div class="modal fade bd-example-modal-lg-users" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-md">
                                 <div class="modal-content">
@@ -126,7 +126,7 @@
                             @endforeach
                         </div>
 
-                        <button type="button" class="btn btn-primary col-md-3" data-toggle="modal" data-target=".bd-example-modal-sm-courses">Include courses</button>
+                        <button type="button" class="site-btn-info col-md-3" data-toggle="modal" data-target=".bd-example-modal-sm-courses">Include courses</button>
                         <div class="modal fade bd-example-modal-sm-courses" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel2" aria-hidden="true">
                             <div class="modal-dialog modal-md">
                                 <div class="modal-content">
