@@ -15,7 +15,7 @@
                   name="description_short" required>{{$course->description_short ?? ""}}</textarea>
     </div>
     <div class="form-group">
-        <label for="description">@lang('Full description')</label>
+        <label for="description">@lang('content.fulldescription')</label>
         <textarea class="form-control" id="description" name="description"
                   required>{{$course->description ?? ""}}</textarea>
     </div>
