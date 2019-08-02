@@ -109,7 +109,7 @@
                                 </div>
                             </div>
                         </div>
-                        <input class="btn btn-dark" type="submit" value="@lang('content.save')">
+                        <input class="btn btn-dark" type="submit" value="Save">
                     </form>
                     <br><br><br>
                 </div>

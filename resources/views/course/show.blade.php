@@ -38,7 +38,7 @@
                 <div class="col col-3">
                     <form onsubmit="if(confirm('@lang('content.cnfrmdel')?')){return true}else{return false}"
                           action="{{route('course.destroy', $course)}}" method="post">
-                        <input type="hidden" name="_method" value="@lang('content.del')">
+                        <input type="hidden" name="_method" value="Delete">
                         {{ csrf_field() }}
                     <a class="btn btn-default col-md-12" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">@lang('content.edit')</i></a>
                     <a class="site-btn-info-sm col-md-6" href="{{ route('lesson.create', $course->id) }}">@lang('content.addnewlesson')</a>

@@ -36,7 +36,7 @@
                         </div>
                         <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
                             action="{{ route('classroom.destroy', [$classroom->id]) }}" method="post">
-                            <input type="hidden" name="_method" value="@lang('content.del')">
+                            <input type="hidden" name="_method" value="Delete">
                             {{ csrf_field() }}
                             <a href="{{ route('classroom.edit',[$classroom->id]) }}" class="site-btn col-md-6">@lang('content.edclass')</a>
                             <button type="submit" class="site-btn-danger col-md-5">@lang('content.del') </button>
@@ -61,7 +61,7 @@
                         </div>
                         <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
                             action="{{ route('course.destroy', [$course->id]) }}" method="post">
-                            <input type="hidden" name="_method" value="@lang('content.del')">
+                            <input type="hidden" name="_method" value="Delete">
                             {{ csrf_field() }}
                             <a href="{{ route('course.edit',[$course->id]) }}" class="site-btn col-md-4">@lang('content.edcour')</a>
                             <a href="{{ route('course.show',[$course->id]) }}" class="site-btn-info col-md-4">@lang('content.look')</a>
