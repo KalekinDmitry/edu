@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Teacher;
 use Auth;
+use App\Models\Teacher;
+use App\Models\Classroom;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -25,7 +26,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        return view('custom.teacher.dashboard');
+        $classrooms = Classroom::where('teacher_id', Auth::user()->id)->get();
+        return view('custom.teacher.dashboard', ['classrooms' => $classrooms]);
     }
 
     public function show(Request $request)
