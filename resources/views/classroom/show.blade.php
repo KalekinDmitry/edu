@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="hero-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg" >
+<section class="classroom-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg" >
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="card col-md-6">
+        <div class="card col-md-6 col-sm-10">
             <div class="card-body">
                 <div class="card-title" style="color:darkslategray">
                     <strong>@lang('content.classrm'): {{ $classroom->name }}</strong>
@@ -44,6 +44,7 @@
             </div>
         </div>
     </div>
+    <br>
 
 </section>
 

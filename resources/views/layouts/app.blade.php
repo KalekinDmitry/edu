@@ -40,9 +40,7 @@
 
 @include('includes.header')
 
-<main class="py-0">
-    @yield('content')
-</main>
+@yield('content')
 
 @include('includes.footer')
 

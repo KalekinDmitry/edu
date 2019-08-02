@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="hero-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg" >
+<section class="lesson-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg" >
 
     <div class="row justify-content-center">
             <div class="col-md-7">
@@ -53,6 +53,7 @@
 
         </div>
     </form>
+    <br>
 
 
 </section>

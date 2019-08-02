@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <body>
 
     <section id="container" class="">
@@ -27,7 +28,6 @@
             @include('custom.admin.dashboard_components.licensetext')
 
         </section>
-
     </section>
 
     </body>
