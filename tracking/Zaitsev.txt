@@ -59,4 +59,8 @@
 -6 hours
 -invites back and views. merdge to in dev.
 
+2-Aug:
+-7 hours
+-fix views, interface improvements
+
 
