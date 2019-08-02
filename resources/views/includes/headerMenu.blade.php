@@ -1,3 +1,29 @@
+@guest
+<div class="row">
+    <div class="dropdown">
+        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong>@lang('content.loginbtn')</strong>
+        </button>
+        <div class="dropdown-menu" style="background-color: #3B3444" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" style="background-color: #3B3444" href="{{ route('login') }}">As user</a>
+                <a class="dropdown-item" style="background-color: #3B3444" href="{{ route('teacher.showLoginForm') }}">As teacher</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <strong>@lang('content.regbtn')</strong>
+        </button>
+        <div class="dropdown-menu" style="background-color: #3B3444" aria-labelledby="dropdownMenuButton">
+                <a class="dropdown-item" style="background-color: #3B3444" href="{{ route('register') }}">As user</a>
+                <a class="dropdown-item" style="background-color: #3B3444" href="{{ route('teacher.showRegisterForm') }}">As teacher</a>
+        </div>
+    </div>
+</div>
+    {{-- <a href="{{ route('login') }}"></a>
+    <span>/</span>
+    <a href="{{ route('register') }}">@lang('content.regbtn')</a> --}}
+
+@else
 <div class="dropdown">
     <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
             aria-haspopup="true" aria-expanded="false">
@@ -29,3 +55,4 @@
            href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
     </div>
 </div>
+@endguest

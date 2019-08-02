@@ -24,7 +24,7 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="card col-md-6">
+            <div class="card col-md-3">
                 <div class="card-body">
                     <div class="card-title" style="color:darkslategray">
                         <strong>Classrooms overview</strong>
@@ -38,12 +38,36 @@
                             <input type="hidden" name="_method" value="delete">
                             {{ csrf_field() }}
                             <a href="{{ route('classroom.edit',[$classroom->id]) }}" class="site-btn col-md-4">Edit classroom</a>
-                            <button type="submit" class="btn btn-danger col-md-4">Delete Classroom</button>
+                            <button type="submit" class="btn btn-danger col-md-4">Delete </button>
 
                         </form>
                     @endforeach
                         <br>
                         <a href="{{ route('classroom.create') }}" class="btn btn-info col-md-4">Create new</a>
+
+                </div>
+            </div>
+            <span>..</span>
+            <div class="card col-md-5">
+                <div class="card-body">
+                    <div class="card-title" style="color:darkslategray">
+                        <strong>Courses overview</strong>
+                    </div>
+                    @foreach($courses as $course)
+                        <div class="card-header col-md-12" style="color:gray">
+                            <strong>{{  $course->title }}</strong>
+                        </div>
+                        <form  onsubmit="if(confirm('Realy delete?')){return true}else{return false}"
+                            action="{{ route('course.destroy', [$course->id]) }}" method="post">
+                            <input type="hidden" name="_method" value="delete">
+                            {{ csrf_field() }}
+                            <a href="{{ route('course.edit',[$course->id]) }}" class="site-btn col-md-4">Edit course</a>
+                            <button type="submit" class="btn btn-danger col-md-4">Delete course</button>
+
+                        </form>
+                    @endforeach
+                        <br>
+                        <a href="{{ route('course.create') }}" class="btn btn-info col-md-4">Create new</a>
 
                 </div>
             </div>

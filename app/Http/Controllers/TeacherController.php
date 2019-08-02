@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Auth;
+use App\Course;
 use App\Models\Teacher;
 use App\Models\Classroom;
 use Illuminate\Http\Request;
@@ -27,7 +28,8 @@ class TeacherController extends Controller
     public function index()
     {
         $classrooms = Classroom::where('teacher_id', Auth::user()->id)->get();
-        return view('custom.teacher.dashboard', ['classrooms' => $classrooms]);
+        $courses = Course::where('created_by', Auth::user()->id)->get();
+        return view('custom.teacher.dashboard', ['classrooms' => $classrooms, 'courses' => $courses]);
     }
 
     public function show(Request $request)
