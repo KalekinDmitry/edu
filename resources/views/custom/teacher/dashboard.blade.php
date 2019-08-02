@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="hero-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">
+    <section class="dashboard-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">
         <div class="container">
             <div class="row">
                 <div class="col-md-10">
@@ -24,12 +24,13 @@
         </div>
 
         <div class="row justify-content-center">
-            <div class="card col-md-3">
+            <div class="card col-md-4 col-sm-5">
                 <div class="card-body">
                     <div class="card-title" style="color:darkslategray">
                         <strong>Classrooms overview</strong>
                     </div>
                     @foreach($classrooms as $classroom)
+                    <br>
                         <div class="card-header col-md-12" style="color:gray">
                             <strong>{{  $classroom->name }}</strong>
                         </div>
@@ -48,12 +49,13 @@
                 </div>
             </div>
             <span>..</span>
-            <div class="card col-md-5">
+            <div class="card col-md-5 col-sm-6">
                 <div class="card-body">
                     <div class="card-title" style="color:darkslategray">
                         <strong>Courses overview</strong>
                     </div>
                     @foreach($courses as $course)
+                    <br>
                         <div class="card-header col-md-12" style="color:gray">
                             <strong>{{  $course->title }}</strong>
                         </div>
@@ -75,6 +77,7 @@
 
 
         </div>
+        <br>
 
     </section>
 @endsection

@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="hero-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg" >
+<section class="classroom-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg" >
 
     <div class="row justify-content-center">
             <div class="col-md-7">
@@ -13,7 +13,7 @@
         </div>
 
     <div class="row justify-content-center">
-        <div class="card col-md-6">
+        <div class="card col-md-6 col-sm-11">
             <div class="card-body">
                 <div class="card-header" style="color:darkslategray">
                     <strong>Create classroom</strong>
@@ -117,6 +117,7 @@
             </div>
         </div>
     </div>
+    <br>
 
 
 </section>

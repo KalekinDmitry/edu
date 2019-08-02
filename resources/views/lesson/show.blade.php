@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="hero-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg" >
+<section class="lesson-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg" >
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="row justify-content-center">
-        <div class="col-md-7" style="color:white">
+        <div class="col-md-7 col-sm-9" style="color:white">
             {{-- <div class="container" style="background-color:darkgrey">
                 <h3> {{ $lesson->excerpt }}</h3>
             </div>
