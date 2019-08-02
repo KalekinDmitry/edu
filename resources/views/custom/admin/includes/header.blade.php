@@ -117,7 +117,7 @@
                     <li>
                         <a href="#">
                             <span class="photo"><img alt="avatar"
-                                                     src="{{config('static.static')}}/img/admin/avatar-mini.jpg"></span>
+                                                     src="{{config('static.static')}}/img/admin/avatar1_small.jpg"></span>
                             <span class="subject">
                                     <span class="from">Greg  Martin</span>
                                     <span class="time">1 min</span>
@@ -130,7 +130,7 @@
                     <li>
                         <a href="#">
                             <span class="photo"><img alt="avatar"
-                                                     src="{{config('static.static')}}/img/admin/avatar-mini2.jpg"></span>
+                                                     src="{{config('static.static')}}/img/admin/avatar1_small.jpg"></span>
                             <span class="subject">
                                     <span class="from">Bob   Mckenzie</span>
                                     <span class="time">5 mins</span>
@@ -143,7 +143,7 @@
                     <li>
                         <a href="#">
                             <span class="photo"><img alt="avatar"
-                                                     src="{{config('static.static')}}/img/admin/avatar-mini3.jpg"></span>
+                                                     src="{{config('static.static')}}/img/admin/avatar1_small.jpg"></span>
                             <span class="subject">
                                     <span class="from">Phillip   Park</span>
                                     <span class="time">2 hrs</span>
@@ -156,7 +156,7 @@
                     <li>
                         <a href="#">
                             <span class="photo"><img alt="avatar"
-                                                     src="{{config('static.static')}}/img/admin/avatar-mini4.jpg"></span>
+                                                     src="{{config('static.static')}}/img/admin/avatar1_small.jpg"></span>
                             <span class="subject">
                                     <span class="from">Ray   Munoz</span>
                                     <span class="time">1 day</span>
@@ -222,7 +222,7 @@
             <li class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="profile-ava">
-                                <img alt="" src="{{config('static.static')}}/img/admin/avatar-mini4.jpg">
+                                <img alt="" src="{{config('static.static')}}/img/admin/avatar1_small.jpg">
                             </span>
                     <span class="username">{{Auth::user()->name}}</span>
                     <b class="caret"></b>

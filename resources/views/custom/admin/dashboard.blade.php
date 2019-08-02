@@ -10,21 +10,21 @@
 
             <section class="wrapper">
 
-                @include('custom.admin.includes.breadcrumbs')
+                @include('custom.admin.dashboard_components.breadcrumbs')
 
-                @include('custom.admin.includes.statusbar')
+                @include('custom.admin.dashboard_components.statusbar')
 
-                @include('custom.admin.includes.firstline')
+                @include('custom.admin.dashboard_components.firstline')
 
-                @include('custom.admin.includes.secondline')
+                @include('custom.admin.dashboard_components.secondline')
 
-                @include('custom.admin.includes.adminchat')
+                @include('custom.admin.dashboard_components.adminchat')
 
-                @include('custom.admin.includes.calendar')
+                @include('custom.admin.dashboard_components.calendar')
 
             </section>
 
-            @include('custom.admin.includes.licensetext')
+            @include('custom.admin.dashboard_components.licensetext')
 
         </section>
 

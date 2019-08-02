@@ -11,7 +11,7 @@
             </li>
 
             <li>
-                <a class="" href="#">
+                <a class="" href="{{ route('admin_profile', Auth::user()->id) }}">
                     <i class="icon_document_alt"></i>
                     <span>Profile</span>
                 </a>

@@ -39,7 +39,7 @@ class AdminController extends Controller
             //Redirect to yourself
             $user = Admin::where('id', Auth::user()->id)->first();
         }
-        return view('user.profile.show', [
+        return view('custom.admin.profile', [
             'user' => $user,
         ]);
     }
