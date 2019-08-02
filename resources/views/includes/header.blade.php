@@ -1,9 +1,13 @@
 <header class="header-section">
-    <a style="color:#fff">@lang('content.chlang'):</a>
-    <a href="{{ route('setLocale', ['ru']) }}">Русский/</a>
-    <a href="{{ route('setLocale', ['en']) }}">English/</a>
-    <a href="{{ route('setLocale', ['fr']) }}">Francais</a>
+
+    <a style="color:#fff; margin-left: 5%;">@lang('content.chlang'):</a>
+    <a href="{{ route('setLocale', ['ru']) }}"><img style="margin-bottom: 5px; border-radius: 20%" src="{{config('static.static')}}/img/icons/ru.png" alt=""></a>
+    <a href="{{ route('setLocale', ['en']) }}"><img style="margin-bottom: 5px; border-radius: 20%" src="{{config('static.static')}}/img/icons/us.png" alt=""></a>
+    <a href="{{ route('setLocale', ['fr']) }}"><img style="margin-bottom: 5px; border-radius: 20%" src="{{config('static.static')}}/img/icons/fr.png" alt=""></a>
+
     <div class="header-warp">
+
+
         <div class="container">
             @guest
                 <a href="{{ route('home') }}" class="site-logo">
