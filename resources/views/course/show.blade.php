@@ -52,7 +52,20 @@
                         <h3 style="padding-bottom:40px; padding-top: 45px;">@lang('content.tableofcontent')</h3>
                     </div>
 
+
+
+
                     <h5 style="font-size: 18px; padding-bottom:10px;">📂 1. @lang('content.4rev')</h5>
+                    <div class="list-group">
+                        @foreach($lessons as $lesson)
+                            <a href="{{ route('lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"style="font-size: 14px;"class="list-group-item list-group-item-action ">📄{{ $lesson->title }}</a>
+                        @endforeach
+                    </div>
+                    <br>
+
+
+
+                    <h5 style="font-size: 18px; padding-bottom:10px;">📂 2. @lang('content.4rev')</h5>
 
                     <div class="list-group">
                         <a href="#" style="font-size: 14px;" class="list-group-item list-group-item-action active">📄
@@ -72,7 +85,7 @@
                     </div>
 
                     <h5 style="font-size: 18px; padding-bottom:10px; padding-top: 20px;">📂
-                        2. @lang('content.business')</h5>
+                        3. @lang('content.business')</h5>
 
                     <div class="list-group">
                         <a href="#" style="font-size: 14px;"
@@ -92,7 +105,7 @@
                     </div>
 
                     <h5 style="font-size: 18px; padding-bottom:10px; padding-top: 20px;">📂
-                        3. @lang('content.persdev')</h5>
+                        4. @lang('content.persdev')</h5>
 
                     <div class="list-group">
                         <a href="#" style="font-size: 14px;"
