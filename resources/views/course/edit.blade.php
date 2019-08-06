@@ -7,7 +7,7 @@
     <meta name="keywords" content="academica, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Favicon -->
-    <link href="{{ asset('images/favicon.ico') }}" rel="shortcut icon"/>
+    <link href="{{config('static.static')}}/img/favicon.ico" rel="shortcut icon"/>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800"
@@ -38,19 +38,19 @@
     <div class="header-warp">
         <div class="container">
             <a href="{{ route('home') }}" class="site-logo">
-                <img src="{{ asset('images/logo2.png') }}" alt="">
+                <img src="{{config('static.static')}}/img/logo2.png" alt="">
                 {{--<span style="color: #fff;">HMQ-Education</span >--}}
             </a>
 
             <div class="user-panel">
                 @guest
-                    <a href="{{ route('login') }}">Login</a>
+                    <a href="{{ route('login') }}">@lang('content.loginbtn')</a>
                     <span>/</span>
-                    <a href="{{ route('register') }}">Register</a>
+                    <a href="{{ route('register') }}">@lang('content.regbtn')</a>
                 @else
                     <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     <span>/</span>
-                    <a href="{{ route('logout') }}">Logout</a>
+                    <a href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
                 @endguest
             </div>
             <div class="nav-switch">
@@ -63,37 +63,13 @@
 <!-- Header section end -->
 
 <!-- Create section -->
-<section class="create-section set-bg" data-setbg="{{ asset('images/bg.jpg') }}">
+<section class="create-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">
     <div class="container">
         <br><br><br><br><br><br><br><br>
-        {{--<div class="card text-white bg-dark">--}}
-
-        {{--<div class="card-header">--}}
-        {{--Создать--}}
-        {{--</div>--}}
-
-        {{--<form class="form-horizontal card-body" action="{{route('course.store')}}" method="post"--}}
-        {{--enctype="multipart/form-data">--}}
-        {{--<input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
-
-        {{-- Form include --}}
-        {{--@include('course.partials.form')--}}
-
-        {{--<div class="form-group">--}}
-        {{--<label for="">Выберите обложку вашего курса</label><br>--}}
-
-        {{--<input type="file" name="image">--}}
-        {{--<input class="" type="file" name="file[]" multiple>--}}
-        {{--</div>--}}
-
-        {{--<input type="hidden" name="created_by" value="{{Auth::id()}}">--}}
-        {{--<input class="btn btn-light" type="submit" value="Сохранить">--}}
-        {{--</form>--}}
-        {{--</div>--}}
         <div class="card text-white bg-dark">
 
             <div class="card-header">
-                Editing
+                @lang('content.editing')
             </div>
 
             <form class="form-horizontal card-body" action="{{route('course.update', $course)}}" method="post"
@@ -105,12 +81,12 @@
                 @include('course.partials.form')
 
                 <div class="form-group">
-                    <label for="">Choose a cover if you want to change it</label><br>
+                    <label for="">@lang('content.chcovifch')</label><br>
 
                     <input type="file" name="image">
                 </div>
                 <input style="color: #000" class="btn btn-light" type="submit" value="To apply">
-                <a style="color: #000" class="btn btn-light" href="{{ route('home') }}">Cancel</a>
+                <a style="color: #000" class="btn btn-light" href="{{ route('home') }}">@lang('content.cancel')</a>
             </form>
         </div>
     </div>
@@ -131,15 +107,9 @@
                 <a href=""><i class="fa fa-behance"></i></a>
                 <a href=""><i class="fa fa-linkedin"></i></a>
             </div>
-            {{--<ul class="footer-menu">--}}
-                {{--<li><a href="#courses">Courses</a></li>--}}
-                {{--<li><a href="#about">About us</a></li>--}}
-                {{--<li><a href="#newslatter">News</a></li>--}}
-                {{--<li><a href="#contact">Contact us</a></li>--}}
-            {{--</ul>--}}
             <div class="footer-logo">
                 <a href="https://hmq-edu.com">
-                    <img src="{{ asset('images/logo2.png') }}" alt="">
+                    <img src="{{config('static.static')}}/img/logo2.png" alt="">
                 </a>
                 <!-- span style="color: #fff;">HMQ-Education</span -->
             </div>
@@ -154,14 +124,10 @@
                     <a href="https://colorlib.com" target="_blank">Colorlib</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
             </div>
-
         </div>
     </div>
-
-
 </footer>
 <!-- Footer section end -->
-
 
 <!--====== Javascripts & Jquery ======-->
 <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
