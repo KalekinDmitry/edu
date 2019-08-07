@@ -63,4 +63,8 @@
 -7 hours
 -fix views, interface improvements
 
+3-Aug:
+-1 hour
+-lessons list in course view
+
 
