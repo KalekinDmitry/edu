@@ -1,0 +1,14 @@
+15.07.19 
+4h Deployment of the environment, setting Putty to work with a remote server.
+
+17.07.19
+1h Adding databases to environments.
+
+29.07.19
+4h Created .env settings files. Defined data to fill. The analysis of errors that appeared during the filling of files.
+
+30.07.19
+2h The necessary folders and files for generating keys have been created. Keys generated. Configured .env files.
+
+31.07.19
+1.0h Analysis of access errors to databases, analysis of the possibility of adding environment variables to the Apache configuration file 
