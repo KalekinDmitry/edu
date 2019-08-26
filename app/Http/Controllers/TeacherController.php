@@ -41,7 +41,7 @@ class TeacherController extends Controller
             //Redirect to yourself
             $user = Teacher::where('id', Auth::user()->id)->first();
         }
-        return view('user.profile.show', [
+        return view('custom.user.profile.show', [
 
             'user' => $user,
         ]);
@@ -50,7 +50,7 @@ class TeacherController extends Controller
     public function edit()
     {
         $user = Teacher::where('id', Auth::user()->id)->first();
-        return view('user.settings.edit', [
+        return view('custom.user.settings.edit', [
             'user' => $user,
         ]);
     }

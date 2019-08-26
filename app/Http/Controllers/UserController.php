@@ -24,7 +24,7 @@ class UserController extends Controller
             //Redirect to yourself
             $user = User::where('id', Auth::user()->id)->first();
         }
-        return view('user.profile.show', [
+        return view('custom.user.profile.show', [
             'user' => $user,
         ]);
     }
@@ -36,13 +36,13 @@ class UserController extends Controller
 
         //dd($invites);
 
-        return view('user.invites',['invites' => $invites]);
+        return view('custom.user.invites',['invites' => $invites]);
     }
 
     public function edit()
     {
         $user = User::where('id', Auth::user()->id)->first();
-        return view('user.settings.edit', [
+        return view('custom.user.settings.edit', [
             'user' => $user,
         ]);
     }

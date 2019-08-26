@@ -78,6 +78,7 @@ return [
     'cnfrmpsw' => 'Confirm password',
     'laa' => 'Login as admin',
     'lat' => 'Login as teacher',
+    'lau' => 'Login as user',
     'tchreg' => 'Register as a teacher',
     'verify' => 'Verify Your Email Address',
     'verfb' => 'A fresh verification link has been sent to your email address',

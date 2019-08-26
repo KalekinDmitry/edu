@@ -43,7 +43,7 @@
                         <div class="seller-info">
                             <div class="seller-pic set-bg" data-setbg="">[Profile avatar]</div>
                             <h6><a style="color: #fff"
-                                   href="{{ route('users_profile', $course->teacher->id) }}">By {{$course->teacher->name}}</a>,
+                                   href="{{ route('user_profile', $course->teacher->id) }}">By {{$course->teacher->name}}</a>,
                                 <span>[who is]</span></h6>
                         </div>
                     </div>
