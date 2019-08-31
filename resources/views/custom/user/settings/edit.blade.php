@@ -19,7 +19,7 @@
                                 @lang('content.admprofediting')
                             @endauth
                         </div>
-                        <form class="form-horizontal card-body" action="{{route('my_settings_save', $user)}}"
+                        <form class="form-horizontal card-body" action="{{route('user_profile_settings_save', $user)}}"
                               method="post"
                               enctype="multipart/form-data">
                             <input type="hidden" name="_method" value="put">

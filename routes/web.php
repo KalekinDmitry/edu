@@ -21,8 +21,8 @@ Route::get('/', 'HomeController@index')->name('home');
 // Users
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 Route::get('/user/profile/{id}', 'UserController@show')->name('user_profile');
-Route::get('/user/profile/edit', 'UserController@edit')->name('user_profile_settings');
-Route::put('/user/profile/edit/save','UserController@update')->name('user_profile_settings_save');
+Route::get('/user/profile/{id}/edit', 'UserController@edit')->name('user_profile_settings');
+Route::put('/user/profile/{id}/edit/save','UserController@update')->name('user_profile_settings_save');
 Route::get('/myInvites', 'UserController@showInvites')->name('user.invites');
 
 // Teachers
@@ -32,7 +32,8 @@ Route::get('/teacher/login', 'Auth\LoginController@showTeacherLoginForm')->name(
 Route::post('/teacher/login', 'Auth\LoginController@teacherLogin')->name('teacher.loginRequest');
 Route::get('/teacher', 'TeacherController@index')->name('teacher.dashboard');
 Route::get('/teacher/profile/{id}', 'TeacherController@show')->name('teacher_profile');
-Route::get('/teacher/profile/edit', 'TeacherController@edit')->name('teacher_profile_settings');
+Route::get('/teacher/profile/{id}/edit', 'TeacherController@edit')->name('teacher_profile_settings');
+Route::put('/teacher/profile/{id}/edit/save', 'TeacherController@update')->name('teacher_profile_settings_save');
 
 // Admins
 Route::get('/admin/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.showLoginForm');

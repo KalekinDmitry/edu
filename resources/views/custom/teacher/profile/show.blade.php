@@ -23,19 +23,19 @@
                             </div>
                             <div class="panel-body">
                                 <div class="text-center" id="author">
-                                    @if($user->avatar)
-                                        <img src="{{ asset($user->avatar )}}" alt="">
+                                    @if($teacher->avatar)
+                                        <img src="{{ asset($teacher->avatar )}}" alt="">
                                     @else
                                         <img src="{{config('static.static')}}/img/no-photo.jpg" alt="">
                                     @endif
-                                    <h3>@if($user->name != NULL)
-                                            {{ $user->name }}
+                                    <h3>@if($teacher->name != NULL)
+                                            {{ $teacher->name }}
                                         @else
                                             <strong>@lang('content.infonotspec')</strong>
                                         @endif</h3>
                                     <small class="label label-warning">
-                                        @if($user->signature != NULL)
-                                            {{ $user->signature }}
+                                        @if($teacher->signature != NULL)
+                                            {{ $teacher->signature }}
                                         @else
                                             <strong>@lang('content.infonotspec')</strong>
                                         @endif
@@ -77,7 +77,7 @@
                                     @endauth
                                     @auth('teacher')
                                         <li class=""><a
-                                                    href="{{route('teacher_settings')}}">@lang('content.edtchprof')</a>
+                                                    href="{{route('teacher_profile_settings', Auth::user()->id)}}">@lang('content.edtchprof')</a>
                                     @endauth
                                     @auth('admin')
                                         <li class=""><a
@@ -93,40 +93,40 @@
                                             <tbody>
                                             <tr>
                                                 <td class="active">@lang('content.regd'):</td>
-                                                <td>@if($user->created_at != NULL)
-                                                        {{ $user->created_at }}
+                                                <td>@if($teacher->created_at != NULL)
+                                                        {{ $teacher->created_at }}
                                                     @else
                                                         <strong>@lang('content.infonotspec')</strong>
                                                     @endif</td>
                                             </tr>
                                             <tr>
                                                 <td class="active">@lang('content.birthday'):</td>
-                                                <td>@if($user->dob != NULL)
-                                                        {{ $user->dob }}
+                                                <td>@if($teacher->dob != NULL)
+                                                        {{ $teacher->dob }}
                                                     @else
                                                         <strong>@lang('content.infonotspec')</strong>
                                                     @endif</td>
                                             </tr>
                                             <tr>
                                                 <td class="active">@lang('content.sex'):</td>
-                                                <td>@if($user->sex == 0 || $user->sex == NULL)
+                                                <td>@if($teacher->sex == 0 || $teacher->sex == NULL)
                                                         <strong>@lang('content.infonotspec')</strong>
                                                     @else
-                                                        {{ $user->sex }}
+                                                        {{ $teacher->sex }}
                                                     @endif</td>
                                             </tr>
                                             <tr>
                                                 <td class="active">@lang('content.phonenum'):</td>
-                                                <td>@if($user->phone != NULL)
-                                                        {{ $user->phone }}
+                                                <td>@if($teacher->phone != NULL)
+                                                        {{ $teacher->phone }}
                                                     @else
                                                         <strong>@lang('content.infonotspec')</strong>
                                                     @endif</td>
                                             </tr>
                                             <tr>
                                                 <td class="active">@lang('content.skills'):</td>
-                                                <td>@if($user->skills != NULL)
-                                                        @foreach(explode(',',$user->skills) as $skill)
+                                                <td>@if($teacher->skills != NULL)
+                                                        @foreach(explode(',',$teacher->skills) as $skill)
                                                             <small class="label label-warning">{{ $skill }}</small>
                                                         @endforeach
                                                     @else
@@ -135,16 +135,16 @@
                                             </tr>
                                             <tr>
                                                 <td class="active">@lang('content.hobbies'):</td>
-                                                <td>@if($user->hobbies != NULL)
-                                                        {{ $user->hobbies }}
+                                                <td>@if($teacher->hobbies != NULL)
+                                                        {{ $teacher->hobbies }}
                                                     @else
                                                         <strong>@lang('content.infonotspec')</strong>
                                                     @endif</td>
                                             </tr>
                                             <tr>
                                                 <td class="active">@lang('content.status'):</td>
-                                                <td>@if($user->status != NULL)
-                                                        {{ $user->status }}
+                                                <td>@if($teacher->status != NULL)
+                                                        {{ $teacher->status }}
                                                     @else
                                                         <strong>@lang('content.infonotspec')</strong>
                                                     @endif</td>
