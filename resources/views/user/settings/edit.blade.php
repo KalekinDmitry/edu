@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_changeincludes')
 
 @section('content')
 <!-- Create section -->
