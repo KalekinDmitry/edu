@@ -10,7 +10,7 @@ class Lesson extends Model
     use SoftDeletes;
     //
     protected $fillable =  [
-        'course_id', 'title',  'slug', 'excerpt', 'content_html', 'video_link', 'is_published', 'published_at'
+        'course_id', 'title',  'slug', 'excerpt', 'content_html', 'video_link', 'is_published', 'published_at', 'serial_nember'
     ];
 
 
