@@ -10,7 +10,12 @@
 
 @import url(line-icons.css);
 
+h666{
 
+    color: white;
+
+    font-size:16px !important;
+}
 
 body {
 
@@ -1248,8 +1253,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.176) !important;
 
-    };
-
+    }
 }
 
 /* bootstrape editor*/
@@ -2390,7 +2394,6 @@ div[data-role="editor-toolbar"] {
 
 }
 
-}
 
 .panel.panel-default.panel-heading {
 
@@ -3004,7 +3007,7 @@ div[data-role="editor-toolbar"] {
 
 }
 
-* /Widget-Content */
+
 
 
 
@@ -3360,7 +3363,7 @@ div[data-role="editor-toolbar"] {
 
 /*-----	map-----*/
 
-* Google maps */
+
 
 
 
@@ -4152,7 +4155,7 @@ div[data-role="editor-toolbar"] {
 
         margin-bottom: -4px;
 
-    };
+    }
 
     }
 
@@ -6738,7 +6741,7 @@ ul.inbox-pagination li {
 
 .profile-widget-info{
 
-    background: #324c57 !important;
+    background: #083787 !important;
 
 }
 
@@ -7722,7 +7725,7 @@ ul.amounts li {
 
 .tab-bg-info {
 
-    background: #324c57;
+    background: #355b9c;
 
 
 
