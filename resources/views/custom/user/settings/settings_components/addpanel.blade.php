@@ -133,7 +133,7 @@
                                         </div>
                                         <div class="form-group row">
                                             <label for="image"
-                                                   class="col-lg-2 control-label">@lang('content.chprofimg')</label><br>
+                                                   class="col-lg-2 control-label" style="color:#000;">@lang('content.chprofimg')</label><br>
                                             <div class="col-lg-6">
                                                 <input id="image" type="file" name="image">
                                             </div>
@@ -210,7 +210,7 @@
                                         <div class="form-group">
                                             <div class="col-lg-offset-2 col-lg-10">
                                                 <button type="submit" class="btn btn-primary">Save</button>
-                                                <button type="button" class="btn btn-danger">Cancel</button>
+                                                {{--<button type="button" class="btn btn-danger">Cancel</button>--}}
                                             </div>
                                         </div>
                                     </form>

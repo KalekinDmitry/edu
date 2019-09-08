@@ -47,7 +47,7 @@ class TeacherController extends Controller
         $teacher->name = $request->name;
         $teacher->email = $request->email;
         $teacher->save();
-        return redirect()->route('teacher_profile_settings', $teacher);
+        return redirect()->route('teacher_settings', $teacher);
     }
 
 }

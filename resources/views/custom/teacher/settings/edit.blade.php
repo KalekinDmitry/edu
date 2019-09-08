@@ -11,9 +11,6 @@
 
     <!-- Bootstrap CSS -->
     <link href="{{ asset('css/admin/bootstrap.min.css') }}" rel="stylesheet">
-    <!-- bootstrap theme -->
-    <link href="{{ asset('css/admin/bootstrap-theme.css') }}" rel="stylesheet">
-    <!--external css-->
     <!-- font icon -->
     <link href="{{ asset('css/admin/elegant-icons-style.css' )}}" rel="stylesheet"/>
     <link href="{{ asset('css/admin/font-awesome.min.css') }}" rel="stylesheet"/>

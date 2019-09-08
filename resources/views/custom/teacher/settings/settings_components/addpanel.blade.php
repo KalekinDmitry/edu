@@ -22,36 +22,85 @@
                     <div class="tab-content">
                         <div id="profile" class="tab-pane active">
                             <section class="panel">
-                                <div class="bio-graph-heading">
-                                    Hello I’m {{ $teacher->name }}, and there will be some information about me
-                                </div>
                                 <div class="panel-body bio-graph-info">
-                                    <h1>Bio Graph</h1>
+                                    <h1>Personal data</h1>
                                     <div class="row">
                                         <div class="bio-row">
-                                            <p><span>First Name </span>: Jenifer </p>
+                                            <p><span>Name:</span><strong>{{ $teacher->name }}</strong></p>
                                         </div>
                                         <div class="bio-row">
-                                            <p><span>Last Name </span>: Smith</p>
+                                            <p><span>Email:</span><strong>{{ $teacher->email }}</strong></p>
                                         </div>
                                         <div class="bio-row">
-                                            <p><span>Birthday</span>: 27 August 1987</p>
+                                            @if($teacher->created_at)
+                                                <p><span>Registered:</span><strong>{{ $teacher->created_at }}</strong></p>
+                                            @else
+                                                <p><span>Registered:</span><strong>Information not specified</strong>
+                                                </p>
+                                            @endif
                                         </div>
                                         <div class="bio-row">
-                                            <p><span>Country </span>: United</p>
+                                            @if($teacher->updated_at)
+                                                <p><span>Last changes:</span><strong>{{ $teacher->updated_at }}</strong>
+                                                </p>
+                                            @else
+                                                <p><span>Last changes:</span><strong>Information has not
+                                                        changed</strong>
+                                                </p>
+                                            @endif
                                         </div>
-                                        <div class="bio-row">
-                                            <p><span>Occupation </span>: UI Designer</p>
-                                        </div>
-                                        <div class="bio-row">
-                                            <p><span>Email </span>:jenifer@mailname.com</p>
-                                        </div>
-                                        <div class="bio-row">
-                                            <p><span>Mobile </span>: (+6283) 456 789</p>
-                                        </div>
-                                        <div class="bio-row">
-                                            <p><span>Phone </span>: (+021) 956 789123</p>
-                                        </div>
+                                        {{--<div class="bio-row">--}}
+                                            {{--@if($user->dob)--}}
+                                                {{--<p><span>Date of Birth:</span><strong>{{ $user->dob }}</strong></p>--}}
+                                            {{--@else--}}
+                                                {{--<p><span>Date of Birth:</span><strong>Information not specified</strong>--}}
+                                                {{--</p>--}}
+                                            {{--@endif--}}
+                                        {{--</div>--}}
+                                        {{--<div class="bio-row">--}}
+                                            {{--@if($user->phone)--}}
+                                                {{--<p><span>Mobile: </span><strong>{{ $user->phone }}</strong></p>--}}
+                                            {{--@else--}}
+                                                {{--<p><span>Mobile: </span><strong>Information not specified</strong></p>--}}
+                                            {{--@endif--}}
+                                        {{--</div>--}}
+                                        {{--<div class="bio-row">--}}
+                                            {{--@if($user->skills)--}}
+                                                {{--<p><span>Skills: </span><strong>--}}
+                                                        {{--@foreach(explode(',',$user->skills) as $skill)--}}
+                                                            {{--<small class="label label-warning">{{ $skill }}</small>--}}
+                                                        {{--@endforeach--}}
+                                                    {{--</strong></p>--}}
+                                            {{--@else--}}
+                                                {{--<p><span>Skills: </span><strong>Information not specified</strong></p>--}}
+                                            {{--@endif--}}
+                                        {{--</div>--}}
+                                        {{--<div class="bio-row">--}}
+                                            {{--@if($user->sex)--}}
+                                                {{--@if($user->sex == 1)--}}
+                                                    {{--<p><span>Gender: </span><strong>Male</strong></p>--}}
+                                                {{--@else--}}
+                                                    {{--<p><span>Gender: </span><strong>Female</strong></p>--}}
+                                                {{--@endif--}}
+                                            {{--@else--}}
+                                                {{--<p><span>Gender: </span><strong>Information not specified</strong></p>--}}
+                                            {{--@endif--}}
+                                        {{--</div>--}}
+                                        {{--<div class="bio-row">--}}
+                                            {{--@if($user->hobbies)--}}
+                                                {{--<p><span>Hobbies: </span><strong>{{ $user->hobbies }}</strong></p>--}}
+                                            {{--@else--}}
+                                                {{--<p><span>Hobbies: </span><strong>Information not specified</strong></p>--}}
+                                            {{--@endif--}}
+                                        {{--</div>--}}
+                                        {{--<div class="bio-row">--}}
+                                            {{--@if($user->signature)--}}
+                                                {{--<p><span>Signature: </span><strong>{{ $user->signature }}</strong></p>--}}
+                                            {{--@else--}}
+                                                {{--<p><span>Signature: </span><strong>Information not specified</strong>--}}
+                                                {{--</p>--}}
+                                            {{--@endif--}}
+                                        {{--</div>--}}
                                     </div>
                                 </div>
                             </section>
@@ -64,76 +113,104 @@
                         <div id="edit-profile" class="tab-pane">
                             <section class="panel">
                                 <div class="panel-body bio-graph-info">
-                                    <h1> Profile Info</h1>
-                                    <form class="form-horizontal" role="form">
+                                    <h1>Edit data</h1>
+                                    <form class="form-horizontal card-body"
+                                          action="{{route('teacher_settings_save', $teacher)}}"
+                                          method="post"
+                                          enctype="multipart/form-data">
+                                        <input type="hidden" name="_method" value="put">
+                                        {{ csrf_field() }}
+
+                                        {{--<div class="form-group">--}}
+                                            {{--<label class="col-lg-2 control-label" style="color:#000;">Avatar</label>--}}
+                                            {{--<div class="col-lg-6">--}}
+                                                {{--@if($user->avatar)--}}
+                                                    {{--<img src="{{ asset($user->avatar )}}" alt="">--}}
+                                                {{--@else--}}
+                                                    {{--<img src="{{config('static.static')}}/img/no-photo.jpg" alt="">--}}
+                                                {{--@endif--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="form-group row">--}}
+                                            {{--<label for="image"--}}
+                                                   {{--class="col-lg-2 control-label" style="color:#000;">@lang('content.chprofimg')</label><br>--}}
+                                            {{--<div class="col-lg-6">--}}
+                                                {{--<input id="image" type="file" name="image">--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<hr class="border-dark">--}}
                                         <div class="form-group">
-                                            <label class="col-lg-2 control-label">First Name</label>
+                                            <label class="col-lg-2 control-label" style="color:#000;">Name</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="f-name"
-                                                       placeholder=" ">
+                                                <input id="name" name="name" type="text" class="form-control"
+                                                       value="{{$teacher->name ?? ""}}" minlength="2" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-lg-2 control-label">Last Name</label>
+                                            <label class="col-lg-2 control-label" style="color:#000;">Email</label>
                                             <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="l-name"
-                                                       placeholder=" ">
+                                                <input id="email" name="email" type="email" class="form-control"
+                                                       value="{{$teacher->email ?? ""}}" required>
                                             </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-lg-2 control-label">About Me</label>
-                                            <div class="col-lg-10">
-                                                            <textarea name="" id="" class="form-control" cols="30"
-                                                                      rows="5"></textarea>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-lg-2 control-label">Country</label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="c-name"
-                                                       placeholder=" ">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-lg-2 control-label">Birthday</label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="b-day"
-                                                       placeholder=" ">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-lg-2 control-label">Occupation</label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="occupation"
-                                                       placeholder=" ">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-lg-2 control-label">Email</label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="email"
-                                                       placeholder=" ">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-lg-2 control-label">Mobile</label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="mobile"
-                                                       placeholder=" ">
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label class="col-lg-2 control-label">Website URL</label>
-                                            <div class="col-lg-6">
-                                                <input type="text" class="form-control" id="url"
-                                                       placeholder="http://www.example.com ">
-                                            </div>
-                                        </div>
+
+                                        {{--<div class="form-group">--}}
+                                            {{--<label for="sex" class="col-lg-2 control-label" style="color:#000;">@lang('content.chgender')</label>--}}
+                                            {{--<div class="col-lg-6">--}}
+                                                {{--<select style="height: 35px;" id="sex" name="sex" class="form-control">--}}
+                                                    {{--<option value="0" selected="">@lang('content.notselected')</option>--}}
+                                                    {{--<option value="1">@lang('content.male')</option>--}}
+                                                    {{--<option value="2">@lang('content.fem')</option>--}}
+                                                {{--</select>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<label for="phone" class="col-lg-2 control-label" style="color:#000;">Mobile</label>--}}
+                                            {{--<div class="col-lg-6">--}}
+                                                {{--<input id="phone" name="phone" type="number" class="form-control"--}}
+                                                       {{--value="{{$user->phone ?? ""}}">--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<label for="dob" class="col-lg-2 control-label" style="color:#000;">Birthday (dd/mm/yy)</label>--}}
+                                            {{--<div class="col-lg-6">--}}
+                                                {{--<input id="dob" name="dob" type="date" class="form-control"--}}
+                                                       {{--value="{{$user->dob ?? ""}}">--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<label for="skills" class="col-lg-2 control-label" style="color:#000;">@lang('content.skills')</label>--}}
+                                            {{--<div class="col-lg-6">--}}
+                                                {{--<input id="skills" name="skills" type="text" class="form-control"--}}
+                                                       {{--value="{{$user->skills ?? ""}}">--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<label for="hobbies" class="col-lg-2 control-label" style="color:#000;">@lang('content.hobbies')</label>--}}
+                                            {{--<div class="col-lg-6">--}}
+                                                {{--<input id="hobbies" name="hobbies" type="text" class="form-control"--}}
+                                                       {{--value="{{$user->hobbies ?? ""}}">--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<label for="signature" class="col-lg-2 control-label" style="color:#000;">@lang('content.signature')</label>--}}
+                                            {{--<div class="col-lg-6">--}}
+                                                {{--<input id="signature" name="signature" type="text" class="form-control"--}}
+                                                       {{--value="{{$user->signature ?? ""}}">--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="form-group">--}}
+                                            {{--<label for="status" class="col-lg-2 control-label" style="color:#000;">@lang('content.status')</label>--}}
+                                            {{--<div class="col-lg-6">--}}
+                                                {{--<input id="status" name="status" type="text" class="form-control"--}}
+                                                       {{--value="{{$user->status ?? ""}}">--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
 
                                         <div class="form-group">
                                             <div class="col-lg-offset-2 col-lg-10">
                                                 <button type="submit" class="btn btn-primary">Save</button>
-                                                <button type="button" class="btn btn-danger">Cancel</button>
+                                                {{--<button type="button" class="btn btn-danger">Cancel</button>--}}
                                             </div>
                                         </div>
                                     </form>
