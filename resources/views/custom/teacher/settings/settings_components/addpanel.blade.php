@@ -23,7 +23,7 @@
                         <div id="profile" class="tab-pane active">
                             <section class="panel">
                                 <div class="bio-graph-heading">
-                                    Hello I’m {{ $user->name }}, and there will be some information about me
+                                    Hello I’m {{ $teacher->name }}, and there will be some information about me
                                 </div>
                                 <div class="panel-body bio-graph-info">
                                     <h1>Bio Graph</h1>

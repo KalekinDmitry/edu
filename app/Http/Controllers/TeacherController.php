@@ -33,20 +33,6 @@ class TeacherController extends Controller
         return view('custom.teacher.dashboard', ['classrooms' => $classrooms, 'courses' => $courses]);
     }
 
-    public function show(Request $request)
-    {
-        if ($teacher = Teacher::where('id', $request->id)->first()) {
-            //"Password protection"
-            $teacher->password = NULL;
-            return view('custom.teacher.profile.show', [
-                'teacher' => $teacher,
-            ]);
-        } else {
-            // Redirect to 404
-            return view('errors.404');
-        }
-    }
-
     public function edit()
     {
         $teacher = Teacher::where('id', Auth::user()->id)->first();

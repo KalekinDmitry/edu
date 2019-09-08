@@ -1,138 +1,152 @@
 @extends('layouts.app')
 
+@section('head')
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Creative - Bootstrap 3 Responsive Admin Template">
+    <meta name="author" content="GeeksLabs">
+    <meta name="keyword"
+          content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
+    <link href="{{ config('static.static') }}/img/favicon.ico" rel="shortcut icon"/>
+
+    <!-- Bootstrap CSS -->
+    <link href="{{ asset('css/admin/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- bootstrap theme -->
+    <link href="{{ asset('css/admin/bootstrap-theme.css') }}" rel="stylesheet">
+    <!--external css-->
+    <!-- font icon -->
+    <link href="{{ asset('css/admin/elegant-icons-style.css' )}}" rel="stylesheet"/>
+    <link href="{{ asset('css/admin/font-awesome.min.css') }}" rel="stylesheet"/>
+    <!-- full calendar css-->
+    <link href="{{ asset('css/admin/bootstrap-fullcalendar.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/admin/fullcalendar2.css') }}" rel="stylesheet"/>
+    <!-- easy pie chart-->
+    <link href="{{ asset('css/admin/jquery.easy-pie-chart.css') }}" rel="stylesheet" type="text/css"
+          media="screen"/>
+    <!-- owl carousel -->
+    <link rel="stylesheet" href="{{ asset('css/admin/owl.carousel.css') }}" type="text/css">
+    <link href="{{ asset('css/admin/jquery-jvectormap-1.2.2.css') }}" rel="stylesheet">
+    <!-- Custom styles -->
+    <link rel="stylesheet" href="{{ asset('css/admin/fullcalendar.css') }}">
+    <link href="{{ asset('css/admin/widgets.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/admin/style-responsive.css') }}" rel="stylesheet"/>
+    <link href="{{ asset('css/admin/xcharts.min.css') }}" rel=" stylesheet">
+    <link href="{{ asset('css/admin/jquery-ui-1.10.4.min.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
-    <!-- Create section -->
-    <section class="create-section">
+    <section class="content-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg"
+             style="background: no-repeat fixed center;">
+
+        <br><br><br><br><br><br><br><br><br>
+
         <div class="container">
-            <br><br><br><br><br><br><br><br>
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="border-dark card text-dark bg-white">
-                        <div class="card-header">
-                            @auth('web')
-                                @lang('content.usprofediting')
-                            @endauth
-                            @auth('teacher')
-                                @lang('content.tchprofediting')
-                            @endauth
-                            @auth('admin')
-                                @lang('content.admprofediting')
-                            @endauth
-                        </div>
-                        <form class="form-horizontal card-body" action="{{route('teacher_profile_settings_save', $teacher)}}"
-                              method="post"
-                              enctype="multipart/form-data">
-                            <input type="hidden" name="_method" value="put">
-                            {{ csrf_field() }}
 
-                            {{--<div class="form-group">--}}
-                                {{--<div class="form-group row justify-content-center">--}}
-                                    {{--<label for=""></label>--}}
-                                    {{--@if($user->avatar)--}}
-                                        {{--<img src="{{ asset($user->avatar )}}" alt="">--}}
-                                    {{--@else--}}
-                                        {{--<img src="{{asset('images/no-photo.jpg')}}" alt="">--}}
-                                    {{--@endif--}}
-                                {{--</div>--}}
-                                {{--<div class="form-group row">--}}
-                                    {{--<label for="image"--}}
-                                           {{--class="col-md-4 col-form-label text-md-left">@lang('content.chprofimg')</label><br>--}}
-                                    {{--<div class="col-md-12 text-md-left">--}}
-                                        {{--<input id="image" type="file" name="image">--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<div class="form-group row">--}}
-                                    {{--<label for="sex"--}}
-                                           {{--class="col-md-4 col-form-label text-md-left">@lang('content.chgender')</label>--}}
-                                    {{--<div class="col-md-12 text-md-left">--}}
-                                        {{--<select id="sex" name="sex" class="form-control">--}}
-                                            {{--<option value="0" selected="">@lang('content.notselected')</option>--}}
-                                            {{--<option value="1">@lang('content.male')</option>--}}
-                                            {{--<option value="2">@lang('content.fem')</option>--}}
-                                        {{--</select>--}}
+            <div class="row">
 
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            <hr class="border-dark">
-                            <div class="form-group row">
-                                <label for="name"
-                                       class="col-md-4 col-form-label text-md-left">@lang('content.nm')</label>
-                                <div class="col-md-12 text-md-left">
-                                    <input id="name" name="name" type="text" class="form-control"
-                                           value="{{$teacher->name ?? ""}}" minlength="2" required>
-                                </div>
-                            </div>
-                            <hr class="border-dark">
-                            <div class="form-group row">
-                                <label for="email"
-                                       class="col-md-4 col-form-label text-md-left">@lang('content.eml')</label>
-                                <div class="col-md-12 text-md-left">
-                                    <input id="email" name="email" type="email" class="form-control"
-                                           value="{{$teacher->email ?? ""}}" required>
-                                </div>
-                            </div>
-                            <hr class="border-dark">
-                            {{--<div class="form-group row">--}}
-                                {{--<label for="phone"--}}
-                                       {{--class="col-md-4 col-form-label text-md-left">@lang('content.phonenum')</label>--}}
-                                {{--<div class="col-md-12 text-md-left">--}}
-                                    {{--<input id="phone" name="phone" type="number" class="form-control"--}}
-                                           {{--value="{{$user->phone ?? ""}}">--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="form-group row">--}}
-                                {{--<label for="dob"--}}
-                                       {{--class="col-md-4 col-form-label text-md-left">@lang('content.dobth')</label>--}}
-                                {{--<div class="col-md-12 text-md-left">--}}
-                                    {{--<input id="dob" name="dob" type="date" class="form-control"--}}
-                                           {{--value="{{$user->dob ?? ""}}">--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="form-group row">--}}
-                                {{--<label for="skills"--}}
-                                       {{--class="col-md-4 col-form-label text-md-left">@lang('content.skills')</label>--}}
-                                {{--<div class="col-md-12 text-md-left">--}}
-                                    {{--<input id="skills" name="skills" type="text" class="form-control"--}}
-                                           {{--value="{{$user->skills ?? ""}}">--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="form-group row">--}}
-                                {{--<label for="hobbies"--}}
-                                       {{--class="col-md-4 col-form-label text-md-left">@lang('content.hobbies')</label>--}}
-                                {{--<div class="col-md-12 text-md-left">--}}
-                                    {{--<input id="hobbies" name="hobbies" type="text" class="form-control"--}}
-                                           {{--value="{{$user->hobbies ?? ""}}">--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="form-group row">--}}
-                                {{--<label for="signature"--}}
-                                       {{--class="col-md-4 col-form-label text-md-left">@lang('content.signature')</label>--}}
-                                {{--<div class="col-md-12 text-md-left">--}}
-                                    {{--<input id="signature" name="signature" type="text" class="form-control"--}}
-                                           {{--value="{{$user->signature ?? ""}}">--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            {{--<div class="form-group row">--}}
-                                {{--<label for="status"--}}
-                                       {{--class="col-md-4 col-form-label text-md-left">@lang('content.status')</label>--}}
-                                {{--<div class="col-md-12 text-md-left">--}}
-                                    {{--<input id="status" name="status" type="text" class="form-control"--}}
-                                           {{--value="{{$user->status ?? ""}}">--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                            <input class="btn btn-dark" type="submit" value="Save">
-                        </form>
-                        <br><br><br>
-                    </div>
-                </div>
+                <section class="wrapper">
+
+                    @include('custom.teacher.settings.settings_components.owninformation')
+
+                    @include('custom.teacher.settings.settings_components.addpanel')
+
+                </section>
+
             </div>
+
         </div>
+
     </section>
 @endsection
-<!-- Create section end -->
-<br>
-{{--<!-- Footer section -->--}}
-{{--@section('scripts')--}}
-    {{--<script>$("select[name='sex']").val({{$user->sex}}).change();</script>--}}
-{{--@endsection--}}
+
+@section('scripts')
+    <!-- javascripts -->
+    <script src="{{ asset('js/admin/jquery.js') }}"></script>
+    <script src="{{ asset('js/admin/jquery-ui-1.10.4.min.js') }}"></script>
+    <script src="{{ asset('js/admin/jquery-1.8.3.min.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/admin/jquery-ui-1.9.2.custom.min.js') }}"></script>
+    <!-- bootstrap -->
+    <script src="{{ asset('js/admin/bootstrap.min.js') }}"></script>
+    <!-- nice scroll -->
+    <script src="{{ asset('js/admin/jquery.scrollTo.min.js') }}"></script>
+    <script src="{{ asset('js/admin/jquery.nicescroll.js') }}" type="text/javascript"></script>
+    <!-- charts scripts -->
+    <script src="{{ asset('js/admin/jquery.knob.js') }}"></script>
+    <script src="{{ asset('js/admin/jquery.sparkline.js') }}" type="text/javascript"></script>
+    <script src="{{ asset('js/admin/jquery.easy-pie-chart.js') }}"></script>
+    <script src="{{ asset('js/admin/owl.carousel.js') }}"></script>
+    <!-- jQuery full calendar -->
+    <
+    <script src="{{ asset('js/admin/fullcalendar.min.js') }}"></script>
+    <!-- Full Google Calendar - Calendar -->
+    <script src="{{ asset('js/admin/fullcalendar2.js') }}"></script>
+    <!--script for this page only-->
+    <script src="{{ asset('js/admin/calendar-custom.js') }}"></script>
+    <script src="{{ asset('js/admin/jquery.rateit.min.js') }}"></script>
+    <!-- custom select -->
+    <script src="{{ asset('js/admin/jquery.customSelect.min.js') }}"></script>
+    <script src="{{ asset('js/admin/Chart2.js') }}"></script>
+
+    <!--custome script for all page-->
+    <script src="{{ asset('js/admin/scripts.js') }}"></script>
+    <!-- custom script for this page-->
+    <script src="{{ asset('js/admin/sparkline-chart.js') }}"></script>
+    <script src="{{ asset('js/admin/easy-pie-chart.js') }}"></script>
+    <script src="{{ asset('js/admin/jquery-jvectormap-1.2.2.min.js') }}"></script>
+    <script src="{{ asset('js/admin/jquery-jvectormap-world-mill-en.js') }}"></script>
+    <script src="{{ asset('js/admin/xcharts.min.js') }}"></script>
+    <script src="{{ asset('js/admin/jquery.autosize.min.js') }}"></script>
+    <script src="{{ asset('js/admin/jquery.placeholder.min.js') }}"></script>
+    <script src="{{ asset('js/admin/gdp-data.js') }}"></script>
+    <script src="{{ asset('js/admin/morris.min.js') }}"></script>
+    <script src="{{ asset('js/admin/sparklines.js') }}"></script>
+    <script src="{{ asset('js/admin/charts.js') }}"></script>
+    <script src="{{ asset('js/admin/jquery.slimscroll.min.js') }}"></script>
+    <script>
+        //knob
+        $(function () {
+            $(".knob").knob({
+                'draw': function () {
+                    $(this.i).val(this.cv + '%')
+                }
+            })
+        });
+
+        //carousel
+        $(document).ready(function () {
+            $("#owl-slider").owlCarousel({
+                navigation: true,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true
+
+            });
+        });
+
+        //custom select box
+
+        $(function () {
+            $('select.styled').customSelect();
+        });
+
+        /* ---------- Map ---------- */
+        $(function () {
+            $('#map').vectorMap({
+                map: 'world_mill_en',
+                series: {
+                    regions: [{
+                        values: gdpData,
+                        scale: ['#000', '#000'],
+                        normalizeFunction: 'polynomial'
+                    }]
+                },
+                backgroundColor: '#eef3f7',
+                onLabelShow: function (e, el, code) {
+                    el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
+                }
+            });
+        });
+    </script>
+@endsection
+

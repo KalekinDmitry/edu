@@ -12,21 +12,7 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('show');
-    }
-
-    public function show(Request $request)
-    {
-        if ($user = User::where('id', $request->id)->first()) {
-            //"Password protection"
-            $user->password = NULL;
-            return view('custom.teacher.profile.show', [
-                'teacher' => $user,
-            ]);
-        } else {
-            // Redirect to 404
-            return view('errors.404');
-        }
+        $this->middleware('auth');
     }
 
     public function showInvites(){
@@ -64,6 +50,6 @@ class UserController extends Controller
             $user->avatar = $url;
         }
         $user->save();
-        return redirect()->route('user_profile_settings', $user);
+        return redirect()->route('user_settings', $user);
     }
 }
