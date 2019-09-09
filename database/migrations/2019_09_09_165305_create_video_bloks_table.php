@@ -13,7 +13,7 @@ class CreateVideoBloksTable extends Migration
      */
     public function up()
     {
-        Schema::create('video_bloks', function (Blueprint $table) {
+        Schema::create('video_blocks', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('link');
             $table->integer('position');//serial number in all lesson's steps list
@@ -32,6 +32,6 @@ class CreateVideoBloksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('video_bloks');
+        Schema::dropIfExists('video_blocks');
     }
 }
