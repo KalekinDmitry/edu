@@ -21,6 +21,7 @@
                     <input type="text" maxlength="64" name="title" placeholder="@lang('content.ltitle')"  required>
                     <input type="hidden" name="slug">
                     <input type="hidden" name="course_id" value="{{ $course->id }}">
+                    <input type="hidden" name="serial_number" value = "0">
                 </div>
                 <div class="col-md-7">
                     <input type="text"  maxlength="256"  name="excerpt" placeholder="@lang('content.excerpt')" required>

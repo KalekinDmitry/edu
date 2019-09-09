@@ -3,17 +3,18 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class TestAnswer extends Model
 {
-    //
+    use SoftDeletes;
 
     protected $fillable = [
-        'question_id', 'answer_text', 'is_correct'
+        'test_question_id', 'text', 'is_correct'
     ];
 
-    public function question()
+    public function taskBlock()
     {
-        return $this->belongsTo('App\Models\TestQuestions', 'question_id', 'id');
+        return $this->belongsTo('App\Models\TaskBlock', 'test_question_id', 'id');
     }
 }

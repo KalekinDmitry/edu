@@ -57,12 +57,14 @@ class LessonController extends Controller
 
         if($teacher->can('store', [Lesson::class, $course])){
 
-            //dd($request->input());
+            //dd($request);
+            //create new lesson and assign serial_number automaticaly
             $lesson = Lesson::create($request->input());
 
             $lesson->slug = Str::slug($lesson->title);
 
             $lesson->course_id = $course->id;
+            $lesson->serial_number = Lesson::where('course_id', $lesson->course_id)->max('serial_number') + 1;
             $lesson->save();
             return redirect()->route('lesson.show',[$course->id, $lesson->id]);
         }

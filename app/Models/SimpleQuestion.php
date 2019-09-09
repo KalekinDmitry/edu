@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class TestQuestion extends Model
+
+class SimpleQuestion extends Model
 {
     use SoftDeletes;
 
     protected $fillable = [
-        'task_block_id', 'text', 'correct_count', 'wrong_count', 'image_link'
+        'task_block_id', 'text', 'keywords', 'image_link'
     ];
 
     public function taskBlock()

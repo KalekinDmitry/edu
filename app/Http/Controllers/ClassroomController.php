@@ -144,7 +144,7 @@ class ClassroomController extends Controller
             //dd($request->input('newIncludedUsers'));
 
 
-
+            //
             if($request->input('newIncludedCourses')){
                 $classroom->courses()->attach($request->input('newIncludedCourses'));
             }
