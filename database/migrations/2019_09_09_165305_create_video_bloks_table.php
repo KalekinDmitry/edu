@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAnswersTable extends Migration
+class CreateVideoBloksTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,15 @@ class CreateAnswersTable extends Migration
      */
     public function up()
     {
-        Schema::create('test_answers', function (Blueprint $table) {
+        Schema::create('video_bloks', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('question_id')->unsigned();
-            $table->string('answer_text');
-            $table->boolean('is_correct');
+            $table->string('link');
+            $table->integer('position');//serial number in all lesson's steps list
             $table->timestamps();
+            $table->bigInteger('lesson_id')->unsigned();
+            $table->softDeletes();
 
-            $table->foreign('question_id')->references('id')->on('test_questions');
+            $table->foreign('lesson_id')->references('id')->on('lessons');
         });
     }
 
@@ -31,6 +32,6 @@ class CreateAnswersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('test_answers');
+        Schema::dropIfExists('video_bloks');
     }
 }
