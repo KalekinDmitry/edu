@@ -1,4 +1,5 @@
 vendor/
+vendor/symfony/
 node_modules/
 npm-debug.log
 .phpstorm.meta.php

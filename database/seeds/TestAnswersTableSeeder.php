@@ -11,7 +11,7 @@ class TestAnswersTableSeeder extends Seeder
      */
     public function run()
     {
-        for($i = 0; $i < 3; $i++){
+        for($i = 1; $i <= 6; $i++){
             $data = [
                 [
                     'test_question_id' => $i, 
@@ -24,13 +24,18 @@ class TestAnswersTableSeeder extends Seeder
                     'is_correct' => true,
                 ],
                 [
-                    'test_question_id' => $i, 
-                    'text' => "aaa",
-                    'is_correct' => false,
+                    'test_question_id' => $i,
+                    'text' => 'meme',
+                    'is_correct' => true,
+                ],
+                [
+                    'test_question_id' => $i,
+                    'text' => 'lol',
+                    'is_correct' => true,
                 ],
                 [
                     'test_question_id' => $i, 
-                    'text' => "bbb",
+                    'text' => "aaa",
                     'is_correct' => false,
                 ],
                 [
@@ -46,6 +51,11 @@ class TestAnswersTableSeeder extends Seeder
                 [
                     'test_question_id' => $i, 
                     'text' => "ddd",
+                    'is_correct' => false,
+                ],
+                [
+                    'test_question_id' => $i, 
+                    'text' => "eee",
                     'is_correct' => false,
                 ],
             ];
