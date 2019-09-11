@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Models\Module;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -69,10 +70,19 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        $lessons = Lesson::where('course_id', $course->id)->get();
+        $modules = Module::where('course_id', $course->id)->get();
+        foreach($modules as $module)
+        {
+            $module->lessons = Lesson::where('module_id', $module->id)->get();
+            // foreach($ml as $l)
+            // {
+            //     $lessons->push($l);
+            // }
+        }
+        //dd($lessons);
         return view('course.show', [
             'course' => $course,
-            'lessons' => $lessons
+            'modules' => $modules
         ]);
     }
 

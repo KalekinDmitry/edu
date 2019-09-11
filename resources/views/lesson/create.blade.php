@@ -13,21 +13,18 @@
         </div>
 
 
-    <form class="contact-form" action="{{ route('lesson.store', $course->id) }}" method="POST" enctype="multipart/form-data">
+    <form class="contact-form" action="{{ route('lesson.store', $module->id) }}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="row justify-content-center">
 
                 <div class="col-md-7">
                     <input type="text" maxlength="64" name="title" placeholder="@lang('content.ltitle')"  required>
                     <input type="hidden" name="slug">
-                    <input type="hidden" name="course_id" value="{{ $course->id }}">
-                    <input type="hidden" name="serial_number" value = "0">
+                    <input type="hidden" name="module_id" value="{{ $module->id }}">
+                    <input type="hidden" name="position" value = "0">
                 </div>
                 <div class="col-md-7">
                     <input type="text"  maxlength="256"  name="excerpt" placeholder="@lang('content.excerpt')" required>
-                </div>
-                <div class="col-md-7">
-                    <textarea placeholder="@lang('content.cont')" name="content_html" required></textarea>
                 </div>
 
                 <div class="col-md-7" >

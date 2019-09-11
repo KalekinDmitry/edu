@@ -18,23 +18,23 @@ class LinkLessonsToModules extends Migration
             $table->renameColumn('course_id', 'module_id');
             $table->foreign('module_id')->references('id')->on('modules');
 
-            
+
             $table->integer('position');//serial number in all lessons list
 
-            // $table->index('title');
-            // $table->index('published_at');
+            $table->index('title');
+            $table->index('published_at');
 
-          
+
 
 
             //we don't need to hold all this in lesson. It goes to the separated tables (steps)
-            // $table->dropColumn('likes');
-            // $table->dropColumn('dislikes');
-            // $table->dropColumn('views_count');
-            // $table->dropColumn('video_link');
-            // $table->dropColumn('content_html');
+            $table->dropColumn('likes');
+            $table->dropColumn('dislikes');
+            $table->dropColumn('views_count');
+            $table->dropColumn('video_link');
+            $table->dropColumn('content_html');
 
-            
+
         });
     }
 
@@ -52,14 +52,14 @@ class LinkLessonsToModules extends Migration
             $table->foreign('course_id')->references('id')->on('courses');
             $table->dropColumn('position');
 
-            
+
             $table->text('content_html')->nullable()->default(null);
             $table->string('video_link')->nullable()->default(null);
 
             $table->bigInteger('views_count')->default(0)->unsigned();
             $table->bigInteger('likes')->default(0)->unsigned();
             $table->bigInteger('dislikes')->default(0)->unsigned();
-           
+
         });
     }
 }
