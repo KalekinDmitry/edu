@@ -41,7 +41,7 @@
                         <input type="hidden" name="_method" value="Delete">
                         {{ csrf_field() }}
                     <a class="btn btn-default col-md-12" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">@lang('content.edit')</i></a>
-                    <a class="site-btn-info-sm col-md-6" href="{{ route('lesson.create', $course->id) }}">@lang('content.addnewlesson')</a>
+                    <a class="site-btn-info-sm col-md-6" href="{{ route('module.create', $course->id) }}">Add new module</a>
                     <button type="submit" class="site-btn-danger-sm col-md-5">@lang('content.del')</button>
 
 
@@ -54,18 +54,20 @@
 
 
 
+                    @foreach($modules as $module)
+                        <h5 style="font-size: 18px; padding-bottom:10px;">📂 {{$module->position + 1}}. {{$module->name}}</h5>
+                        <div class="list-group">
+                            @foreach($module->lessons as $lesson)
+                                <a href="{{ route('lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"style="font-size: 14px;"class="list-group-item list-group-item-action ">📄{{ $lesson->title }}</a>
+                            @endforeach
+                            <a class="site-btn-info-sm col-md-6" href="{{ route('lesson.create', $module->id) }}">Add new lesson</a>
+                        </div>
+                        <br>
+                    @endforeach
 
-                    <h5 style="font-size: 18px; padding-bottom:10px;">📂 1. @lang('content.4rev')</h5>
-                    <div class="list-group">
-                        @foreach($lessons as $lesson)
-                            <a href="{{ route('lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"style="font-size: 14px;"class="list-group-item list-group-item-action ">📄{{ $lesson->title }}</a>
-                        @endforeach
-                    </div>
-                    <br>
 
 
-
-                    <h5 style="font-size: 18px; padding-bottom:10px;">📂 2. @lang('content.4rev')</h5>
+                    <h5 style="font-size: 18px; padding-bottom:10px;">📂 3. @lang('content.4rev')</h5>
 
                     <div class="list-group">
                         <a href="#" style="font-size: 14px;" class="list-group-item list-group-item-action active">📄
@@ -85,31 +87,11 @@
                     </div>
 
                     <h5 style="font-size: 18px; padding-bottom:10px; padding-top: 20px;">📂
-                        3. @lang('content.business')</h5>
+                        4. @lang('content.business')</h5>
 
                     <div class="list-group">
                         <a href="#" style="font-size: 14px;"
                            class="list-group-item list-group-item-action">📄 @lang('content.missioninlife')</a>
-                        <a style="font-size: 14px; color: gray;"
-                           class="list-group-item list-group-item-action disabled">🔒
-                            TODO: 1</a>
-                        <a style="font-size: 14px; color: gray;"
-                           class="list-group-item list-group-item-action disabled">🔒
-                            TODO: 2</a>
-                        <a style="font-size: 14px; color: gray;"
-                           class="list-group-item list-group-item-action disabled">🔒
-                            TODO: 3</a>
-                        <a style="font-size: 14px; color: gray;"
-                           class="list-group-item list-group-item-action disabled">🔒
-                            TODO: 4</a>
-                    </div>
-
-                    <h5 style="font-size: 18px; padding-bottom:10px; padding-top: 20px;">📂
-                        4. @lang('content.persdev')</h5>
-
-                    <div class="list-group">
-                        <a href="#" style="font-size: 14px;"
-                           class="list-group-item list-group-item-action">📄 @lang('content.energy')</a>
                         <a style="font-size: 14px; color: gray;"
                            class="list-group-item list-group-item-action disabled">🔒
                             TODO: 1</a>

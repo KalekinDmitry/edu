@@ -48,10 +48,10 @@
                     </div>
                     <br>
                     <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
-                        action="{{ route('lesson.destroy', [$course->id, $lesson->id]) }}" method="post">
+                        action="{{ route('lesson.destroy', [$module, $lesson->id]) }}" method="post">
                         <input type="hidden" name="_method" value="Delete">
                         {{ csrf_field() }}
-                        <a href="{{ route('lesson.edit',[$course->id, $lesson->id]) }}" class="site-btn col-md-4">@lang('content.edles')</a>
+                        <a href="{{ route('lesson.edit',[$module, $lesson->id]) }}" class="site-btn col-md-4">@lang('content.edles')</a>
                         <button type="submit" class="site-btn-danger col-md-4">@lang('content.delles')</button>
                     </form>
 

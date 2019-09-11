@@ -51,7 +51,8 @@ Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
 
 
 Route::resource('/course', 'CourseController');
-Route::resource('/course/{course}/lesson', 'LessonController');
+Route::resource('/course/{course}/module', 'ModuleController');
+Route::resource('/module/{module}/lesson', 'LessonController');
 Route::resource('/teacher/classroom', 'ClassroomController');
 
 Route::resource('/teacher/classroom/{classroom}/user/{user}/invite', 'ClassroomInviteController', [
