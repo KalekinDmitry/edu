@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app_changeincludes')
 
 @section('head')
     <meta charset="utf-8">
