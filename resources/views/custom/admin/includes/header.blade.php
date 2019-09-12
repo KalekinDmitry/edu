@@ -104,7 +104,7 @@
         {{--</li>--}}
         <!-- task notificatoin end -->
             <!-- inbox notificatoin start-->
-            <li id="mail_notificatoin_bar" class="dropdown">
+            <!-- <li id="mail_notificatoin_bar" class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                     <i class="icon-envelope-l"></i>
                     <span class="badge bg-important">5</span>
@@ -173,7 +173,7 @@
             </li>
             <!-- inbox notificatoin end -->
             <!-- alert notification start-->
-            <li id="alert_notificatoin_bar" class="dropdown">
+            <!--<li id="alert_notificatoin_bar" class="dropdown">
                 <a data-toggle="dropdown" class="dropdown-toggle" href="#">
 
                     <i class="icon-bell-l"></i>
@@ -216,7 +216,7 @@
                         <a href="#">See all notifications</a>
                     </li>
                 </ul>
-            </li>
+            </li> -->
             <!-- alert notification end-->
             <!-- user login dropdown start-->
             <li class="dropdown">
@@ -232,7 +232,7 @@
                     <li class="eborder-top">
                         <a href="{{ route('admin_profile', Auth::user()->id) }}"><i class="icon_profile"></i> My Profile</a>
                     </li>
-                    <li>
+                    <!-- <li>
                         <a href="#"><i class="icon_mail_alt"></i> My Inbox</a>
                     </li>
                     <li>
@@ -240,7 +240,7 @@
                     </li>
                     <li>
                         <a href="#"><i class="icon_chat_alt"></i> Chats</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="{{route('logout')}}"><i class="icon_key_alt"></i> Log Out</a>
                     </li>

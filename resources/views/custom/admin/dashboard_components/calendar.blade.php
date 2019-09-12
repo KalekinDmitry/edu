@@ -1,4 +1,4 @@
-<section class="calendar-section">
+<!-- <section class="calendar-section">
     <div class="row">
         <div class="col-md-6 portlets">
             <div class="panel panel-default">
@@ -11,15 +11,15 @@
 
                 </div>
                 <br><br><br>
-                <div class="panel-body">
+                <div class="panel-body"> -->
                     <!-- Widget content -->
 
                     <!-- Below line produces calendar. I am using FullCalendar plugin. -->
-                    <div id="calendar"></div>
+                    <!-- <div id="calendar"></div>
 
                 </div>
             </div>
 
         </div>
     </div>
-</section>
+</section> -->
