@@ -1,129 +1,395 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>HMQ-Education</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="Academica Learning Page Template">
-    <meta name="keywords" content="academica, unica, creative, html">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Favicon -->
-    <link href="{{config('static.static')}}/img/favicon.ico" rel="shortcut icon"/>
+@extends('layouts.app')
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800"
-          rel="stylesheet">
+@section('content')
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+    <!-- Page top section -->
+    <section class="page-top-section set-bg" data-setbg="{{config('static.static')}}/img/page-top-bg.jpg">
+        <div class="container text-white">
+            <h3>Edit course</h3>
+        </div>
+    </section>
+    <!--  Page top end -->
 
-    <!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
-</head>
-<body>
+    <!-- Search section -->
+    <!-- section class="multi-search-section">
+        <div class="msf-warp">
+            <div class="container">
+                <h5>Search your Course</h5>
+                <form class="multi-search-form">
+                    <input type="text" placeholder="Course">
+                    <input type="text" placeholder="Level">
+                    <input type="text" placeholder="Date">
+                    <input type="text" placeholder="Teacher">
+                    <input type="text" placeholder="Price">
+                    <button class="site-btn">Search <i class="fa fa-angle-right"></i></button>
+                </form>
+            </div>
+        </div>
+    </section -->
+    <!-- Search section end -->
 
-<!-- Page Preloder -->
-<div id="preloder">
-    <div class="loader"></div>
-</div>
 
-<!-- Header section -->
-<header class="header-section">
-    <div class="header-warp">
+    <!-- Courses section  -->
+    <section class="courses-section spad">
         <div class="container">
-            <a href="{{ route('home') }}" class="site-logo">
-                <img src="{{config('static.static')}}/img/logo2.png" alt="">
-                {{--<span style="color: #fff;">HMQ-Education</span >--}}
-            </a>
 
-            <div class="user-panel">
-                @guest
-                    <a href="{{ route('login') }}">@lang('content.loginbtn')</a>
-                    <span>/</span>
-                    <a href="{{ route('register') }}">@lang('content.regbtn')</a>
-                @else
-                    <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
-                    <span>/</span>
-                    <a href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
-                @endguest
-            </div>
-            <div class="nav-switch">
-                <i class="fa fa-bars"></i>
-            </div>
+            <div class="row">
+                <div class="col col-4">
+                    <div>
+                        <h3 style="padding-bottom:40px; padding-top: 45px;">@lang('content.tableofcontent')</h3>
+                    </div>
 
-        </div>
-    </div>
-</header>
-<!-- Header section end -->
+                    <a class="site-btn-info-sm col-md-12" href="{{ route('module.create', $course->id) }}">Add new module</a>
+                    <br><br><br>
 
-<!-- Create section -->
-<section class="create-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">
-    <div class="container">
-        <br><br><br><br><br><br><br><br>
-        <div class="card text-white bg-dark">
+                    @foreach($modules as $module)
+                        <form onsubmit="if(confirm('Delete module?')){return true}else{return false}" action="{{route('module.destroy', [$course, $module])}}" method="post">
+                            <input type="hidden" name="_method" value="Delete">
+                            {{ csrf_field() }}
+                            <div class="row">
+                                <h5 class="col-md-8" style="font-size: 18px; padding-bottom:10px;">📂 {{$module->position + 1}}. {{$module->name}}</h5>
+                                <a class="site-btn-hollow col-md-3" href="{{route('module.edit', [$course->id, $module->id])}}"><i class="fa fa-edit"></i>edit</a>
+                                <button type="submit" class="site-btn-danger-sm col-md-1">X</button>
+                            </div>
+                        </form>
+                        <br>
+                        <div class="list-group">
+                            @foreach($module->lessons as $lesson)
+                                <div class="row">
+                                    <a style="border-width: 1px" href="{{ route('lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"style="font-size: 14px;"class="list-group-item list-group-item-action col-md-8">📄{{ $lesson->title }}</a>
+                                    <a class="site-btn-hollow col-md-3" href="{{route('lesson.edit', [$module->id, $lesson->id])}}"><i class="fa fa-edit"></i></a>
+                                    <form style="padding: 0" onsubmit="if(confirm('Delete module?')){return true}else{return false}" action="{{route('lesson.destroy', [$module, $lesson])}}" method="post">
+                                        <input type="hidden" name="_method" value="Delete">
+                                        {{ csrf_field() }}
+                                        <button type="submit" class="site-btn-danger col-md-12">X</button>
+                                    </form>
+                                </div>
+                            @endforeach
+                            <div class="row">
+                                <a class="site-btn-info col-md-12" href="{{ route('lesson.create', $module->id) }}">✚</a>
+                            </div>
+                        </div>
+                        <br>
+                    @endforeach
 
-            <div class="card-header">
-                @lang('content.editing')
-            </div>
 
-            <form class="form-horizontal card-body" action="{{route('course.update', $course)}}" method="post"
-                  enctype="multipart/form-data">
-                <input type="hidden" name="_method" value="put">
-                {{ csrf_field() }}
 
-                {{-- Form include --}}
-                @include('course.partials.form')
+                    <h5 style="font-size: 18px; padding-bottom:10px;">📂 3. @lang('content.4rev')</h5>
 
-                <div class="form-group">
-                    <label for="">@lang('content.chcovifch')</label><br>
+                    <div class="list-group">
+                        <a href="#" style="font-size: 14px;" class="list-group-item list-group-item-action active">📄
+                            @lang('content.intro')</a>
+                        <a style="font-size: 14px; color: gray;"
+                           class="list-group-item list-group-item-action disabled">🔒
+                            TODO: 1</a>
+                        <a style="font-size: 14px; color: gray;"
+                           class="list-group-item list-group-item-action disabled">🔒
+                            TODO: 2</a>
+                        <a style="font-size: 14px; color: gray;"
+                           class="list-group-item list-group-item-action disabled">🔒
+                            TODO: 3</a>
+                        <a style="font-size: 14px; color: gray;"
+                           class="list-group-item list-group-item-action disabled">🔒
+                            TODO: 4</a>
+                    </div>
 
-                    <input type="file" name="image">
+                    <h5 style="font-size: 18px; padding-bottom:10px; padding-top: 20px;">📂
+                        4. @lang('content.business')</h5>
+
+                    <div class="list-group">
+                        <a href="#" style="font-size: 14px;"
+                           class="list-group-item list-group-item-action">📄 @lang('content.missioninlife')</a>
+                        <a style="font-size: 14px; color: gray;"
+                           class="list-group-item list-group-item-action disabled">🔒
+                            TODO: 1</a>
+                        <a style="font-size: 14px; color: gray;"
+                           class="list-group-item list-group-item-action disabled">🔒
+                            TODO: 2</a>
+                        <a style="font-size: 14px; color: gray;"
+                           class="list-group-item list-group-item-action disabled">🔒
+                            TODO: 3</a>
+                        <a style="font-size: 14px; color: gray;"
+                           class="list-group-item list-group-item-action disabled">🔒
+                            TODO: 4</a>
+                    </div>
                 </div>
-                <input style="color: #000" class="btn btn-light" type="submit" value="To apply">
-                <a style="color: #000" class="btn btn-light" href="{{ route('home') }}">@lang('content.cancel')</a>
-            </form>
-        </div>
-    </div>
-    <br><br>
-</section>
-<!-- Create section end -->
 
-<!-- Footer section -->
-<footer class="footer-section spad pb-0">
-    <div class="container">
-        <div class="footer-bottom">
 
-            <div class="social">
-                <a href=""><i class="fa fa-pinterest"></i></a>
-                <a href=""><i class="fa fa-facebook"></i></a>
-                <a href=""><i class="fa fa-twitter"></i></a>
-                <a href=""><i class="fa fa-dribbble"></i></a>
-                <a href=""><i class="fa fa-behance"></i></a>
-                <a href=""><i class="fa fa-linkedin"></i></a>
+                <div class="col col-8">
+                    <!-- ---------------------------------------------------------------------------------- -->
+                <!-- div class="sec-title text-center">
+                    <span>Only  the best</span>
+                    <h2>How to find your mission in life</h2>
+                </div -->
+                    <div class="row courses-page">
+                        <!-- course -->
+                        <div class="col-lg-12">
+                            <div class="course-item featured">
+                                <!-- div class="course-preview set-bg" data-setbg="img/courses/7.jpg">
+                                    <div class="price">$25</div>
+                                    <div class="featur-badges">Featured</div>
+                                </div -->
+                                <div class="course-content">
+                                    <div class="cc-text">
+                                        <form class="form-horizontal card-body" action="{{route('course.update', $course)}}" method="post"
+                                            enctype="multipart/form-data">
+                                            <input type="hidden" name="_method" value="put">
+                                            {{ csrf_field() }}
+
+                                            {{-- Form include --}}
+                                            @include('course.partials.form')
+
+                                            <div class="form-group">
+                                                <label for="">@lang('content.chcovifch')</label><br>
+
+                                                <input type="file" name="image">
+                                            </div>
+                                            <input class="site-btn col-md-4" type="submit" value="To apply">
+                                            <a class="site-btn-hollow" href="{{ route('home') }}">@lang('content.cancel')</a>
+                                        </form>
+                                    </div>
+                                        {{-- <div style="text-align: center;">
+                                            <iframe width="100%" height="435"
+                                                    src="https://www.youtube.com/embed/cNZf6nBDE-s" frameborder="0"
+                                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                                    allowfullscreen></iframe>
+                                        </div> --}}
+                                        {{-- <div>
+                                            <p>
+                                                @if($course->tags != NULL)
+                                                    <b>Tags:</b>
+                                                    @foreach(explode(',',$course->tags) as $tag)
+                                                        <a href="#">#{{ $tag }}</a>
+                                                    @endforeach
+                                                @else
+                                                @lang('content.notags')
+                                                @endif
+                                            </p>
+                                        </div> --}}
+                                        {{-- <span><i class="flaticon-student-2"></i>20</span>
+                                        <span><i class="flaticon-placeholder"></i>3</span>
+                                        <div class="rating">
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star"></i>
+                                            <i class="fa fa-star i-fade"></i>
+                                        </div>
+                                        <div class="seller-info">
+                                            <div class="seller-pic set-bg" data-setbg="">[@lang('content.profav')]</div>
+                                            <h6><a style="color: #fff" href="{{ route('users_profile', $course->teacher->id) }}">@lang('content.by') {{$course->teacher->name}}</a>, <span>[@lang('content.wi')]</span></h6>
+                                        </div> --}}
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- div class="col-lg-4 col-md-6">
+                                <div class="course-item">
+                                    <figure class="course-preview">
+                                        <img src="img/courses/1.jpg" alt="">
+                                        <div class="price">$25</div>
+                                    </figure>
+                                    <div class="course-content">
+                                        <div class="cc-text">
+                                            <h5>Italian for Begginers & Advanced Course</h5>
+                                            <p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. </p>
+                                            <span><i class="flaticon-student-2"></i>20</span>
+                                            <span><i class="flaticon-placeholder"></i>3</span>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star i-fade"></i>
+                                            </div>
+                                        </div>
+                                        <div class="seller-info">
+                                            <div class="seller-pic set-bg" data-setbg="img/courses/sellers/1.jpg"></div>
+                                            <h6>By Sebastian Smith, <span>Italian Teacher</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="course-item">
+                                    <figure class="course-preview">
+                                        <img src="img/courses/2.jpg" alt="">
+                                        <div class="price">$25</div>
+                                    </figure>
+                                    <div class="course-content">
+                                        <div class="cc-text">
+                                            <h5>English Literature Advanced Course</h5>
+                                            <p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. </p>
+                                            <span><i class="flaticon-student-2"></i>20</span>
+                                            <span><i class="flaticon-placeholder"></i>3</span>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star i-fade"></i>
+                                            </div>
+                                        </div>
+                                        <div class="seller-info">
+                                            <div class="seller-pic set-bg" data-setbg="img/courses/sellers/2.jpg"></div>
+                                            <h6>By Maria Williams, <span>English Teacher</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="course-item">
+                                    <figure class="course-preview">
+                                        <img src="img/courses/3.jpg" alt="">
+                                        <div class="price">$25</div>
+                                    </figure>
+                                    <div class="course-content">
+                                        <div class="cc-text">
+                                            <h5>Portrait Photography Course for Begginers</h5>
+                                            <p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. </p>
+                                            <span><i class="flaticon-student-2"></i>20</span>
+                                            <span><i class="flaticon-placeholder"></i>3</span>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star i-fade"></i>
+                                            </div>
+                                        </div>
+                                        <div class="seller-info">
+                                            <div class="seller-pic set-bg" data-setbg="img/courses/sellers/3.jpg"></div>
+                                            <h6>By Jack Smith, <span>Photographer</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="course-item">
+                                    <figure class="course-preview">
+                                        <img src="img/courses/4.jpg" alt="">
+                                        <div class="price">$25</div>
+                                    </figure>
+                                    <div class="course-content">
+                                        <div class="cc-text">
+                                            <h5>Italian for Begginers & Advanced Course</h5>
+                                            <p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. </p>
+                                            <span><i class="flaticon-student-2"></i>20</span>
+                                            <span><i class="flaticon-placeholder"></i>3</span>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star i-fade"></i>
+                                            </div>
+                                        </div>
+                                        <div class="seller-info">
+                                            <div class="seller-pic set-bg" data-setbg="img/courses/sellers/1.jpg"></div>
+                                            <h6>By Sebastian Smith, <span>Italian Teacher</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="course-item">
+                                    <figure class="course-preview">
+                                        <img src="img/courses/5.jpg" alt="">
+                                        <div class="price">$25</div>
+                                    </figure>
+                                    <div class="course-content">
+                                        <div class="cc-text">
+                                            <h5>English Literature Advanced Course</h5>
+                                            <p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. </p>
+                                            <span><i class="flaticon-student-2"></i>20</span>
+                                            <span><i class="flaticon-placeholder"></i>3</span>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star i-fade"></i>
+                                            </div>
+                                        </div>
+                                        <div class="seller-info">
+                                            <div class="seller-pic set-bg" data-setbg="img/courses/sellers/2.jpg"></div>
+                                            <h6>By Maria Williams, <span>English Teacher</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <div class="course-item">
+                                    <figure class="course-preview">
+                                        <img src="img/courses/6.jpg" alt="">
+                                        <div class="price">$25</div>
+                                    </figure>
+                                    <div class="course-content">
+                                        <div class="cc-text">
+                                            <h5>Portrait Photography Course for Begginers</h5>
+                                            <p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. </p>
+                                            <span><i class="flaticon-student-2"></i>20</span>
+                                            <span><i class="flaticon-placeholder"></i>3</span>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star"></i>
+                                                <i class="fa fa-star i-fade"></i>
+                                            </div>
+                                        </div>
+                                        <div class="seller-info">
+                                            <div class="seller-pic set-bg" data-setbg="img/courses/sellers/3.jpg"></div>
+                                            <h6>By Jack Smith, <span>Photographer</span></h6>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="course-item featured-2">
+                                    <div class="row">
+                                        <div class="col-lg-4 p-0">
+                                            <div class="course-preview set-bg" data-setbg="img/courses/8.jpg">
+                                                <div class="price">$25</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-8 p-0">
+                                            <div class="course-content">
+                                                <div class="cc-text">
+                                                    <h5>HTML5  for Begginers & Advanced Course</h5>
+                                                    <p>Donec molestie tincidunt tellus sit amet aliquet. Proin auctor nisi ut purus eleifend, et auctor lorem hendrerit. Proin vitae tortor nec risus tristique efficitur. Aliquam luctus est urna, id aliquam orci tempus sed. Aenean sit amet leo id enim dapibus eleifend. Phasellus ut erat dapibus, </p>
+                                                    <span><i class="flaticon-student-2"></i>20</span>
+                                                    <span><i class="flaticon-placeholder"></i>3</span>
+                                                    <div class="rating">
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star"></i>
+                                                        <i class="fa fa-star i-fade"></i>
+                                                    </div>
+                                                </div>
+                                                <div class="seller-info">
+                                                    <div class="seller-pic set-bg" data-setbg="img/courses/sellers/3.jpg"></div>
+                                                    <h6>By Jack Smith, <span>Photographer</span></h6>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div -->
+                        </div>
+                        <!-- div class="text-center pt-2" -->
+                        <!-- button class="site-btn">Load More <i class="fa fa-angle-right"></i></button -->
+
+                        <!-- /div -->
+                        <!-- ---------------------------------------------------------------------------------- -->
+                    </div>
+                </div>
             </div>
-            <div class="footer-logo">
-                <a href="https://hmq-edu.com">
-                    <img src="{{config('static.static')}}/img/logo2.png" alt="">
-                </a>
-                <!-- span style="color: #fff;">HMQ-Education</span -->
-            </div>
+
+
         </div>
-    </div>
-</footer>
-<!-- Footer section end -->
+    </section>
+    <!-- Courses section end -->
 
-<!--====== Javascripts & Jquery ======-->
-<script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>
-<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('js/circle-progress.min.js') }}"></script>
-<script src="{{ asset('js/main.js') }}"></script>
-
-</body>
-</html>
+@endsection

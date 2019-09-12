@@ -74,10 +74,6 @@ class CourseController extends Controller
         foreach($modules as $module)
         {
             $module->lessons = Lesson::where('module_id', $module->id)->get();
-            // foreach($ml as $l)
-            // {
-            //     $lessons->push($l);
-            // }
         }
         //dd($lessons);
         return view('course.show', [
@@ -95,9 +91,16 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         $teacher = Auth::user();
+
         if ($teacher->can('edit', $course)) {
+            $modules = Module::where('course_id', $course->id)->get();
+            foreach($modules as $module)
+            {
+                $module->lessons = Lesson::where('module_id', $module->id)->get();
+            }
             return view('course.edit', [
                 'course' => $course,
+                'modules' => $modules,
                 'delimiter' => ''
             ]);
         } else return redirect()->route('course.show', $course);

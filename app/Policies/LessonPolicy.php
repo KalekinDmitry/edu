@@ -39,22 +39,26 @@ class LessonPolicy
         return $teacher->id == $course->created_by;
     }
 
-    public function  edit(Teacher $teacher, Lesson $lesson, Module $module)
+    public function  edit(Teacher $teacher, Lesson $lesson)
     {
+        $module = Module::where('id', $lesson->module_id)->first();
         $course = Course::where('id', $module->course_id)->first();
-       return $lesson->course_id == $course->id && $teacher->id == $course->created_by;
+        //dd($lesson, $course, $teacher);
+       return $teacher->id == $course->created_by;
     }
 
-    public function  update(Teacher $teacher, Lesson $lesson, Module $module)
+    public function  update(Teacher $teacher, Lesson $lesson)
     {
+        $module = Module::where('id', $lesson->module_id)->first();
         $course = Course::where('id', $module->course_id)->first();
-        return $lesson->course_id == $course->id && $teacher->id == $course->created_by;
+        return $teacher->id == $course->created_by;
     }
 
-    public function  destroy(Teacher $teacher, Lesson $lesson, Course $course)
+    public function  destroy(Teacher $teacher, Lesson $lesson)
     {
+        $module = Module::where('id', $lesson->module_id)->first();
         $course = Course::where('id', $module->course_id)->first();
-        return $lesson->course_id == $course->id && $teacher->id == $course->created_by;
+        return $teacher->id == $course->created_by;
     }
 
     /*public function  forceDelete(Teacher $teacher, Lesson $lesson, Course $course)

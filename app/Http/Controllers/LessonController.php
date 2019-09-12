@@ -98,7 +98,7 @@ class LessonController extends Controller
     {
         $teacher = Auth::user();
         //dd($lesson, $course, $teacher);
-        if($teacher->can('edit', [$lesson, $module])){
+        if($teacher->can('edit', [$lesson])){
             return view('lesson.edit', ['lesson' => $lesson, 'module' => $module]);
         }else return redirect()
         ->route('course.show', $module->course_id)
@@ -115,13 +115,13 @@ class LessonController extends Controller
     public function update(Request $request, Module $module, Lesson $lesson)
     {
         $teacher = Auth::user();
-        if($teacher->can('update', [$lesson, $module])){
+        if($teacher->can('update', [$lesson])){
             $lesson->update($request->except('slug'));
             $lesson->save();
-            return redirect()->route('lesson.show', [$module, $lesson]);
+            return redirect()->route('course.edit', [$module->course_id]);
         }
         else return redirect()
-        ->route('course.show', $module->course_id)
+        ->route('course.edit', $module->course_id)
         ->with(['message'=>'permission enied']);
     }
 
@@ -134,11 +134,11 @@ class LessonController extends Controller
     public function destroy(Module $module, Lesson $lesson)
     {
         $teacher = Auth::user();
-        if($teacher->can('destroy', [$lesson, $module])){
+        if($teacher->can('destroy', [$lesson])){
             $lesson->delete();
-            return redirect()->route('course.show', $module->course_id);
+            return redirect()->route('course.edit', $module->course_id);
         } else return redirect()
-        ->route('course.show', $module->course_id)
+        ->route('course.edit', $module->course_id)
         ->with(['message'=>'permission denied']);
 
     }

@@ -47,6 +47,19 @@ class ModulePolicy
         return $teacher->id == $course->created_by;
     }
 
+
+    /**
+     * Determine whether the user can create courses.
+     *
+     * @param Teacher $teacher
+     * @return mixed
+     */
+    public function store(Teacher $teacher, Course $course)
+    {
+        // This makes the middleware(auth:teacher) in the CourseController
+        return $teacher->id == $course->created_by;
+    }
+
     /**
      * Determine whether the user can edit the course.
      *

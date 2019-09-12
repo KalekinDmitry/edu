@@ -171,6 +171,19 @@ ol {
 	/* IE6-9 */
 }
 
+.site-btn-hollow:after {
+	background: #fff;
+	/* Old browsers */
+	/* FF3.6-15 */
+	/* Chrome10-25,Safari5.1-6 */
+	background: -webkit-gradient(linear, left top, right top, from( #ffffff), to(#ffffff));
+	background: -o-linear-gradient(left,   #ffffff 0%, #ffffff 100%);
+	background: linear-gradient(to right,   #ffffff 0%, #ffffff 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7076fc', endColorstr='#185dd0', GradientType=1);
+	/* IE6-9 */
+}
+
 .site-btn-danger:after {
 	background: #e63e3e;
 	/* Old browsers */
@@ -194,6 +207,19 @@ ol {
 	background: linear-gradient(to right,   #e63e3e 0%, #e6662a 100%);
 	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7076fc', endColorstr='#185dd0', GradientType=1);
+	/* IE6-9 */
+}
+
+.site-btn-hollow {
+	background: #ffffff;
+	/* Old browsers */
+	/* FF3.6-15 */
+	/* Chrome10-25,Safari5.1-6 */
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
+	background: -o-linear-gradient(top, #ffffff 0%, #ffffff 100%);
+	background: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7076fc', endColorstr='#185dd0', GradientType=0);
 	/* IE6-9 */
 }
 
@@ -296,9 +322,24 @@ ol {
 	cursor: pointer;
 }
 
+.site-btn-hollow {
+	display: inline-block;
+	min-width: 32px;
+	text-align: center;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 2px;
+	padding: 8px 8px;
+	font-weight: 600;
+	font-size: 14px;
+	position: relative;
+	color: rgb(115, 183, 255);
+	cursor: pointer;
+}
+
 .site-btn-danger {
 	display: inline-block;
-	min-width: 96px;
+	min-width: 32px;
 	text-align: center;
 	border: none;
 	padding: 14px 5px;
@@ -311,7 +352,7 @@ ol {
 
 .site-btn-danger-sm {
 	display: inline-block;
-	min-width: 96px;
+	min-width: 32px;
 	text-align: center;
 	border: none;
 	padding: 8px 5px;
@@ -339,7 +380,7 @@ ol {
 	display: inline-block;
 	min-width: 96px;
 	text-align: center;
-	border: none;
+    border: none;
 	padding: 8px 5px;
 	font-weight: 600;
 	font-size: 14px;
@@ -357,6 +398,10 @@ ol {
 
 .site-btn:hover {
 	color: rgb(255, 223, 42);
+}
+
+.site-btn-hollow:hover {
+	color: rgb(0, 102, 255);
 }
 
 .site-btn-danger:hover {
@@ -386,6 +431,14 @@ ol {
 	content: "";
 	width: 100%;
 	height: 3px;
+	left: 0;
+	bottom: 0;
+}
+.site-btn-hollow:after {
+	position: absolute;
+	content: "";
+	width: 100%;
+	height: 1px;
 	left: 0;
 	bottom: 0;
 }
