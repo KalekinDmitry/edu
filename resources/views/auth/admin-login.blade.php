@@ -42,7 +42,7 @@
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                     <span class="label-input100">@lang('content.emaddr')</span>
                     <input class="form-control @error('email') is-invalid @enderror input100" id="email" type="email"
-                           name="email" placeholder="@lang('content.entemaill')" value="{{ old('email') }}" required
+                           name="email" placeholder="@lang('content.entemail')" value="{{ old('email') }}" required
                            autocomplete="email" autofocus>
                     @error('email')
                     <span class="invalid-feedback" role="alert">

@@ -30,21 +30,22 @@
                         <strong>@lang('content.clovrvw')</strong>
                     </div>
                     @foreach($classrooms as $classroom)
-                    <br>
+                        <br>
                         <div class="card-header col-md-12" style="color:gray">
                             <strong>{{  $classroom->name }}</strong>
                         </div>
-                        <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
-                            action="{{ route('classroom.destroy', [$classroom->id]) }}" method="post">
+                        <form onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
+                              action="{{ route('classroom.destroy', [$classroom->id]) }}" method="post">
                             <input type="hidden" name="_method" value="Delete">
                             {{ csrf_field() }}
-                            <a href="{{ route('classroom.edit',[$classroom->id]) }}" class="site-btn col-md-6">@lang('content.edclass')</a>
+                            <a href="{{ route('classroom.edit',[$classroom->id]) }}"
+                               class="site-btn col-md-6">@lang('content.edclass')</a>
                             <button type="submit" class="site-btn-danger col-md-5">@lang('content.del') </button>
 
                         </form>
                     @endforeach
-                        <br>
-                        <a href="{{ route('classroom.create') }}" class="site-btn-info col-md-4">@lang('content.crnew')</a>
+                    <br>
+                    <a href="{{ route('classroom.create') }}" class="site-btn-info col-md-4">@lang('content.crnew')</a>
 
                 </div>
             </div>
@@ -55,29 +56,27 @@
                         <strong>@lang('content.courovrvw')</strong>
                     </div>
                     @foreach($courses as $course)
-                    <br>
+                        <br>
                         <div class="card-header col-md-12" style="color:gray">
                             <strong>{{  $course->title }}</strong>
                         </div>
-                        <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
-                            action="{{ route('course.destroy', [$course->id]) }}" method="post">
+                        <form onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
+                              action="{{ route('course.destroy', [$course->id]) }}" method="post">
                             <input type="hidden" name="_method" value="Delete">
                             {{ csrf_field() }}
-                            <a href="{{ route('course.edit',[$course->id]) }}" class="site-btn col-md-4">@lang('content.edcour')</a>
-                            <a href="{{ route('course.show',[$course->id]) }}" class="site-btn-info col-md-4">@lang('content.look')</a>
+                            <a href="{{ route('course.edit',[$course->id]) }}"
+                               class="site-btn col-md-4">@lang('content.edcour')</a>
+                            <a href="{{ route('course.show',[$course->id]) }}"
+                               class="site-btn-info col-md-4">@lang('content.look')</a>
                             <button type="submit" class="site-btn-danger col-md-4">@lang('content.delcour')</button>
 
                         </form>
                     @endforeach
-                        <br>
-                        <a href="{{ route('course.create') }}" class="site-btn-info col-md-3">@lang('content.crnew')</a>
-
+                    <br>
+                    <a href="{{ route('course.create') }}" class="site-btn-info col-md-3">@lang('content.crnew')</a>
                 </div>
             </div>
-
-
         </div>
         <br>
-
     </section>
 @endsection

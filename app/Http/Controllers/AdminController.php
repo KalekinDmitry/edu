@@ -70,7 +70,7 @@ class AdminController extends Controller
     public function edit()
     {
         $user = Admin::where('id', Auth::user()->id)->first();
-        return view('user.settings.edit', [
+        return view('custom.user.settings.edit', [
             'user' => $user,
         ]);
     }
