@@ -1,4 +1,4 @@
-@extends('layouts.app_changeincludes')
+@extends('layouts.app')
 
 @section('content')
 
@@ -27,7 +27,7 @@
                     <div class="card-header" style="color:darkslategray">
                         <strong>{{ $lesson->excerpt }}</strong>
                     </div>
-
+                    <p class="card-text">{{ $lesson->content_html }}</p>
                     <div class="container">
                         <div class="row justify-content-left" style="background-color:lightgrey">
                             <div class="col-md-4" style="color:green">

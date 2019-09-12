@@ -15,6 +15,15 @@ use App\Policies\CoursePolicy;
 use App\Models\Module;
 use App\Policies\ModulePolicy;
 
+use App\Models\TextBlock;
+use App\Policies\TextBlockPolicy;
+
+use App\Models\VideoBlock;
+use App\Policies\VideoBlockPolicy;
+
+use App\Models\TaskBlock;
+use App\Policies\TaskBlockPolicy;
+
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -29,7 +38,10 @@ class AuthServiceProvider extends ServiceProvider
         Classroom::class => ClassroomPolicy::class,
         'App\Model' => 'App\Policies\ModelPolicy',
         Course::class => CoursePolicy::class,
-        Module::class => ModulePolicy::class
+        Module::class => ModulePolicy::class,
+        TextBlock::class => TextBlockPolicy::class,
+        VideoBlock::class => VideoBlockPolicy::class,
+        TaskBlock::class => TaskBlockPolicy::class
     ];
 
     /**

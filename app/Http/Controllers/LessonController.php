@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Course;
 use App\Models\Module;
 use App\Models\Lesson;
+use App\Models\TextBlock;
+use App\Models\VideoBlock;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -67,12 +69,12 @@ class LessonController extends Controller
             $lesson->module_id = $module->id;
             $lesson->position = Lesson::where('module_id', $lesson->module_id)->max('position') + 1;//make it be after the last added lesson
             $lesson->save();
-            return redirect()->route('lesson.show',[$module->id, $lesson->id]);
+            return redirect()->route('course.edit',[$module->course_id]);
         }
         else
         {
             return redirect()
-            ->route('course.show', $module->course_id)
+            ->route('course.edit', $module->course_id)
             ->with(['message'=>'Permission denied']);
         }
     }
@@ -99,9 +101,13 @@ class LessonController extends Controller
         $teacher = Auth::user();
         //dd($lesson, $course, $teacher);
         if($teacher->can('edit', [$lesson])){
-            return view('lesson.edit', ['lesson' => $lesson, 'module' => $module]);
+            $steps = collect();
+            $steps->textBlocks = TextBlock::where('lesson_id', $lesson->id)->get();
+            $steps->videoBlocks = VideoBlock::where('lesson_id', $lesson->id)->get();
+
+            return view('lesson.edit', ['lesson' => $lesson, 'module' => $module, 'steps' => $steps]);
         }else return redirect()
-        ->route('course.show', $module->course_id)
+        ->route('course.edit', $module->course_id)
         ->with(['message' => 'permission denied']);
     }
 
