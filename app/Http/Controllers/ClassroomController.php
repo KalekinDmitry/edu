@@ -154,7 +154,9 @@ class ClassroomController extends Controller
             }
 
             if($request->input('newIncludedUsers')){
-                $classroom->users()->attach($request->input('newIncludedUsers'));
+                $includedUsersID = $classroom->users()->pluck('users.id')->toArray();//get already included users
+                $newIds = array_diff($request->input('newIncludedUsers'), $includedUsersID);//check if this user is already included
+                $classroom->users()->attach($newIds);//if he is already here $newIds will be empty
             }
 
             if($request->input('excludedUsers')){
