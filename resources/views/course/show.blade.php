@@ -40,9 +40,8 @@
                           action="{{route('course.destroy', $course)}}" method="post">
                         <input type="hidden" name="_method" value="Delete">
                         {{ csrf_field() }}
-                    <a class="btn btn-default col-md-12" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">@lang('content.edit')</i></a>
-                    <a class="site-btn-info-sm col-md-6" href="{{ route('module.create', $course->id) }}">Add new module</a>
-                    <button type="submit" class="site-btn-danger-sm col-md-5">@lang('content.del')</button>
+                    <a class="site-btn-hollow col-md-5" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">@lang('content.edit')</i></a>
+                    <button type="submit" class="site-btn-danger col-md-6">@lang('content.del')</button>
 
 
                     </form>
@@ -60,7 +59,6 @@
                             @foreach($module->lessons as $lesson)
                                 <a href="{{ route('lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"style="font-size: 14px;"class="list-group-item list-group-item-action ">📄{{ $lesson->title }}</a>
                             @endforeach
-                            <a class="site-btn-info-sm col-md-6" href="{{ route('lesson.create', $module->id) }}">Add new lesson</a>
                         </div>
                         <br>
                     @endforeach
@@ -130,7 +128,7 @@
                                         <p>[@lang('content.vidfe')]</p>
                                         <div style="text-align: center;">
                                             <iframe width="100%" height="435"
-                                                    src="https://www.youtube.com/embed/cNZf6nBDE-s" frameborder="0"
+                                                    src="{{ $course->video }}" frameborder="0"
                                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                                     allowfullscreen></iframe>
                                         </div>
