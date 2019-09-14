@@ -36,32 +36,32 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
-        $this->middleware('guest:admin')->except('logout');
+//        $this->middleware('guest:admin')->except('logout');
         $this->middleware('guest:teacher')->except('logout');
     }
 
 
-    public function showAdminLoginForm()
-    {
-        return view('auth.admin-login');
-    }
+//    public function showAdminLoginForm()
+//    {
+//        return view('auth.admin-login');
+//    }
 
 
-    public function adminLogin(AdminLoginRequest $request)
-    {
-        $credentials = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
-
-        if (Auth::guard('admin')->attempt($credentials, $request->remember)) {
-            return redirect()->intended(route('admin.dashboard'));
-        }
-        return back()
-            ->withErrors(['email' => "Wrong email or password"])
-            ->withInput($request
-                ->only('email', 'remember'));
-    }
+//    public function adminLogin(AdminLoginRequest $request)
+//    {
+//        $credentials = [
+//            'email' => $request->email,
+//            'password' => $request->password,
+//        ];
+//
+//        if (Auth::guard('admin')->attempt($credentials, $request->remember)) {
+//            return redirect()->intended(route('admin.dashboard'));
+//        }
+//        return back()
+//            ->withErrors(['email' => "Wrong email or password"])
+//            ->withInput($request
+//                ->only('email', 'remember'));
+//    }
 
 
     public function showTeacherLoginForm()
@@ -89,5 +89,12 @@ class LoginController extends Controller
     public function showLoginForm()
     {
         return view('auth.login');
+    }
+
+    public function userLogout()
+    {
+        Auth::guard('web')->logout();
+
+        return redirect('/');
     }
 }

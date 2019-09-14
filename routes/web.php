@@ -34,16 +34,19 @@ Route::get('/teacher/myaccount', 'TeacherController@edit')->name('teacher_settin
 Route::put('/teacher/myaccount/save', 'TeacherController@update')->name('teacher_settings_save');
 
 // Admins
-Route::get('/admin/login', 'Auth\LoginController@showAdminLoginForm')->name('admin.showLoginForm');
-Route::post('/admin/login', 'Auth\LoginController@adminLogin')->name('admin.loginRequest');
-Route::get('/admin', 'AdminController@index')->name('admin.dashboard');
-Route::get('/admin/profile/{id}', 'AdminController@show')->name('admin_profile');
-Route::get('/admin/profile/edit', 'AdminController@edit')->name('admin_profile_settings');
-Route::get('/admin/tables/users', 'AdminController@showUsersList')->name('users.list');
-Route::get('/admin/tables/teachers', 'AdminController@showTeachersList')->name('teachers.list');
-Route::get('/admin/tables/admins', 'AdminController@showAdminsList')->name('admins.list');
+Route::prefix('admin')->group(function () {
+    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.showLoginForm');
+    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.loginRequest');
+    Route::get('/', 'AdminController@index')->name('admin.dashboard');
 
-//Route::post('/register', 'Auth\RegisterController@createUser')->name('user.registerRequest');
+    Route::get('/profile/{id}', 'AdminController@show')->name('admin_profile');
+    Route::get('/profile/edit', 'AdminController@edit')->name('admin_profile_settings');
+    Route::get('/tables/users', 'AdminController@showUsersList')->name('users.list');
+    Route::get('/tables/teachers', 'AdminController@showTeachersList')->name('teachers.list');
+    Route::get('/tables/admins', 'AdminController@showAdminsList')->name('admins.list');
+
+    Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+});
 
 Route::get('logout', 'Auth\LoginController@logout');
 
