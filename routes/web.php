@@ -18,49 +18,63 @@ Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
+Route::get('setlocale/{locale}', 'LocaleController@setLocale')->name('setLocale');
+
 // Users
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
-Route::get('/user/myaccount', 'UserController@edit')->name('user_settings');
-Route::put('/user/myaccount/save', 'UserController@update')->name('user_settings_save');
-Route::get('/myInvites', 'UserController@showInvites')->name('user.invites');
+Route::prefix('user')->group(function () {
+    Route::get('/register', 'Auth\User\RegisterController@showRegisterForm')->name('user.showRegisterForm');
+    Route::post('register', 'Auth\User\RegisterController@register')->name('user.registerRequest');
+
+    Route::get('/login', 'Auth\User\LoginController@showLoginForm')->name('user.showLoginForm');
+    Route::post('/login', 'Auth\User\LoginController@login')->name('user.loginRequest');
+
+    Route::get('/myaccount', 'UserController@edit')->name('user_settings');
+    Route::put('/myaccount/save', 'UserController@update')->name('user_settings_save');
+    Route::get('/myInvites', 'UserController@showInvites')->name('user.invites');
+
+    Route::get('logout', 'Auth\User\LoginController@logout')->name('user.logout');
+});
 
 // Teachers
-Route::get('/teacher/register', 'Auth\RegisterController@showTeacherRegisterForm')->name('teacher.showRegisterForm');
-Route::post('/teacher/register', 'Auth\RegisterController@registerTeacher')->name('teacher.registerRequest');
-Route::get('/teacher/login', 'Auth\LoginController@showTeacherLoginForm')->name('teacher.showLoginForm');
-Route::post('/teacher/login', 'Auth\LoginController@teacherLogin')->name('teacher.loginRequest');
-Route::get('/teacher', 'TeacherController@index')->name('teacher.dashboard');
-Route::get('/teacher/myaccount', 'TeacherController@edit')->name('teacher_settings');
-Route::put('/teacher/myaccount/save', 'TeacherController@update')->name('teacher_settings_save');
+Route::prefix('teacher')->group(function () {
+    Route::get('/register', 'Auth\Teacher\RegisterController@showRegisterForm')->name('teacher.showRegisterForm');
+    Route::post('register', 'Auth\Teacher\RegisterController@register')->name('teacher.registerRequest');
+
+    Route::get('/login', 'Auth\Teacher\LoginController@showLoginForm')->name('teacher.showLoginForm');
+    Route::post('/login', 'Auth\Teacher\LoginController@login')->name('teacher.loginRequest');
+
+    Route::get('/', 'TeacherController@index')->name('teacher.dashboard');
+    Route::resource('/course', 'CourseController');
+    Route::resource('/course/{course}/lesson', 'LessonController');
+    Route::get('/myaccount', 'TeacherController@edit')->name('teacher_settings');
+    Route::put('/myaccount/save', 'TeacherController@update')->name('teacher_settings_save');
+
+    Route::resource('/classroom', 'ClassroomController');
+
+    Route::resource('/classroom/{classroom}/user/{user}/invite', 'ClassroomInviteController', [
+        'names' => [
+            'store' => 'classroomInvite.store',
+            'create' => 'classroomInvite.create',
+            'show' => 'classroomInvite.show',
+            'destroy' => 'classroomInvite.destroy',
+        ]
+    ]);
+
+    Route::get('/logout', 'Auth\Teacher\LoginController@logout')->name('teacher.logout');
+});
 
 // Admins
 Route::prefix('admin')->group(function () {
-    Route::get('/login', 'Auth\AdminLoginController@showLoginForm')->name('admin.showLoginForm');
-    Route::post('/login', 'Auth\AdminLoginController@login')->name('admin.loginRequest');
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
+    Route::get('/login', 'Auth\Admin\LoginController@showLoginForm')->name('admin.showLoginForm');
+    Route::post('/login', 'Auth\Admin\LoginController@login')->name('admin.loginRequest');
 
+    Route::get('/', 'AdminController@index')->name('admin.dashboard');
     Route::get('/profile/{id}', 'AdminController@show')->name('admin_profile');
     Route::get('/profile/edit', 'AdminController@edit')->name('admin_profile_settings');
     Route::get('/tables/users', 'AdminController@showUsersList')->name('users.list');
     Route::get('/tables/teachers', 'AdminController@showTeachersList')->name('teachers.list');
     Route::get('/tables/admins', 'AdminController@showAdminsList')->name('admins.list');
 
-    Route::get('/logout', 'Auth\AdminLoginController@logout')->name('admin.logout');
+    Route::get('/logout', 'Auth\Admin\LoginController@logout')->name('admin.logout');
 });
 
-Route::get('logout', 'Auth\LoginController@logout');
-
-Route::resource('/course', 'CourseController');
-Route::resource('/course/{course}/lesson', 'LessonController');
-Route::resource('/teacher/classroom', 'ClassroomController');
-
-Route::resource('/teacher/classroom/{classroom}/user/{user}/invite', 'ClassroomInviteController', [
-    'names' => [
-        'store' => 'classroomInvite.store',
-        'create' => 'classroomInvite.create',
-        'show' => 'classroomInvite.show',
-        'destroy' => 'classroomInvite.destroy',
-    ]
-]);
-
-Route::get('setlocale/{locale}', 'LocaleController@setLocale')->name('setLocale');

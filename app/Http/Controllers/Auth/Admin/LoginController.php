@@ -1,14 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
-class AdminLoginController extends Controller
+class LoginController extends Controller
 {
-    public function  __construct()
+    public function __construct()
     {
         $this->middleware('guest:admin')->except('logout');
     }
@@ -25,7 +25,7 @@ class AdminLoginController extends Controller
             'password' => ['required', 'min:6'],
         ]);
 
-        if(Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)){
+        if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
             return redirect('/admin');
         }
 
