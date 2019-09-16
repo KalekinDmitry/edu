@@ -33,8 +33,7 @@
 @endsection
 
 @section('content')
-    <section class="content-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg"
-             style="background: no-repeat fixed center;">
+    <section class="content-section set-bg fixed" data-setbg="{{config('static.static')}}/img/bg.jpg">
 
         <br><br><br><br><br><br><br><br><br>
 
@@ -74,7 +73,6 @@
     <script src="{{ asset('js/admin/jquery.easy-pie-chart.js') }}"></script>
     <script src="{{ asset('js/admin/owl.carousel.js') }}"></script>
     <!-- jQuery full calendar -->
-    <
     <script src="{{ asset('js/admin/fullcalendar.min.js') }}"></script>
     <!-- Full Google Calendar - Calendar -->
     <script src="{{ asset('js/admin/fullcalendar2.js') }}"></script>

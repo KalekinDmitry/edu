@@ -33,8 +33,7 @@
 @endsection
 
 @section('content')
-    <section class="content-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg"
-             style="background: no-repeat fixed center;">
+    <section class="content-section set-bg fixed" data-setbg="{{config('static.static')}}/img/bg.jpg">
 
         <br><br><br><br><br><br><br><br><br>
 

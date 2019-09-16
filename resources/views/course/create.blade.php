@@ -36,7 +36,7 @@
 <!-- Header section -->
 <header class="header-section">
     <div class="header-warp">
-        <div class="container">
+        <div class="container d-flex">
             <a href="{{ route('home') }}" class="site-logo">
                 <img src="{{config('static.static')}}/img/logo2.png" alt="">
                 {{--<span style="color: #fff;">HMQ-Education</span >--}}
@@ -48,7 +48,7 @@
                     <span>/</span>
                     <a href="{{ route('register') }}">@lang('content.regbtn')</a>
                 @else
-                    <a href="{{ route('users_profile', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
+                    <a href="{{ route('user_settings', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
                     <span>/</span>
                     <a href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
                 @endguest

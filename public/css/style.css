@@ -108,6 +108,12 @@ ol {
 	color: #f3e830;
 }
 
+.set-bg.fixed{
+	background-size: cover;
+	background-position: center;
+	background-attachment: fixed;
+}
+
 .set-bg {
 	background-repeat: no-repeat;
 	background-size: cover;
@@ -692,7 +698,7 @@ ol {
 	color: #fff;
 	font-weight: 600;
 	font-size: 16px;
-	margin-left: 120px;
+	margin-left: auto;
 	padding: 10px 0;
 }
 
@@ -1797,8 +1803,8 @@ ol {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	.site-logo {
-		position: relative;
-		top: 40px;
+		/*position: relative;
+		top: 40px;*/
 	}
 	.multi-search-form input:nth-child(1) {
 		width: calc(29% - 18px);
@@ -2053,4 +2059,11 @@ ol {
 		padding: 10px 0;
 		font-weight: 600;
 	}
+}
+
+
+.site-logo{
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
 }

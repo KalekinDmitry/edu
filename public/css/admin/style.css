@@ -2146,9 +2146,6 @@ div[data-role="editor-toolbar"] {
 
   min-height: 34px;
 
-  border-left: 1px solid #ccc;
-
-  border-right: 1px solid #ccc;
 
   -webkit-border-radius: 0px;
 
@@ -5135,10 +5132,12 @@ ul.ft-link li a i {
 
     -webkit-border-radius: 50%;
 
-    border: 5px solid rgba(0,0,0,0.1);
-
     display: inline-block;
 
+}
+
+.follow-ava img{
+    border: 5px solid rgba(0,0,0,0.1);
 }
 
 .timeline-ava {
@@ -6741,7 +6740,7 @@ ul.inbox-pagination li {
 
 .profile-widget-info{
 
-    background: #083787 !important;
+    background: #185dd0 !important;
 
 }
 
@@ -6753,7 +6752,7 @@ ul.inbox-pagination li {
 
 .profile-widget-primary{
 
-    background: #688a7e !important;
+    background: #7076fc !important;
 
 }
 
@@ -7709,13 +7708,15 @@ ul.amounts li {
 
     margin: -10px -15px -11px;
 
+    padding: 0 15px;
+
 }
 
 
 
 .tab-bg-primary {
 
-    background: #688a7e;
+    background: #7076fc;
 
     border-bottom: none;
 
@@ -7725,7 +7726,7 @@ ul.amounts li {
 
 .tab-bg-info {
 
-    background: #355b9c;
+    background: #185dd0;
 
 
 

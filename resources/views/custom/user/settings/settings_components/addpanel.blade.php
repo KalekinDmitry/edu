@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-lg-12">
             <section class="panel">
-                <header class="panel-heading tab-bg-info">
+                <header class="panel-heading tab-bg-primary">
                     <ul class="nav nav-tabs">
                         <li class="active">
                             <a data-toggle="tab" href="#profile">

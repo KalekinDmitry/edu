@@ -10,6 +10,14 @@
     </section>
     <!--  Page top end -->
 
+<!-- Header section -->
+<header class="header-section">
+    <div class="header-warp">
+        <div class="container d-flex">
+            <a href="{{ route('home') }}" class="site-logo">
+                <img src="{{config('static.static')}}/img/logo2.png" alt="">
+                {{--<span style="color: #fff;">HMQ-Education</span >--}}
+            </a>
 
     <!-- Search section -->
     <!-- section class="multi-search-section">
@@ -40,6 +48,25 @@
                         <h3 style="padding-bottom:40px; padding-top: 45px;">@lang('content.tableofcontent')</h3>
                     </div>
 
+            <div class="user-panel">
+                @guest
+                    <a href="{{ route('login') }}">@lang('content.loginbtn')</a>
+                    <span>/</span>
+                    <a href="{{ route('register') }}">@lang('content.regbtn')</a>
+                @else
+                    <a href="{{ route('user_settings', Auth::user()->id) }}">{{ Auth::user()->name }}</a>
+                    <span>/</span>
+                    <a href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
+                @endguest
+            </div>
+            <div class="nav-switch">
+                <i class="fa fa-bars"></i>
+            </div>
+
+        </div>
+    </div>
+</header>
+<!-- Header section end -->
                     <a class="site-btn-info-sm col-md-12" href="{{ route('module.create', $course->id) }}">Add new module</a>
                     <br><br><br>
 

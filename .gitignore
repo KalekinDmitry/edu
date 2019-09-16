@@ -1,4 +1,7 @@
+/vendor
 vendor/
+vendor/*
+/vendor/*
 vendor/symfony/
 node_modules/
 npm-debug.log
