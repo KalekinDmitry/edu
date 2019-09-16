@@ -16,6 +16,8 @@ class LinkLessonsToModules extends Migration
         Schema::table('lessons', function (Blueprint $table) {
             $table->dropForeign(['course_id']);
             $table->renameColumn('course_id', 'module_id');
+        });
+        Schema::table('lessons', function (Blueprint $table) {
             $table->foreign('module_id')->references('id')->on('modules');
 
 
