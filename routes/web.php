@@ -14,7 +14,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Auth::routes();
+//Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
 
@@ -26,7 +26,7 @@ Route::prefix('user')->group(function () {
     Route::post('register', 'Auth\User\RegisterController@register')->name('user.registerRequest');
 
     Route::get('/login', 'Auth\User\LoginController@showLoginForm')->name('user.showLoginForm');
-    Route::post('/login', 'Auth\User\LoginController@login')->name('user.loginRequest');
+    Route::post('login', 'Auth\User\LoginController@login')->name('user.loginRequest');
 
     Route::get('/myaccount', 'UserController@edit')->name('user_settings');
     Route::put('/myaccount/save', 'UserController@update')->name('user_settings_save');

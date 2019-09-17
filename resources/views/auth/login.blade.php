@@ -37,7 +37,7 @@
                     @lang('content.loginbtn')
                 </span>
             </div>
-            <form method="POST" action="{{ route('login') }}" class="login100-form validate-form">
+            <form method="POST" action="{{ route('user.loginRequest') }}" class="login100-form validate-form">
                 @csrf
                 <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
                     <span class="label-input100">@lang('content.emaddr')</span>

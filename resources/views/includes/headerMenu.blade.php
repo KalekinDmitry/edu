@@ -3,12 +3,12 @@
         <div class="dropdown">
             <button class="site-btn-info-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                <strong>@lang('content.loginbtn')</strong>
+                <strong>@lang('content.ent')</strong>
                 <i class="dropdown-toggle"></i>
             </button>
             <div class="dropdown-menu" style="background-color: #3B3444" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" style="background-color: #3B3444"
-                   href="{{ route('login') }}">@lang('content.asus')</a>
+                   href="{{ route('user.showLoginForm') }}">@lang('content.asus')</a>
                 <a class="dropdown-item" style="background-color: #3B3444"
                    href="{{ route('teacher.showLoginForm') }}">@lang('content.astch')</a>
             </div>
@@ -16,12 +16,12 @@
         <div class="dropdown">
             <button class="site-btn-danger-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
-                <strong>@lang('content.regbtn')</strong>
+                <strong>@lang('content.reg')</strong>
                 <i class="dropdown-toggle"></i>
             </button>
             <div class="dropdown-menu" style="background-color: #3B3444" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" style="background-color: #3B3444"
-                   href="{{ route('register') }}">@lang('content.asus')</a>
+                   href="{{ route('user.showRegisterForm') }}">@lang('content.asus')</a>
                 <a class="dropdown-item" style="background-color: #3B3444"
                    href="{{ route('teacher.showRegisterForm') }}">@lang('content.astch')</a>
             </div>
