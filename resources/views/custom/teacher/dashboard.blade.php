@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
     <section class="dashboard-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">
         <div class="container">
             <div class="row">

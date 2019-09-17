@@ -47,24 +47,26 @@ Route::prefix('teacher')->group(function () {
     Route::get('/login', 'Auth\Teacher\LoginController@showLoginForm')->name('teacher.showLoginForm');
     Route::post('/login', 'Auth\Teacher\LoginController@login')->name('teacher.loginRequest');
 
-    Route::get('/', 'TeacherController@index')->name('teacher.dashboard');
-    Route::resource('/course', 'CourseController');
-    Route::resource('/course/{course}/lesson', 'LessonController');
-    Route::get('/myaccount', 'TeacherController@edit')->name('teacher_settings');
-    Route::put('/myaccount/save', 'TeacherController@update')->name('teacher_settings_save');
+    Route::group(['middleware' => ['web']], function () {
+        Route::get('/', 'TeacherController@index')->name('teacher.dashboard');
+        Route::resource('/course', 'CourseController');
+        Route::resource('/course/{course}/lesson', 'LessonController');
+        Route::get('/myaccount', 'TeacherController@edit')->name('teacher_settings');
+        Route::put('/myaccount/save', 'TeacherController@update')->name('teacher_settings_save');
 
-    Route::resource('/classroom', 'ClassroomController');
+        Route::resource('/classroom', 'ClassroomController');
 
-    Route::resource('/classroom/{classroom}/user/{user}/invite', 'ClassroomInviteController', [
-        'names' => [
-            'store' => 'classroomInvite.store',
-            'create' => 'classroomInvite.create',
-            'show' => 'classroomInvite.show',
-            'destroy' => 'classroomInvite.destroy',
-        ]
-    ]);
+        Route::resource('/classroom/{classroom}/user/{user}/invite', 'ClassroomInviteController', [
+            'names' => [
+                'store' => 'classroomInvite.store',
+                'create' => 'classroomInvite.create',
+                'show' => 'classroomInvite.show',
+                'destroy' => 'classroomInvite.destroy',
+            ]
+        ]);
 
-    Route::get('/logout', 'Auth\Teacher\LoginController@logout')->name('teacher.logout');
+        Route::get('/logout', 'Auth\Teacher\LoginController@logout')->name('teacher.logout');
+    });
 });
 
 // Admins
@@ -72,13 +74,15 @@ Route::prefix('admin')->group(function () {
     Route::get('/login', 'Auth\Admin\LoginController@showLoginForm')->name('admin.showLoginForm');
     Route::post('/login', 'Auth\Admin\LoginController@login')->name('admin.loginRequest');
 
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    Route::get('/profile/{id}', 'AdminController@show')->name('admin_profile');
-    Route::get('/profile/edit', 'AdminController@edit')->name('admin_profile_settings');
-    Route::get('/tables/users', 'AdminController@showUsersList')->name('users.list');
-    Route::get('/tables/teachers', 'AdminController@showTeachersList')->name('teachers.list');
-    Route::get('/tables/admins', 'AdminController@showAdminsList')->name('admins.list');
+    Route::group(['middleware' => ['web']], function () {
+        Route::get('/', 'AdminController@index')->name('admin.dashboard');
+        Route::get('/profile/{id}', 'AdminController@show')->name('admin_profile');
+        Route::get('/profile/edit', 'AdminController@edit')->name('admin_profile_settings');
+        Route::get('/tables/users', 'AdminController@showUsersList')->name('users.list');
+        Route::get('/tables/teachers', 'AdminController@showTeachersList')->name('teachers.list');
+        Route::get('/tables/admins', 'AdminController@showAdminsList')->name('admins.list');
 
-    Route::get('/logout', 'Auth\Admin\LoginController@logout')->name('admin.logout');
+        Route::get('/logout', 'Auth\Admin\LoginController@logout')->name('admin.logout');
+    });
 });
 
