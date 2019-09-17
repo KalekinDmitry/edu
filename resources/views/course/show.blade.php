@@ -65,44 +65,6 @@
 
 
 
-                    <h5 style="font-size: 18px; padding-bottom:10px;">📂 3. @lang('content.4rev')</h5>
-
-                    <div class="list-group">
-                        <a href="#" style="font-size: 14px;" class="list-group-item list-group-item-action active">📄
-                            @lang('content.intro')</a>
-                        <a style="font-size: 14px; color: gray;"
-                           class="list-group-item list-group-item-action disabled">🔒
-                            TODO: 1</a>
-                        <a style="font-size: 14px; color: gray;"
-                           class="list-group-item list-group-item-action disabled">🔒
-                            TODO: 2</a>
-                        <a style="font-size: 14px; color: gray;"
-                           class="list-group-item list-group-item-action disabled">🔒
-                            TODO: 3</a>
-                        <a style="font-size: 14px; color: gray;"
-                           class="list-group-item list-group-item-action disabled">🔒
-                            TODO: 4</a>
-                    </div>
-
-                    <h5 style="font-size: 18px; padding-bottom:10px; padding-top: 20px;">📂
-                        4. @lang('content.business')</h5>
-
-                    <div class="list-group">
-                        <a href="#" style="font-size: 14px;"
-                           class="list-group-item list-group-item-action">📄 @lang('content.missioninlife')</a>
-                        <a style="font-size: 14px; color: gray;"
-                           class="list-group-item list-group-item-action disabled">🔒
-                            TODO: 1</a>
-                        <a style="font-size: 14px; color: gray;"
-                           class="list-group-item list-group-item-action disabled">🔒
-                            TODO: 2</a>
-                        <a style="font-size: 14px; color: gray;"
-                           class="list-group-item list-group-item-action disabled">🔒
-                            TODO: 3</a>
-                        <a style="font-size: 14px; color: gray;"
-                           class="list-group-item list-group-item-action disabled">🔒
-                            TODO: 4</a>
-                    </div>
                 </div>
 
 

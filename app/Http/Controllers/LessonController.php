@@ -17,7 +17,7 @@ class LessonController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:teacher')->except('show');
+        $this->middleware('auth:teacher');
     }
     /**
      * Display a listing of the resource.
@@ -82,23 +82,26 @@ class LessonController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param Module $module
      * @param Lesson $lesson
      * @return \Illuminate\Http\Response
      */
-    public function show(Module $module, Lesson $lesson)
+    public function show(Module $module,$lesson)
     {
+        $lesson = Lesson::query()->find($lesson);
         return view('lesson.show', ['lesson' => $lesson, 'module' => $module]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Course $lesson
+     * @param Module $lesson
      * @return \Illuminate\Http\Response
      */
-    public function edit(Module $module, Lesson $lesson)
+    public function edit(Module $module, $lesson)
     {
         $teacher = Auth::user();
+        $lesson = Lesson::query()->find($lesson);
         //dd($lesson, $course, $teacher);
         if($teacher->can('edit', [$lesson])){
             $steps = collect();
@@ -107,7 +110,7 @@ class LessonController extends Controller
 
             return view('lesson.edit', ['lesson' => $lesson, 'module' => $module, 'steps' => $steps]);
         }else return redirect()
-        ->route('course.edit', $module->course_id)
+        ->route('course.edit', $module->id)
         ->with(['message' => 'permission denied']);
     }
 

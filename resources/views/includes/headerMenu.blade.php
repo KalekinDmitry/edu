@@ -38,17 +38,19 @@
             @auth('web')
                 <a class="dropdown-item" style="background-color: #3B3444"
                    href="{{ route('user_settings') }}"><strong>@lang('content.profile')</strong></a>
-                <!--<a class="dropdown-item" style="background-color: #3B3444" href="#">@lang('content.mycour')</a>-->
+            <!--<a class="dropdown-item" style="background-color: #3B3444" href="#">@lang('content.mycour')</a>-->
                 <a class="dropdown-item" style="background-color: #3B3444"
                    href="{{ route('user.invites')}}">@lang('content.messages')</a>
             @endauth
 
             @auth('teacher')
                 <a class="dropdown-item" style="background-color: #3B3444"
-                   href="{{ route('teacher_settings') }}"><strong>@lang('content.profile')</strong></a>
+                   href="{{ route('teacher_settings') }}">@lang('content.profile')</a>
+                <a class="dropdown-item" style="background-color: #3B3444"
+                   href="{{ route('teacher.dashboard') }}">@lang('content.tchdash')</a>
                 <a class="dropdown-item" style="background-color: #3B3444"
                    href="{{ route('course.create') }}">@lang('content.create course')</a>
-                <!--<a class="dropdown-item" style="background-color: #3B3444" href="#">@lang('content.messages')</a>-->
+            <!--<a class="dropdown-item" style="background-color: #3B3444" href="#">@lang('content.messages')</a>-->
             @endauth
             <a class="dropdown-item" style="background-color: #3B3444"
                href="{{ route('logout') }}">@lang('content.logoutbtn')</a>
