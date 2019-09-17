@@ -22,7 +22,7 @@ class LoginController extends Controller
     |
     */
 
-    use AuthenticatesUsers;
+//    use AuthenticatesUsers;
 
     /**
      * Where to redirect users after login.
@@ -52,10 +52,10 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-            return redirect('/');
+            return redirect('/user');
         }
 
-        return redirect('/');
+        return redirect('/user');
     }
 
     public function logout()

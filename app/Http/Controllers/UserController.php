@@ -15,12 +15,13 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    public function showInvites(){
+    public function index()
+    {
         $user = User::where('id', Auth::user()->id)->first();
 
         $invites = ClassroomInvite::where('user_id', $user->id)->get();
 
-        return view('custom.user.invites',['invites' => $invites]);
+        return view('custom.user.dashboard',['invites' => $invites]);
     }
 
     public function edit()

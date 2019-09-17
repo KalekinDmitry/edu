@@ -22,17 +22,21 @@ Route::get('setlocale/{locale}', 'LocaleController@setLocale')->name('setLocale'
 
 // Users
 Route::prefix('user')->group(function () {
+
     Route::get('/register', 'Auth\User\RegisterController@showRegisterForm')->name('user.showRegisterForm');
     Route::post('register', 'Auth\User\RegisterController@register')->name('user.registerRequest');
 
     Route::get('/login', 'Auth\User\LoginController@showLoginForm')->name('user.showLoginForm');
-    Route::post('login', 'Auth\User\LoginController@login')->name('user.loginRequest');
+    Route::post('/login', 'Auth\User\LoginController@login')->name('user.loginRequest');
 
-    Route::get('/myaccount', 'UserController@edit')->name('user_settings');
-    Route::put('/myaccount/save', 'UserController@update')->name('user_settings_save');
-    Route::get('/myInvites', 'UserController@showInvites')->name('user.invites');
+    Route::group(['middleware' => ['web']], function () {
+        Route::get('/myaccount', 'UserController@edit')->name('user_settings');
+        Route::put('/myaccount/save', 'UserController@update')->name('user_settings_save');
 
-    Route::get('logout', 'Auth\User\LoginController@logout')->name('user.logout');
+        Route::get('/', 'UserController@index')->name('user.dashboard');
+
+        Route::get('logout', 'Auth\User\LoginController@logout')->name('user.logout');
+    });
 });
 
 // Teachers
