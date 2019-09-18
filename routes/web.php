@@ -53,6 +53,10 @@ Route::resource('/module/{module}/lesson', 'LessonController');
 Route::resource('/lesson/{lesson}/textBlock', 'TextBlockController');
 Route::resource('/lesson/{lesson}/videoBlock', 'VideoBlockController');
 Route::resource('/lesson/{lesson}/taskBlock', 'TaskBlockController');
+Route::resource('/taskBlock/{taskBlock}/simpleQuestion', 'simpleQuestionController');
+Route::resource('/taskBlock/{taskBlock}/testQuestion', 'testQuestionController');
+Route::resource('/testQuestion/{testQuestion}/testAnswer', 'testAnswerController');
+
 Route::resource('/teacher/classroom', 'ClassroomController');
 
 Route::resource('/teacher/classroom/{classroom}/user/{user}/invite', 'ClassroomInviteController', [

@@ -17,7 +17,6 @@
         <input type="hidden" name="_method" value="put">
         {{ csrf_field() }}
         <div class="row justify-content-center">
-
                 <div class="col-md-7">
                     <input type="text" maxlength="64" name="title" placeholder="@lang('content.ltitle')" value="{{ $lesson->title ?? "" }}" required>
                     <input type="hidden" name="slug" value="{{ $lesson->slug ?? ""}}">

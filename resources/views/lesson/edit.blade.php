@@ -24,11 +24,16 @@
                                 <h3>Steps</h3>
                             </div>
                             <div class="d-flex form-group">
-                                <a class="site-btn-hollow col-md-4" href="{{ route('textBlock.create', $lesson->id) }}">✚
-                                    text</a>
                                 <a class="site-btn-hollow col-md-4"
-                                   href="{{ route('videoBlock.create', $lesson->id) }}">✚ video</a>
-                                <a class="site-btn-hollow col-md-4" href="#">✚ task</a>
+                                    href="{{ route('textBlock.create', $lesson->id) }}">✚ text</a>
+                                <a class="site-btn-hollow col-md-4"
+                                    href="{{ route('videoBlock.create', $lesson->id) }}">✚ video</a>
+                                <form style="padding: 0" class="col-md-4" action="{{ route('taskBlock.store', $lesson->id) }}" method="POST" enctype="multipart/form-data">
+                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                    <input type="hidden" name="position" value = "0">
+                                    <input type="hidden" name="lesson_id" value="{{ $lesson->id }}">
+                                    <button class="site-btn-hollow col-md-12" type="submit" value="create">✚ video</button>
+                                </form>
                             </div>
                             @foreach($steps->textBlocks as $textBlock)
                                 <div class="d-flex">
