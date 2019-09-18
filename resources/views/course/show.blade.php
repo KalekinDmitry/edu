@@ -41,7 +41,7 @@
                         <input type="hidden" name="_method" value="Delete">
                         {{ csrf_field() }}
                     <a class="site-btn-hollow col-md-5" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">@lang('content.edit')</i></a>
-                    <button type="submit" class="site-btn-danger col-md-6">@lang('content.del')</button>
+                    <button type="submit" class="site-btn-danger-sm col-md-6">@lang('content.del')</button>
 
 
                     </form>
