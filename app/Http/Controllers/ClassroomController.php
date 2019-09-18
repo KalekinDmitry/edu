@@ -114,6 +114,13 @@ class ClassroomController extends Controller
             $includedCoursesID = $classroom->courses()->pluck('courses.id')->toArray();
             $notIncludedCourses = Course::where('created_by', Auth::user()->id)->get()->except($includedCoursesID);
 
+            //some users may be included to this course, but not being deleted ivite message.
+            //So we need to see this users, to know is invite message was made correctly
+            //$invitedButNotIncludedUsers = ClassroomInvite::where('classroom_id', $classroom->id)->where(->get()->except($includedUsersID);
+
+            $invitedUsers = $classroom->invitedUsers()->get()->except($includedUsersID);
+
+            //dd($invitedUsers);
 
             return view('classroom.edit',  [
                 'classroom' => $classroom,
@@ -121,6 +128,7 @@ class ClassroomController extends Controller
                 'notIncludedUsers' => $notIncludedUsers,
                 'includedCourses' => $includedCourses,
                 'notIncludedCourses' => $notIncludedCourses,
+                'invitedUsers' => $invitedUsers,
                 ]);
 
 
@@ -142,7 +150,7 @@ class ClassroomController extends Controller
         //if($teacher->can('update', $classroom)){
 
             //dd($request->input('newIncludedUsers'));
-
+            //dd($request->input('newIncludedCourses'), $request->input('excludedUsers'));
 
             //
             if($request->input('newIncludedCourses')){

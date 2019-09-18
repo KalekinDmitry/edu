@@ -51,7 +51,7 @@ class ClassroomInviteController extends Controller
         $classroomInvite->user_id = $user->id;
         $classroomInvite->save();
 
-        return redirect()->back();
+        return redirect()->route('classroom.edit', ['classroom'=>$classroom]);
     }
 
     /**

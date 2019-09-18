@@ -56,8 +56,20 @@
                                             </div>
                                             {{-- <a href="#" class="btn btn-secondary  col-md-2">@lang('content.exclude')</a> --}}
                                             <div class="col-md-2">
-                                                <input class="size-32" type="checkbox" name="excludedUsers[]"
-                                                       value="{{ $user->id }}">
+                                                <input class="size-32" type="checkbox" name="excludedUsers[]" value="{{ $user->id }}">
+                                            </div>
+                                        </div>
+                                    @endforeach
+
+                                    @foreach($invitedUsers as $user)
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-10">
+                                                {{ $user->name }}
+                                            </div>
+                                            {{-- <a href="#" class="btn btn-secondary  col-md-2">@lang('content.exclude')</a> --}}
+                                            <div class="col-md-2">
+                                                <a href="#"
+                                                    class="btn btn-secondary col-md-12">undo (todo)</a>
                                             </div>
                                         </div>
                                     @endforeach
@@ -111,81 +123,78 @@
                                 <button class="site-btn col-md-4" type="submit" value="update">@lang('content.update')<i
                                             class="fa fa-angle-right"></i></button>
                             </div>
-
-
                         </div>
+
+
+                        <div class="modal fade bd-example-modal-lg-users" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                        aria-hidden="true">
+                            <div class="modal-dialog modal-md">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">@lang('content.invus')</h4>
+
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+
+                                    </div>
+                                    <br>
+
+                                    {{-- TODO make search form --}}
+
+                                    @foreach($notIncludedUsers as $NIuser)
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-8">
+                                                {{ $NIuser->name }}
+                                            </div>
+                                            <a href="{{ route('classroomInvite.create', ['classrom' => $classroom->id, 'user' => $NIuser->id])}}"
+                                                class="btn btn-secondary col-md-2">invite</a>
+                                        </div>
+                                    @endforeach
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal fade bd-example-modal-sm-courses" tabindex="-1" role="dialog"
+                                aria-labelledby="mySmallModalLabel2" aria-hidden="true">
+                            <div class="modal-dialog modal-md">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">@lang('content.includecour')</h4>
+
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <br>
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-8">
+                                            <strong>Course title</strong>
+                                        </div>
+                                        {{-- <a href="#" class="btn btn-secondary  col-md-2">@lang('content.exclude')</a> --}}
+                                        <div class="col-md-3">
+                                            <strong>@lang('content.include')</strong>
+                                        </div>
+                                    </div>
+                                    <br>
+
+                                    @foreach($notIncludedCourses as $course)
+                                        <div class="row justify-content-center">
+                                            <div class="col-md-8">
+                                                {{ $course->title }}
+                                            </div>
+                                            {{-- <a href="#" class="btn btn-secondary  col-md-2">@lang('content.include')</a> --}}
+                                            <div class="col-md-3">
+                                                <input class="size-32" type="checkbox" name="newIncludedCourses[]" value="{{ $course->id }}">
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                    <br>
+                                </div>
+                            </div>
+                        </div>
+
                     </form>
-                </div>
-            </div>
-        </div>
-        <br>
-
-
-        <div class="modal fade bd-example-modal-lg-users" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-             aria-hidden="true">
-            <div class="modal-dialog modal-md">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">@lang('content.invus')</h4>
-
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-
-                    </div>
-                    <br>
-
-                    {{-- TODO make search form --}}
-
-                    @foreach($notIncludedUsers as $NIuser)
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                {{ $NIuser->name }}
-                            </div>
-                            <a href="{{ route('classroomInvite.create', ['classrom' => $classroom->id, 'user' => $NIuser->id])}}"
-                               class="btn btn-secondary col-md-2">invite</a>
-                        </div>
-                    @endforeach
-                    <br>
-                </div>
-            </div>
-        </div>
-        <div class="modal fade bd-example-modal-sm-courses" tabindex="-1" role="dialog"
-             aria-labelledby="mySmallModalLabel2" aria-hidden="true">
-            <div class="modal-dialog modal-md">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h4 class="modal-title">@lang('content.includecour')</h4>
-
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <br>
-                    <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <strong>Course title</strong>
-                        </div>
-                        {{-- <a href="#" class="btn btn-secondary  col-md-2">@lang('content.exclude')</a> --}}
-                        <div class="col-md-3">
-                            <strong>@lang('content.include')</strong>
-                        </div>
-                    </div>
-                    <br>
-
-                    @foreach($notIncludedCourses as $course)
-                        <div class="row justify-content-center">
-                            <div class="col-md-8">
-                                {{ $course->title }}
-                            </div>
-                            {{-- <a href="#" class="btn btn-secondary  col-md-2">@lang('content.include')</a> --}}
-                            <div class="col-md-3">
-                                <input class="col-md-3" type="checkbox" name="newIncludedCourses[]"
-                                       value="{{ $course->id }}">
-                            </div>
-                        </div>
-                    @endforeach
-                    <br>
                 </div>
             </div>
         </div>
