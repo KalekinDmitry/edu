@@ -21,18 +21,28 @@ class LoginController extends Controller
 
     public function login(TeacherLoginRequest $request)
     {
-        $credentials = [
-            'email' => $request->email,
-            'password' => $request->password,
-        ];
+        $this->validate($request, [
+            'email' => ['required', 'email', 'max:255'],
+            'password' => ['required', 'min:6'],
+        ]);
 
-        if (Auth::guard('teacher')->attempt($credentials, $request->remember)) {
-            return redirect()->intended(route('teacher.dashboard'));
+        if (Auth::guard('teacher')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+            return redirect('/teacher');
         }
-        return back()
-            ->withErrors(['email' => "Wrong email or password"])
-            ->withInput($request
-                ->only('email', 'remember'));
+
+        return redirect('/teacher');
+//        $credentials = [
+//            'email' => $request->email,
+//            'password' => $request->password,
+//        ];
+//
+//        if (Auth::guard('teacher')->attempt($credentials, $request->remember)) {
+//            return redirect()->intended(route('teacher.dashboard'));
+//        }
+//        return back()
+//            ->withErrors(['email' => "Wrong email or password"])
+//            ->withInput($request
+//                ->only('email', 'remember'));
     }
 
     public function logout()

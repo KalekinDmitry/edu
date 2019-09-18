@@ -62,8 +62,9 @@ class RegisterController extends Controller
 
         Auth::guard('teacher')->login($teacher, false);
 
-        return $this->registered($request, $teacher)
-            ?: redirect(route('teacher.dashboard'));
+//        return $this->registered($request, $teacher)
+//            ?: redirect(route('teacher.dashboard'));
+        return redirect('/teacher');
     }
 
     /**

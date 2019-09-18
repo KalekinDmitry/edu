@@ -20,7 +20,7 @@
                             </div>
                             <p class="card-text">{{ $invite->message_text }}</p>
                             <div class="row">
-                                <form action="{{ route('classroom.update', [$invite->classroom_id]) }}" method="POST"
+                                <form action="{{ route('classroom.update', [$invite->classroom_id]) }}" method="post"
                                       enctype="multipart/form-data">
                                     <input type="hidden" name="_method" value="put">
                                     <input type="hidden" name="newIncludedUsers[]" value="{{ Auth::user()->id }}">

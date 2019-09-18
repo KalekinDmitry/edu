@@ -13,7 +13,7 @@ class ClassroomInviteController extends Controller
 
     public function __construct()
     {
-        //$this->middleware('auth:teacher');
+        $this->middleware('auth:teacher')->except('destroy');
     }
 
     /**
@@ -51,14 +51,14 @@ class ClassroomInviteController extends Controller
         $classroomInvite->user_id = $user->id;
         $classroomInvite->save();
 
-        return redirect()->back();
+        return redirect()->route('teacher.dashboard');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Classroom $classroom
+     * @return void
      */
     public function show(Classroom $classroom)
     {
@@ -69,8 +69,8 @@ class ClassroomInviteController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param Classroom $classroom
+     * @return void
      */
     public function edit(Classroom $classroom)
     {
@@ -80,9 +80,9 @@ class ClassroomInviteController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param  \Illuminate\Http\Request $request
+     * @param Classroom $classroom
+     * @return void
      */
     public function update(Request $request, Classroom $classroom)
     {
@@ -92,15 +92,16 @@ class ClassroomInviteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Classroom $classroom, User $user, ClassroomInvite $invite)
     {
         //dd($invite);
 
         $invite->delete();
-        return redirect()->route('user.invites');
+        return redirect()->route('user.dashboard');
 
     }
 }

@@ -57,7 +57,7 @@ class CourseController extends Controller
             $course->image = $url;
         }
         $course->save();
-        return redirect()->route('course.show', $course);
+        return redirect()->route('teacher.dashboard');
     }
 
 
@@ -112,8 +112,8 @@ class CourseController extends Controller
                 $course->image = $url;
             }
             $course->save();
-            return redirect()->route('course.show', $course);
-        } else return redirect()->route('course.show', $course);
+            return redirect()->route('teacher.dashboard');
+        } else return redirect()->route('teacher.dashboard');
     }
 
     /**
@@ -128,7 +128,7 @@ class CourseController extends Controller
         $teacher = Auth::user();
         if ($teacher->can('destroy', $course)) {
             $course->delete();
-            return redirect()->route('home');
+            return redirect()->route('teacher.dashboard');
         } else return redirect()->route('course.show', $course);
 
     }

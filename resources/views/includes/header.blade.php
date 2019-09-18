@@ -1,6 +1,6 @@
 <header class="header-section">
-    <div class="language-section" style="padding-right: 10%">
-        <a style="color:#fff; margin-left: auto;">@lang('content.chlang'):</a>
+    <div class="language-section">
+        <a style="color:#fff; margin-left: 12%;">@lang('content.chlang'):</a>
         <a href="{{ route('setLocale', ['ru']) }}"><img style="margin-bottom: 5px; border-radius: 20%"
                                                         src="{{config('static.static')}}/img/icons/ru.png" alt=""></a>
         <a href="{{ route('setLocale', ['en']) }}"><img style="margin-bottom: 5px; border-radius: 20%"

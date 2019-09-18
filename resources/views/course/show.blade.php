@@ -133,9 +133,7 @@
                                         </div>
                                         <div class="seller-info">
                                             <div class="seller-pic set-bg" data-setbg="">[@lang('content.profav')]</div>
-                                            <h6><a style="color: #fff"
-                                                   href="{{ route('users_profile', $course->teacher->id) }}">@lang('content.by') {{$course->teacher->name}}</a>,
-                                                <span>[@lang('content.wi')]</span></h6>
+                                            <h6>{{$course->teacher->name}}</h6>
                                         </div>
                                     </div>
                                 </div>
