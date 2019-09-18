@@ -12,6 +12,6 @@
             <br><br><br>
         </div>
     </section>
+    <!-- Warning section end -->
+    <br>
 @endsection
-<!-- Warning section end -->
-<br>

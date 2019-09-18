@@ -55,6 +55,8 @@
                href="{{ route('user_settings') }}"><strong>@lang('content.profile')</strong></a>
             <a class="dropdown-item" style="background-color: #3B3444"
                href="{{ route('user.dashboard')}}">Dashboard</a>
+            {{--<a class="dropdown-item" style="background-color: #3B3444"--}}
+               {{--href="{{ route('home') }}">To the home</a>--}}
             <a class="dropdown-item" style="background-color: #3B3444"
                href="{{ route('user.logout') }}">@lang('content.logoutbtn')</a>
         </div>

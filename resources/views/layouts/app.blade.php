@@ -19,8 +19,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
-    <!-- bootstrap theme -->
-    <link href="{{ asset('css/admin/bootstrap-theme.css') }}" rel="stylesheet">
     {{--<link rel="stylesheet" type="text/css" href="{{config('static.static')}}/font-awesome/4.2.0/css/font-awesome.min.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="{{config('static.static')}}/css/bootstrap.min.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="{{config('static.static')}}/css/font-awesome.min.css">--}}
