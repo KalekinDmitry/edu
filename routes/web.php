@@ -86,3 +86,7 @@ Route::prefix('admin')->group(function () {
     });
 });
 
+//Route::get('/custom_paint', array('as' => 'custom_paint', 'uses' => 'PagesController@services'));
+//
+//// View
+//<a href="{{ URL::route('custom_paint') }}#id">LINK</a>

@@ -41,6 +41,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
+//        dd(allOf());
         return view('auth.login');
     }
 
