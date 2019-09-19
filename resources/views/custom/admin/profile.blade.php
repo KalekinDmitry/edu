@@ -10,7 +10,7 @@
 
             <section class="wrapper">
 
-               @include('custom.admin.profile_components.breadcrumbs')
+                @include('custom.admin.profile_components.breadcrumbs')
 
                 @include('custom.admin.profile_components.owninformation')
 

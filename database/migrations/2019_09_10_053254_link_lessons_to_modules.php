@@ -14,20 +14,16 @@ class LinkLessonsToModules extends Migration
     public function up()
     {
         Schema::table('lessons', function (Blueprint $table) {
-            $table->dropForeign(['course_id']);
+            $table->dropForeign('lessons_course_id_foreign');
             $table->renameColumn('course_id', 'module_id');
         });
         Schema::table('lessons', function (Blueprint $table) {
             $table->foreign('module_id')->references('id')->on('modules');
 
-
             $table->integer('position');//serial number in all lessons list
 
             $table->index('title');
             $table->index('published_at');
-
-
-
 
             //we don't need to hold all this in lesson. It goes to the separated tables (steps)
             $table->dropColumn('likes');
@@ -35,8 +31,6 @@ class LinkLessonsToModules extends Migration
             $table->dropColumn('views_count');
             $table->dropColumn('video_link');
             $table->dropColumn('content_html');
-
-
         });
     }
 
@@ -48,12 +42,11 @@ class LinkLessonsToModules extends Migration
     public function down()
     {
         Schema::table('lessons', function (Blueprint $table) {
-            $table->dropForeign('module_id');
+            $table->dropForeign('lessons_module_id_foreign');
             $table->renameColumn('module_id', 'course_id');
 
             $table->foreign('course_id')->references('id')->on('courses');
             $table->dropColumn('position');
-
 
             $table->text('content_html')->nullable()->default(null);
             $table->string('video_link')->nullable()->default(null);
@@ -61,7 +54,6 @@ class LinkLessonsToModules extends Migration
             $table->bigInteger('views_count')->default(0)->unsigned();
             $table->bigInteger('likes')->default(0)->unsigned();
             $table->bigInteger('dislikes')->default(0)->unsigned();
-
         });
     }
 }

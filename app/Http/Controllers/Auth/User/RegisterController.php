@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace App\Http\Controllers\Auth\User;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Teacher\TeacherRegisterRequest;
@@ -41,43 +41,13 @@ class RegisterController extends Controller
     public function __construct()
     {
         $this->middleware('guest');
-        $this->middleware('guest:admin');
-        $this->middleware('guest:teacher');
+//        $this->middleware('guest:admin');
+//        $this->middleware('guest:teacher');
     }
 
-    public function showTeacherRegisterForm()
+    public function showRegisterForm()
     {
-        return view('auth.teacher-register');
-    }
-
-    /**
-     * Handle a registration request for the application.
-     *
-     * @param  \Illuminate\Http\Requests\TeacherRegisterRequest $request
-     * @return \Illuminate\Http\Response
-     */
-    public function registerTeacher(TeacherRegisterRequest $request)
-    {
-        event(new Registered($teacher = $this->createTeacher($request->all())));
-
-        Auth::guard('teacher')->login($teacher, false);
-
-        return $this->registered($request, $teacher)
-            ?: redirect(route('teacher.dashboard'));
-    }
-
-    /**
-     * Create a new user instance after a valid registration.
-     * @param  array $data
-     * @return \App\Models\Teacher
-     */
-    protected function createTeacher(array $data)
-    {
-        return Teacher::create([
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        return view('auth.register');
     }
 
     /**
@@ -92,8 +62,7 @@ class RegisterController extends Controller
 
         $this->guard()->login($user);
 
-        return $this->registered($request, $user)
-            ?: redirect($this->redirectPath());
+        return redirect('/user');
     }
 
     /**

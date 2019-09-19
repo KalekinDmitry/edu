@@ -1,4 +1,4 @@
-@extends('layouts.app_changeincludes')
+@extends('layouts.app')
 
 @section('head')
     <meta charset="utf-8">
@@ -30,10 +30,14 @@
     <link href="{{ asset('css/admin/style-responsive.css') }}" rel="stylesheet"/>
     <link href="{{ asset('css/admin/xcharts.min.css') }}" rel=" stylesheet">
     <link href="{{ asset('css/admin/jquery-ui-1.10.4.min.css') }}" rel="stylesheet">
+
+    <!-- bootstrap theme -->
+    <link href="{{ asset('css/admin/bootstrap-theme.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
-    <section class="content-section set-bg fixed" data-setbg="{{config('static.static')}}/img/bg.jpg">
+    <section class="content-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg"
+             style="background: no-repeat fixed center;">
 
         <br><br><br><br><br><br><br><br><br>
 

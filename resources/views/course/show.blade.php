@@ -1,7 +1,6 @@
-@extends('layouts.app_changeincludes')
+@extends('layouts.app')
 
 @section('content')
-
     <!-- Page top section -->
     <section class="page-top-section set-bg" data-setbg="{{config('static.static')}}/img/page-top-bg.jpg">
         <div class="container text-white">
@@ -40,8 +39,9 @@
                           action="{{route('course.destroy', $course)}}" method="post">
                         <input type="hidden" name="_method" value="Delete">
                         {{ csrf_field() }}
-                    <a class="site-btn-hollow col-md-5" href="{{route('course.edit', $course->id)}}"><i class="fa fa-edit">@lang('content.edit')</i></a>
-                    <button type="submit" class="site-btn-danger-sm col-md-6">@lang('content.del')</button>
+                        <a class="site-btn-hollow col-md-5" href="{{route('course.edit', $course->id)}}"><i
+                                    class="fa fa-edit">@lang('content.edit')</i></a>
+                        <button type="submit" class="site-btn-danger-sm col-md-6">@lang('content.del')</button>
 
 
                     </form>
@@ -52,17 +52,18 @@
                     </div>
 
 
-
                     @foreach($modules as $module)
-                        <h5 style="font-size: 18px; padding-bottom:10px;">📂 {{$module->position + 1}}. {{$module->name}}</h5>
+                        <h5 style="font-size: 18px; padding-bottom:10px;">📂 {{$module->position + 1}}
+                            . {{$module->name}}</h5>
                         <div class="list-group">
                             @foreach($module->lessons as $lesson)
-                                <a href="{{ route('lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"style="font-size: 14px;"class="list-group-item list-group-item-action ">📄{{ $lesson->title }}</a>
+                                <a href="{{ route('lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"
+                                   style="font-size: 14px;"
+                                   class="list-group-item list-group-item-action ">📄{{ $lesson->title }}</a>
                             @endforeach
                         </div>
                         <br>
                     @endforeach
-
 
 
                 </div>
@@ -70,10 +71,10 @@
 
                 <div class="col col-9">
                     <!-- ---------------------------------------------------------------------------------- -->
-                <!-- div class="sec-title text-center">
-                    <span>Only  the best</span>
-                    <h2>How to find your mission in life</h2>
-                </div -->
+                    <!-- div class="sec-title text-center">
+                        <span>Only  the best</span>
+                        <h2>How to find your mission in life</h2>
+                    </div -->
                     <div class="row courses-page">
                         <!-- course -->
                         <div class="col-lg-12">
@@ -102,7 +103,7 @@
                                                         <a href="#">#{{ $tag }}</a>
                                                     @endforeach
                                                 @else
-                                                @lang('content.notags')
+                                                    @lang('content.notags')
                                                 @endif
                                             </p>
                                         </div>
@@ -117,7 +118,9 @@
                                         </div>
                                         <div class="seller-info">
                                             <div class="seller-pic set-bg" data-setbg="">[@lang('content.profav')]</div>
-                                            <h6><a style="color: #fff" href="{{ route('user_settings', $course->teacher->id) }}">@lang('content.by') {{$course->teacher->name}}</a>, <span>[@lang('content.wi')]</span></h6>
+                                            <h6><a style="color: #fff"
+                                                   href="{{ route('user_settings', $course->teacher->id) }}">@lang('content.by') {{$course->teacher->name}}</a>,
+                                                <span>[@lang('content.wi')]</span></h6>
                                         </div>
                                     </div>
                                 </div>
@@ -325,10 +328,7 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
     </section>
     <!-- Courses section end -->
-
 @endsection

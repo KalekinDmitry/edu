@@ -1,4 +1,4 @@
-@extends('layouts.app_changeincludes')
+@extends('layouts.app')
 
 @section('content')
     <section class="classroom-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">

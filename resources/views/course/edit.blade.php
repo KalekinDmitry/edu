@@ -1,4 +1,4 @@
-@extends('layouts.app_changeincludes')
+@extends('layouts.app')
 
 @section('content')
 
@@ -25,7 +25,7 @@
                                 @foreach($modules as $module)
                                     <div class="col-md-12">
                                         <form onsubmit="if(confirm('Delete module?')){return true}else{return false}"
-                                            action="{{route('module.destroy', [$course, $module])}}" method="post">
+                                              action="{{route('module.destroy', [$course, $module])}}" method="post">
                                             <input type="hidden" name="_method" value="Delete">
                                             {{ csrf_field() }}
                                             <div class="row">
@@ -33,7 +33,7 @@
                                                     📂 {{$module->position + 1}}
                                                     . {{$module->name}}</h5>
                                                 <a class="site-btn-hollow col-md-3"
-                                                href="{{route('module.edit', [$course->id, $module->id])}}"><i
+                                                   href="{{route('module.edit', [$course->id, $module->id])}}"><i
                                                             class="fa fa-edit"></i>edit</a>
                                                 <button type="submit" class="site-btn-danger-sm col-md-1">X</button>
                                             </div>
@@ -43,16 +43,16 @@
                                             @foreach($module->lessons as $lesson)
                                                 <div class="row">
                                                     <a style="border-width: 1px"
-                                                    href="{{ route('lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"
-                                                    style="font-size: 14px;"
-                                                    class="list-group-item list-group-item-action col-md-8">📄{{ $lesson->title }}</a>
+                                                       href="{{ route('lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"
+                                                       style="font-size: 14px;"
+                                                       class="list-group-item list-group-item-action col-md-8">📄{{ $lesson->title }}</a>
                                                     <a class="site-btn-hollow col-md-3"
-                                                    href="{{route('lesson.edit', [$module->id, $lesson->id])}}"><i
+                                                       href="{{route('lesson.edit', [$module->id, $lesson->id])}}"><i
                                                                 class="fa fa-edit"></i></a>
                                                     <form style="padding: 0" class = "col-md-1"
-                                                        onsubmit="if(confirm('Delete module?')){return true}else{return false}"
-                                                        action="{{route('lesson.destroy', [$module, $lesson])}}"
-                                                        method="post">
+                                                          onsubmit="if(confirm('Delete module?')){return true}else{return false}"
+                                                          action="{{route('lesson.destroy', [$module, $lesson])}}"
+                                                          method="post">
                                                         <input type="hidden" name="_method" value="Delete">
                                                         {{ csrf_field() }}
                                                         <button type="submit" class="site-btn-danger col-md-12">X</button>
@@ -61,7 +61,7 @@
                                             @endforeach
                                             <div class="row">
                                                 <a class="site-btn-info col-md-12"
-                                                href="{{ route('lesson.create', $module->id) }}">✚</a>
+                                                   href="{{ route('lesson.create', $module->id) }}">✚</a>
                                             </div>
                                         </div>
                                     </div>
@@ -91,7 +91,7 @@
                                                 </div>
                                                 <input class="site-btn col-md-4" type="submit" value="To apply">
                                                 <a class="site-btn-hollow"
-                                                   href="{{ route('home') }}">@lang('content.cancel')</a>
+                                                   href="{{ route('teacher.dashboard') }}">@lang('content.cancel')</a>
                                             </form>
                                         </div>
                                     </div>
