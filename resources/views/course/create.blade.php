@@ -2,7 +2,8 @@
 
 @section('content')
     <!-- Create section -->
-    <section class="create-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg" style="background: no-repeat fixed center;">
+    <section class="create-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg"
+             style="background: no-repeat fixed center;">
         <div class="container">
             <br><br><br><br><br><br><br><br><br><br><br><br>
             <div class="card text-white bg-dark">
@@ -17,12 +18,13 @@
 
                     {{-- Form include --}}
                     @include('course.partials.form')
+                    <div class="card-body">
+                            <div class="form-group">
+                                <label for="">@lang('content.choosecrscover')</label><br>
 
-                    <div class="form-group">
-                        <label for="">@lang('content.choosecrscover')</label><br>
-
-                        <input type="file" name="image">
-                    </div>
+                                <input type="file" name="image">
+                            </div>
+                        </div>
 
                     <input style="color:#000" class="btn btn-light" type="submit" value="Create">
 

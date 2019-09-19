@@ -22,7 +22,6 @@ Route::get('setlocale/{locale}', 'LocaleController@setLocale')->name('setLocale'
 
 // Users
 Route::prefix('user')->group(function () {
-
     Route::get('/register', 'Auth\User\RegisterController@showRegisterForm')->name('user.showRegisterForm');
     Route::post('register', 'Auth\User\RegisterController@register')->name('user.registerRequest');
 
@@ -36,43 +35,6 @@ Route::prefix('user')->group(function () {
 
     Route::get('logout', 'Auth\User\LoginController@logout')->name('user.logout');
 });
-
-// Teachers
-Route::prefix('teacher')->group(function () {
-    Route::get('/register', 'Auth\Teacher\RegisterController@showRegisterForm')->name('teacher.showRegisterForm');
-    Route::post('register', 'Auth\Teacher\RegisterController@register')->name('teacher.registerRequest');
-
-    Route::get('/login', 'Auth\Teacher\LoginController@showLoginForm')->name('teacher.showLoginForm');
-    Route::post('/login', 'Auth\Teacher\LoginController@login')->name('teacher.loginRequest');
-
-//    Route::group(['middleware' => ['web']], function () {
-
-    Route::get('/', 'TeacherController@index')->name('teacher.dashboard');
-
-    Route::resource('/course/{course}/lesson', 'LessonController');
-    Route::resource('/course', 'CourseController');
-    Route::get('/myaccount', 'TeacherController@edit')->name('teacher_settings');
-    Route::put('/myaccount/save', 'TeacherController@update')->name('teacher_settings_save');
-
-    Route::resource('/classroom', 'ClassroomController');
-
-    Route::resource('/classroom/{classroom}/user/{user}/invite', 'ClassroomInviteController', [
-        'names' => [
-            'store' => 'classroomInvite.store',
-            'create' => 'classroomInvite.create',
-            'show' => 'classroomInvite.show',
-            'destroy' => 'classroomInvite.destroy',
-        ]
-    ]);
-
-    Route::get('/logout', 'Auth\Teacher\LoginController@logout')->name('teacher.logout');
-
-//    });
-
-});
-
-Route::get('/course/{course}', 'CourseController@show')->name('course.show');
-Route::put('/classroom/{classroom}', 'ClassroomController@update')->name('classroom.update');
 
 // Admins
 Route::prefix('admin')->group(function () {
@@ -88,3 +50,44 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/logout', 'Auth\Admin\LoginController@logout')->name('admin.logout');
 });
+
+// Teachers
+Route::prefix('teacher')->group(function () {
+    Route::get('/register', 'Auth\Teacher\RegisterController@showRegisterForm')->name('teacher.showRegisterForm');
+    Route::post('register', 'Auth\Teacher\RegisterController@register')->name('teacher.registerRequest');
+
+    Route::get('/login', 'Auth\Teacher\LoginController@showLoginForm')->name('teacher.showLoginForm');
+    Route::post('/login', 'Auth\Teacher\LoginController@login')->name('teacher.loginRequest');
+
+    Route::get('/', 'TeacherController@index')->name('teacher.dashboard');
+
+    Route::get('/myaccount', 'TeacherController@edit')->name('teacher_settings');
+    Route::put('/myaccount/save', 'TeacherController@update')->name('teacher_settings_save');
+
+
+
+    Route::resource('/course', 'CourseController');
+
+    Route::resource('/course/{course}/module', 'ModuleController');
+    Route::resource('/module/{module}/lesson', 'LessonController');
+    Route::resource('/lesson/{lesson}/textBlock', 'TextBlockController');
+    Route::resource('/lesson/{lesson}/videoBlock', 'VideoBlockController');
+    Route::resource('/lesson/{lesson}/taskBlock', 'TaskBlockController');
+
+    Route::resource('/classroom', 'ClassroomController')->except('classroom.update');
+
+    Route::resource('/classroom/{classroom}/user/{user}/invite', 'ClassroomInviteController', [
+        'names' => [
+            'store' => 'classroomInvite.store',
+            'create' => 'classroomInvite.create',
+            'show' => 'classroomInvite.show',
+            'destroy' => 'classroomInvite.destroy',
+        ]
+    ]);
+
+    Route::get('/logout', 'Auth\Teacher\LoginController@logout')->name('teacher.logout');
+});
+
+// Redefinition of some routes (Elkin)
+Route::get('/course/{course}', 'CourseController@show')->name('course.show');
+//Route::put('/classroom/{classroom}', 'ClassroomController@update')->name('classroom.update');

@@ -80,7 +80,7 @@
                 <a class="dropdown-item" style="background-color: #3B3444"
                    href="{{ route('teacher_settings') }}"><strong>@lang('content.profile')</strong></a>
                 <a class="dropdown-item" style="background-color: #3B3444"
-                   href="{{ route('teacher.dashboard')}}">Dashboard</a>
+                   href="{{ route('teacher.dashboard') }}">@lang('content.tchdash')</a>
                 <a class="dropdown-item" style="background-color: #3B3444"
                    href="{{ route('course.create') }}">@lang('content.create course')</a>
                 <a class="dropdown-item" style="background-color: #3B3444"

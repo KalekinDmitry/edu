@@ -19,7 +19,7 @@ class ClassroomInviteController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return void
      */
     public function index()
     {
@@ -29,6 +29,8 @@ class ClassroomInviteController extends Controller
     /**
      * Show the form for creating a new resource.
      *
+     * @param Classroom $classroom
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function create(Classroom $classroom, User $user)
@@ -41,7 +43,9 @@ class ClassroomInviteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
+     * @param Classroom $classroom
+     * @param User $user
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request, Classroom $classroom, User $user)
@@ -92,7 +96,9 @@ class ClassroomInviteController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param Classroom $classroom
+     * @param User $user
+     * @param ClassroomInvite $invite
      * @return \Illuminate\Http\Response
      * @throws \Exception
      */

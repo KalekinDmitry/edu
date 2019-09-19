@@ -40,7 +40,7 @@
                         {{--<span><i class="icon_pin_alt"></i>NY</span>--}}
                         {{--</h6>--}}
                     </div>
-                    <div class="col-lg-2 col-sm-6 follow-info weather-category">
+                    <!--<div class="col-lg-2 col-sm-6 follow-info weather-category">
                         <ul>
                             <li class="active">
                                 <i class="fa fa-comments fa-2x"> </i><br> Сontact
@@ -62,7 +62,7 @@
                                 <i class="fa fa-tachometer fa-2x"> </i><br>Anything else
                             </li>
                         </ul>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>

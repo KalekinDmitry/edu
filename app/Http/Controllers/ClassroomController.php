@@ -16,7 +16,7 @@ class ClassroomController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:teacher')->except('show');
+        $this->middleware('auth:teacher')->except('update','show');
     }
 
     /**
@@ -112,6 +112,13 @@ class ClassroomController extends Controller
             $includedCoursesID = $classroom->courses()->pluck('courses.id')->toArray();
             $notIncludedCourses = Course::where('created_by', Auth::user()->id)->get()->except($includedCoursesID);
 
+            //some users may be included to this course, but not being deleted ivite message.
+            //So we need to see this users, to know is invite message was made correctly
+            //$invitedButNotIncludedUsers = ClassroomInvite::where('classroom_id', $classroom->id)->where(->get()->except($includedUsersID);
+
+            $invitedUsers = $classroom->invitedUsers()->get()->except($includedUsersID);
+
+            //dd($invitedUsers);
 
             return view('classroom.edit', [
                 'classroom' => $classroom,
@@ -119,6 +126,7 @@ class ClassroomController extends Controller
                 'notIncludedUsers' => $notIncludedUsers,
                 'includedCourses' => $includedCourses,
                 'notIncludedCourses' => $notIncludedCourses,
+                'invitedUsers' => $invitedUsers,
             ]);
 
 
@@ -131,7 +139,7 @@ class ClassroomController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param Classroom $classroom
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Classroom $classroom)
@@ -140,8 +148,9 @@ class ClassroomController extends Controller
         //if($teacher->can('update', $classroom)){
 
         //dd($request->input('newIncludedUsers'));
+        //dd($request->input('newIncludedCourses'), $request->input('excludedUsers'));
 
-
+        //
         if ($request->input('newIncludedCourses')) {
             $classroom->courses()->attach($request->input('newIncludedCourses'));
         }
@@ -151,7 +160,9 @@ class ClassroomController extends Controller
         }
 
         if ($request->input('newIncludedUsers')) {
-            $classroom->users()->attach($request->input('newIncludedUsers'));
+            $includedUsersID = $classroom->users()->pluck('users.id')->toArray();//get already included users
+            $newIds = array_diff($request->input('newIncludedUsers'), $includedUsersID);//check if this user is already included
+            $classroom->users()->attach($newIds);//if he is already here $newIds will be empty
         }
 
         if ($request->input('excludedUsers')) {
@@ -162,7 +173,7 @@ class ClassroomController extends Controller
 
 
         $classroom->save();
-        return redirect()->route('classroom.show', $classroom);
+        return redirect()->back();
         /// }else{
         //return redirect()->route('classroom.show', $classroom)->with(['message'=>'Permission denied']);
         //}
@@ -171,8 +182,9 @@ class ClassroomController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param Classroom $classroom
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Classroom $classroom)
     {

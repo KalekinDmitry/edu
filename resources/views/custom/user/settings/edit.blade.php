@@ -31,8 +31,8 @@
     <link href="{{ asset('css/admin/xcharts.min.css') }}" rel=" stylesheet">
     <link href="{{ asset('css/admin/jquery-ui-1.10.4.min.css') }}" rel="stylesheet">
 
-    <!-- bootstrap theme -->
-    <link href="{{ asset('css/admin/bootstrap-theme.css') }}" rel="stylesheet">
+    {{--<!-- bootstrap theme -->--}}
+    {{--<link href="{{ asset('css/admin/bootstrap-theme.css') }}" rel="stylesheet">--}}
 @endsection
 
 @section('content')
@@ -77,7 +77,6 @@
     <script src="{{ asset('js/admin/jquery.easy-pie-chart.js') }}"></script>
     <script src="{{ asset('js/admin/owl.carousel.js') }}"></script>
     <!-- jQuery full calendar -->
-    <
     <script src="{{ asset('js/admin/fullcalendar.min.js') }}"></script>
     <!-- Full Google Calendar - Calendar -->
     <script src="{{ asset('js/admin/fullcalendar2.js') }}"></script>
