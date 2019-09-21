@@ -32,7 +32,7 @@
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <input type="hidden" name="position" value = "0">
                                     <input type="hidden" name="lesson_id" value="{{ $lesson->id }}">
-                                    <button class="site-btn-hollow col-md-12" type="submit" value="create">✚ video</button>
+                                    <button class="site-btn-hollow col-md-12" type="submit" value="create">✚ task</button>
                                 </form>
                             </div>
                             @foreach($steps->textBlocks as $textBlock)
@@ -57,7 +57,7 @@
                             @foreach($steps->videoBlocks as $videoBlock)
                                 <div class="d-flex">
                                     <a style="font-size: 14px;border-width: 1px"
-                                       href="{{ route('videoBlock.show', ['lesson'=>$lesson->id, 'textBlock'=>$videoBlock->id]) }}"
+                                       href="{{ route('videoBlock.show', ['lesson'=>$lesson->id, 'videoBlock'=>$videoBlock->id]) }}"
                                        class="list-group-item list-group-item-action col-md-6">{{ $videoBlock->position + 1 }}
                                         : video</a>
                                     <a class="site-btn-hollow col-md-3"
@@ -66,6 +66,26 @@
                                     <form class="col-md-3 p-0"
                                           onsubmit="if(confirm('Delete step?')){return true}else{return false}"
                                           action="{{route('videoBlock.destroy', [$lesson, $videoBlock])}}"
+                                          method="post">
+                                        <input type="hidden" name="_method" value="Delete">
+                                        {{ csrf_field() }}
+                                        <button type="submit" class="site-btn-danger w-100">X</button>
+                                    </form>
+                                </div>
+                            @endforeach
+
+                            @foreach($steps->taskBlocks as $taskBlock)
+                                <div class="d-flex">
+                                    <a style="font-size: 14px;border-width: 1px"
+                                       href="{{ route('taskBlock.show', ['lesson'=>$lesson->id, 'taskBlock'=>$taskBlock->id]) }}"
+                                       class="list-group-item list-group-item-action col-md-6">{{ $taskBlock->position + 1 }}
+                                        : task</a>
+                                    <a class="site-btn-hollow col-md-3"
+                                       href="{{route('taskBlock.edit', [$lesson->id, $taskBlock->id])}}"><i
+                                                class="fa fa-edit"></i></a>
+                                    <form class="col-md-3 p-0"
+                                          onsubmit="if(confirm('Delete step?')){return true}else{return false}"
+                                          action="{{route('taskBlock.destroy', [$lesson, $taskBlock])}}"
                                           method="post">
                                         <input type="hidden" name="_method" value="Delete">
                                         {{ csrf_field() }}

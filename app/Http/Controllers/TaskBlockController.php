@@ -7,6 +7,8 @@ use App\Models\Lesson;
 use App\Models\TaskBlock;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\SimpleQuestion;
+use App\Models\TestQuestion;
 
 class TaskBlockController extends Controller
 {
@@ -78,7 +80,13 @@ class TaskBlockController extends Controller
      */
     public function show(Lesson $lesson, TaskBlock $taskBlock)
     {
-        return view('taskBlock.show', ['taskBlock' => $taskBlock, 'lesson' => $lesson]);
+        $simpleQuestions = SimpleQuestion::where('task_block_id', $taskBlock->id)->get();
+        $testQuestions = TestQuestion::where('task_block_id', $taskBlock->id)->get();
+        return view('lesson.TaskBlock.show', ['taskBlock' => $taskBlock,
+                'lesson' => $lesson,
+                'simpleQuestions' => $simpleQuestions,
+                'testQuestions' => $testQuestions,
+        ]);
     }
 
     /**
@@ -91,8 +99,18 @@ class TaskBlockController extends Controller
     {
         $teacher = Auth::user();
         //dd($lesson, $course, $teacher);
+
         if($teacher->can('edit', [$taskBlock])){
-            return view('lesson.TaskBlock.edit', ['taskBlock' => $taskBlock, 'lesson' => $lesson]);
+
+            $simpleQuestions = SimpleQuestion::where('task_block_id', $taskBlock->id)->get();
+            $testQuestions = TestQuestion::where('task_block_id', $taskBlock->id)->get();
+
+            return view('lesson.TaskBlock.edit', [
+                'taskBlock' => $taskBlock,
+                'lesson' => $lesson,
+                'simpleQuestions' => $simpleQuestions,
+                'testQuestions' => $testQuestions,
+                ]);
         }else return redirect()
         ->route('lesson.edit', [$lesson->module_id, $lesson->id])
         ->with(['message' => 'permission denied']);

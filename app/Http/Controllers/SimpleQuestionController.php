@@ -31,7 +31,7 @@ class SimpleQuestionController extends Controller
     public function create(TaskBlock $taskBlock)
     {
         //
-        return view('lesson.taskBlock.simpleQuestion.create', ['taskBlock' => $taskBlock]);
+        return view('lesson.TaskBlock.SimpleQuestion.create', ['taskBlock' => $taskBlock]);
     }
 
     /**
@@ -40,9 +40,14 @@ class SimpleQuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, TaskBlock $taskBlock)
     {
         //
+
+        $simpleQuestion = SimpleQuestion::create($request->input());
+        $simpleQuestion->task_block_id = $taskBlock->id;
+        $simpleQuestion->save();
+        return redirect()->route('taskBlock.edit', [$taskBlock->lesson_id, $taskBlock->id]);
     }
 
     /**
@@ -51,9 +56,12 @@ class SimpleQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(TaskBlock $taskBlock, SimpleQuestion $simpleQuestion)
     {
-        //
+        return view('lesson.TaskBlock.SimpleQuestion.show',[
+            'taskBlock' => $taskBlock,
+            'simpleQuestion' =>$simpleQuestion,
+            ]);
     }
 
     /**
@@ -62,9 +70,13 @@ class SimpleQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(TaskBlock $taskBlock, SimpleQuestion $simpleQuestion)
     {
         //
+        return view('lesson.TaskBlock.SimpleQuestion.edit', [
+            'taskBlock' =>$taskBlock,
+            'simpleQuestion' => $simpleQuestion,
+        ]);
     }
 
     /**
@@ -74,9 +86,12 @@ class SimpleQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, TaskBlock $taskBlock, SimpleQuestion $simpleQuestion)
     {
         //
+        $simpleQuestion->update($request->input());
+        $simpleQuestion->save();
+        return redirect()->route('taskBlock.edit', [$taskBlock->lesson_id, $taskBlock->id]);
     }
 
     /**
@@ -85,8 +100,11 @@ class SimpleQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(TaskBlock $taskBlock, SimpleQuestion $simpleQuestion)
     {
         //
+        $simpleQuestion->delete();
+        return redirect()->route('taskBlock.edit', [$taskBlock->lesson_id, $taskBlock->id]);
     }
+
 }

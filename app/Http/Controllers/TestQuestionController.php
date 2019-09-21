@@ -28,9 +28,10 @@ class TestQuestionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(TaskBlock $taskBlock)
     {
         //
+        return view('lesson.TaskBlock.TestQuestion.create', ['taskBlock' => $taskBlock]);
     }
 
     /**
@@ -39,9 +40,13 @@ class TestQuestionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, TaskBlock $taskBlock)
     {
         //
+        $testQuestion = TestQuestion::create($request->input());
+        $testQuestion->task_block_id = $taskBlock->id;
+        $testQuestion->save();
+        return redirect()->route('testQuestion.edit', [$taskBlock->id, $testQuestion->id]);
     }
 
     /**
@@ -50,9 +55,13 @@ class TestQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(TaskBlock $taskBlock, TestQuestion $testQuestion)
     {
         //
+        return view('lesson.TaskBlock.TestQuestion.show',[
+            'taskBlock' => $taskBlock,
+            'testQuestion' => $testQuestion,
+        ]);
     }
 
     /**
@@ -61,9 +70,13 @@ class TestQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(TaskBlock $taskBlock, TestQuestion $testQuestion)
     {
         //
+        return view('lesson.TaskBlock.TestQuestion.edit', [
+            'taskBlock' =>$taskBlock,
+            'testQuestion' => $testQuestion,
+        ]);
     }
 
     /**
@@ -73,9 +86,12 @@ class TestQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, TaskBlock $taskBlock, TestQuestion $testQuestion)
     {
         //
+        $testQuestion->update($request->input());
+        $testQuestion->save();
+        return redirect()->route('taskBlock.edit', [$taskBlock->lesson_id, $taskBlock->id]);
     }
 
     /**
@@ -84,8 +100,10 @@ class TestQuestionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(TaskBlock $taskBlock, TestQuestion $testQuestion)
     {
         //
+        $testQuestion->delete();
+        return redirect()->route('taskBlock.edit', [$taskBlock->lesson_id, $taskBlock->id]);
     }
 }
