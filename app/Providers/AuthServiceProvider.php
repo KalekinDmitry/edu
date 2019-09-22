@@ -13,6 +13,7 @@ use App\Course;
 use App\Policies\CoursePolicy;
 
 use App\Models\Module;
+use App\Models\SimpleQuestion;
 use App\Policies\ModulePolicy;
 
 use App\Models\TextBlock;
@@ -22,8 +23,12 @@ use App\Models\VideoBlock;
 use App\Policies\VideoBlockPolicy;
 
 use App\Models\TaskBlock;
+use App\Models\TestAnswer;
+use App\Models\TestQuestion;
+use App\Policies\SimpleQuestionPolicy;
 use App\Policies\TaskBlockPolicy;
-
+use App\Policies\TestAnswerPolicy;
+use App\Policies\TestQuestionPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -41,7 +46,10 @@ class AuthServiceProvider extends ServiceProvider
         Module::class => ModulePolicy::class,
         TextBlock::class => TextBlockPolicy::class,
         VideoBlock::class => VideoBlockPolicy::class,
-        TaskBlock::class => TaskBlockPolicy::class
+        TaskBlock::class => TaskBlockPolicy::class,
+        TestQuestion::class => TestQuestionPolicy::class,
+        TestAnswer::class => TestAnswerPolicy::class,
+        SimpleQuestion::class => SimpleQuestionPolicy::class,
     ];
 
     /**

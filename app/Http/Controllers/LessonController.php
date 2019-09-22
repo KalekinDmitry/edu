@@ -10,6 +10,7 @@ use App\Models\VideoBlock;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\TaskBlock;
 use Illuminate\Support\Facades\Auth;
 
 class LessonController extends Controller
@@ -107,6 +108,7 @@ class LessonController extends Controller
             $steps = collect();
             $steps->textBlocks = TextBlock::where('lesson_id', $lesson->id)->get();
             $steps->videoBlocks = VideoBlock::where('lesson_id', $lesson->id)->get();
+            $steps->taskBlocks = TaskBlock::where('lesson_id', $lesson->id)->get();
 
             return view('lesson.edit', ['lesson' => $lesson, 'module' => $module, 'steps' => $steps]);
         }else return redirect()

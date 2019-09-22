@@ -6,58 +6,62 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
-                <h2>@lang('content.lesson'): {{ $lesson->title }}</h2>
+                <h2>Task block: {{$taskBlock->position + 1}}</h2>
             </div>
         </div>
     </div>
+    {{-- <div class="container" style="background-color:darkgrey">
+        <h3> {{ $lesson->excerpt }}</h3>
+    </div>
+    <br>
+    <div class="container" style="background-color:white">
+        <br>
+        <h5> {{ $lesson->content_html }}</h5>
+        <br>
+    </div> --}}
+
+    {{-- <div class="card">
+        <div class="card-body">
+
+            <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
+                action="{{ route('lesson.destroy', [$module, $lesson->id]) }}" method="post">
+                <input type="hidden" name="_method" value="Delete">
+                {{ csrf_field() }}
+                <a href="{{ route('lesson.edit',[$module, $lesson->id]) }}" class="site-btn col-md-4">@lang('content.edles')</a>
+                <button type="submit" class="site-btn-danger col-md-4">@lang('content.delles')</button>
+            </form>
+
+        </div>
+    </div> --}}
     <div class="row justify-content-center">
-        <div class="col-md-7 col-sm-9" style="color:white">
-            {{-- <div class="container" style="background-color:darkgrey">
-                <h3> {{ $lesson->excerpt }}</h3>
-            </div>
-            <br>
-            <div class="container" style="background-color:white">
-                <br>
-                <h5> {{ $lesson->content_html }}</h5>
-                <br>
-            </div> --}}
-
-            <div class="card">
-                <div class="card-body">
-                    <div class="card-header" style="color:darkslategray">
-                        <strong>{{ $lesson->excerpt }}</strong>
-                    </div>
-                    <p class="card-text">{{ $lesson->content_html }}</p>
-                    <div class="container">
-                        <div class="row justify-content-left" style="background-color:lightgrey">
-                            <div class="col-md-4" style="color:green">
-                                <strong>{{ $lesson->likes }}</strong> @lang('content.uslikes')
-                            </div>
-                            <div class="col-md-4" style="color:crimson">
-                                <strong>{{ $lesson->dislikes }}</strong> @lang('content.usdislikes')
-                            </div>
-
-                            <div class="col-md-4" style="color:dodgerblue">
-                                @if($lesson->is_published)
-                                    <strong>@lang('content.pubd')</strong>
-                                @else
-                                    @lang('content.npubd')
-                                @endif
-                            </div>
+        <div class="card col-md-8" style="padding:0">
+            <div class="card-body col-md-12">
+                <div class="list-group col-md-6">
+                    @foreach($simpleQuestions as $simpleQuestion)
+                        <div class="d-flex">
+                            <a style="font-size: 14px;border-width: 1px"
+                                href="{{ route('simpleQuestion.show', ['taskBlock' => $taskBlock->id, 'simpleQuestion' => $simpleQuestion]) }}"
+                                class="list-group-item list-group-item-action col-md-6">Simple Queston
+                            </a>
                         </div>
-                    </div>
-                    <br>
-                    <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
-                        action="{{ route('lesson.destroy', [$module, $lesson->id]) }}" method="post">
-                        <input type="hidden" name="_method" value="Delete">
-                        {{ csrf_field() }}
-                        <a href="{{ route('lesson.edit',[$module, $lesson->id]) }}" class="site-btn col-md-4">@lang('content.edles')</a>
-                        <button type="submit" class="site-btn-danger col-md-4">@lang('content.delles')</button>
-                    </form>
+                    @endforeach
 
+                    @foreach($testQuestions as $testQuestion)
+                        <div class="d-flex">
+                            <a style="font-size: 14px;border-width: 1px"
+                                href="{{ route('testQuestion.show', ['taskBlock' => $taskBlock->id, 'testQuestion' => $testQuestion]) }}"
+                                class="list-group-item list-group-item-action col-md-6">Test Queston
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+                <div class="col-md-6" >
+                    <h3 style="color: rgb(100,150,200)">
+                        Students will get a random question from this list each time they try to pass a task.
+                    </h3>
                 </div>
             </div>
-
+        </div>
     </div>
 </section>
 @endsection

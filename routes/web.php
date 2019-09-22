@@ -40,7 +40,6 @@ Route::prefix('user')->group(function () {
 Route::prefix('admin')->group(function () {
     Route::get('/login', 'Auth\Admin\LoginController@showLoginForm')->name('admin.showLoginForm');
     Route::post('/login', 'Auth\Admin\LoginController@login')->name('admin.loginRequest');
-
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
     Route::get('/profile/{id}', 'AdminController@show')->name('admin_profile');
     Route::get('/profile/edit', 'AdminController@edit')->name('admin_profile_settings');
@@ -50,6 +49,24 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/logout', 'Auth\Admin\LoginController@logout')->name('admin.logout');
 });
+
+
+//Route::post('/register', 'Auth\RegisterController@createUser')->name('user.registerRequest');
+
+//Route::get('logout', 'Auth\LoginController@logout');
+
+
+
+Route::resource('/classroom', 'ClassroomController');
+
+Route::resource('/classroom/{classroom}/user/{user}/invite', 'ClassroomInviteController', [
+    'names' => [
+        'store' => 'classroomInvite.store',
+        'create' => 'classroomInvite.create',
+        'show' => 'classroomInvite.show',
+        'destroy' => 'classroomInvite.destroy',
+    ]
+]);
 
 // Teachers
 Route::prefix('teacher')->group(function () {
@@ -64,29 +81,22 @@ Route::prefix('teacher')->group(function () {
     Route::get('/myaccount', 'TeacherController@edit')->name('teacher_settings');
     Route::put('/myaccount/save', 'TeacherController@update')->name('teacher_settings_save');
 
-
+    Route::get('/logout', 'Auth\Teacher\LoginController@logout')->name('teacher.logout');
 
     Route::resource('/course', 'CourseController');
 
-    Route::resource('/course/{course}/module', 'ModuleController');
-    Route::resource('/module/{module}/lesson', 'LessonController');
-    Route::resource('/lesson/{lesson}/textBlock', 'TextBlockController');
-    Route::resource('/lesson/{lesson}/videoBlock', 'VideoBlockController');
-    Route::resource('/lesson/{lesson}/taskBlock', 'TaskBlockController');
-
-    Route::resource('/classroom', 'ClassroomController')->except('classroom.update');
-
-    Route::resource('/classroom/{classroom}/user/{user}/invite', 'ClassroomInviteController', [
-        'names' => [
-            'store' => 'classroomInvite.store',
-            'create' => 'classroomInvite.create',
-            'show' => 'classroomInvite.show',
-            'destroy' => 'classroomInvite.destroy',
-        ]
-    ]);
-
-    Route::get('/logout', 'Auth\Teacher\LoginController@logout')->name('teacher.logout');
 });
+
+Route::resource('/course/{course}/module', 'ModuleController');
+Route::resource('/module/{module}/lesson', 'LessonController');
+Route::resource('/lesson/{lesson}/textBlock', 'TextBlockController');
+Route::resource('/lesson/{lesson}/videoBlock', 'VideoBlockController');
+Route::resource('/lesson/{lesson}/taskBlock', 'TaskBlockController');
+Route::resource('/taskBlock/{taskBlock}/simpleQuestion', 'SimpleQuestionController');
+Route::resource('/taskBlock/{taskBlock}/testQuestion', 'TestQuestionController');
+Route::resource('/testQuestion/{testQuestion}/testAnswer', 'TestAnswerController');
+
+
 
 // Redefinition of some routes (Elkin)
 Route::get('/course/{course}', 'CourseController@show')->name('course.show');
