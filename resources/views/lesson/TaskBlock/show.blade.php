@@ -55,6 +55,11 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="col-md-6" >
+                    <h3 style="color: rgb(100,150,200)">
+                        Students will get a random question from this list each time they try to pass a task.
+                    </h3>
+                </div>
             </div>
         </div>
     </div>

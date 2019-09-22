@@ -27,7 +27,40 @@
                     <strong>Question text:  {{ $testQuestion->text }}</strong>
                 </div>
                 <br>
-                <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
+
+                <h4>Answers list</h4>
+
+                <br>
+
+                <div class="list-group col-md-3">
+                    @foreach($correctTestAnswers as $testAnswer)
+                        <a style="font-size: 14px;border-width: 1px; color:green"
+                            href="{{ route('testQuestion.show', [$testQuestion->id, $testAnswer->id]) }}"
+                            class="list-group-item list-group-item-action col-md-12">{{$testAnswer->text}}
+                        </a>
+                    @endforeach
+                </div>
+
+                <div class="list-group col-md-3">
+                    @foreach($wrongTestAnswers as $testAnswer)
+                        <a style="font-size: 14px;border-width: 1px; color:crimson"
+                            href="{{ route('testQuestion.show', [$testQuestion->id, $testAnswer->id]) }}"
+                            class="list-group-item list-group-item-action col-md-12">{{$testAnswer->text}}
+                        </a>
+                    @endforeach
+                </div>
+
+
+                <div class="row col-md-4">
+                    <label for="correct_count" ><h4 style="color:green">Student will get {{$testQuestion->correct_count}} correct answer variants in answers list</h4></label>
+                </div>
+                <div class="row col-md-3">
+                    <label for="correct_count" ><h4 style="color:crimson">And {{$testQuestion->wrong_count}} wrong answer variants</h4></label>
+                </div>
+
+                <br>
+
+                <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}" class="col-md-4"
                     action="{{ route('testQuestion.destroy', [$taskBlock->id, $testQuestion->id]) }}" method="post">
                     <input type="hidden" name="_method" value="Delete">
                     {{ csrf_field() }}
@@ -38,5 +71,6 @@
             </div>
         </div>
     </div>
+    <br>
 </section>
 @endsection

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TestQuestion;
 use App\Models\TaskBlock;
+use App\Models\TestAnswer;
 use Illuminate\Support\Facades\Aut;
 
 class TestQuestionController extends Controller
@@ -46,7 +47,7 @@ class TestQuestionController extends Controller
         $testQuestion = TestQuestion::create($request->input());
         $testQuestion->task_block_id = $taskBlock->id;
         $testQuestion->save();
-        return redirect()->route('testQuestion.edit', [$taskBlock->id, $testQuestion->id]);
+        return redirect()->route('testAnswer.create', [$testQuestion->id]);
     }
 
     /**
@@ -58,9 +59,13 @@ class TestQuestionController extends Controller
     public function show(TaskBlock $taskBlock, TestQuestion $testQuestion)
     {
         //
+        $correctTestAnswers = TestAnswer::where('test_question_id', $testQuestion->id)->where('is_correct', true)->get();
+        $wrongTestAnswers = TestAnswer::where('test_question_id', $testQuestion->id)->where('is_correct', false)->get();
         return view('lesson.TaskBlock.TestQuestion.show',[
             'taskBlock' => $taskBlock,
             'testQuestion' => $testQuestion,
+            'correctTestAnswers' => $correctTestAnswers,
+            'wrongTestAnswers' => $wrongTestAnswers,
         ]);
     }
 
@@ -73,9 +78,13 @@ class TestQuestionController extends Controller
     public function edit(TaskBlock $taskBlock, TestQuestion $testQuestion)
     {
         //
+        $correctTestAnswers = TestAnswer::where('test_question_id', $testQuestion->id)->where('is_correct', true)->get();
+        $wrongTestAnswers = TestAnswer::where('test_question_id', $testQuestion->id)->where('is_correct', false)->get();
         return view('lesson.TaskBlock.TestQuestion.edit', [
             'taskBlock' =>$taskBlock,
             'testQuestion' => $testQuestion,
+            'correctTestAnswers' => $correctTestAnswers,
+            'wrongTestAnswers' => $wrongTestAnswers,
         ]);
     }
 

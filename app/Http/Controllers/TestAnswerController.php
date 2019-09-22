@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\TestAnswer;
 use App\Models\TaskBlock;
+use App\Models\TestQuestion;
 use Illuminate\Support\Facades\Aut;
 
 class TestAnswerController extends Controller
@@ -28,9 +29,10 @@ class TestAnswerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(TestQuestion $testQuestion)
     {
         //
+        return view('lesson.TaskBlock.TestQuestion.TestAnswer.create', ['testQuestion' => $testQuestion]);
     }
 
     /**
@@ -39,9 +41,13 @@ class TestAnswerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, TestQuestion $testQuestion)
     {
         //
+        $testAnswer = TestAnswer::create($request->input());
+        $testAnswer->test_question_id = $testQuestion->id;
+        $testAnswer->save();
+        return redirect()->route('testQuestion.edit', [$testQuestion->task_block_id, $testQuestion->id]);
     }
 
     /**
@@ -50,9 +56,10 @@ class TestAnswerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show( TestQuestion $testQuestion, TestAnswer $testAnswer)
     {
         //
+        return view('lesson.TaskBlock.TestQuestion.TestAnswer.show', ['testQuestion' => $testQuestion, 'testAnswer' => $testAnswer]);
     }
 
     /**
@@ -61,9 +68,10 @@ class TestAnswerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(TestQuestion $testQuestion, TestAnswer $testAnswer)
     {
         //
+        return view('lesson.TaskBlock.TestQuestion.TestAnswer.edit', ['testQuestion' => $testQuestion, 'testAnswer' => $testAnswer]);
     }
 
     /**
@@ -73,9 +81,12 @@ class TestAnswerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, TestQuestion $testQuestion, TestAnswer $testAnswer)
     {
         //
+        $testAnswer->update($request->input());
+        $testAnswer->save();
+        return redirect()->route('testQuestion.edit', [$testQuestion->task_block_id, $testQuestion->id]);
     }
 
     /**
@@ -84,8 +95,10 @@ class TestAnswerController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(TestQuestion $testQuestion, TestAnswer $testAnswer)
     {
         //
+        $testAnswer->delete();
+        return redirect()->route('testQuestion.edit', [$testQuestion->task_block_id, $testQuestion->id]);
     }
 }
