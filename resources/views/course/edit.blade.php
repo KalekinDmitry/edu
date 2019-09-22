@@ -5,7 +5,7 @@
     <!-- Page top section -->
     <section class="page-top-section set-bg fixed " style="min-height: 200vh" data-setbg="{{config('static.static')}}/img/page-top-bg.jpg">
         <div class="container text-white">
-            <h3>Edit course</h3>
+            <h3>@lang('content.edcour')</h3>
         </div>
         <!--  Page top end -->
 
@@ -17,9 +17,7 @@
                             <div class="col-md-5">
                                 <div class="col-md-12">
                                     <!-- Header section end -->
-                                    <a class="site-btn-info-sm col-md-12" href="{{ route('module.create', $course->id) }}">Add
-                                        new
-                                        module</a>
+                                    <a class="site-btn-info-sm col-md-12" href="{{ route('module.create', $course->id) }}">@lang('content.addnm')</a>
                                 </div>
                                 <br><br><br>
                                 @foreach($modules as $module)
@@ -34,7 +32,7 @@
                                                     . {{$module->name}}</h5>
                                                 <a class="site-btn-hollow col-md-3"
                                                    href="{{route('module.edit', [$course->id, $module->id])}}"><i
-                                                            class="fa fa-edit"></i>edit</a>
+                                                            class="fa fa-edit"></i>@lang('content.edit')</a>
                                                 <button type="submit" class="site-btn-danger-sm col-md-1">X</button>
                                             </div>
                                         </form>

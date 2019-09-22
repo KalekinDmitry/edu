@@ -206,14 +206,27 @@ return [
     'mtitle' => 'Message title',
     'mtext' => 'Message text',
     'look' => 'Look',
-
-
-
-
-
-
-
-
-
+    'addnm' => 'Add new module',
+    'dash' => 'Dashboard',
+    'home' => 'Home',
+    'courloaded' => 'Courses Loaded',
+    'totl' => 'Total Lessons',
+    'usrs' => 'Users',
+    'purchcd' => 'Purchases Completed',
+    'tbls' => 'Tables',
+    'prfl' => 'Profile',
+    'tchrs' => 'Teachers',
+    'adms' => 'Admins',
+    'biog' => 'Bio Graph',
+    'fnm' => 'First Name',
+    'lnm' => 'Last Name',
+    'brthday' => 'Birthday',
+    'country' => 'Country',
+    'occupation' => 'Occupation',
+    'mobile' => 'Mobile',
+    'phn' => 'Phone',
+    'profinfo' => 'Profile Info',
+    'aboutme' => 'About Me',
+    'weburl' => 'Website URL',
 
 ];
