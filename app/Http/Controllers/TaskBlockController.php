@@ -7,9 +7,15 @@ use App\Models\Lesson;
 use App\Models\TaskBlock;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\SimpleQuestion;
+use App\Models\TestQuestion;
 
 class TaskBlockController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:teacher');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -28,6 +34,7 @@ class TaskBlockController extends Controller
     public function create(Lesson $lesson)
     {
         $teacher = Auth::user();
+        //dd($lesson, $teacher);
         if($teacher->can('create', [TaskBlock::class, $lesson])){
             return view('lesson.TaskBlock.create', ['lesson' => $lesson]);
         }else {
@@ -57,7 +64,7 @@ class TaskBlockController extends Controller
             $taskBlock->lesson_id = $lesson->id;
             $taskBlock->position = TaskBlock::where('lesson_id', $lesson->id)->max('position') + 1;//make it be after the last added lesson
             $taskBlock->save();
-            return redirect()->route('lesson.edit',[$lesson->module_id, $lesson->id]);
+            return redirect()->route('taskBlock.edit',[$lesson->id, $taskBlock->id]);
         }else{
             return redirect()
             ->route('lesson.edit', $lesson->module_id, $lesson->id)
@@ -73,7 +80,13 @@ class TaskBlockController extends Controller
      */
     public function show(Lesson $lesson, TaskBlock $taskBlock)
     {
-        return view('taskBlock.show', ['taskBlock' => $taskBlock, 'lesson' => $lesson]);
+        $simpleQuestions = SimpleQuestion::where('task_block_id', $taskBlock->id)->get();
+        $testQuestions = TestQuestion::where('task_block_id', $taskBlock->id)->get();
+        return view('lesson.TaskBlock.show', ['taskBlock' => $taskBlock,
+                'lesson' => $lesson,
+                'simpleQuestions' => $simpleQuestions,
+                'testQuestions' => $testQuestions,
+        ]);
     }
 
     /**
@@ -86,8 +99,18 @@ class TaskBlockController extends Controller
     {
         $teacher = Auth::user();
         //dd($lesson, $course, $teacher);
+
         if($teacher->can('edit', [$taskBlock])){
-            return view('taskBlock.edit', ['taskBlock' => $taskBlock, 'lesson' => $lesson]);
+
+            $simpleQuestions = SimpleQuestion::where('task_block_id', $taskBlock->id)->get();
+            $testQuestions = TestQuestion::where('task_block_id', $taskBlock->id)->get();
+
+            return view('lesson.TaskBlock.edit', [
+                'taskBlock' => $taskBlock,
+                'lesson' => $lesson,
+                'simpleQuestions' => $simpleQuestions,
+                'testQuestions' => $testQuestions,
+                ]);
         }else return redirect()
         ->route('lesson.edit', [$lesson->module_id, $lesson->id])
         ->with(['message' => 'permission denied']);

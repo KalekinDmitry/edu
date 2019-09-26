@@ -334,6 +334,7 @@ ol {
 	text-align: center;
     border-width: 1px;
     border-style: solid;
+    border-color: rgb(115, 183, 255);
     border-radius: 2px;
 	padding: 8px 8px;
 	font-weight: 600;
@@ -407,6 +408,7 @@ ol {
 }
 
 .site-btn-hollow:hover {
+    border-color: rgb(0, 102, 255);
 	color: rgb(0, 102, 255);
 }
 

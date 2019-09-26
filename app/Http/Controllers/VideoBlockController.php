@@ -13,7 +13,7 @@ class VideoBlockController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:teacher')->except('show');
+        $this->middleware('auth:teacher');
     }
   /**
      * Display a listing of the resource.
