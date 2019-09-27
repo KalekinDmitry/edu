@@ -67,4 +67,60 @@
 -1 hour
 -lessons list in course view
 
+============================
+5-Sep
+-3.5 hours
+-thinking about DB architecture(lesson constructor), try to create some things (font/back)
+
+8-Sep
+-5 hours
+- Think more about DB arch. resulting in roll back some things on backend
+
+9-Sep
+-3.5 hours
+- migrations (lesson constructor)
+
+10-Sep
+-2.5 hours
+- Seeders for lesson constructor
+
+11-Sep
+- 5 hours
+- Course modules (connect with front)
+
+
+12-Sep
+-9.5 hours
+-Improve course, module and lesson editing, lesson parts (steps) functions, some front
+
+13-Sep
+-1 hour
+- Merging
+
+14-Sep
+-2 hours
+-Merging
+
+16-Sep
+-2.5-hours
+- help teammate with git (is it needs to be included?), try to find where font was broken
+
+18-Sep
+-3.5 hours
+-course edit fix, classroom fix
+
+19-Sep
+- 1.5 hour
+- task functionality, task block create
+
+21-Sep
+- 3.5 hours
+-tasks,  questions (test, simple)
+
+22-Sep
+- 6 hours
+- test answers, merging
+
+
+
 
