@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="hero-text text-white">
-                    <h3>Edit step: {{ $textBlock->position + 1}}</h3>
+                    <h3>@lang('content.edstep'): {{ $textBlock->position + 1}}</h3>
                 </div>
             </div>
         </div>

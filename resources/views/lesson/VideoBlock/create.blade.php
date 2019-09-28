@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="hero-text text-white">
-                    <h3>Add video block</h3>
+                    <h3>@lang('content.addvb')</h3>
                 </div>
             </div>
         </div>
