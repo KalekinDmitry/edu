@@ -1,113 +1,83 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>@lang('content.reg')</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--===============================================================================================-->
-    <link rel="icon" type="image/png" href="{{config('static.static')}}/img/favicon.ico"/>
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animate/animate.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/css-hamburgers/hamburgers.min.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/animsition/css/animsition.min.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/select2/select2.min.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/daterangepicker/daterangepicker.css') }}">
-    <!--===============================================================================================-->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/util.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/main.css') }}">
-    <!--===============================================================================================-->
-</head>
-<body>
-<div class="limiter">
-    <div class="container-login100">
-        <div class="wrap-login100">
-            <div class="login100-form-title" style="background-image: url({{config('static.static')}}/img/bg-01.jpg);">
-					<span class="login100-form-title-1">
-                        @lang('content.tchreg')
-                    </span>
+@extends('layouts.app')
+
+@section('content')
+    <!-- Login section -->
+    <section class="hero-section set-bg" style="height: 800px;" data-setbg="{{config('static.static')}}/img/bg.jpg">
+        <div class="container" style="padding-top: 300px;">
+            <div class="row justify-content-center">
+                <div class="col-xs-6 col-sm-8 col-md-8 col-lg-7 col-xl-6 card" style="border-color: darkblue;">
+                    <div class="text-white card-header"
+                         style="border-color: darkblue; background: #185dd0; background: -webkit-gradient(linear, left top, right top, from(#185dd0), to(#7076fc)); background: linear-gradient(to right, #185dd0 0%, #7076fc 100%);">
+                        <h2 style="text-align: center;">@lang('content.tchreg')</h2>
+                    </div>
+                    <form method="POST" action="{{ route('teacher.registerRequest') }}" style="padding-top: 25px;"
+                          class="contact-form card-body">
+                        @csrf
+                        <div class="row text-center">
+                            <div class="col-md-6 offset-md-3">
+                                <input style="text-align: center;" class="@error('name') is-invalid @enderror"
+                                       id="name"
+                                       type="text"
+                                       name="name"
+                                       placeholder="@lang('content.enm')"
+                                       value="{{ old('name') }}"
+                                       required
+                                       minlength=2
+                                       maxlength=20>
+                                @error('name')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 offset-md-3">
+                                <input style="text-align: center;" class="@error('email') is-invalid @enderror"
+                                       id="email"
+                                       type="email"
+                                       name="email" placeholder="@lang('content.entemail')" value="{{ old('email') }}"
+                                       required
+                                       minlength=5>
+                                @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 offset-md-3">
+                                <input style="text-align: center;" class="@error('password') is-invalid @enderror"
+                                       id="password"
+                                       type="password"
+                                       name="password"
+                                       placeholder="@lang('content.entpsw')"
+                                       required
+                                       autocomplete="new-password"
+                                       minlength=6>
+                                @error('password')
+                                <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
+                                @enderror
+                            </div>
+                            <div class="col-md-6 offset-md-3">
+                                <input style="text-align: center;" class="form-control"
+                                       id="password-confirm"
+                                       type="password"
+                                       name="password_confirmation"
+                                       placeholder="Confirm the password"
+                                       required autocomplete="new-password"
+                                       minlength=6>
+                                <hr style="border-color: darkblue;">
+                            </div>
+                            <div class="col-md-6 offset-md-3 justify-content-centeru">
+                                <button type="submit" style="margin-bottom: 10px;" class="site-btn">
+                                    @lang('content.reg')
+                                </button>
+                                <a class="site-btn-danger" href="{{ route('home') }}">@lang('content.bckhome')</a>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
             </div>
-            <form method="POST" action="{{ route('teacher.registerRequest') }}" class="login100-form validate-form">
-                @csrf
-                <div class="wrap-input100 validate-input m-b-26" data-validate="Name is required">
-                    <span class="label-input100">@lang('content.nm')</span>
-                    <input id="name" class="form-control @error('name') is-invalid @enderror input100" type="text"
-                           name="name" placeholder="@lang('content.enm')" value="{{ old('name') }}" autofocus>
-                    @error('name')
-                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                    @enderror
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                    <span class="label-input100">@lang('content.emaddr')</span>
-                    <input value="{{ old('email') }}" id="email" type="email"
-                           class="form-control @error('email') is-invalid @enderror input100" required
-                           autocomplete="email" name="email" placeholder="@lang('content.entemail')">
-                    @error('email')
-                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                    @enderror
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="wrap-input100 validate-input m-b-18">
-
-                    <span class="label-input100">@lang('content.psw')</span>
-                    <input data-validate="Password is required" id="password" type="password"
-                           class="form-control @error('password') is-invalid @enderror input100"
-                           placeholder="@lang('content.entpsw')" name="password"
-                           required autocomplete="new-password">
-                    @error('password')
-                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                    @enderror
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="wrap-input100 validate-input m-b-18" data-validate="Password is required">
-                    <span class="label-input100">@lang('content.cnfrmpsw')</span>
-                    <input id="password-confirm" type="password" class="form-control input100"
-                           placeholder="@lang('content.entpsw')" name="password_confirmation" required
-                           autocomplete="new-password">
-                    <span class="focus-input100"></span>
-                </div>
-                <div class="container-login100-form-btn">
-                    <button type="submit" class="login100-form-btn">
-                        @lang('content.reg')
-                    </button>
-                    <a class="login100-form-btn" href="{{ route('home') }}">@lang('content.bckhome')</a>
-                </div>
-            </form>
         </div>
-    </div>
-</div>
-<!--===============================================================================================-->
-<script src="{{ asset('vendor/jquery/jquery-3.2.1.min.js') }}"></script>
-<!--===============================================================================================-->
-<script src="">{{ asset('vendor/animsition/js/animsition.min.js') }}</script>
-<!--===============================================================================================-->
-<script src="{{ asset('vendor/bootstrap/js/popper.js') }}"></script>
-<script src="{{ asset('vendor/bootstrap/js/bootstrap.min.js') }}"></script>
-<!--===============================================================================================-->
-<script src="{{ asset('vendor/select2/select2.min.js') }}"></script>
-<!--===============================================================================================-->
-<script src="{{ asset('vendor/daterangepicker/moment.min.js') }}"></script>
-<script src="{{ asset('vendor/daterangepicker/daterangepicker.js') }}"></script>
-<!--===============================================================================================-->
-<script src="{{ asset('vendor/countdowntime/countdowntime.js') }}"></script>
-<!--===============================================================================================-->
-<script src="{{ asset('js/main.js') }}"></script>
-
-</body>
-</html>
+    </section>
+    <!-- Login section end -->
+@endsection
