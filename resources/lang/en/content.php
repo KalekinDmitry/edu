@@ -271,7 +271,7 @@ return [
     'codetask' => 'Code task',
     'mathtask' => 'Math task',
     'qcdescription' => 'Add some questions to this task. Students will get a random one each time they try to pass this task.
-    It`s not recomended to place different types of questions in one task block to awoid dificulty differences.
+    It`s not recomended to place different types of questions in one task block to avoid difficulty differences.
     But if you realy need to, you can just ignore it',
     'tb' => 'Task block',
     'tbdescription' => 'Students will get a random question from this list each time they try to pass a task',
