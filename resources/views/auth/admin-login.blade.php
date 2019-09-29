@@ -18,46 +18,46 @@
                                 <input style="text-align: center;" class="@error('email') is-invalid @enderror text"
                                        id="email"
                                        type="email"
-                                       name="email" placeholder="@lang('content.entemail')" value="{{ old('email') }}"
+                                       name="email"
+                                       placeholder="@lang('content.entemail')"
+                                       value="{{ old('email') }}"
                                        required
                                        autocomplete="email">
                                 @error('email')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
-                                <span class="focus-input100"></span>
                             </div>
-
                             <div class="col-md-6 offset-md-3">
-                                <input style="text-align: center;" id="password" type="password"
-                                       class="@error('password') is-invalid @enderror input100"
+                                <input style="text-align: center;" class="@error('password') is-invalid @enderror"
+                                       id="password"
+                                       type="password"
                                        name="password"
-                                       placeholder="@lang('content.entpsw')" required autocomplete="current-password">
+                                       placeholder="@lang('content.entpsw')"
+                                       required
+                                       autocomplete="current-password">
                                 @error('password')
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
-                                <span class="focus-input100"></span>
                             </div>
-
                             <hr>
-
                             <div class="col-md-6 offset-md-3">
                                 <label class="form-check-label" for="remember">
                                     @lang('content.remme')
                                 </label>
-                                <input class="input form-check-input"
-                                       style="height: 15px; width: 15px; margin-left: 30px;" type="checkbox"
+                                <input style="height: 15px; width: 15px; margin-left: 30px;"
+                                       class="input form-check-input"
+                                       id="remember"
+                                       type="checkbox"
                                        name="remember"
-                                       id="remember" {{ old('remember') ? 'checked' : '' }}>
+                                       value="{{ old('remember') ? 'checked' : '' }}">
                                 <hr style="border-color: darkblue;">
                             </div>
-
                             <div class="col-md-6 offset-md-3 justify-content-centeru">
                                 <button type="submit" style="margin-bottom: 10px;" class="site-btn">
                                     @lang('content.ent')
                                 </button>
                                 <a class="site-btn-danger" href="{{ route('home') }}">@lang('content.bckhome')</a>
                             </div>
-
                         </div>
                     </form>
                 </div>

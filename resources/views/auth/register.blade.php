@@ -14,13 +14,13 @@
                           class="contact-form card-body">
                         @csrf
                         <div class="row text-center">
-
                             <div class="col-md-6 offset-md-3">
                                 <input style="text-align: center;" class="@error('name') is-invalid @enderror"
                                        id="name"
                                        type="text"
                                        name="name"
-                                       placeholder="@lang('content.enm')" value="{{ old('name') }}"
+                                       placeholder="@lang('content.enm')"
+                                       value="{{ old('name') }}"
                                        required
                                        minlength=2
                                        maxlength=20>
@@ -30,7 +30,6 @@
                                     </span>
                                 @enderror
                             </div>
-
                             <div class="col-md-6 offset-md-3">
                                 <input style="text-align: center;" class="@error('email') is-invalid @enderror"
                                        id="email"
@@ -44,7 +43,6 @@
                                     </span>
                                 @enderror
                             </div>
-
                             <div class="col-md-6 offset-md-3">
                                 <input style="text-align: center;" class="@error('password') is-invalid @enderror"
                                        id="password"
@@ -58,7 +56,6 @@
                                 <span class="invalid-feedback" role="alert"><strong>{{ $message }}</strong></span>
                                 @enderror
                             </div>
-
                             <div class="col-md-6 offset-md-3">
                                 <input style="text-align: center;" class="form-control"
                                        id="password-confirm"
@@ -69,7 +66,6 @@
                                        minlength=6>
                                 <hr style="border-color: darkblue;">
                             </div>
-
                             <div class="col-md-6 offset-md-3 justify-content-centeru">
                                 <button type="submit" style="margin-bottom: 10px;" class="site-btn">
                                     @lang('content.reg')
