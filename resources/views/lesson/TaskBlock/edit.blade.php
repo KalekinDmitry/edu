@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
-                <h3>Edit task block {{ $taskBlock->position}}</h3>
+                <h3>@lang('content.edtb') {{ $taskBlock->position}}</h3>
             </div>
         </div>
     </div>
@@ -19,22 +19,22 @@
                     <a style="border-width: 1px;font-size: 16px; padding-left:4px;"
                         href="{{ route('simpleQuestion.create', $taskBlock->id) }}"
                         class="list-group-item list-group-item-action col-md-12 flaticon-question ">
-                        ✚ simple question
+                        ✚ @lang('content.simpq')
                     </a>
                     <a style="border-width: 1px;font-size: 16px; padding-left:4px;"
                         href="{{ route('testQuestion.create', $taskBlock->id) }}"
                         class="list-group-item list-group-item-action col-md-12 flaticon-test-1">
-                        ✚ test question
+                        ✚ @lang('content.tq')
                     </a>
                     <a style="border-width: 1px;font-size: 16px; padding-left:4px;"
                         href="#"
                         class="list-group-item list-group-item-action col-md-12 flaticon-code">
-                        ✚ code task (to do)
+                        ✚ @lang('content.codetask') (to do)
                     </a>
                     <a style="border-width: 1px;font-size: 16px; padding-left:4px;"
                         href="#"
                         class="list-group-item list-group-item-action col-md-12 flaticon-calculator">
-                        ✚ math task (to do)
+                        ✚ @lang('content.mathtask') (to do)
                     </a>
                     <a style="border-width: 1px;font-size: 16px; padding-left:4px;"
                         href="#"
@@ -94,9 +94,7 @@
                     @endforeach
                 </div>
                 <div class="col-md-4" >
-                <h4 style="color: rgb(100,150,200)">Add some questions to this task. Students will get a random one each time they try to pass this task.
-                    It's not recomended to place different types of questions in one task block to awoid dificulty differences.
-                    But if you realy need to, you can just ignore it</h4>
+                <h4 style="color: rgb(100,150,200)">@lang('content.qcdescription')</h4>
                 </div>
 
 

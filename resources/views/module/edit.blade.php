@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
-                <h3>Edit module: {{ $module->name }}</h3>
+                <h3>@lang('content.emod'): {{ $module->name }}</h3>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="list-group col-md-4">
                                 <div class="row justify-content-center">
-                                     <h5>Lessons</h5>
+                                     <h5>@lang('content.lessons')</h5>
                                 </div>
                                 <br>
                             @foreach($lessons as $lesson)

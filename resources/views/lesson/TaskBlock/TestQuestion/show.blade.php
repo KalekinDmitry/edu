@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
-                <h2>Test question</h2>
+                <h2>@lang('content.tq')</h2>
             </div>
         </div>
     </div>
@@ -24,11 +24,11 @@
         <div class="card col-md-10">
             <div class="card-body">
                 <div class="card-header" style="color:darkslategray">
-                    <strong>Question text:  {{ $testQuestion->text }}</strong>
+                    <strong>@lang('content.qtext'):  {{ $testQuestion->text }}</strong>
                 </div>
                 <br>
 
-                <h4>Answers list</h4>
+                <h4>@lang('content.anslist')</h4>
 
                 <br>
 
@@ -52,10 +52,10 @@
 
 
                 <div class="row col-md-4">
-                    <label for="correct_count" ><h4 style="color:green">Student will get {{$testQuestion->correct_count}} correct answer variants in answers list</h4></label>
+                    <label for="correct_count" ><h4 style="color:green">@lang('content.stwillget') {{$testQuestion->correct_count}} @lang('content.coransvars')</h4></label>
                 </div>
                 <div class="row col-md-3">
-                    <label for="correct_count" ><h4 style="color:crimson">And {{$testQuestion->wrong_count}} wrong answer variants</h4></label>
+                    <label for="correct_count" ><h4 style="color:crimson">@lang('content.and') {{$testQuestion->wrong_count}} @lang('content.wansvars')</h4></label>
                 </div>
 
                 <br>
@@ -64,8 +64,8 @@
                     action="{{ route('testQuestion.destroy', [$taskBlock->id, $testQuestion->id]) }}" method="post">
                     <input type="hidden" name="_method" value="Delete">
                     {{ csrf_field() }}
-                    <a href="{{ route('testQuestion.edit',[$taskBlock->id, $testQuestion->id]) }}" class="site-btn col-md-4">Edit</a>
-                    <button type="submit" class="site-btn-danger col-md-4">Delete</button>
+                    <a href="{{ route('testQuestion.edit',[$taskBlock->id, $testQuestion->id]) }}" class="site-btn col-md-4">@lang('content.edit')</a>
+                    <button type="submit" class="site-btn-danger col-md-4">@lang('content.del')</button>
                 </form>
 
             </div>

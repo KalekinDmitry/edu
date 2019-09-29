@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
-                <h3>Create test answer</h3>
+                <h3>@lang('content.crtestans')</h3>
             </div>
         </div>
     </div>
@@ -20,16 +20,16 @@
                     <input type="hidden" name="test_question_id" value="{{ $testQuestion->id }}">
                     <div class="row justify-content-center">
                         <div class="col-md-7">
-                            <input  type="text" maxlength="256" name="text" placeholder="Place answer text here"  required>
+                            <input  type="text" maxlength="256" name="text" placeholder="@lang('content.pat')"  required>
                             <div class="row col-md-6">
                                 <input type="hidden" name="is_correct" value="0">
                                 <input class="col-md-4 size-32" type="checkbox" name="is_correct" value="1">
-                                <label for="is_correct" ><h4>Is correct?</h4></label>
+                                <label for="is_correct" ><h4>@lang('content.iscor')?</h4></label>
                             </div>
 
                         </div>
                         <div class="col-md-7" >
-                            <button class = "site-btn col-md-4" type="submit" value="create">Add<i class="fa fa-angle-right"></i></button>
+                            <button class = "site-btn col-md-4" type="submit" value="create">@lang('content.add')<i class="fa fa-angle-right"></i></button>
                         </div>
                     </div>
                 </form>

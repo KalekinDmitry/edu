@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
-                <h2>Simple question</h2>
+                <h2>@lang('content.simpq')</h2>
             </div>
         </div>
     </div>
@@ -24,9 +24,9 @@
         <div class="card col-md-10">
             <div class="card-body">
                 <div class="card-header" style="color:darkslategray">
-                    <strong>Question text:  {{ $simpleQuestion->text }}</strong>
+                    <strong>@lang('content.qtext'):  {{ $simpleQuestion->text }}</strong>
                 </div>
-                <strong> Question keywords:</strong>
+                <strong> @lang('content.qkw'):</strong>
                 <p class="card-text">{{ $simpleQuestion->keywords }}</p>
                 <br>
                 <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
@@ -34,7 +34,7 @@
                     <input type="hidden" name="_method" value="Delete">
                     {{ csrf_field() }}
                     <a href="{{ route('simpleQuestion.edit',[$taskBlock->id, $simpleQuestion->id]) }}" class="site-btn col-md-4">Edit</a>
-                    <button type="submit" class="site-btn-danger col-md-4">Delete</button>
+                    <button type="submit" class="site-btn-danger col-md-4">@lang('content.del')</button>
                 </form>
 
             </div>

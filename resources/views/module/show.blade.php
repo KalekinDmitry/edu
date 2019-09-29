@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
-                <h2>Module: {{ $module->name }}</h2>
+                <h2>@lang('content.module'): {{ $module->name }}</h2>
             </div>
         </div>
     </div>

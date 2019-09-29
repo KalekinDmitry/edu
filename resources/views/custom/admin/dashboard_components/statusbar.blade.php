@@ -4,7 +4,7 @@
             <div class="info-box blue-bg">
                 <i class="fa fa-cloud-upload"></i>
                 <div class="count">0</div>
-                <div class="title">Courses Loaded</div>
+                <div class="title">@lang('content.courloaded')</div>
             </div>
             <!--/.info-box-->
         </div>
@@ -14,7 +14,7 @@
             <div class="info-box green-bg">
                 <i class="fa fa-list"></i>
                 <div class="count">0</div>
-                <div class="title">Total Lessons</div>
+                <div class="title">@lang('content.totl')</div>
             </div>
             <!--/.info-box-->
         </div>
@@ -25,7 +25,7 @@
             <div class="info-box dark-bg">
                 <i class="fa fa-users"></i>
                 <div class="count">0</div>
-                <div class="title">Users</div>
+                <div class="title">@lang('content.usrs')</div>
             </div>
             <!--/.info-box-->
         </div>
@@ -35,7 +35,7 @@
             <div class="info-box brown-bg">
                 <i class="fa fa-shopping-cart"></i>
                 <div class="count">0</div>
-                <div class="title">Purchases Completed</div>
+                <div class="title">@lang('content.purchcd')</div>
             </div>
             <!--/.info-box-->
         </div>

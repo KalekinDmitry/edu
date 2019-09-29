@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="hero-text text-white">
-                    <h3>Create module</h3>
+                    <h3>@lang('content.cmod')</h3>
                 </div>
             </div>
         </div>

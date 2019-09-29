@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
-                <h3>Edit test question of task block {{$taskBlock->position + 1}}</h3>
+                <h3>@lang('content.edtestq') {{$taskBlock->position + 1}}</h3>
             </div>
         </div>
     </div>
@@ -17,7 +17,7 @@
             <div class="card-body">
                 <div class="row justify-content-center">
                     <div class="col-md-8">
-                        <h3>Answer variants list</h3>
+                        <h3>@lang('content.ansvarlist')</h3>
                         <br>
                         <div class="list-group col-md-5" >
                             @foreach($correctTestAnswers as $testAnswer)
@@ -73,11 +73,11 @@
                         <div class="row justify-content-center col-md-12">
                             <div class="row col-md-4">
                                 <input class="col-md-4" type="number" name="correct_count" value="{{$testQuestion->correct_count}}" required>
-                                <label for="correct_count" ><h3 style="color:green">how many correct variants student will get in answers list?</h3></label>
+                                <label for="correct_count" ><h3 style="color:green">@lang('content.hmvars')?</h3></label>
                             </div>
                             <div class="row col-md-4">
                                 <input class="col-md-4" type="number" name="wrong_count" value="{{$testQuestion->wrong_count}}" required>
-                                <label for="wrong_count" ><h3 style="color:crimson">how many wrong variants student will get in answers list?</h3></label>
+                                <label for="wrong_count" ><h3 style="color:crimson">@lang('content.hmwvars')?</h3></label>
                             </div>
 
                             <input  type="text" class="col-md-8" maxlength="1024" name="text" value="{{$testQuestion->text}}"  required>
@@ -86,7 +86,7 @@
                             <input type="hidden" name="task_block_id" value="{{ $taskBlock->id }}">
                             <input type="hidden" name="image_link" value="#">
                             <div class="row justify-content-begin col-md-8" >
-                                <button class = "site-btn col-md-4" type="submit" value="update">Update<i class="fa fa-angle-right"></i></button>
+                                <button class = "site-btn col-md-4" type="submit" value="update">@lang('content.update')<i class="fa fa-angle-right"></i></button>
                                 <a class = "site-btn-danger col-md-4" href="{{route('testQuestion.destroy', [$taskBlock->id, $testQuestion->id])}}" value="create">Delete</a>
                             </div>
                         </div>
