@@ -19,6 +19,7 @@ class LoginController extends Controller
         return view('auth.teacher-login');
     }
 
+    //TODO: tests for "if"
     public function login(TeacherLoginRequest $request)
     {
         $this->validate($request, [

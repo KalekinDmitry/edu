@@ -19,44 +19,50 @@ class AdminControllerTest extends TestCase
 
     public function testShowTeachersList()
     {
+        $response = $this->get('admin/tables/teachers');
 
+        //$response->assertStatus(200);
+        $response->assertRedirect();
     }
 
     public function testEdit()
     {
+        $response = $this->get('admin/profile/edit');
 
+        //$response->assertStatus(200);
+        $response->assertRedirect();
     }
 
-    /**
-     *
-     */
     public function testIndex()
     {
         //$response = $this->get(route('admin.dashboard', [], 'false'));
         $response = $this->get('/');
 
         $response->assertStatus(200);
-
-
     }
 
     public function testShowUsersList()
     {
+        $response = $this->get('admin/tables/users');
 
+        //$response->assertStatus(200);
+        $response->assertRedirect();
     }
 
     public function testShow()
     {
+        $response = $this->get('admin/profile/1');
 
-    }
-
-    public function test__construct()
-    {
-
+        //$response->assertStatus(200);
+        $response->assertRedirect();
     }
 
     public function testShowAdminsList()
     {
+        $response = $this->get('admin/tables/admins');
 
+        //$response->assertStatus(200);
+        $response->assertRedirect();
     }
 }
+//TODO: Сделать авторизацию под админа в тестах!

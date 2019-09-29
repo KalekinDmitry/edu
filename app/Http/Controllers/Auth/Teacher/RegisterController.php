@@ -53,17 +53,19 @@ class RegisterController extends Controller
     /**
      * Handle a registration request for the application.
      *
-     * @param  \Illuminate\Http\Requests\TeacherRegisterRequest $request
+     * @param TeacherRegisterRequest $request
      * @return \Illuminate\Http\Response
      */
-    public function register(TeacherRegisterRequest $request)
+    public function register(TeacherRegisterRequest $request)// получаем объект класса TeacherRegisterRequest. Там правила и сообщения
     {
-        event(new Registered($teacher = $this->create($request->all())));
+        event(new Registered($teacher = $this->create($request->all()))); //Dispatch an event and call the listeners (отправляем событие и вызываем слушателя)
+        // ()
 
         Auth::guard('teacher')->login($teacher, false);
 
 //        return $this->registered($request, $teacher)
 //            ?: redirect(route('teacher.dashboard'));
+        //dd(__METHOD__, $teacher, $request);
         return redirect('/teacher');
     }
 
