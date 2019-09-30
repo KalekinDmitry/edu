@@ -39,7 +39,7 @@
 
     <div class="row justify-content-center">
         <div class="row col-md-11">
-            <a style="color:#fff">@lang('content.chlang'):</a>
+            <a style="color:#fff; padding-top: 5px;">@lang('content.chlang'):&nbsp;</a>
             <a href="{{ route('setLocale', ['ru']) }}"><img style="margin-bottom: 5px; border-radius: 20%"
                                                             src="{{config('static.static')}}/img/icons/ru.png" alt=""></a>
             <a href="{{ route('setLocale', ['en']) }}"><img style="margin-bottom: 5px; border-radius: 20%"
