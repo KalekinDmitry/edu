@@ -1,4 +1,5 @@
-The time for studying the framework, testing methods and direct work on the project is given. The time spent trying to understand “what is happening here” is inappropriate and simply not fair.
+The time for studying the framework, testing methods and direct work on the project is given. 
+The time spent trying to understand “what is happening here” is inappropriate and simply not fair.
 
 27.08.19 - 1h -|
 
