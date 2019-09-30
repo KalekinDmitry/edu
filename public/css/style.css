@@ -759,7 +759,7 @@ ol {
 
 .hero-text {
 	padding-top: 330px;
-	padding-right: 50px;
+	/*padding-right: 50px;*/
 }
 
 .hero-text h2 {
@@ -1726,7 +1726,7 @@ ol {
 }
 
 .contact-form {
-	padding-top: 70px;
+	/*padding-top: 70px;*/
 }
 
 .contact-form input,
@@ -2082,7 +2082,7 @@ ol {
 }
 .modal-dialog{
 	left: 0 !important;
-	top:50%;
+	top:10%;
 }
 .d-fcc{
 	display: flex;
@@ -2104,4 +2104,7 @@ section.lesson-section{
 }
 
 
-
+.d-flex-row{
+	display: flex;
+	flex-wrap: wrap;
+}
