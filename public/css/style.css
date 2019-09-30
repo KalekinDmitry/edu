@@ -142,6 +142,7 @@ ol {
 .site-btn:after,
 .accordion-area .panel-header .panel-link.active,
 .tab-element .nav-tabs .nav-link.active,
+.navbar,
 .header-warp,
 .service-item .si-icon,
 .review-slider .rs-item .quota,
@@ -158,6 +159,7 @@ ol {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#185dd0', endColorstr='#7076fc', GradientType=1);
 	/* IE6-9 */
 }
+
 
 .main-gradient-2,
 .site-btn,
@@ -2100,3 +2102,6 @@ body{
 section.lesson-section{
 	min-height: 80vh;
 }
+
+
+
