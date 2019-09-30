@@ -1,14 +1,45 @@
-15.07.19 
-4h Deployment of the environment, setting Putty to work with a remote server.
+The time for studying the framework, testing methods and direct work on the project is given. The time spent trying to understand “what is happening here” is inappropriate and simply not fair.
 
-17.07.19
-1h Adding databases to environments.
+27.08.19 - 1h -|
 
-29.07.19
-4h Created .env settings files. Defined data to fill. The analysis of errors that appeared during the filling of files.
+28.08.19 - 2h  |
 
-30.07.19
-2h The necessary folders and files for generating keys have been created. Keys generated. Configured .env files.
+29.08.19 - 1h  |
 
-31.07.19
-1.0h Analysis of access errors to databases, analysis of the possibility of adding environment variables to the Apache configuration file 
+30.08.19 - 1h  | 27-07: Studying the principles of the framework: requests, providers, observers, etc.
+
+02.09.19 - 1h  |
+
+03.09.19 - 4h  |
+
+04.09.19 - 1h  |
+
+05.09.19 - 3h -|
+
+06.09.19 - 1.30h
+
+07.09.19 - 2.30h
+
+15.09.09 - 3h - 15-18: Learning general testing principles and varieties
+
+16.09.19 - 1h
+
+17.09.19 - 2h 
+
+18.09.19 - 1h
+
+20.09.19 - 5h - 20-23: A detailed analysis of changes in the project, analysis of dependencies, existing classes and their methods
+
+21.09.19 - 0.30h
+
+23.09.19 - 6h
+
+24.09.19 - 3.30h - 24-27: Writing the first applied tests for a project, studying test methods for specific cases encountered in a project
+
+25.09.19 - 4h
+
+27.09.19 - 3h
+
+29.08.19 - 3h - The first successful simple tests
+
+30.09.19 - 3h - Finding information on how to test middleware, some more simple tests, the first real commit
