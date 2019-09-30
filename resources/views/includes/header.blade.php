@@ -47,7 +47,7 @@
             <a href="{{ route('setLocale', ['fr']) }}"><img style="margin-bottom: 5px; border-radius: 20%"
                                                             src="{{config('static.static')}}/img/icons/fr.png" alt=""></a>
         </div>
-        <nav class="navbar navbar-expand navbar-dark col-md-11" style="border: 0px; border-bottom: 3px solid #fee110; border-radius: 0">
+        <nav class="navbar navbar-expand navbar-dark col-md-11" style="min-height: 128px; border: 0px; border-bottom: 3px solid #fee110; border-radius: 0">
             <div class="row jusctify-content-center col-md-12">
                 <a class="navbar-brand col-md-3" href="{{ route('home') }}">
                     <img src="{{config('static.static')}}/img/logo2.png" alt="">
