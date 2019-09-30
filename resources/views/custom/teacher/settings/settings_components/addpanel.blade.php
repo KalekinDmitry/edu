@@ -7,13 +7,13 @@
                         <li class="active">
                             <a data-toggle="tab" href="#profile">
                                 <i class="icon-user"></i>
-                                Profile
+                                @lang('content.prfl')
                             </a>
                         </li>
                         <li class="">
                             <a data-toggle="tab" href="#edit-profile">
                                 <i class="icon-envelope"></i>
-                                Edit Profile
+                                @lang('content.editprof')
                             </a>
                         </li>
                     </ul>
@@ -23,29 +23,28 @@
                         <div id="profile" class="tab-pane active">
                             <section class="panel">
                                 <div class="panel-body bio-graph-info">
-                                    <h1>Personal data</h1>
+                                    <h1>@lang('content.persdat')</h1>
                                     <div class="row">
                                         <div class="bio-row">
-                                            <p><span>Name:</span><strong>{{ $teacher->name }}</strong></p>
+                                            <p><span>@lang('content.nm'):</span><strong>{{ $teacher->name }}</strong></p>
                                         </div>
                                         <div class="bio-row">
-                                            <p><span>Email:</span><strong>{{ $teacher->email }}</strong></p>
+                                            <p><span>@lang('content.eml'):</span><strong>{{ $teacher->email }}</strong></p>
                                         </div>
                                         <div class="bio-row">
                                             @if($teacher->created_at)
-                                                <p><span>Registered:</span><strong>{{ $teacher->created_at }}</strong></p>
+                                                <p><span>@lang('content.regd'):</span><strong>{{ $teacher->created_at }}</strong></p>
                                             @else
-                                                <p><span>Registered:</span><strong>Information not specified</strong>
+                                                <p><span>@lang('content.regd'):</span><strong>@lang('content.infonotspec')</strong>
                                                 </p>
                                             @endif
                                         </div>
                                         <div class="bio-row">
                                             @if($teacher->updated_at)
-                                                <p><span>Last changes:</span><strong>{{ $teacher->updated_at }}</strong>
+                                                <p><span>@lang('content.lastchanges'):</span><strong>{{ $teacher->updated_at }}</strong>
                                                 </p>
                                             @else
-                                                <p><span>Last changes:</span><strong>Information has not
-                                                        changed</strong>
+                                                <p><span>@lang('content.lastchanges'):</span><strong>@lang('content.infohnotch')</strong>
                                                 </p>
                                             @endif
                                         </div>
@@ -113,7 +112,7 @@
                         <div id="edit-profile" class="tab-pane">
                             <section class="panel">
                                 <div class="panel-body bio-graph-info">
-                                    <h1>Edit data</h1>
+                                    <h1>@lang('content.editdata')</h1>
                                     <form class="form-horizontal card-body"
                                           action="{{route('teacher_settings_save', $teacher)}}"
                                           method="post"
@@ -140,14 +139,14 @@
                                         {{--</div>--}}
                                         {{--<hr class="border-dark">--}}
                                         <div class="form-group">
-                                            <label class="col-lg-2 control-label" style="color:#000;">Name</label>
+                                            <label class="col-lg-2 control-label" style="color:#000;">@lang('content.nm')</label>
                                             <div class="col-lg-6">
                                                 <input id="name" name="name" type="text" class="form-control"
                                                        value="{{$teacher->name ?? ""}}" minlength="2" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-lg-2 control-label" style="color:#000;">Email</label>
+                                            <label class="col-lg-2 control-label" style="color:#000;">@lang('content.eml')</label>
                                             <div class="col-lg-6">
                                                 <input id="email" name="email" type="email" class="form-control"
                                                        value="{{$teacher->email ?? ""}}" required>

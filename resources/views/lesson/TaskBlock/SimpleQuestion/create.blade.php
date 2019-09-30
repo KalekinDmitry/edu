@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="hero-text text-white">
-                    <h3>Create question</h3>
+                    <h3>@lang('content.crq')</h3>
                 </div>
             </div>
         </div>
@@ -19,11 +19,11 @@
         <input type="hidden" name="image_link" value="#">
         <div class="row justify-content-center">
             <div class="col-md-7">
-                <input type="text" maxlength="1024" name="text" placeholder="Place question text here"  required>
-                <input type="text" maxlength="1024" name="keywords" placeholder="Place keywords here separated with commas"  required>
+                <input type="text" maxlength="1024" name="text" placeholder="@lang('content.pqt')"  required>
+                <input type="text" maxlength="1024" name="keywords" placeholder="@lang('content.pkw')"  required>
             </div>
             <div class="col-md-7" >
-                <button class = "site-btn col-md-4" type="submit" value="create">Add<i class="fa fa-angle-right"></i></button>
+                <button class = "site-btn col-md-4" type="submit" value="create">@lang('content.add')<i class="fa fa-angle-right"></i></button>
             </div>
         </div>
     </form>

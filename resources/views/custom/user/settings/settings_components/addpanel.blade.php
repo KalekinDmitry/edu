@@ -7,13 +7,13 @@
                         <li class="active">
                             <a data-toggle="tab" href="#profile">
                                 <i class="icon-user"></i>
-                                Profile
+                                @lang('content.prfl')
                             </a>
                         </li>
                         <li class="">
                             <a data-toggle="tab" href="#edit-profile">
                                 <i class="icon-envelope"></i>
-                                Edit Profile
+                                @lang('content.editprof')
                             </a>
                         </li>
                     </ul>
@@ -23,45 +23,44 @@
                         <div id="profile" class="tab-pane active">
                             <section class="panel">
                                 <div class="panel-body bio-graph-info">
-                                    <h1>Personal data</h1>
+                                    <h1>@lang('content.persdat')</h1>
                                     <div class="row">
                                         <div class="bio-row">
-                                            <p><span>Name:</span><strong>{{ $user->name }}</strong></p>
+                                            <p><span>@lang('content.nm'):</span><strong>{{ $user->name }}</strong></p>
                                         </div>
                                         <div class="bio-row">
-                                            <p><span>Email:</span><strong>{{ $user->email }}</strong></p>
+                                            <p><span>@lang('content.eml'):</span><strong>{{ $user->email }}</strong></p>
                                         </div>
                                         <div class="bio-row">
                                             @if($user->created_at)
-                                                <p><span>Registered:</span><strong>{{ $user->created_at }}</strong></p>
+                                                <p><span>@lang('content.regd'):</span><strong>{{ $user->created_at }}</strong></p>
                                             @else
-                                                <p><span>Registered:</span><strong>Information not specified</strong>
+                                                <p><span>@lang('content.regd'):</span><strong>@lang('content.infonotspec')</strong>
                                                 </p>
                                             @endif
                                         </div>
                                         <div class="bio-row">
                                             @if($user->updated_at)
-                                                <p><span>Last changes:</span><strong>{{ $user->updated_at }}</strong>
+                                                <p><span>@lang('content.lastchanges'):</span><strong>{{ $user->updated_at }}</strong>
                                                 </p>
                                             @else
-                                                <p><span>Last changes:</span><strong>Information has not
-                                                        changed</strong>
+                                                <p><span>@lang('content.lastchanges'):</span><strong>@lang('content.infohnotch')</strong>
                                                 </p>
                                             @endif
                                         </div>
                                         <div class="bio-row">
                                             @if($user->dob)
-                                                <p><span>Date of Birth:</span><strong>{{ $user->dob }}</strong></p>
+                                                <p><span>@lang('content.dobth'):</span><strong>{{ $user->dob }}</strong></p>
                                             @else
-                                                <p><span>Date of Birth:</span><strong>Information not specified</strong>
+                                                <p><span>@lang('content.dobth'):</span><strong>@lang('content.infonotspec')</strong>
                                                 </p>
                                             @endif
                                         </div>
                                         <div class="bio-row">
                                             @if($user->phone)
-                                                <p><span>Mobile: </span><strong>{{ $user->phone }}</strong></p>
+                                                <p><span>@lang('content.mobile'): </span><strong>{{ $user->phone }}</strong></p>
                                             @else
-                                                <p><span>Mobile: </span><strong>Information not specified</strong></p>
+                                                <p><span>@lang('content.mobile'): </span><strong>@lang('content.infonotspec')</strong></p>
                                             @endif
                                         </div>
                                         <div class="bio-row">
@@ -72,32 +71,32 @@
                                                         @endforeach
                                                     </strong></p>
                                             @else
-                                                <p><span>Skills: </span><strong>Information not specified</strong></p>
+                                                <p><span>@lang('content.skills'): </span><strong>@lang('content.infonotspec')</strong></p>
                                             @endif
                                         </div>
                                         <div class="bio-row">
                                             @if($user->sex)
                                                 @if($user->sex == 1)
-                                                    <p><span>Gender: </span><strong>Male</strong></p>
+                                                    <p><span>@lang('content.gender'): </span><strong>@lang('content.male')</strong></p>
                                                 @else
-                                                    <p><span>Gender: </span><strong>Female</strong></p>
+                                                    <p><span>@lang('content.gender'): </span><strong>@lang('content.fem')</strong></p>
                                                 @endif
                                             @else
-                                                <p><span>Gender: </span><strong>Information not specified</strong></p>
+                                                <p><span>@lang('content.gender'): </span><strong>@lang('content.infonotspec')</strong></p>
                                             @endif
                                         </div>
                                         <div class="bio-row">
                                             @if($user->hobbies)
-                                                <p><span>Hobbies: </span><strong>{{ $user->hobbies }}</strong></p>
+                                                <p><span>@lang('content.hobbies'): </span><strong>{{ $user->hobbies }}</strong></p>
                                             @else
-                                                <p><span>Hobbies: </span><strong>Information not specified</strong></p>
+                                                <p><span>@lang('content.hobbies'): </span><strong>@lang('content.infonotspec')</strong></p>
                                             @endif
                                         </div>
                                         <div class="bio-row">
                                             @if($user->signature)
-                                                <p><span>Signature: </span><strong>{{ $user->signature }}</strong></p>
+                                                <p><span>@lang('content.signature'): </span><strong>{{ $user->signature }}</strong></p>
                                             @else
-                                                <p><span>Signature: </span><strong>Information not specified</strong>
+                                                <p><span>@lang('content.signature'): </span><strong>@lang('content.infonotspec')</strong>
                                                 </p>
                                             @endif
                                         </div>
@@ -113,7 +112,7 @@
                         <div id="edit-profile" class="tab-pane">
                             <section class="panel">
                                 <div class="panel-body bio-graph-info">
-                                    <h1>Edit data</h1>
+                                    <h1>@lang('content.editdata')</h1>
                                     <form class="form-horizontal card-body"
                                           action="{{route('user_settings_save', $user)}}"
                                           method="post"
@@ -122,7 +121,7 @@
                                         {{ csrf_field() }}
 
                                         <div class="form-group">
-                                            <label class="col-lg-2 control-label" style="color:#000;">Avatar</label>
+                                            <label class="col-lg-2 control-label" style="color:#000;">@lang('content.avatar')</label>
                                             <div class="col-lg-6">
                                                 @if($user->avatar)
                                                     <img src="{{ asset($user->avatar )}}" alt="">
@@ -140,14 +139,14 @@
                                         </div>
                                         <hr class="border-dark">
                                         <div class="form-group">
-                                            <label class="col-lg-2 control-label" style="color:#000;">Name</label>
+                                            <label class="col-lg-2 control-label" style="color:#000;">@lang('content.nm')</label>
                                             <div class="col-lg-6">
                                                 <input id="name" name="name" type="text" class="form-control"
                                                        value="{{$user->name ?? ""}}" minlength="2" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-lg-2 control-label" style="color:#000;">Email</label>
+                                            <label class="col-lg-2 control-label" style="color:#000;">@lang('content.eml')</label>
                                             <div class="col-lg-6">
                                                 <input id="email" name="email" type="email" class="form-control"
                                                        value="{{$user->email ?? ""}}" required>
@@ -165,14 +164,14 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="phone" class="col-lg-2 control-label" style="color:#000;">Mobile</label>
+                                            <label for="phone" class="col-lg-2 control-label" style="color:#000;">@lang('content.mobile')</label>
                                             <div class="col-lg-6">
                                                 <input id="phone" name="phone" type="number" class="form-control"
                                                        value="{{$user->phone ?? ""}}">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="dob" class="col-lg-2 control-label" style="color:#000;">Birthday (dd/mm/yy)</label>
+                                            <label for="dob" class="col-lg-2 control-label" style="color:#000;">@lang('content.bdaydmy')</label>
                                             <div class="col-lg-6">
                                                 <input id="dob" name="dob" type="date" class="form-control"
                                                        value="{{$user->dob ?? ""}}">
@@ -209,8 +208,8 @@
 
                                         <div class="form-group">
                                             <div class="col-lg-offset-2 col-lg-10">
-                                                <button type="submit" class="btn btn-primary">Save</button>
-                                                {{--<button type="button" class="btn btn-danger">Cancel</button>--}}
+                                                <button type="submit" class="btn btn-primary">@lang('content.save')</button>
+                                                {{--<button type="button" class="btn btn-danger">@lang('content.cancel')</button>--}}
                                             </div>
                                         </div>
                                     </form>

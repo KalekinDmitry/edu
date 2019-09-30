@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
-                <h2>Task block: {{$taskBlock->position + 1}}</h2>
+                <h2>@lang('content.tb'): {{$taskBlock->position + 1}}</h2>
             </div>
         </div>
     </div>
@@ -41,7 +41,7 @@
                         <div class="d-flex">
                             <a style="font-size: 14px;border-width: 1px"
                                 href="{{ route('simpleQuestion.show', ['taskBlock' => $taskBlock->id, 'simpleQuestion' => $simpleQuestion]) }}"
-                                class="list-group-item list-group-item-action col-md-6">Simple Queston
+                                class="list-group-item list-group-item-action col-md-6">@lang('content.simpq')
                             </a>
                         </div>
                     @endforeach
@@ -50,14 +50,14 @@
                         <div class="d-flex">
                             <a style="font-size: 14px;border-width: 1px"
                                 href="{{ route('testQuestion.show', ['taskBlock' => $taskBlock->id, 'testQuestion' => $testQuestion]) }}"
-                                class="list-group-item list-group-item-action col-md-6">Test Queston
+                                class="list-group-item list-group-item-action col-md-6">@lang('content.tq')
                             </a>
                         </div>
                     @endforeach
                 </div>
                 <div class="col-md-6" >
                     <h3 style="color: rgb(100,150,200)">
-                        Students will get a random question from this list each time they try to pass a task.
+                    @lang('content.tbdescription').
                     </h3>
                 </div>
             </div>

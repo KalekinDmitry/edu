@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
-                <h3>Edit simpleQuestion of task block {{$taskBlock->position + 1}}</h3>
+                <h3>@lang('content.edsimpq') {{$taskBlock->position + 1}}</h3>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
                 <input type="text" maxlength="1024" name="keywords" value="{{$simpleQuestion->keywords}}"  required>
             </div>
             <div class="col-md-7" >
-                <button class = "site-btn col-md-4" type="submit" value="create">Update<i class="fa fa-angle-right"></i></button>
+                <button class = "site-btn col-md-4" type="submit" value="create">@lang('content.update')<i class="fa fa-angle-right"></i></button>
             </div>
         </div>
     </form>

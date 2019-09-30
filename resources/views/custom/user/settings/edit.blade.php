@@ -31,8 +31,8 @@
     <link href="{{ asset('css/admin/xcharts.min.css') }}" rel=" stylesheet">
     <link href="{{ asset('css/admin/jquery-ui-1.10.4.min.css') }}" rel="stylesheet">
 
-    {{--<!-- bootstrap theme -->--}}
-    {{--<link href="{{ asset('css/admin/bootstrap-theme.css') }}" rel="stylesheet">--}}
+    <!-- bootstrap theme -->
+    <link href="{{ asset('css/admin/bootstrap-theme.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')

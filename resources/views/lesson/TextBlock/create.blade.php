@@ -7,7 +7,7 @@
     <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="hero-text text-white">
-                    <h3>Add text block</h3>
+                    <h3>@lang('content.addtb')</h3>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
 
                 <div class="col-md-7">
                     <textarea class="form-control" id="content" name="content"
-                        required>"Place content here"</textarea>
+                        required>"@lang('content.pct')"</textarea>
                     <input type="hidden" name="lesson_id" value="{{ $lesson->id }}">
                     <input type="hidden" name="position" value = "0">
                 </div>
