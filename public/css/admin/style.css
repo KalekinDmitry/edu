@@ -10,7 +10,12 @@
 
 @import url(line-icons.css);
 
+h666{
 
+    color: white;
+
+    font-size:16px !important;
+}
 
 body {
 
@@ -1248,8 +1253,7 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.176) !important;
 
-    };
-
+    }
 }
 
 /* bootstrape editor*/
@@ -2142,9 +2146,6 @@ div[data-role="editor-toolbar"] {
 
   min-height: 34px;
 
-  border-left: 1px solid #ccc;
-
-  border-right: 1px solid #ccc;
 
   -webkit-border-radius: 0px;
 
@@ -2390,7 +2391,6 @@ div[data-role="editor-toolbar"] {
 
 }
 
-}
 
 .panel.panel-default.panel-heading {
 
@@ -3004,7 +3004,7 @@ div[data-role="editor-toolbar"] {
 
 }
 
-* /Widget-Content */
+
 
 
 
@@ -3360,7 +3360,7 @@ div[data-role="editor-toolbar"] {
 
 /*-----	map-----*/
 
-* Google maps */
+
 
 
 
@@ -4152,7 +4152,7 @@ div[data-role="editor-toolbar"] {
 
         margin-bottom: -4px;
 
-    };
+    }
 
     }
 
@@ -5132,10 +5132,12 @@ ul.ft-link li a i {
 
     -webkit-border-radius: 50%;
 
-    border: 5px solid rgba(0,0,0,0.1);
-
     display: inline-block;
 
+}
+
+.follow-ava img{
+    border: 5px solid rgba(0,0,0,0.1);
 }
 
 .timeline-ava {
@@ -6738,7 +6740,7 @@ ul.inbox-pagination li {
 
 .profile-widget-info{
 
-    background: #324c57 !important;
+    background: #185dd0 !important;
 
 }
 
@@ -6750,7 +6752,7 @@ ul.inbox-pagination li {
 
 .profile-widget-primary{
 
-    background: #688a7e !important;
+    background: #7076fc !important;
 
 }
 
@@ -7706,13 +7708,15 @@ ul.amounts li {
 
     margin: -10px -15px -11px;
 
+    padding: 0 15px;
+
 }
 
 
 
 .tab-bg-primary {
 
-    background: #688a7e;
+    background: #7076fc;
 
     border-bottom: none;
 
@@ -7722,7 +7726,7 @@ ul.amounts li {
 
 .tab-bg-info {
 
-    background: #324c57;
+    background: #185dd0;
 
 
 

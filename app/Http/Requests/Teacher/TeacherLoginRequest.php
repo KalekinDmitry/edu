@@ -4,6 +4,10 @@ namespace App\Http\Requests\Teacher;
 
 use Illuminate\Foundation\Http\FormRequest;
 
+/**
+ * @property mixed password
+ * @property mixed remember
+ */
 class TeacherLoginRequest extends FormRequest
 {
     /**

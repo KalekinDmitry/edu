@@ -15,34 +15,19 @@ class UserController extends Controller
         $this->middleware('auth');
     }
 
-    public function show(Request $request)
+    public function index()
     {
-        if ($user = User::where('id', $request->id)->first()) {
-            //"Password protection"
-            $user->password = NULL;
-        } else {
-            //Redirect to yourself
-            $user = User::where('id', Auth::user()->id)->first();
-        }
-        return view('user.profile.show', [
-            'user' => $user,
-        ]);
-    }
-
-    public function showInvites(){
         $user = User::where('id', Auth::user()->id)->first();
 
         $invites = ClassroomInvite::where('user_id', $user->id)->get();
 
-        //dd($invites);
-
-        return view('user.invites',['invites' => $invites]);
+        return view('custom.user.dashboard',['invites' => $invites]);
     }
 
     public function edit()
     {
         $user = User::where('id', Auth::user()->id)->first();
-        return view('user.settings.edit', [
+        return view('custom.user.settings.edit', [
             'user' => $user,
         ]);
     }
@@ -66,6 +51,6 @@ class UserController extends Controller
             $user->avatar = $url;
         }
         $user->save();
-        return redirect()->route('my_settings', $user);
+        return redirect()->route('user_settings', $user);
     }
 }

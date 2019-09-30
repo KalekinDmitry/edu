@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Models\Module;
 use App\Models\Lesson;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -57,7 +58,7 @@ class CourseController extends Controller
             $course->image = $url;
         }
         $course->save();
-        return redirect()->route('course.show', $course);
+        return redirect()->route('teacher.dashboard');
     }
 
 
@@ -69,10 +70,15 @@ class CourseController extends Controller
      */
     public function show(Course $course)
     {
-        $lessons = Lesson::where('course_id', $course->id)->get();
+        $modules = Module::where('course_id', $course->id)->get();
+        foreach($modules as $module)
+        {
+            $module->lessons = Lesson::where('module_id', $module->id)->get();
+        }
+        //dd($lessons);
         return view('course.show', [
             'course' => $course,
-            'lessons' => $lessons
+            'modules' => $modules
         ]);
     }
 
@@ -85,9 +91,16 @@ class CourseController extends Controller
     public function edit(Course $course)
     {
         $teacher = Auth::user();
+
         if ($teacher->can('edit', $course)) {
+            $modules = Module::where('course_id', $course->id)->get();
+            foreach($modules as $module)
+            {
+                $module->lessons = Lesson::where('module_id', $module->id)->get();
+            }
             return view('course.edit', [
                 'course' => $course,
+                'modules' => $modules,
                 'delimiter' => ''
             ]);
         } else return redirect()->route('course.show', $course);
@@ -112,8 +125,8 @@ class CourseController extends Controller
                 $course->image = $url;
             }
             $course->save();
-            return redirect()->route('course.show', $course);
-        } else return redirect()->route('course.show', $course);
+            return redirect()->route('teacher.dashboard');
+        } else return redirect()->route('teacher.dashboard');
     }
 
     /**
@@ -128,7 +141,7 @@ class CourseController extends Controller
         $teacher = Auth::user();
         if ($teacher->can('destroy', $course)) {
             $course->delete();
-            return redirect()->route('home');
+            return redirect()->route('teacher.dashboard');
         } else return redirect()->route('course.show', $course);
 
     }

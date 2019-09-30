@@ -7,6 +7,7 @@ use App\Course;
 use App\Models\Teacher;
 use App\Models\Classroom;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TeacherController extends Controller
 {
@@ -17,7 +18,7 @@ class TeacherController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth:teacher');
+        $this->middleware('auth:teacher')->except('show');
     }
 
     /**
@@ -32,27 +33,21 @@ class TeacherController extends Controller
         return view('custom.teacher.dashboard', ['classrooms' => $classrooms, 'courses' => $courses]);
     }
 
-    public function show(Request $request)
+    public function edit()
     {
-        if ($user = Teacher::where('id', $request->id)->first()) {
-            //"Password protection"
-            $user->password = NULL;
-        } else {
-            //Redirect to yourself
-            $user = Teacher::where('id', Auth::user()->id)->first();
-        }
-        return view('user.profile.show', [
-
-            'user' => $user,
+        $teacher = Teacher::where('id', Auth::user()->id)->first();
+        return view('custom.teacher.settings.edit', [
+            'teacher' => $teacher,
         ]);
     }
 
-    public function edit()
+    public function update(Request $request)
     {
-        $user = Teacher::where('id', Auth::user()->id)->first();
-        return view('user.settings.edit', [
-            'user' => $user,
-        ]);
+        $teacher = Teacher::where('id', Auth::user()->id)->first();
+        $teacher->name = $request->name;
+        $teacher->email = $request->email;
+        $teacher->save();
+        return redirect()->route('teacher_settings', $teacher);
     }
 
 }

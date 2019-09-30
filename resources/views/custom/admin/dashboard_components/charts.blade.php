@@ -1,13 +1,13 @@
-<section class="charts-section">
-    <div class="col-md-3">
+<!-- <section class="charts-section">
+    <div class="col-md-3"> -->
         <!-- List starts -->
-        <ul class="today-datas">
+        <!-- <ul class="today-datas"> -->
             <!-- List #1 -->
-            <li>
+            <!-- <li> -->
                 <!-- Graph -->
-                <div><span id="todayspark1" class="spark"></span></div>
+                <!-- <div><span id="todayspark1" class="spark"></span></div> -->
                 <!-- Text -->
-                <div class="datas-text">100,500 visitors/day</div>
+                <!-- <div class="datas-text">100,500 visitors/day</div>
             </li>
             <li>
                 <div><span id="todayspark2" class="spark"></span></div>
@@ -27,4 +27,4 @@
             </li>
         </ul>
     </div>
-</section>
+</section> -->

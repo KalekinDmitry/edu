@@ -9,9 +9,9 @@
                         <div class="follow-ava">
                             <img src="{{config('static.static')}}/img/admin/profile-widget-avatar.jpg" alt="">
                         </div>
-                        <h6>Administrator</h6>
+                        <h6>@lang('content.administrator')</h6>
                     </div>
-                    <div class="col-lg-4 col-sm-4 follow-info">
+                    <!-- <div class="col-lg-4 col-sm-4 follow-info">
                         <p>Status or about user</p>
                         <p>Contact information:</p>
                         <p>@inst</p>
@@ -21,8 +21,8 @@
                             <span><i class="icon_calendar"></i>25.10.13</span>
                             <span><i class="icon_pin_alt"></i>NY</span>
                         </h6>
-                    </div>
-                    <div class="col-lg-2 col-sm-6 follow-info weather-category">
+                    </div> -->
+                    <!-- <div class="col-lg-2 col-sm-6 follow-info weather-category">
                         <ul>
                             <li class="active">
 
@@ -51,7 +51,7 @@
                             </li>
 
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>

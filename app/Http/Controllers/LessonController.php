@@ -3,10 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Course;
+use App\Models\Module;
 use App\Models\Lesson;
+use App\Models\TextBlock;
+use App\Models\VideoBlock;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\TaskBlock;
 use Illuminate\Support\Facades\Auth;
 
 class LessonController extends Controller
@@ -14,7 +18,7 @@ class LessonController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth:teacher')->except('show');
+        $this->middleware('auth:teacher');
     }
     /**
      * Display a listing of the resource.
@@ -32,14 +36,14 @@ class LessonController extends Controller
      * @param Course $course
      * @return \Illuminate\Http\Response
      */
-    public function create(Course $course)
+    public function create(Module $module)
     {
         $teacher = Auth::user();
-        if($teacher->can('create', [Lesson::class, $course])){
-            return view('lesson.create', ['course' => $course]);
+        if($teacher->can('create', [Lesson::class, $module])){
+            return view('lesson.create', ['module' => $module]);
         }else {
             return redirect()
-            ->route('course.show', $course)
+            ->route('course.show', $module->course_id)
             ->with(['message'=>'Permisson denied']);
         }
 
@@ -51,25 +55,27 @@ class LessonController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, Course $course)
+    public function store(Request $request, Module $module)
     {
         $teacher = Auth::user();
 
-        if($teacher->can('store', [Lesson::class, $course])){
+        if($teacher->can('store', [Lesson::class, $module])){
 
-            //dd($request->input());
+            //dd($request);
+            //create new lesson and assign serial_number automaticaly
             $lesson = Lesson::create($request->input());
 
             $lesson->slug = Str::slug($lesson->title);
 
-            $lesson->course_id = $course->id;
+            $lesson->module_id = $module->id;
+            $lesson->position = Lesson::where('module_id', $lesson->module_id)->max('position') + 1;//make it be after the last added lesson
             $lesson->save();
-            return redirect()->route('lesson.show',[$course->id, $lesson->id]);
+            return redirect()->route('course.edit',[$module->course_id]);
         }
         else
         {
             return redirect()
-            ->route('course.show', $course)
+            ->route('course.edit', $module->course_id)
             ->with(['message'=>'Permission denied']);
         }
     }
@@ -77,28 +83,36 @@ class LessonController extends Controller
     /**
      * Display the specified resource.
      *
+     * @param Module $module
      * @param Lesson $lesson
      * @return \Illuminate\Http\Response
      */
-    public function show(Course $course, Lesson $lesson)
+    public function show(Module $module,$lesson)
     {
-        return view('lesson.show', ['lesson' => $lesson, 'course' => $course]);
+        $lesson = Lesson::query()->find($lesson);
+        return view('lesson.show', ['lesson' => $lesson, 'module' => $module]);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param Course $lesson
+     * @param Module $lesson
      * @return \Illuminate\Http\Response
      */
-    public function edit(Course $course, Lesson $lesson)
+    public function edit(Module $module, $lesson)
     {
         $teacher = Auth::user();
+        $lesson = Lesson::query()->find($lesson);
         //dd($lesson, $course, $teacher);
-        if($teacher->can('edit', [$lesson, $course])){
-            return view('lesson.edit', ['lesson' => $lesson, 'course' => $course]);
+        if($teacher->can('edit', [$lesson])){
+            $steps = collect();
+            $steps->textBlocks = TextBlock::where('lesson_id', $lesson->id)->get();
+            $steps->videoBlocks = VideoBlock::where('lesson_id', $lesson->id)->get();
+            $steps->taskBlocks = TaskBlock::where('lesson_id', $lesson->id)->get();
+
+            return view('lesson.edit', ['lesson' => $lesson, 'module' => $module, 'steps' => $steps]);
         }else return redirect()
-        ->route('course.show', $course)
+        ->route('course.edit', $module->id)
         ->with(['message' => 'permission denied']);
     }
 
@@ -109,16 +123,16 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Course $course, Lesson $lesson)
+    public function update(Request $request, Module $module, Lesson $lesson)
     {
         $teacher = Auth::user();
-        if($teacher->can('update', [$lesson, $course])){
+        if($teacher->can('update', [$lesson])){
             $lesson->update($request->except('slug'));
             $lesson->save();
-            return redirect()->route('lesson.show', [$course, $lesson]);
+            return redirect()->route('course.edit', [$module->course_id]);
         }
         else return redirect()
-        ->route('course.show', [$course, $lesson])
+        ->route('course.edit', $module->course_id)
         ->with(['message'=>'permission enied']);
     }
 
@@ -128,14 +142,14 @@ class LessonController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Course $course, Lesson $lesson)
+    public function destroy(Module $module, Lesson $lesson)
     {
         $teacher = Auth::user();
-        if($teacher->can('destroy', [$lesson, $course])){
+        if($teacher->can('destroy', [$lesson])){
             $lesson->delete();
-            return redirect()->route('course.show', $course);
+            return redirect()->route('course.edit', $module->course_id);
         } else return redirect()
-        ->route('course.show', $course)
+        ->route('course.edit', $module->course_id)
         ->with(['message'=>'permission denied']);
 
     }

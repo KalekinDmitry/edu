@@ -16,7 +16,14 @@ class DatabaseSeeder extends Seeder
         $this->call(TeachersTableSeeder::class);
         $this->call(UsersTableSeeder::class);
         $this->call(CoursesTableSeeder::class);
+        $this->call(ModulesTableSeeder::class);
         $this->call(LessonsTableSeeder::class);
+        $this->call(TextBlocksTableSeeder::class);
+        $this->call(VideoBlocksTableSeeder::class);
+        $this->call(TaskBlocksTableSeeder::class);
+        $this->call(TestQuestionsTableSeeder::class);
+        $this->call(TestAnswersTableSeeder::class);
+        $this->call(SimpleQuestionsTableSeeder::class);
         $this->call(ClassroomsTableSeeder::class);
         $this->call(ClassroomUserTableSeeder::class);
         $this->call(ClassroomCourseTableSeeder::class);

@@ -27,7 +27,11 @@ class Handler extends ExceptionHandler
             return redirect()->guest('/teacher/login');
         }
 
-        return redirect()->guest(route('login'));
+         if($request->is('user') || $request->is('user/*')){
+             return redirect()->guest('/user/login');
+         }
+
+        return redirect()->guest(route('home'));
      }
     /**
      * A list of the exception types that are not reported.
@@ -51,8 +55,9 @@ class Handler extends ExceptionHandler
     /**
      * Report or log an exception.
      *
-     * @param  \Exception  $exception
+     * @param  \Exception $exception
      * @return void
+     * @throws Exception
      */
     public function report(Exception $exception)
     {
