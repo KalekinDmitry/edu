@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="classroom-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">
+    <section class="classroom-section set-bg fixed" data-setbg="{{config('static.static')}}/img/bg.jpg">
         <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="hero-text text-white">

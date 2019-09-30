@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Login section -->
-    <section class="hero-section set-bg" style="height: 800px;" data-setbg="{{config('static.static')}}/img/bg.jpg">
+    <section class="hero-section set-bgf fixed" style="height: 800px;" data-setbg="{{config('static.static')}}/img/bg.jpg">
         <div class="container" style="padding-top: 300px;">
             <div class="row justify-content-center">
                 <div class="col-xs-6 col-sm-8 col-md-8 col-lg-7 col-xl-6 card" style="border-color: darkblue;">

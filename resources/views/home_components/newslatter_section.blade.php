@@ -1,4 +1,4 @@
-<section id="newslatter" class="newslatter-section set-bg"
+<section id="newslatter" class="newslatter-section set-bg fixed"
          data-setbg="{{config('static.static')}}/img/newslatter-bg.jpg">
     <div class="container">
         <div class="row">

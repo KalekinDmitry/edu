@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Page top section -->
-    <section class="page-top-section set-bg" data-setbg="{{config('static.static')}}/img/page-top-bg.jpg">
+    <section class="page-top-section set-bg fixed" data-setbg="{{config('static.static')}}/img/page-top-bg.jpg">
         <div class="container text-white">
             <h3>@lang('content.ourcour')</h3>
         </div>

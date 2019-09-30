@@ -2,33 +2,35 @@
 
 @section('content')
     <!-- Create section -->
-    <section class="create-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg"
+    <section class="create-section set-bg fixed" data-setbg="{{config('static.static')}}/img/bg.jpg"
              style="background: no-repeat fixed center;">
         <div class="container">
             <br><br><br><br><br><br><br><br><br><br><br><br>
-            <div class="card text-white bg-dark">
+            <div class="row justify-content-center">
+                <div class="card text-dark bg-light col-md-8 col-sm-12">
 
-                <div class="card-header">
-                    @lang('content.creature')
-                </div>
+                    <div class="card-header">
+                        @lang('content.creature')
+                    </div>
 
-                <form class="form-horizontal card-body" action="{{route('course.store')}}" method="post"
-                      enctype="multipart/form-data">
-                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                    <form class="form-horizontal card-body" action="{{route('course.store')}}" method="post"
+                        enctype="multipart/form-data">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-                    {{-- Form include --}}
-                    @include('course.partials.form')
-                    <div class="card-body">
-                            <div class="form-group">
-                                <label for="">@lang('content.choosecrscover')</label><br>
+                        {{-- Form include --}}
+                        @include('course.partials.form')
+                        <div class="card-body">
+                                <div class="form-group">
+                                    <label for="">@lang('content.choosecrscover')</label><br>
 
-                                <input type="file" name="image">
+                                    <input type="file" name="image">
+                                </div>
                             </div>
-                        </div>
 
-                    <input style="color:#000" class="btn btn-light" type="submit" value="Create">
+                        <input style="color:#000" class="btn btn-light" type="submit" value="Create">
 
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
         <br>
