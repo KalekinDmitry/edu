@@ -20,6 +20,12 @@ class LoginController extends Controller
     }
 
     //TODO: tests for "if"
+
+    /**
+     * @param TeacherLoginRequest $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function login(TeacherLoginRequest $request)
     {
         $this->validate($request, [

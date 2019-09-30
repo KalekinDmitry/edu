@@ -25,10 +25,14 @@ class LoginControllerTest extends TestCase
 
     public function testLogin()
     {
+
         $respons = $this->post('teacher/login');
 
         $respons->assertStatus(419); // 419 Authentication Timeout (not in RFC 2616) («обычно ошибка проверки CSRF»)
+        //$respons->assertSessionHasNoErrors();
     }
+
+
 
     public function testShowLoginForm()
     {
