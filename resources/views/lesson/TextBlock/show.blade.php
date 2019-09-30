@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-7">
             <div class="hero-text text-white">
-                <h2>Step: {{ $textBlock->position }} (text)</h2>
+                <h2>@lang('content.step'): {{ $textBlock->position }} (@lang('content.txt'))</h2>
             </div>
         </div>
     </div>
@@ -34,8 +34,8 @@
                             action="{{ route('textBlock.destroy', [$lesson->id, $textBlock->id]) }}" method="post">
                             <input type="hidden" name="_method" value="Delete">
                             {{ csrf_field() }}
-                            <a href="{{ route('textBlock.edit',[$lesson->id, $textBlock->id]) }}" class="site-btn-hollow col-md-3">Edit</a>
-                            <button type="submit" class="site-btn-danger-sm col-md-3">Delete</button>
+                            <a href="{{ route('textBlock.edit',[$lesson->id, $textBlock->id]) }}" class="site-btn-hollow col-md-3">@lang('content.edit')</a>
+                            <button type="submit" class="site-btn-danger-sm col-md-3">@lang('content.del')</button>
                         </form>
                     </div>
                 </div>

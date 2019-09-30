@@ -21,18 +21,18 @@
                     <div class="d-flex">
                         <div class="list-group col-md-5">
                             <div class="d-flex justify-content-center">
-                                <h3>Steps</h3>
+                                <h3>@lang('content.steps')</h3>
                             </div>
                             <div class="d-flex form-group">
                                 <a class="site-btn-hollow col-md-4"
-                                    href="{{ route('textBlock.create', $lesson->id) }}">✚ text</a>
+                                    href="{{ route('textBlock.create', $lesson->id) }}">✚ @lang('content.txt')</a>
                                 <a class="site-btn-hollow col-md-4"
-                                    href="{{ route('videoBlock.create', $lesson->id) }}">✚ video</a>
+                                    href="{{ route('videoBlock.create', $lesson->id) }}">✚ @lang('content.vid')</a>
                                 <form style="padding: 0" class="col-md-4" action="{{ route('taskBlock.store', $lesson->id) }}" method="POST" enctype="multipart/form-data">
                                     <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                     <input type="hidden" name="position" value = "0">
                                     <input type="hidden" name="lesson_id" value="{{ $lesson->id }}">
-                                    <button class="site-btn-hollow col-md-12" type="submit" value="create">✚ task</button>
+                                    <button class="site-btn-hollow col-md-12" type="submit" value="create">✚ @lang('content.task')</button>
                                 </form>
                             </div>
                             @foreach($steps->textBlocks as $textBlock)
@@ -40,7 +40,7 @@
                                     <a style="border-width: 1px;font-size: 14px;"
                                        href="{{ route('textBlock.show', ['lesson'=>$lesson->id, 'textBlock'=>$textBlock->id]) }}"
                                        class="list-group-item list-group-item-action col-md-6">{{ $textBlock->position + 1 }}
-                                        : txt</a>
+                                        : @lang('content.txt')</a>
                                     <a class="site-btn-hollow col-md-3"
                                        href="{{route('textBlock.edit', [$lesson->id, $textBlock->id])}}"><i
                                                 class="fa fa-edit"></i></a>
@@ -59,7 +59,7 @@
                                     <a style="font-size: 14px;border-width: 1px"
                                        href="{{ route('videoBlock.show', ['lesson'=>$lesson->id, 'videoBlock'=>$videoBlock->id]) }}"
                                        class="list-group-item list-group-item-action col-md-6">{{ $videoBlock->position + 1 }}
-                                        : video</a>
+                                        : @lang('content.vid')</a>
                                     <a class="site-btn-hollow col-md-3"
                                        href="{{route('videoBlock.edit', [$lesson->id, $videoBlock->id])}}"><i
                                                 class="fa fa-edit"></i></a>
@@ -79,7 +79,7 @@
                                     <a style="font-size: 14px;border-width: 1px"
                                        href="{{ route('taskBlock.show', ['lesson'=>$lesson->id, 'taskBlock'=>$taskBlock->id]) }}"
                                        class="list-group-item list-group-item-action col-md-6">{{ $taskBlock->position + 1 }}
-                                        : task</a>
+                                        : @lang('content.task')</a>
                                     <a class="site-btn-hollow col-md-3"
                                        href="{{route('taskBlock.edit', [$lesson->id, $taskBlock->id])}}"><i
                                                 class="fa fa-edit"></i></a>

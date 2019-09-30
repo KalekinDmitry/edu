@@ -5,7 +5,7 @@
             <div class="profile-widget profile-widget-info" style="background:">
                 <div class="panel-body">
                     <div class="col-lg-2 col-sm-2">
-                        <h4><strong>Teacher</strong></h4>
+                        <h4><strong>@lang('content.rteacher')</strong></h4>
                         <div class="follow-ava">
                             @if($teacher->avatar)
                                 <img src="{{ asset($teacher->avatar )}}" alt="">

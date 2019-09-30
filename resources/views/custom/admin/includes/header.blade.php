@@ -242,7 +242,7 @@
                         <a href="#"><i class="icon_chat_alt"></i> Chats</a>
                     </li> -->
                     <li>
-                        <a href="{{route('admin.logout')}}"><i class="icon_key_alt"></i> Log Out</a>
+                        <a href="{{route('admin.logout')}}"><i class="icon_key_alt"></i> @lang('content.logoutbtn')</a>
                     </li>
                 </ul>
             </li>

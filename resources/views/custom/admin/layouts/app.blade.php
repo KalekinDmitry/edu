@@ -9,7 +9,7 @@
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link href="{{ config('static.static') }}/img/favicon.ico" rel="shortcut icon"/>
 
-    <title>Admin Dashboard</title>
+    <title>@lang('content.admdash')</title>
 
     <!-- Bootstrap CSS -->
     <link href="{{ asset('css/admin/bootstrap.min.css') }}" rel="stylesheet">

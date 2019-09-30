@@ -6,7 +6,7 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-lg-2 col-sm-2 flex-column justify-content-center d-flex">
-                            <h4 class="text-white"><strong>User</strong></h4>
+                            <h4 class="text-white"><strong>@lang('content.usr')</strong></h4>
                             <div class="follow-ava">
                                 @if($user->avatar)
                                     <img src="{{ asset($user->avatar )}}" alt="">
@@ -19,20 +19,20 @@
                         <div class="col-lg-4 col-sm-4 follow-info">
                             @if($user->status)
                                 <p><strong>
-                                        <h666>Status: {{ $user->status }}</h666>
+                                        <h666>@lang('content.status'): {{ $user->status }}</h666>
                                     </strong></p>
                             @else
                                 <p><strong>
-                                        <h666>Status: Information not specified</h666>
+                                        <h666>@lang('content.status'): @lang('content.infonotspec')</h666>
                                     </strong></p>
                             @endif
                             @if($user->phone)
                                 <p><strong>
-                                        <h666>Contact number: {{ $user->phone }}</h666>
+                                        <h666>@lang('content.cnum'): {{ $user->phone }}</h666>
                                     </strong></p>
                             @else
                                 <p><strong>
-                                        <h666>Contact number: Information not specified</h666>
+                                        <h666>@lang('content.cnum'): @lang('content.infonotspec')</h666>
                                     </strong></p>
                             @endif
                             {{--<h6>--}}

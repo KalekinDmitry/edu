@@ -9,7 +9,7 @@
                         <div class="follow-ava">
                             <img src="{{config('static.static')}}/img/admin/profile-widget-avatar.jpg" alt="">
                         </div>
-                        <h6>Administrator</h6>
+                        <h6>@lang('content.administrator')</h6>
                     </div>
                     <!-- <div class="col-lg-4 col-sm-4 follow-info">
                         <p>Status or about user</p>
