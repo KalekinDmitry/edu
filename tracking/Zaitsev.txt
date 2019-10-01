@@ -122,5 +122,11 @@
 - test answers, merging
 
 
+27-Sep
+- 4 hours
+- front, font
 
+30-Sep
+-3.5 hours
+-header, merge, dg fixed, merge
 
