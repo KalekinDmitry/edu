@@ -32,7 +32,7 @@
                             <button class = "site-btn col-md-4" type="submit" value="create">@lang('content.update')<i class="fa fa-angle-right"></i></button>
                         </div>
                     </div>
-                </form>4
+                </form>
             </div>
         </div>
     </div>

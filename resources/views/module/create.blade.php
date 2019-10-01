@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="module-section set-bgf fixed" data-setbg="{{config('static.static')}}/img/bg.jpg" >
+<section class="module-section set-bg fixed" data-setbg="{{config('static.static')}}/img/bg.jpg" style="min-height: 100vh" >
 
     <div class="row justify-content-center">
             <div class="col-md-7">
