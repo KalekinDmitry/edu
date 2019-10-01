@@ -15,13 +15,13 @@ class ClassroomsTableSeeder extends Seeder
         $teacherID= 1;
         $data = [
             [
-                'name' => 'test classroom',
-                'slug' =>Str::slug('test classroom'),
+                'name' => @lang('content.testclassroom'),
+                'slug' =>Str::slug(@lang('content.testclassroom')),
                 'teacher_id' => $teacherID,
             ],
             [
-                'name' => 'test classroom 2',
-                'slug' =>Str::slug('test classroom 2'),
+                'name' => @lang('content.testclassroom') . ' 2',
+                'slug' =>Str::slug(@lang('content.testclassroom') . ' 2'),
                 'teacher_id' => $teacherID,
             ],
         ];

@@ -14,37 +14,37 @@ class TestQuestionsTableSeeder extends Seeder
         $data = [
             [
                 'task_block_id' => 1,
-                'text' => "What is a meaning of life?",
+                'text' => @lang('content.testquestiontext1'),
                 'correct_count' => 1,
                 'wrong_count' => 3,
             ],
             [
                 'task_block_id' => 1,
-                'text' => "What is not a meaning of life?",
+                'text' => @lang('content.testquestiontext2'),
                 'correct_count' => 3,
                 'wrong_count' => 1,
             ],
             [
                 'task_block_id' => 2,
-                'text' => "What is a meaning of life?",
+                'text' => @lang('content.testquestiontext1'),
                 'correct_count' => 1,
                 'wrong_count' => 3,
             ],
             [
                 'task_block_id' => 2,
-                'text' => "What is not a meaning of life?",
+                'text' => @lang('content.testquestiontext2'),
                 'correct_count' => 3,
                 'wrong_count' => 1,
             ],
             [
                 'task_block_id' => 3,
-                'text' => "What is a meaning of life?",
+                'text' => @lang('content.testquestiontext1'),
                 'correct_count' => 1,
                 'wrong_count' => 3,
             ],
             [
                 'task_block_id' => 3,
-                'text' => "What is not a meaning of life?",
+                'text' => @lang('content.testquestiontext2'),
                 'correct_count' => 3,
                 'wrong_count' => 1,
             ],

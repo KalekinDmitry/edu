@@ -14,18 +14,18 @@ class SimpleQuestionsTableSeeder extends Seeder
         $data = [
             [
                 'task_block_id' => 1,
-                'text' => "enter what is the meaning of life",
-                'keywords' => '42, kek, кек',
+                'text' => @lang('content.sqtxtent'),
+                'keywords' => @lang('content.sqtxtent'),
             ],
             [
                 'task_block_id' => 2,
-                'text' => "enter what is the meaning of life",
-                'keywords' => '42, kek, кек',
+                'text' => @lang('content.sqtxtent'),
+                'keywords' => @lang('content.sqtxtent'),
             ],
             [
                 'task_block_id' => 2,
-                'text' => "enter what is the meaning of life",
-                'keywords' => '42, kek, кек',
+                'text' => @lang('content.sqtxtent'),
+                'keywords' => @lang('content.sqtxtent'),
             ],
 
         ];
