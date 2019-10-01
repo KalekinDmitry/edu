@@ -14,37 +14,37 @@ class LessonsTableSeeder extends Seeder
         $moduleId = 1;
         $data = [
             [
-                'title' => 'Test lesson 0',
-                'slug' => Str::slug('Test lesson 0'),
-                'excerpt' => 'This is an excerpt from test lesson 0',
+                'title' => @lang('content.testlesson') . ' 0',
+                'slug' => Str::slug(@lang('content.testlesson') . ' 0'),
+                'excerpt' => @lang('content.testlessonexcerpt') . ' 0',
                 'module_id' => 1,
                 'position' => 0,
             ],
             [
-                'title' => 'Test lesson 1',
-                'slug' => Str::slug('Test lesson 1'),
-                'excerpt' => 'This is an excerpt from test lesson 1',
+                'title' => @lang('content.testlesson') . ' 1',
+                'slug' => Str::slug(@lang('content.testlesson') . ' 1'),
+                'excerpt' => @lang('content.testlessonexcerpt') . ' 1',
                 'module_id' => 1,
                 'position' => 1
             ],
             [
-                'title' => 'Test lesson 2',
-                'slug' => Str::slug('Test lesson 2'),
-                'excerpt' => 'This is an excerpt from test lesson 2',
+                'title' => @lang('content.testlesson') . ' 2',
+                'slug' => Str::slug(@lang('content.testlesson') . ' 2'),
+                'excerpt' => @lang('content.testlessonexcerpt') . ' 2',
                 'module_id' => 1,
                 'position' => 2
             ],
             [
-                'title' => 'Test lesson 0',
-                'slug' => Str::slug('Test lesson 0'),
-                'excerpt' => 'This is an excerpt from test lesson 0',
+                'title' => @lang('content.testlesson') . ' 0',
+                'slug' => Str::slug(@lang('content.testlesson') . ' 0'),
+                'excerpt' => @lang('content.testlessonexcerpt') . ' 0',
                 'module_id' => 2,
                 'position' => 0
             ],
             [
-                'title' => 'Test lesson 1',
-                'slug' => Str::slug('Test lesson 1'),
-                'excerpt' => 'This is an excerpt from test lesson 1',
+                'title' => @lang('content.testlesson') . ' 1',
+                'slug' => Str::slug(@lang('content.testlesson') . ' 1'),
+                'excerpt' => @lang('content.testlessonexcerpt') . ' 1',
                 'module_id' => 2,
                 'position' => 1
             ],

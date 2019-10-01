@@ -13,17 +13,17 @@ class ModulesTableSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'Module 1 of course 1',
+                'name' => @lang('content.module') . ' 1' . @lang('content.ofcourse') . ' 1',
                 'position' => 0,
                 'course_id' => 1,
             ],
             [
-                'name' => 'Module 2 of course 1',
+                'name' => @lang('content.module') . ' 2' . @lang('content.ofcourse') . ' 1',
                 'position' => 1,
                 'course_id' => 1
             ],
             [
-                'name' => 'Module 1 of course 2',
+                'name' => @lang('content.module') . ' 1' . @lang('content.ofcourse') . ' 2',
                 'position' => 0,
                 'course_id' => 2
             ]

@@ -84,7 +84,7 @@
 
                                             <input type="file" name="image">
                                         </div>
-                                        <button class="site-btn" type="submit">To apply<i class="fa fa-angle-right"></i></button>
+                                        <button class="site-btn" type="submit">@lang('content.apply')<i class="fa fa-angle-right"></i></button>
                                         <a class="site-btn-danger"
                                            href="{{ route('teacher.dashboard') }}">@lang('content.cancel')</a>
                                     </form>
