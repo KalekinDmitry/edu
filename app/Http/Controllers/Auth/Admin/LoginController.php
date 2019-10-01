@@ -15,7 +15,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('auth.admin-login');
+        return view('auth.admin-login'); //написан 1 простой тест
     }
 
     public function login(Request $request)
@@ -26,16 +26,16 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('admin')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-            return redirect('/admin');
+            return redirect('/admin'); //TODO: test
         }
 
-        return redirect('/admin');
+        return redirect('/admin'); //написан 1 простой тест
     }
 
     public function logout()
     {
         Auth::guard('admin')->logout();
 
-        return redirect('/');
+        return redirect('/'); //написан 1 простой тест
     }
 }

@@ -1,7 +1,7 @@
 @if (Request::is('/')|| Request::is('course/*'))
-    <div class="row">
+    <div class="row justify-content-center">
         <div class="dropdown">
-            <button class="site-btn-info-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            <button  class="nav-item active  site-btn-info-sm col-md-12" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                 <strong>@lang('content.ent')</strong>
                 <i class="dropdown-toggle"></i>
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="dropdown">
-            <button class="site-btn-danger-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            <button class="nav-item active  site-btn-danger-sm col-md-12" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                 <strong>@lang('content.reg')</strong>
                 <i class="dropdown-toggle"></i>
@@ -46,7 +46,7 @@
 @if (Request::is('user') || Request::is('user/*'))
     @auth('web')
         <div class="dropdown">
-            <button class="site-btn-danger-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            <button class="site-btn-danger-sm col-md-7" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                 <strong>{{ Auth::user()->name }}</strong>
                 <i class="dropdown-toggle"></i>
@@ -71,7 +71,7 @@
 @if (Request::is('teacher') || Request::is('teacher/*'))
     @auth('teacher')
         <div class="dropdown">
-            <button class="site-btn-danger-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+            <button class="site-btn-danger-sm col-md-7" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                 <strong>{{ Auth::user()->name }}</strong>
                 <i class="dropdown-toggle"></i>

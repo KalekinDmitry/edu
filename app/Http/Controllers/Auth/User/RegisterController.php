@@ -52,7 +52,7 @@ class RegisterController extends Controller
 
     /**
      * Handle a registration request for the application.
-     * @param  \Illuminate\Http\Requests\UserRegisterRequest $request
+     * @param UserRegisterRequest $request
      * @return \Illuminate\Http\Response
      */
     public function register(UserRegisterRequest $request)

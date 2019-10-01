@@ -41,9 +41,13 @@ class AdminController extends Controller
             //Redirect to yourself
             $user = Admin::where('id', Auth::user()->id)->first();
         }
+
+        //dd(__METHOD__, $user, $request);
+
         return view('custom.admin.profile', [
             'user' => $user,
         ]);
+
     }
 
     public function showUsersList()
