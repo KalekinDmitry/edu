@@ -29,3 +29,8 @@ September 17(4 hours): Reworking display of users in the header; User dashboard 
 September 18(6 hours): New display of users in the header(completely ready now); Completion user dashboard; Introduction of some policies; Connecting a common header for all pages;
 September 19(4 hours): Fix commit compatibility errors; Correction of migrations; Merge preparation;
 September 20(2 hours): Header display bugfix; Long and boring merge;
+September 22(1 hour): Routes and controllers fix (access policies);
+September 28(3 hours): Login views (Frontend); Bugfix;
+September 29(5 hours): Register views (Frontend); Creating a common style for login and register views; 
+September 30(6 hours): One style reworking input forms, buttons, layouts (Frontend); Cleaning the Public folder from unnecessary styles;
+October 1(5 hour): A lot of small frontend fixes (preparation for the show); 
