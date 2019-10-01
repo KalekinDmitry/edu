@@ -36,27 +36,16 @@
 @endsection
 
 @section('content')
-    <section class="content-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg"
-             style="background: no-repeat fixed center;">
-
-        <br><br><br><br><br><br><br><br><br>
-
-        <div class="container">
-
+    <section class="content-section set-bg fixed"
+             data-setbg="{{config('static.static')}}/img/bg.jpg">
+        <div class="container" style="padding-top: 200px;">
             <div class="row">
-
                 <section class="wrapper">
-
                     @include('custom.teacher.settings.settings_components.owninformation')
-
                     @include('custom.teacher.settings.settings_components.addpanel')
-
                 </section>
-
             </div>
-
         </div>
-
     </section>
 @endsection
 
@@ -87,66 +76,4 @@
     <!-- custom select -->
     <script src="{{ asset('js/admin/jquery.customSelect.min.js') }}"></script>
     <script src="{{ asset('js/admin/Chart2.js') }}"></script>
-
-    <!--custome script for all page-->
-    <script src="{{ asset('js/admin/scripts.js') }}"></script>
-    <!-- custom script for this page-->
-    <script src="{{ asset('js/admin/sparkline-chart.js') }}"></script>
-    <script src="{{ asset('js/admin/easy-pie-chart.js') }}"></script>
-    <script src="{{ asset('js/admin/jquery-jvectormap-1.2.2.min.js') }}"></script>
-    <script src="{{ asset('js/admin/jquery-jvectormap-world-mill-en.js') }}"></script>
-    <script src="{{ asset('js/admin/xcharts.min.js') }}"></script>
-    <script src="{{ asset('js/admin/jquery.autosize.min.js') }}"></script>
-    <script src="{{ asset('js/admin/jquery.placeholder.min.js') }}"></script>
-    <script src="{{ asset('js/admin/gdp-data.js') }}"></script>
-    <script src="{{ asset('js/admin/morris.min.js') }}"></script>
-    <script src="{{ asset('js/admin/sparklines.js') }}"></script>
-    <script src="{{ asset('js/admin/charts.js') }}"></script>
-    <script src="{{ asset('js/admin/jquery.slimscroll.min.js') }}"></script>
-    <script>
-        //knob
-        $(function () {
-            $(".knob").knob({
-                'draw': function () {
-                    $(this.i).val(this.cv + '%')
-                }
-            })
-        });
-
-        //carousel
-        $(document).ready(function () {
-            $("#owl-slider").owlCarousel({
-                navigation: true,
-                slideSpeed: 300,
-                paginationSpeed: 400,
-                singleItem: true
-
-            });
-        });
-
-        //custom select box
-
-        $(function () {
-            $('select.styled').customSelect();
-        });
-
-        /* ---------- Map ---------- */
-        $(function () {
-            $('#map').vectorMap({
-                map: 'world_mill_en',
-                series: {
-                    regions: [{
-                        values: gdpData,
-                        scale: ['#000', '#000'],
-                        normalizeFunction: 'polynomial'
-                    }]
-                },
-                backgroundColor: '#eef3f7',
-                onLabelShow: function (e, el, code) {
-                    el.html(el.html() + ' (GDP - ' + gdpData[code] + ')');
-                }
-            });
-        });
-    </script>
 @endsection
-
