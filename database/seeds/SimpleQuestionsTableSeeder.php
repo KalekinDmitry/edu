@@ -11,21 +11,22 @@ class SimpleQuestionsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('simple_questions')->delete();
         $data = [
             [
                 'task_block_id' => 1,
-                'text' => @lang('content.sqtxtent'),
-                'keywords' => @lang('content.sqtxtent'),
+                'text' => __('content.sqtxtent',[],'ru'),
+                'keywords' => __('content.sqtxtent',[],'ru'),
             ],
             [
                 'task_block_id' => 2,
-                'text' => @lang('content.sqtxtent'),
-                'keywords' => @lang('content.sqtxtent'),
+                'text' => __('content.sqtxtent',[],'ru'),
+                'keywords' => __('content.sqtxtent',[],'ru'),
             ],
             [
                 'task_block_id' => 2,
-                'text' => @lang('content.sqtxtent'),
-                'keywords' => @lang('content.sqtxtent'),
+                'text' => __('content.sqtxtent',[],'ru'),
+                'keywords' => __('content.sqtxtent',[],'ru'),
             ],
 
         ];

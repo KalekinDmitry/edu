@@ -11,6 +11,7 @@ class TaskBlocksTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('task_blocks')->delete();
         $data = [
             [
                 'retries_count' => 3,

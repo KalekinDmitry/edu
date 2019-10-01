@@ -12,24 +12,25 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('users')->delete();
         $data = [
             [
-                'name' => 'userName',
+                'name' => 'Иван',
                 'email' => 'user@mail.com',
                 'password' => Hash::make('password'),
             ],
             [
-                'name' => 'user2Name',
+                'name' => 'Игорь',
                 'email' => 'user2@mail.com',
                 'password' => Hash::make('password'),
             ],
             [
-                'name' => 'user3Name',
+                'name' => 'Анатолий',
                 'email' => 'user3@mail.com',
                 'password' => Hash::make('password'),
             ],
             [
-                'name' => 'anotherUserName',
+                'name' => 'Виталий',
                 'email' => 'anotherUser@mail.com',
                 'password' => Hash::make('password'),
             ],

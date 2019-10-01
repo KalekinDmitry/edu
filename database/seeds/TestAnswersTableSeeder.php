@@ -11,6 +11,7 @@ class TestAnswersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('test_answers')->delete();
         for($i = 1; $i <= 6; $i++){
             $data = [
                 [
@@ -20,17 +21,17 @@ class TestAnswersTableSeeder extends Seeder
                 ],
                 [
                     'test_question_id' => $i, 
-                    'text' => "kek",
+                    'text' => "солнце",
                     'is_correct' => true,
                 ],
                 [
                     'test_question_id' => $i,
-                    'text' => 'meme',
+                    'text' => 'марс',
                     'is_correct' => true,
                 ],
                 [
                     'test_question_id' => $i,
-                    'text' => 'lol',
+                    'text' => 'танк',
                     'is_correct' => true,
                 ],
                 [

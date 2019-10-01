@@ -11,40 +11,41 @@ class TestQuestionsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('test_questions')->delete();
         $data = [
             [
                 'task_block_id' => 1,
-                'text' => @lang('content.testquestiontext1'),
+                'text' => __('content.testquestiontext1',[],'ru'),
                 'correct_count' => 1,
                 'wrong_count' => 3,
             ],
             [
                 'task_block_id' => 1,
-                'text' => @lang('content.testquestiontext2'),
+                'text' => __('content.testquestiontext2',[],'ru'),
                 'correct_count' => 3,
                 'wrong_count' => 1,
             ],
             [
                 'task_block_id' => 2,
-                'text' => @lang('content.testquestiontext1'),
+                'text' => __('content.testquestiontext1',[],'ru'),
                 'correct_count' => 1,
                 'wrong_count' => 3,
             ],
             [
                 'task_block_id' => 2,
-                'text' => @lang('content.testquestiontext2'),
+                'text' => __('content.testquestiontext2',[],'ru'),
                 'correct_count' => 3,
                 'wrong_count' => 1,
             ],
             [
                 'task_block_id' => 3,
-                'text' => @lang('content.testquestiontext1'),
+                'text' => __('content.testquestiontext1',[],'ru'),
                 'correct_count' => 1,
                 'wrong_count' => 3,
             ],
             [
                 'task_block_id' => 3,
-                'text' => @lang('content.testquestiontext2'),
+                'text' => __('content.testquestiontext2',[],'ru'),
                 'correct_count' => 3,
                 'wrong_count' => 1,
             ],

@@ -11,6 +11,7 @@ class VideoBlocksTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('video_blocks')->delete();
         $data = [
             [
                 'link' => "https://www.youtube.com/watch?v=OWwUce_9GUE",

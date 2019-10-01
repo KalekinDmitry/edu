@@ -11,14 +11,14 @@ class ClassroomInvitesTableSeeder extends Seeder
      */
     public function run()
     {
-        //
+        DB::table('classroom_invites')->delete();
         $data = [
             [
                 'classroom_id' => 1,
                 'user_id' => 1,
-                'message_title' => @lang('content.invtitle'),
-                'title_slug' => Str::slug(@lang('content.invtitle')),
-                'message_text' => @lang('content.invtext'),
+                'message_title' => __('content.invtitle',[],'ru'),
+                'title_slug' => Str::slug(__('content.invtitle',[],'ru')),
+                'message_text' => __('content.invtext',[],'ru'),
 
             ]
         ];

@@ -12,9 +12,10 @@ class TeachersTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('teachers')->delete();
         $data = [
             [
-                'name' => 'teacherName',
+                'name' => 'Эйнштейн',
                 'email' => 'teacher@mail.com',
                 'password' => Hash::make('password')
             ]

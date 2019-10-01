@@ -12,6 +12,7 @@ class ClassroomUserTableSeeder extends Seeder
     public function run()
     {
 
+        DB::table('classroom_user')->delete();
         $data = [
             [
                 'user_id' => 1,

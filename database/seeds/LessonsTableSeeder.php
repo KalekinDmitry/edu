@@ -11,40 +11,41 @@ class LessonsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('lessons')->delete();
         $moduleId = 1;
         $data = [
             [
-                'title' => @lang('content.testlesson') . ' 0',
-                'slug' => Str::slug(@lang('content.testlesson') . ' 0'),
-                'excerpt' => @lang('content.testlessonexcerpt') . ' 0',
+                'title' => __('content.testlesson',[],'ru') . ' 0',
+                'slug' => Str::slug(__('content.testlesson',[],'ru') . ' 0'),
+                'excerpt' => __('content.testlessonexcerpt',[],'ru') . ' 0',
                 'module_id' => 1,
                 'position' => 0,
             ],
             [
-                'title' => @lang('content.testlesson') . ' 1',
-                'slug' => Str::slug(@lang('content.testlesson') . ' 1'),
-                'excerpt' => @lang('content.testlessonexcerpt') . ' 1',
+                'title' => __('content.testlesson',[],'ru') . ' 1',
+                'slug' => Str::slug(__('content.testlesson',[],'ru') . ' 1'),
+                'excerpt' => __('content.testlessonexcerpt',[],'ru') . ' 1',
                 'module_id' => 1,
                 'position' => 1
             ],
             [
-                'title' => @lang('content.testlesson') . ' 2',
-                'slug' => Str::slug(@lang('content.testlesson') . ' 2'),
-                'excerpt' => @lang('content.testlessonexcerpt') . ' 2',
+                'title' => __('content.testlesson',[],'ru') . ' 2',
+                'slug' => Str::slug(__('content.testlesson',[],'ru') . ' 2'),
+                'excerpt' => __('content.testlessonexcerpt',[],'ru') . ' 2',
                 'module_id' => 1,
                 'position' => 2
             ],
             [
-                'title' => @lang('content.testlesson') . ' 0',
-                'slug' => Str::slug(@lang('content.testlesson') . ' 0'),
-                'excerpt' => @lang('content.testlessonexcerpt') . ' 0',
+                'title' => __('content.testlesson',[],'ru') . ' 0',
+                'slug' => Str::slug(__('content.testlesson',[],'ru') . ' 0'),
+                'excerpt' => __('content.testlessonexcerpt',[],'ru') . ' 0',
                 'module_id' => 2,
                 'position' => 0
             ],
             [
-                'title' => @lang('content.testlesson') . ' 1',
-                'slug' => Str::slug(@lang('content.testlesson') . ' 1'),
-                'excerpt' => @lang('content.testlessonexcerpt') . ' 1',
+                'title' => __('content.testlesson',[],'ru') . ' 1',
+                'slug' => Str::slug(__('content.testlesson',[],'ru') . ' 1'),
+                'excerpt' => __('content.testlessonexcerpt',[],'ru') . ' 1',
                 'module_id' => 2,
                 'position' => 1
             ],
