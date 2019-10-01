@@ -1,46 +1,46 @@
 The time for studying the framework, testing methods and direct work on the project is given. 
 The time spent trying to understand “what is happening here” is inappropriate and simply not fair.
 
-27.08.19 - 1h -|
+27.08.19 - 2h -|
 
-28.08.19 - 2h  |
+28.08.19 - 3h  |
 
-29.08.19 - 1h  |
+29.08.19 - 2h  |
 
-30.08.19 - 1h  | 27-07: Studying the principles of the framework: requests, providers, observers, etc.
+30.08.19 - 2h  | 27-07: Studying the principles of the framework: requests, providers, observers, etc.
 
-02.09.19 - 1h  |
+02.09.19 - 2h  |
 
-03.09.19 - 4h  |
+03.09.19 - 5h  |
 
-04.09.19 - 1h  |
+04.09.19 - 2h  |
 
-05.09.19 - 3h -|
+05.09.19 - 4h -|
 
-06.09.19 - 1.30h
+06.09.19 - 2h
 
-07.09.19 - 2.30h
+07.09.19 - 3h
 
-15.09.09 - 3h - 15-18: Learning general testing principles and varieties
+15.09.09 - 4h - 15-18: Learning general testing principles and varieties
 
-16.09.19 - 1h
+16.09.19 - 2h
 
-17.09.19 - 2h 
+17.09.19 - 3h 
 
-18.09.19 - 1h
+18.09.19 - 2h
 
-20.09.19 - 5h - 20-23: A detailed analysis of changes in the project, analysis of dependencies, existing classes and their methods
+20.09.19 - 6h - 20-23: A detailed analysis of changes in the project, analysis of dependencies, existing classes and their methods
 
-21.09.19 - 0.30h
+21.09.19 - 1h
 
 23.09.19 - 6h
 
-24.09.19 - 3.30h - 24-27: Writing the first applied tests for a project, studying test methods for specific cases encountered in a project
+24.09.19 - 5h - 24-27: Writing the first applied tests for a project, studying test methods for specific cases encountered in a project
 
-25.09.19 - 4h
+25.09.19 - 5h
 
-27.09.19 - 3h
+27.09.19 - 4h
 
-29.08.19 - 3h - The first successful simple tests
+29.08.19 - 4h - The first successful simple tests
 
-30.09.19 - 3h - Finding information on how to test middleware, some more simple tests, the first real commit
+30.09.19 - 4h - Finding information on how to test middleware, some more simple tests, the first real commit
