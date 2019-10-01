@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="invites-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">
+    <section class="invites-section set-bg fixed" style="height: 800px;" data-setbg="{{config('static.static')}}/img/bg.jpg">
         <div class="row justify-content-center">
             <div class="col-md-7">
                 <div class="hero-text text-white">
