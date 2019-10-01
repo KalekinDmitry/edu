@@ -284,5 +284,5 @@ return [
     'vid' => 'video',
     'steps' => 'Steps',
     'task' => 'task',
-    
+    'invtitle' => 'Invite title',
 ];

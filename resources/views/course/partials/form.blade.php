@@ -3,7 +3,7 @@
         <div class="form-group">
             <div class="form-group">
                 <label for="">@lang('content.headline')</label>
-                <input type="text" class="form-control" name="title" placeholder="Course title" maxlength="35"
+                <input type="text" class="form-control" name="title" placeholder="@lang('content.ctitle')" maxlength="35"
                        value="{{$course->title ?? ""}}" required>
             </div>
             <div class="form-group">

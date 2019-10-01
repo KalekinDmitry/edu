@@ -283,6 +283,7 @@ return [
     'vid' => 'vidéo',
     'steps' => 'Pas',
     'task' => 'tâche',
+    'lau' => 'Se connecter en tant q`utilisateur',
 
 
 ];
