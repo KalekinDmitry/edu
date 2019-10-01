@@ -23,9 +23,9 @@
 
                         <input type="file" name="image" style="margin-bottom: 15px;">
 
-                        <button class="site-btn" type="submit">Create<i class="fa fa-angle-right"></i></button>
+                        <button class="site-btn" type="submit">@lang('content.create')<i class="fa fa-angle-right"></i></button>
 
-                        <a href="{{route('teacher.dashboard')}}" class="site-btn-danger">Cancel</a>
+                        <a href="{{route('teacher.dashboard')}}" class="site-btn-danger">@lang('content.cancel')</a>
                     </form>
                 </div>
             </div>

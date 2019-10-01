@@ -303,5 +303,6 @@ return [
     ======
     Alt-H2
     ------',
-
+    'sqtxtent' => 'Enter what is the meaning of life',
+    'apply' => 'Apply',
 ];

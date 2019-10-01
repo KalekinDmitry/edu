@@ -304,6 +304,6 @@ return [
     Alt-H2
     ------',
     'sqtxtent' => 'Entrez quel est le sens de la vie',
-
+    'apply' => 'Appliquer',
 
 ];
