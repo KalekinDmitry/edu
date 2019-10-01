@@ -34,9 +34,6 @@
         </div>
     </div> --}}
 
-
-
-
     <div class="row justify-content-center">
         <div class="row col-md-11" style="margin: 0; padding: 0">
             <a style="color:#fff; padding-top: 5px;">@lang('content.chlang'):&nbsp;</a>
@@ -61,15 +58,9 @@
                         <li class="nav-item active"><a class="nav-link" href="{{ route('home') }}#contact">@lang('content.contact us')</a></li>
                         <li class="nav-item active"><a class="nav-link" href="{{ route('home') }}#contact">@lang('content.contact us')</a></li>
                     </ul>
-
-
-
-
-
-
                 </div>
 
-                <div style="padding: 0; margin-top: 16px; margin-right: 16px; margin-bottom: 8px" class="user-panel col-md-3 col-sm-4">
+                <div style="padding: 0; margin-top: 19px; margin-right: 16px; margin-bottom: 8px" class="user-panel col-md-3 col-sm-4">
                     @include('includes.headerMenu')
                 </div>
 
@@ -77,12 +68,8 @@
                     <i class="fa fa-bars"></i>
                 </div>
 
-
-
             </div>
         </nav>
     </div>
-
-
 </header>
 

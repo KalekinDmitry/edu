@@ -8,7 +8,7 @@
                     <div class="hero-text text-white">
                         {{-- <div class="card-header">@lang('content.tchdash')</div> --}}
                         <h2>@lang('content.tchdash')</h2>
-                        <div class="card-body">
+                        <div class="card-body"  style="padding: 0;">
                             @if (session('status'))
                                 <div class="alert alert-success" role="alert">
                                     {{ session('status') }}
@@ -20,6 +20,7 @@
                     </div>
                 </div>
             </div>
+
             <div class="d-flex-row justify-content-center">
                 <div class="col-md-6">
                     <div class="card">
