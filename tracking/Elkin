@@ -21,16 +21,16 @@ August 31(2 hours): Flag icon improvements(better icons); Work with personal acc
 September 7(2 hours): Transfer profile/account section from Admin Dashboard to relevant sections;
 September 8(5 hours): Some backend processing; Change the overall style (fonts); Work with a color palette; Layout for header and footer style;
 September 9(6 hours): Teacher and User profile/settings; Work with forms and information display;
-September 13(2 hours): Separation login controller;
-September 14(3 hours): Separation login controller; Route hierarchy changes
+September 13(3 hours): Separation login controller;
+September 14(4 hours): Separation login controller; Route hierarchy changes
 September 15(4 hours): Separation login controller; Route hierarchy changes (Controllers and folders are clearly separated);
 September 16(4 hours): Multi-authorization; Processing of routes for new controllers; Dictionary editing and login/registration page;
 September 17(4 hours): Reworking display of users in the header; User dashboard initialization; Small visual changes; grouping routes into a group prefix;
 September 18(6 hours): New display of users in the header(completely ready now); Completion user dashboard; Introduction of some policies; Connecting a common header for all pages;
 September 19(4 hours): Fix commit compatibility errors; Correction of migrations; Merge preparation;
-September 20(2 hours): Header display bugfix; Long and boring merge;
-September 22(1 hour): Routes and controllers fix (access policies);
-September 28(3 hours): Login views (Frontend); Bugfix;
+September 20(3 hours): Header display bugfix; Long and boring merge;
+September 22(2 hour): Routes and controllers fix (access policies);
+September 28(4 hours): Login views (Frontend); Bugfix;
 September 29(5 hours): Register views (Frontend); Creating a common style for login and register views; 
 September 30(6 hours): One style reworking input forms, buttons, layouts (Frontend); Cleaning the Public folder from unnecessary styles;
 October 1(5 hour): A lot of small frontend fixes (preparation for the show); 
