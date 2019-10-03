@@ -1,4 +1,4 @@
-<section class="hero-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">
+<section class="hero-section set-bg fixed" data-setbg="{{config('static.static')}}/img/bg.jpg">
     <div class="container">
         <div class="row">
             <div class="col-lg-7">

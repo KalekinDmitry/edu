@@ -283,6 +283,27 @@ return [
     'vid' => 'vidéo',
     'steps' => 'Pas',
     'task' => 'tâche',
-
+    'lau' => 'Se connecter en tant q`utilisateur',
+    'invtitle' => 'Inviter le titre',
+    'invtext' => 'Inviter du texte',
+    'testclassroom' => 'Salle de test',
+    'testcourse' => 'Cours de test',
+    'tcshortdesc' => 'Ceci est une courte description du cours de test',
+    'tcdesc' => 'Ceci est une description du cours de test',
+    'taglist' => 'tag0, tag1',
+    'testlesson' => 'Leçon de test',
+    'testlessonexcerpt' => 'Ceci est un extrait de la leçon de test',
+    'ofcourse' => 'bien sûr',
+    'keywordslist' => 'mot-clé1, mot-clé2',
+    'testquestiontext1' => 'Quel est le sens de la vie',
+    'testquestiontext2' => 'Quel n`est pas un sens de la vie',
+    'textbloxsample' => '# Entête
+    Alternativement, pour H1 et H2, un style souligné:
+    Alt-H1
+    ======
+    Alt-H2
+    ------',
+    'sqtxtent' => 'Entrez quel est le sens de la vie',
+    'apply' => 'Appliquer',
 
 ];

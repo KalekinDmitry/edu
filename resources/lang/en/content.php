@@ -284,5 +284,25 @@ return [
     'vid' => 'video',
     'steps' => 'Steps',
     'task' => 'task',
-    
+    'invtitle' => 'Invite title',
+    'invtext' => 'Invite text',
+    'testclassroom' => 'Test classroom',
+    'testcourse' => 'Test course',
+    'tcshortdesc' => 'This is a short description of test course',
+    'tcdesc' => 'This is a description of test course',
+    'taglist' => 'tag0, tag1',
+    'testlesson' => 'Test lesson',
+    'testlessonexcerpt' => 'This is an excerpt from test lesson',
+    'ofcourse' => 'of course',
+    'keywordslist' => 'keyword1, keyword2',
+    'testquestiontext1' => 'What is a meaning of life',
+    'testquestiontext2' => 'What is not a meaning of life',
+    'textbloxsample' => '# Header
+    Alternatively, for H1 and H2, an underline-ish style:
+    Alt-H1
+    ======
+    Alt-H2
+    ------',
+    'sqtxtent' => 'Enter what is the meaning of life',
+    'apply' => 'Apply',
 ];

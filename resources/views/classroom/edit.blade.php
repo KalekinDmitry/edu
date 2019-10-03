@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <section class="classroom-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">
+    <section class="classroom-section set-bg fixed" data-setbg="{{config('static.static')}}/img/bg.jpg">
 
         <div class="row justify-content-center">
             <div class="col-md-7">
@@ -169,7 +169,7 @@
                                     <br>
                                     <div class="row justify-content-center">
                                         <div class="col-md-8">
-                                            <strong>Course title</strong>
+                                            <strong>@lang('content.ctitle')</strong>
                                         </div>
                                         {{-- <a href="#" class="btn btn-secondary  col-md-2">@lang('content.exclude')</a> --}}
                                         <div class="col-md-3">

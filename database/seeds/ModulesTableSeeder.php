@@ -11,19 +11,20 @@ class ModulesTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('modules')->delete();
         $data = [
             [
-                'name' => 'Module 1 of course 1',
+                'name' => __('content.module',[],'ru') . ' 1' . __('content.ofcourse',[],'ru') . ' 1',
                 'position' => 0,
                 'course_id' => 1,
             ],
             [
-                'name' => 'Module 2 of course 1',
+                'name' => __('content.module',[],'ru') . ' 2' . __('content.ofcourse',[],'ru') . ' 1',
                 'position' => 1,
                 'course_id' => 1
             ],
             [
-                'name' => 'Module 1 of course 2',
+                'name' => __('content.module',[],'ru') . ' 1' . __('content.ofcourse',[],'ru') . ' 2',
                 'position' => 0,
                 'course_id' => 2
             ]

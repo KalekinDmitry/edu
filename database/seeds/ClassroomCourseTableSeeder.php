@@ -11,6 +11,7 @@ class ClassroomCourseTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('classroom_course')->delete();
 
         $data = [
             [

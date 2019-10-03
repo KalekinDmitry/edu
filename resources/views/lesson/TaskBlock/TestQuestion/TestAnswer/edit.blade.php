@@ -2,7 +2,7 @@
 
 @section('content')
 
-<section class="lesson-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg" >
+<section class="lesson-section set-bg fixed" data-setbg="{{config('static.static')}}/img/bg.jpg" >
 
     <div class="row justify-content-center">
         <div class="col-md-7">
@@ -32,7 +32,7 @@
                             <button class = "site-btn col-md-4" type="submit" value="create">@lang('content.update')<i class="fa fa-angle-right"></i></button>
                         </div>
                     </div>
-                </form>4
+                </form>
             </div>
         </div>
     </div>

@@ -12,16 +12,17 @@ class ClassroomsTableSeeder extends Seeder
      */
     public function run()
     {
+        DB::table('classrooms')->delete();
         $teacherID= 1;
         $data = [
             [
-                'name' => 'test classroom',
-                'slug' =>Str::slug('test classroom'),
+                'name' => __('content.testclassroom',[],'ru'),
+                'slug' =>Str::slug(__('content.testclassroom',[],'ru')),
                 'teacher_id' => $teacherID,
             ],
             [
-                'name' => 'test classroom 2',
-                'slug' =>Str::slug('test classroom 2'),
+                'name' => __('content.testclassroom',[],'ru') . ' 2',
+                'slug' =>Str::slug(__('content.testclassroom',[],'ru') . ' 2'),
                 'teacher_id' => $teacherID,
             ],
         ];
