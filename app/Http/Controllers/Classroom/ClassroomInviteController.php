@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Classroom;
 
 use App\User;
 use App\Models\Classroom;
 use Illuminate\Http\Request;
 use App\Models\ClassroomInvite;
+use App\Http\Controllers\Controller;
 
 class ClassroomInviteController extends Controller
 {

@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Test;
 
 use Illuminate\Http\Request;
 use App\Models\TestQuestion;
 use App\Models\TaskBlock;
 use App\Models\TestAnswer;
 use Illuminate\Support\Facades\Aut;
+use App\Http\Controllers\Controller;
 
 class TestQuestionController extends Controller
 {

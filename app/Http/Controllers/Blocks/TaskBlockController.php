@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Blocks;
 
 use Illuminate\Http\Request;
 use App\Models\Lesson;
-use App\Models\TextBlock;
+use App\Models\TaskBlock;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
-//use Faker\Provider\kk_KZ\Text;
+use App\Models\SimpleQuestion;
+use App\Models\TestQuestion;
 
-class TextBlockController extends Controller
+class TaskBlockController extends Controller
 {
-
     public function __construct()
     {
         $this->middleware('auth:teacher');
@@ -34,8 +34,9 @@ class TextBlockController extends Controller
     public function create(Lesson $lesson)
     {
         $teacher = Auth::user();
-        if($teacher->can('create', [TextBlock::class, $lesson])){
-            return view('lesson.TextBlock.create', ['lesson' => $lesson]);
+        //dd($lesson, $teacher);
+        if($teacher->can('create', [TaskBlock::class, $lesson])){
+            return view('lesson.TaskBlock.create', ['lesson' => $lesson]);
         }else {
             return redirect()
             ->route('lesson.edit', [$lesson->module_id, $lesson->id])
@@ -53,17 +54,17 @@ class TextBlockController extends Controller
     {
         $teacher = Auth::user();
 
-        if($teacher->can('store', [TextBlock::class, $lesson])){
+        if($teacher->can('store', [TaskBlock::class, $lesson])){
 
             //dd($request);
             //create new lesson and assign serial_number automaticaly
-            $textBlock = TextBlock::create($request->input());
+            $taskBlock = TaskBlock::create($request->input());
 
 
-            $textBlock->lesson_id = $lesson->id;
-            $textBlock->position = TextBlock::where('lesson_id', $lesson->id)->max('position') + 1;//make it be after the last added lesson
-            $textBlock->save();
-            return redirect()->route('lesson.edit',[$lesson->module_id, $lesson->id]);
+            $taskBlock->lesson_id = $lesson->id;
+            $taskBlock->position = TaskBlock::where('lesson_id', $lesson->id)->max('position') + 1;//make it be after the last added lesson
+            $taskBlock->save();
+            return redirect()->route('taskBlock.edit',[$lesson->id, $taskBlock->id]);
         }else{
             return redirect()
             ->route('lesson.edit', $lesson->module_id, $lesson->id)
@@ -77,9 +78,15 @@ class TextBlockController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Lesson $lesson, TextBlock $textBlock)
+    public function show(Lesson $lesson, TaskBlock $taskBlock)
     {
-        return view('lesson.TextBlock.show', ['textBlock' => $textBlock, 'lesson' => $lesson]);
+        $simpleQuestions = SimpleQuestion::where('task_block_id', $taskBlock->id)->get();
+        $testQuestions = TestQuestion::where('task_block_id', $taskBlock->id)->get();
+        return view('lesson.TaskBlock.show', ['taskBlock' => $taskBlock,
+                'lesson' => $lesson,
+                'simpleQuestions' => $simpleQuestions,
+                'testQuestions' => $testQuestions,
+        ]);
     }
 
     /**
@@ -88,13 +95,22 @@ class TextBlockController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Lesson $lesson, TextBlock $textBlock)
+    public function edit(Lesson $lesson, TaskBlock $taskBlock)
     {
         $teacher = Auth::user();
         //dd($lesson, $course, $teacher);
-        //dd($textBlock, $teacher);
-        if($teacher->can('edit', [$textBlock])){
-            return view('lesson.TextBlock.edit', ['textBlock' => $textBlock, 'lesson' => $lesson]);
+
+        if($teacher->can('edit', [$taskBlock])){
+
+            $simpleQuestions = SimpleQuestion::where('task_block_id', $taskBlock->id)->get();
+            $testQuestions = TestQuestion::where('task_block_id', $taskBlock->id)->get();
+
+            return view('lesson.TaskBlock.edit', [
+                'taskBlock' => $taskBlock,
+                'lesson' => $lesson,
+                'simpleQuestions' => $simpleQuestions,
+                'testQuestions' => $testQuestions,
+                ]);
         }else return redirect()
         ->route('lesson.edit', [$lesson->module_id, $lesson->id])
         ->with(['message' => 'permission denied']);
@@ -107,12 +123,12 @@ class TextBlockController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Lesson $lesson, TextBlock $textBlock)
+    public function update(Request $request, Lesson $lesson, TaskBlock $taskBlock)
     {
         $teacher = Auth::user();
-        if($teacher->can('update', [$textBlock])){
-            $textBlock->update($request->input());
-            $textBlock->save();
+        if($teacher->can('update', [$taskBlock])){
+            $taskBlock->update($request->input());
+            $taskBlock->save();
             return redirect()->route('lesson.edit', [$lesson->module_id, $lesson->id]);
         }
         else return redirect()
@@ -126,11 +142,11 @@ class TextBlockController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Lesson $lesson, TextBlock $textBlock)
+    public function destroy(Lesson $lesson, TaskBlock $taskBlock)
     {
         $teacher = Auth::user();
-        if($teacher->can('destroy', [$textBlock])){
-            $textBlock->delete();
+        if($teacher->can('destroy', [$taskBlock])){
+            $taskBlock->delete();
             return redirect()->route('lesson.edit', [$lesson->module_id, $lesson->id]);
         } else return redirect()
         ->route('lesson.edit',[$lesson->module_id, $lesson->id])
