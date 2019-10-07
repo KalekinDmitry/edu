@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Test;
+namespace App\Http\Controllers\Teacher\TestAndQuestion;
 
 use Illuminate\Http\Request;
 use App\Models\TestQuestion;

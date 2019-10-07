@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Blocks;
+namespace App\Http\Controllers\Teacher\Blocks;
 
 use Illuminate\Http\Request;
 use App\Models\Lesson;

@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Teacher\TestAndQuestion;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\SimpleQuestion;
 use App\Models\TaskBlock;
@@ -53,7 +54,8 @@ class SimpleQuestionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param TaskBlock $taskBlock
+     * @param SimpleQuestion $simpleQuestion
      * @return \Illuminate\Http\Response
      */
     public function show(TaskBlock $taskBlock, SimpleQuestion $simpleQuestion)
@@ -67,7 +69,8 @@ class SimpleQuestionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param TaskBlock $taskBlock
+     * @param SimpleQuestion $simpleQuestion
      * @return \Illuminate\Http\Response
      */
     public function edit(TaskBlock $taskBlock, SimpleQuestion $simpleQuestion)
@@ -82,8 +85,9 @@ class SimpleQuestionController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param TaskBlock $taskBlock
+     * @param SimpleQuestion $simpleQuestion
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, TaskBlock $taskBlock, SimpleQuestion $simpleQuestion)
@@ -97,8 +101,10 @@ class SimpleQuestionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param TaskBlock $taskBlock
+     * @param SimpleQuestion $simpleQuestion
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(TaskBlock $taskBlock, SimpleQuestion $simpleQuestion)
     {

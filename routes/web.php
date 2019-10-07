@@ -63,20 +63,20 @@ Route::prefix('teacher')->group(function () {
     Route::get('/myaccount', 'Teacher\TeacherController@edit')->name('teacher_settings');
     Route::put('/myaccount/save', 'Teacher\TeacherController@update')->name('teacher_settings_save');
 
-    Route::resource('/course', 'CourseController');
+    Route::resource('/course', 'Teacher\Course\CourseController');
 
-    Route::resource('/course/{course}/module', 'ModuleController');
-    Route::resource('/module/{module}/lesson', 'LessonController');
-    Route::resource('/lesson/{lesson}/textBlock', 'Blocks\TextBlockController');
-    Route::resource('/lesson/{lesson}/videoBlock', 'Blocks\VideoBlockController');
-    Route::resource('/lesson/{lesson}/taskBlock', 'Blocks\TaskBlockController');
-    Route::resource('/taskBlock/{taskBlock}/simpleQuestion', 'SimpleQuestionController');
-    Route::resource('/taskBlock/{taskBlock}/testQuestion', 'Test\TestQuestionController');
-    Route::resource('/testQuestion/{testQuestion}/testAnswer', 'Test\TestAnswerController');
+    Route::resource('/course/{course}/module', 'Teacher\Module\ModuleController');
+    Route::resource('/module/{module}/lesson', 'Teacher\Lesson\LessonController');
+    Route::resource('/lesson/{lesson}/textBlock', 'Teacher\Blocks\TextBlockController');
+    Route::resource('/lesson/{lesson}/videoBlock', 'Teacher\Blocks\VideoBlockController');
+    Route::resource('/lesson/{lesson}/taskBlock', 'Teacher\Blocks\TaskBlockController');
+    Route::resource('/taskBlock/{taskBlock}/simpleQuestion', 'Teacher\TestAndQuestion\SimpleQuestionController');
+    Route::resource('/taskBlock/{taskBlock}/testQuestion', 'Teacher\TestAndQuestion\TestQuestionController');
+    Route::resource('/testQuestion/{testQuestion}/testAnswer', 'Teacher\TestAndQuestion\TestAnswerController');
 
-    Route::resource('/classroom', 'Classroom\ClassroomController');
+    Route::resource('/classroom', 'Teacher\Classroom\ClassroomController');
 
-    Route::resource('/classroom/{classroom}/user/{user}/invite', 'Classroom\ClassroomInviteController', [
+    Route::resource('/classroom/{classroom}/user/{user}/invite', 'Teacher\Classroom\ClassroomInviteController', [
         'names' => [
             'store' => 'classroomInvite.store',
             'create' => 'classroomInvite.create',
@@ -90,5 +90,5 @@ Route::prefix('teacher')->group(function () {
 
 
 // Redefinition of some routes (Elkin)
-Route::get('/course/{course}', 'CourseController@show')->name('course.show');
+Route::get('/course/{course}', 'Teacher\Course\CourseController@show')->name('course.show');
 //Route::put('/classroom/{classroom}', 'ClassroomController@update')->name('classroom.update');
