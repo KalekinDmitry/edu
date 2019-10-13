@@ -25,21 +25,21 @@ Route::prefix('user')->group(function () {
     Route::get('/register', 'Auth\User\RegisterController@showRegisterForm')->name('user.showRegisterForm');
     Route::post('register', 'Auth\User\RegisterController@register')->name('user.registerRequest');
 
-    Route::get('/login', 'Auth\User\LoginController@showLoginForm')->name('user.showLoginForm');
-    Route::post('/login', 'Auth\User\LoginController@login')->name('user.loginRequest');
+    Route::get('/login', 'Student\Auth\LoginController@showLoginForm')->name('user.showLoginForm');
+    Route::post('/login', 'Student\Auth\LoginController@login')->name('user.loginRequest');
 
     Route::get('/myaccount', 'Student\UserController@edit')->name('user_settings');
     Route::put('/myaccount/save', 'Student\UserController@update')->name('user_settings_save');
 
     Route::get('/', 'Student\UserController@index')->name('user.dashboard');
 
-    Route::get('logout', 'Auth\User\LoginController@logout')->name('user.logout');
+    Route::get('logout', 'Student\Auth\LoginController@logout')->name('user.logout');
 });
 
 // Admins
 Route::prefix('admin')->group(function () {
-    Route::get('/login', 'Auth\Admin\LoginController@showLoginForm')->name('admin.showLoginForm');
-    Route::post('/login', 'Auth\Admin\LoginController@login')->name('admin.loginRequest');
+    Route::get('/login', 'Admin\Auth\LoginController@showLoginForm')->name('admin.showLoginForm');
+    Route::post('/login', 'Admin\Auth\LoginController@login')->name('admin.loginRequest');
     Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
     Route::get('/profile/{id}', 'Admin\AdminController@show')->name('admin_profile');
     Route::get('/profile/edit', 'Admin\AdminController@edit')->name('admin_profile_settings');
@@ -47,7 +47,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/tables/teachers', 'Admin\AdminController@showTeachersList')->name('teachers.list');
     Route::get('/tables/admins', 'Admin\AdminController@showAdminsList')->name('admins.list');
 
-    Route::get('/logout', 'Auth\Admin\LoginController@logout')->name('admin.logout');
+    Route::get('/logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
 });
 
 // Teachers
@@ -55,8 +55,8 @@ Route::prefix('teacher')->group(function () {
     Route::get('/register', 'Auth\Teacher\RegisterController@showRegisterForm')->name('teacher.showRegisterForm');
     Route::post('register', 'Auth\Teacher\RegisterController@register')->name('teacher.registerRequest');
 
-    Route::get('/login', 'Auth\Teacher\LoginController@showLoginForm')->name('teacher.showLoginForm');
-    Route::post('/login', 'Auth\Teacher\LoginController@login')->name('teacher.loginRequest');
+    Route::get('/login', 'Teacher\Auth\LoginController@showLoginForm')->name('teacher.showLoginForm');
+    Route::post('/login', 'Teacher\Auth\LoginController@login')->name('teacher.loginRequest');
 
     Route::get('/', 'Teacher\TeacherController@index')->name('teacher.dashboard');
 
@@ -85,7 +85,7 @@ Route::prefix('teacher')->group(function () {
         ]
     ]);
 
-    Route::get('/logout', 'Auth\Teacher\LoginController@logout')->name('teacher.logout');
+    Route::get('/logout', 'Teacher\Auth\LoginController@logout')->name('teacher.logout');
 });
 
 

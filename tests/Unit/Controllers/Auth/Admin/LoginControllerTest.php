@@ -6,7 +6,7 @@
  * Time: 22:52
  */
 
-use App\Http\Controllers\Auth\Admin\LoginController;
+use App\Http\Controllers\Admin\Auth\LoginController;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;
