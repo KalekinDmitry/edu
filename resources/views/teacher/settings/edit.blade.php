@@ -32,7 +32,7 @@
     <link href="{{ asset('css/admin/jquery-ui-1.10.4.min.css') }}" rel="stylesheet">
 
     <!-- bootstrap theme -->
-    {{--    <link href="{{ asset('css/admin/bootstrap-theme.css') }}" rel="stylesheet">--}}
+    <link href="{{ asset('css/admin/bootstrap-theme.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -41,8 +41,8 @@
         <div class="container" style="padding-top: 200px;">
             <div class="row">
                 <section class="wrapper">
-                    @include('custom.user.settings.settings_components.owninformation')
-                    @include('custom.user.settings.settings_components.addpanel')
+                    @include('teacher.settings.settings_components.owninformation')
+                    @include('teacher.settings.settings_components.addpanel')
                 </section>
             </div>
         </div>
@@ -66,6 +66,7 @@
     <script src="{{ asset('js/admin/jquery.easy-pie-chart.js') }}"></script>
     <script src="{{ asset('js/admin/owl.carousel.js') }}"></script>
     <!-- jQuery full calendar -->
+    <
     <script src="{{ asset('js/admin/fullcalendar.min.js') }}"></script>
     <!-- Full Google Calendar - Calendar -->
     <script src="{{ asset('js/admin/fullcalendar2.js') }}"></script>
@@ -75,6 +76,4 @@
     <!-- custom select -->
     <script src="{{ asset('js/admin/jquery.customSelect.min.js') }}"></script>
     <script src="{{ asset('js/admin/Chart2.js') }}"></script>
-
-    <script>$("select[name='sex']").val({{$user->sex}}).change();</script>
 @endsection

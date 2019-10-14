@@ -30,7 +30,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return view('custom.admin.dashboard');
+        return view('admin.dashboard');
     }
 
     public function show(Request $request)
@@ -45,7 +45,7 @@ class AdminController extends Controller
 
         //dd(__METHOD__, $user, $request);
 
-        return view('custom.admin.profile', [
+        return view('admin.profile', [
             'user' => $user,
         ]);
 
@@ -53,21 +53,21 @@ class AdminController extends Controller
 
     public function showUsersList()
     {
-        return view('custom.admin.users_list', [
+        return view('admin.users_list', [
             'users' => User::paginate(10)
         ]);
     }
 
     public function showTeachersList()
     {
-        return view('custom.admin.users_list', [
+        return view('admin.users_list', [
             'users' => Teacher::paginate(10)
         ]);
     }
 
     public function showAdminsList()
     {
-        return view('custom.admin.users_list', [
+        return view('admin.users_list', [
             'users' => Admin::paginate(10)
         ]);
     }

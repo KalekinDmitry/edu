@@ -42,8 +42,8 @@
     <div class="loader"></div>
 </div>
 
-@include('custom.admin.includes.header')
-@include('custom.admin.includes.sidebar')
+@include('admin.includes.header')
+@include('admin.includes.sidebar')
 
 <main class="py-0">
     @yield('content')

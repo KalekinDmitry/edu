@@ -31,13 +31,13 @@ class TeacherController extends Controller
     {
         $classrooms = Classroom::where('teacher_id', Auth::user()->id)->get();
         $courses = Course::where('created_by', Auth::user()->id)->get();
-        return view('custom.teacher.dashboard', ['classrooms' => $classrooms, 'courses' => $courses]);
+        return view('teacher.dashboard', ['classrooms' => $classrooms, 'courses' => $courses]);
     }
 
     public function edit()
     {
         $teacher = Teacher::where('id', Auth::user()->id)->first();
-        return view('custom.teacher.settings.edit', [
+        return view('teacher.settings.edit', [
             'teacher' => $teacher,
         ]);
     }

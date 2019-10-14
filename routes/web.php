@@ -22,8 +22,8 @@ Route::get('setlocale/{locale}', 'LocaleController@setLocale')->name('setLocale'
 
 // Users
 Route::prefix('user')->group(function () {
-    Route::get('/register', 'Auth\User\RegisterController@showRegisterForm')->name('user.showRegisterForm');
-    Route::post('register', 'Auth\User\RegisterController@register')->name('user.registerRequest');
+    Route::get('/register', 'Student\Auth\RegisterController@showRegisterForm')->name('user.showRegisterForm');
+    Route::post('register', 'Student\Auth\RegisterController@register')->name('user.registerRequest');
 
     Route::get('/login', 'Student\Auth\LoginController@showLoginForm')->name('user.showLoginForm');
     Route::post('/login', 'Student\Auth\LoginController@login')->name('user.loginRequest');
@@ -52,8 +52,8 @@ Route::prefix('admin')->group(function () {
 
 // Teachers
 Route::prefix('teacher')->group(function () {
-    Route::get('/register', 'Auth\Teacher\RegisterController@showRegisterForm')->name('teacher.showRegisterForm');
-    Route::post('register', 'Auth\Teacher\RegisterController@register')->name('teacher.registerRequest');
+    Route::get('/register', 'Teacher\Auth\RegisterController@showRegisterForm')->name('teacher.showRegisterForm');
+    Route::post('register', 'Teacher\Auth\RegisterController@register')->name('teacher.registerRequest');
 
     Route::get('/login', 'Teacher\Auth\LoginController@showLoginForm')->name('teacher.showLoginForm');
     Route::post('/login', 'Teacher\Auth\LoginController@login')->name('teacher.loginRequest');

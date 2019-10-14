@@ -22,13 +22,13 @@ class UserController extends Controller
 
         $invites = ClassroomInvite::where('user_id', $user->id)->get();
 
-        return view('custom.user.dashboard',['invites' => $invites]);
+        return view('student.dashboard',['invites' => $invites]);
     }
 
     public function edit()
     {
         $user = User::where('id', Auth::user()->id)->first();
-        return view('custom.user.settings.edit', [
+        return view('student.settings.edit', [
             'user' => $user,
         ]);
     }

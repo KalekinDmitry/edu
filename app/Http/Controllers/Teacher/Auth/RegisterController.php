@@ -47,7 +47,7 @@ class RegisterController extends Controller
 
     public function showRegisterForm()
     {
-        return view('auth.teacher-register');
+        return view('teacher.auth.teacher-register');
     }
 
     /**

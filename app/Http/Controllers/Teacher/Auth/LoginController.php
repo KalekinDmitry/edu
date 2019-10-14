@@ -16,7 +16,7 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-        return view('auth.teacher-login');
+        return view('teacher.auth.teacher-login');
     }
 
     //TODO: tests for "if"
