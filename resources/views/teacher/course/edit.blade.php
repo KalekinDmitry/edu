@@ -77,7 +77,7 @@
                                         {{ csrf_field() }}
 
                                         {{-- Form include --}}
-                                        @include('course.partials.form')
+                                        @include('teacher.course.partials.form')
 
                                         <div class="form-group" style="margin-left:0;">
                                             <label for="">@lang('content.chcovifch')</label><br>

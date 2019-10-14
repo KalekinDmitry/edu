@@ -37,7 +37,7 @@ class ClassroomInviteController extends Controller
     public function create(Classroom $classroom, User $user)
     {
 
-        return  view('classroom.invite.create', ['classroom' => $classroom, 'user' => $user] );
+        return  view('teacher.classroom.invite.create', ['classroom' => $classroom, 'user' => $user] );
 
     }
 
@@ -109,6 +109,6 @@ class ClassroomInviteController extends Controller
 
         $invite->delete();
         return redirect()->route('user.dashboard');
-
+        //TODO: возможно необходимо перенести эту функцию в классрум контроллер студента
     }
 }

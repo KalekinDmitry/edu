@@ -35,7 +35,7 @@ class TextBlockController extends Controller
     {
         $teacher = Auth::user();
         if($teacher->can('create', [TextBlock::class, $lesson])){
-            return view('lesson.TextBlock.create', ['lesson' => $lesson]);
+            return view('teacher.lesson.textblock.create', ['lesson' => $lesson]);
         }else {
             return redirect()
             ->route('lesson.edit', [$lesson->module_id, $lesson->id])
@@ -79,7 +79,7 @@ class TextBlockController extends Controller
      */
     public function show(Lesson $lesson, TextBlock $textBlock)
     {
-        return view('lesson.TextBlock.show', ['textBlock' => $textBlock, 'lesson' => $lesson]);
+        return view('teacher.lesson.textblock.show', ['textBlock' => $textBlock, 'lesson' => $lesson]);
     }
 
     /**
@@ -94,7 +94,7 @@ class TextBlockController extends Controller
         //dd($lesson, $course, $teacher);
         //dd($textBlock, $teacher);
         if($teacher->can('edit', [$textBlock])){
-            return view('lesson.TextBlock.edit', ['textBlock' => $textBlock, 'lesson' => $lesson]);
+            return view('teacher.lesson.textblock.edit', ['textBlock' => $textBlock, 'lesson' => $lesson]);
         }else return redirect()
         ->route('lesson.edit', [$lesson->module_id, $lesson->id])
         ->with(['message' => 'permission denied']);

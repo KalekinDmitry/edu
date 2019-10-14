@@ -36,7 +36,7 @@ class TaskBlockController extends Controller
         $teacher = Auth::user();
         //dd($lesson, $teacher);
         if($teacher->can('create', [TaskBlock::class, $lesson])){
-            return view('lesson.TaskBlock.create', ['lesson' => $lesson]);
+            return view('teacher.lesson.taskblock.create', ['lesson' => $lesson]);
         }else {
             return redirect()
             ->route('lesson.edit', [$lesson->module_id, $lesson->id])
@@ -82,7 +82,7 @@ class TaskBlockController extends Controller
     {
         $simpleQuestions = SimpleQuestion::where('task_block_id', $taskBlock->id)->get();
         $testQuestions = TestQuestion::where('task_block_id', $taskBlock->id)->get();
-        return view('lesson.TaskBlock.show', ['taskBlock' => $taskBlock,
+        return view('teacher.lesson.taskblock.show', ['taskBlock' => $taskBlock,
                 'lesson' => $lesson,
                 'simpleQuestions' => $simpleQuestions,
                 'testQuestions' => $testQuestions,
@@ -105,7 +105,7 @@ class TaskBlockController extends Controller
             $simpleQuestions = SimpleQuestion::where('task_block_id', $taskBlock->id)->get();
             $testQuestions = TestQuestion::where('task_block_id', $taskBlock->id)->get();
 
-            return view('lesson.TaskBlock.edit', [
+            return view('teacher.lesson.taskblock.edit', [
                 'taskBlock' => $taskBlock,
                 'lesson' => $lesson,
                 'simpleQuestions' => $simpleQuestions,

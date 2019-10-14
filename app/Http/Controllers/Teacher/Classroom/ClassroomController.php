@@ -41,7 +41,7 @@ class ClassroomController extends Controller
 
         $notIncludedCourses = Course::where('created_by', Auth::user()->id)->get();
 
-        return view('classroom.create', [
+        return view('teacher.classroom.create', [
             'users' => $notIncludedUsers,
             'courses' => $notIncludedCourses,
         ]);
@@ -83,7 +83,7 @@ class ClassroomController extends Controller
     {
         $usersList = $classroom->users()->get();
         $coursesList = $classroom->courses()->get();
-        return view('classroom.show', ['classroom' => $classroom, 'users' => $usersList, 'courses' => $coursesList]);
+        return view('teacher.classroom.show', ['classroom' => $classroom, 'users' => $usersList, 'courses' => $coursesList]);
     }
 
     /**
@@ -121,7 +121,7 @@ class ClassroomController extends Controller
 
             //dd($invitedUsers);
 
-            return view('classroom.edit', [
+            return view('teacher.classroom.edit', [
                 'classroom' => $classroom,
                 'includedUsers' => $includedUsers,
                 'notIncludedUsers' => $notIncludedUsers,
@@ -176,7 +176,7 @@ class ClassroomController extends Controller
         $classroom->save();
         return redirect()->back();
         /// }else{
-        //return redirect()->route('classroom.show', $classroom)->with(['message'=>'Permission denied']);
+        //return redirect()->route('teacher.classroom.show', $classroom)->with(['message'=>'Permission denied']);
         //}
     }
 

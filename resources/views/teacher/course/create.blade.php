@@ -18,7 +18,7 @@
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
                         {{-- Form include --}}
-                        @include('course.partials.form')
+                        @include('teacher.course.partials.form')
                         <label for="">@lang('content.choosecrscover')</label><br>
 
                         <input type="file" name="image" style="margin-bottom: 15px;">

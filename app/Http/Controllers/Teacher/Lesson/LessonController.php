@@ -40,7 +40,7 @@ class LessonController extends Controller
     {
         $teacher = Auth::user();
         if($teacher->can('create', [Lesson::class, $module])){
-            return view('lesson.create', ['module' => $module]);
+            return view('teacher.lesson.create', ['module' => $module]);
         }else {
             return redirect()
             ->route('course.show', $module->course_id)
@@ -90,7 +90,7 @@ class LessonController extends Controller
     public function show(Module $module,$lesson)
     {
         $lesson = Lesson::query()->find($lesson);
-        return view('lesson.show', ['lesson' => $lesson, 'module' => $module]);
+        return view('teacher.lesson.show', ['lesson' => $lesson, 'module' => $module]);
     }
 
     /**
@@ -110,7 +110,7 @@ class LessonController extends Controller
             $steps->videoBlocks = VideoBlock::where('lesson_id', $lesson->id)->get();
             $steps->taskBlocks = TaskBlock::where('lesson_id', $lesson->id)->get();
 
-            return view('lesson.edit', ['lesson' => $lesson, 'module' => $module, 'steps' => $steps]);
+            return view('teacher.lesson.edit', ['lesson' => $lesson, 'module' => $module, 'steps' => $steps]);
         }else return redirect()
         ->route('course.edit', $module->id)
         ->with(['message' => 'permission denied']);

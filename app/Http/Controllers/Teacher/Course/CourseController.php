@@ -35,7 +35,7 @@ class CourseController extends Controller
      */
     public function create()
     {
-        return view('course.create', [
+        return view('teacher.course.create', [
             'course' => [],
             'delimiter' => ''
         ]);
@@ -77,7 +77,7 @@ class CourseController extends Controller
             $module->lessons = Lesson::where('module_id', $module->id)->get();
         }
         //dd($lessons);
-        return view('course.show', [
+        return view('teacher.course.show', [
             'course' => $course,
             'modules' => $modules
         ]);
@@ -99,7 +99,7 @@ class CourseController extends Controller
             {
                 $module->lessons = Lesson::where('module_id', $module->id)->get();
             }
-            return view('course.edit', [
+            return view('teacher.course.edit', [
                 'course' => $course,
                 'modules' => $modules,
                 'delimiter' => ''

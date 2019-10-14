@@ -34,7 +34,7 @@ class VideoBlockController extends Controller
     {
         $teacher = Auth::user();
         if($teacher->can('create', [VideoBlock::class, $lesson])){
-            return view('lesson.VideoBlock.create', ['lesson' => $lesson]);
+            return view('teacher.lesson.videoblock.create', ['lesson' => $lesson]);
         }else {
             return redirect()
             ->route('lesson.edit', [$lesson->module_id, $lesson->id])
@@ -78,7 +78,7 @@ class VideoBlockController extends Controller
      */
     public function show(Lesson $lesson, VideoBlock $videoBlock)
     {
-        return view('lesson.VideoBlock.show', ['videoBlock' => $videoBlock, 'lesson' => $lesson]);
+        return view('teacher.lesson.videoblock.show', ['videoBlock' => $videoBlock, 'lesson' => $lesson]);
     }
 
     /**
@@ -92,7 +92,7 @@ class VideoBlockController extends Controller
         $teacher = Auth::user();
         //dd($lesson, $course, $teacher);
         if($teacher->can('edit', [$videoBlock])){
-            return view('lesson.VideoBlock.edit', ['videoBlock' => $videoBlock, 'lesson' => $lesson]);
+            return view('teacher.lesson.videoblock.edit', ['videoBlock' => $videoBlock, 'lesson' => $lesson]);
         }else return redirect()
         ->route('lesson.edit', [$lesson->module_id, $lesson->id])
         ->with(['message' => 'permission denied']);
@@ -115,14 +115,16 @@ class VideoBlockController extends Controller
         }
         else return redirect()
         ->route('lesson.edit', [$lesson->module_id, $lesson->id])
-        ->with(['message'=>'permission enied']);
+        ->with(['message'=>'permission denied']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param Lesson $lesson
+     * @param VideoBlock $videoBlock
      * @return \Illuminate\Http\Response
+     * @throws \Exception
      */
     public function destroy(Lesson $lesson, VideoBlock $videoBlock)
     {
