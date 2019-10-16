@@ -32,7 +32,7 @@ class SimpleQuestionController extends Controller
     public function create(TaskBlock $taskBlock)
     {
         //
-        return view('lesson.TaskBlock.SimpleQuestion.create', ['taskBlock' => $taskBlock]);
+        return view('teacher.lesson.taskblock.simple_question.create', ['taskBlock' => $taskBlock]);
     }
 
     /**
@@ -60,7 +60,7 @@ class SimpleQuestionController extends Controller
      */
     public function show(TaskBlock $taskBlock, SimpleQuestion $simpleQuestion)
     {
-        return view('lesson.TaskBlock.SimpleQuestion.show',[
+        return view('teacher.lesson.taskblock.simple_question.show',[
             'taskBlock' => $taskBlock,
             'simpleQuestion' =>$simpleQuestion,
             ]);
@@ -76,7 +76,7 @@ class SimpleQuestionController extends Controller
     public function edit(TaskBlock $taskBlock, SimpleQuestion $simpleQuestion)
     {
         //
-        return view('lesson.TaskBlock.SimpleQuestion.edit', [
+        return view('teacher.lesson.taskblock.simple_question.edit', [
             'taskBlock' =>$taskBlock,
             'simpleQuestion' => $simpleQuestion,
         ]);

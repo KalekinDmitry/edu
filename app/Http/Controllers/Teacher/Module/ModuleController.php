@@ -39,7 +39,7 @@ class ModuleController extends Controller
 
         if($teacher->can('create', [Module::class, $course]))
         {
-            return view('module.create', ['course' => $course]);
+            return view('teacher.module.create', ['course' => $course]);
         }else{
             return redirect()
             ->route('course.show', $course->id)
@@ -84,7 +84,7 @@ class ModuleController extends Controller
 
         $lessons = Lesson::where('module_id', $module->id)->get();
 
-        return view('module.show', [
+        return view('teacher.module.show', [
             'module' => $module,
             'lessons' => $lessons
         ]);
@@ -103,7 +103,7 @@ class ModuleController extends Controller
         if($teacher->can('edit', [$module]))
         {
             $lessons = Lesson::where('module_id', $module->id)->get();
-            return view('module.edit', ['module' => $module, 'course' => $course, 'lessons' => $lessons]);
+            return view('teacher.module.edit', ['module' => $module, 'course' => $course, 'lessons' => $lessons]);
         }else{
             return redirect()
             ->route('course.show', $course->id)
