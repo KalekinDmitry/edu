@@ -18,6 +18,34 @@
                                     <!-- Header section end -->
                                     <a class="site-btn-info-sm col-md-12"
                                        href="{{ route('module.create', $course->id) }}">@lang('content.addnm')</a>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <button class="btn btn-primary">Кнопка</button>
+                                            <button class="btn btn-danger">Кнопка</button>
+                                            <button class="btn btn-light">Кнопка</button>
+                                            <button class="btn btn-light sqr">
+                                                <img src="{{ asset('assets/icons/icon_send.svg') }}" style="padding-bottom:2px" width="14px">
+                                            </button>
+                                            <button class="btn btn-primary circle">
+                                                <img src="{{ asset('assets/icons/icon_play.svg') }}" style="padding-left:6px; padding-bottom:2px" width="24px">
+                                            </button>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                <label class="custom-control-label" for="customCheck1">checkbox</label>
+                                            </div>
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitches">
+                                                <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
+                                            </div>
+                                            <div class="custom-control custom-switch-success">
+                                                <input type="checkbox" class="custom-control-input" id="customSwitches2">
+                                                <label class="custom-control-label" for="customSwitches2">Toggle this switch element</label>
+                                            </div>
+                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                        </div>
+                                    </div>
+
+
                                 </div>
                                 <br><br><br>
                                 @foreach($modules as $module)
