@@ -34,7 +34,7 @@ class VideoBlockController extends Controller
     {
         $teacher = Auth::user();
         if($teacher->can('create', [VideoBlock::class, $lesson])){
-            return view('teacher.lesson.videoblock.create', ['lesson' => $lesson]);
+            return view('teacher.lesson.video.create', ['lesson' => $lesson]);
         }else {
             return redirect()
             ->route('lesson.edit', [$lesson->module_id, $lesson->id])
@@ -78,7 +78,7 @@ class VideoBlockController extends Controller
      */
     public function show(Lesson $lesson, VideoBlock $videoBlock)
     {
-        return view('teacher.lesson.videoblock.show', ['videoBlock' => $videoBlock, 'lesson' => $lesson]);
+        return view('teacher.lesson.video.show', ['videoBlock' => $videoBlock, 'lesson' => $lesson]);
     }
 
     /**
@@ -92,7 +92,7 @@ class VideoBlockController extends Controller
         $teacher = Auth::user();
         //dd($lesson, $course, $teacher);
         if($teacher->can('edit', [$videoBlock])){
-            return view('teacher.lesson.videoblock.edit', ['videoBlock' => $videoBlock, 'lesson' => $lesson]);
+            return view('teacher.lesson.video.edit', ['videoBlock' => $videoBlock, 'lesson' => $lesson]);
         }else return redirect()
         ->route('lesson.edit', [$lesson->module_id, $lesson->id])
         ->with(['message' => 'permission denied']);

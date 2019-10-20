@@ -33,7 +33,7 @@ class TestQuestionController extends Controller
     public function create(TaskBlock $taskBlock)
     {
         //
-        return view('teacher.lesson.taskblock.test_question.create', ['taskBlock' => $taskBlock]);
+        return view('teacher.lesson.task.question.create', ['taskBlock' => $taskBlock]);
     }
 
     /**
@@ -62,7 +62,7 @@ class TestQuestionController extends Controller
         //
         $correctTestAnswers = TestAnswer::where('test_question_id', $testQuestion->id)->where('is_correct', true)->get();
         $wrongTestAnswers = TestAnswer::where('test_question_id', $testQuestion->id)->where('is_correct', false)->get();
-        return view('teacher.lesson.taskblock.test_question.show',[
+        return view('teacher.lesson.task.question.show',[
             'taskBlock' => $taskBlock,
             'testQuestion' => $testQuestion,
             'correctTestAnswers' => $correctTestAnswers,
@@ -81,7 +81,7 @@ class TestQuestionController extends Controller
         //
         $correctTestAnswers = TestAnswer::where('test_question_id', $testQuestion->id)->where('is_correct', true)->get();
         $wrongTestAnswers = TestAnswer::where('test_question_id', $testQuestion->id)->where('is_correct', false)->get();
-        return view('teacher.lesson.taskblock.test_question.edit', [
+        return view('teacher.lesson.task.question.edit', [
             'taskBlock' =>$taskBlock,
             'testQuestion' => $testQuestion,
             'correctTestAnswers' => $correctTestAnswers,
