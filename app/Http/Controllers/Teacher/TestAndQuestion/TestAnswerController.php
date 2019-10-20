@@ -33,7 +33,7 @@ class TestAnswerController extends Controller
     public function create(TestQuestion $testQuestion)
     {
         //
-        return view('teacher.lesson.taskblock.test_question.test_answer.create', ['testQuestion' => $testQuestion]);
+        return view('teacher.lesson.task.question.answer.create', ['testQuestion' => $testQuestion]);
     }
 
     /**
@@ -60,7 +60,7 @@ class TestAnswerController extends Controller
     public function show( TestQuestion $testQuestion, TestAnswer $testAnswer)
     {
         //
-        return view('teacher.lesson.taskblock.test_question.test_answer.show', ['testQuestion' => $testQuestion, 'testAnswer' => $testAnswer]);
+        return view('teacher.lesson.task.question.answer.show', ['testQuestion' => $testQuestion, 'testAnswer' => $testAnswer]);
     }
 
     /**
@@ -72,7 +72,7 @@ class TestAnswerController extends Controller
     public function edit(TestQuestion $testQuestion, TestAnswer $testAnswer)
     {
         //
-        return view('teacher.lesson.taskblock.test_question.test_answer.edit', ['testQuestion' => $testQuestion, 'testAnswer' => $testAnswer]);
+        return view('teacher.lesson.task.question.answer.edit', ['testQuestion' => $testQuestion, 'testAnswer' => $testAnswer]);
     }
 
     /**

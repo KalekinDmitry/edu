@@ -41,8 +41,8 @@
         <div class="container" style="padding-top: 200px;">
             <div class="row">
                 <section class="wrapper">
-                    @include('teacher.settings.settings_components.owninformation')
-                    @include('teacher.settings.settings_components.addpanel')
+                    @include('teacher.settings.components.owninformation')
+                    @include('teacher.settings.components.addpanel')
                 </section>
             </div>
         </div>
