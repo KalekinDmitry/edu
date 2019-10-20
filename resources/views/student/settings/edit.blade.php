@@ -6,10 +6,8 @@
         <div class="container" style="padding-top: 200px;min-height: 100vh;">
             <div class="row">
                 <section class="wrapper">
-                    {{--@include('student.settings.settings_components.owninformation')
-                    @include('student.settings.settings_components.addpanel')--}}
-
-                    <button class="btn btn-primary">BUTTON</button>
+                    @include('student.settings.settings_components.owninformation')
+                    @include('student.settings.settings_components.addpanel')
                 </section>
             </div>
         </div>
