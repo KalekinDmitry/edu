@@ -138,3 +138,8 @@
 -8 hours
 - modify bootstarap styles
 
+21-Oct 
+-6.5 hours
+- badges, buttons, alerts
+
+
