@@ -18,8 +18,8 @@
                                     <!-- Header section end -->
                                     <a class="site-btn-info-sm col-md-12"
                                        href="{{ route('module.create', $course->id) }}">@lang('content.addnm')</a>
-                                    <div class="card">
-                                        <div class="card-body">
+                                    <div class="card" style="margin:0; padding: 0">
+                                        <div class="card-body" style="margin:0;">
                                             <button class="btn btn-primary">Кнопка</button>
                                             <button class="btn btn-danger">Кнопка</button>
                                             <button class="btn btn-light">Кнопка</button>
@@ -29,6 +29,60 @@
                                             <button class="btn btn-primary circle">
                                                 <img src="{{ asset('assets/icons/icon_play.svg') }}" style="padding-left:6px; padding-bottom:2px" width="24px">
                                             </button>
+                                            <button class="btn btn-primary circle" style="height:32px; width:32px">
+                                                <img src="{{ asset('assets/icons/icon_play.svg') }}" style="padding-left:4px; padding-bottom:2px" width="16px">
+                                            </button>
+                                            <button class="btn btn-primary circle" style="height:24px; width:24px">
+                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="16px">
+                                            </button>
+                                            <button class="btn btn-danger circle" style="height:24px; width:24px">
+                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="16px">
+                                            </button>
+                                            <button class="btn btn-success circle" style="height:24px; width:24px">
+                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="16px">
+                                            </button>
+                                            <button class="btn btn-warning circle" style="height:28px; width:28px">
+                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="16px">
+                                            </button>
+                                            <button class="btn btn-primary circle" style="height:28px; width:28px">
+                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="16px">
+                                            </button>
+                                            <button class="btn btn-success circle" style="height:28px; width:28px; font-size: 0.75em">
+                                                8.6
+                                            </button>
+                                            <button class="btn btn-success circle" style="height:36px; width:36px">
+                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="22px">
+                                            </button>
+
+                                            <button class="btn btn-success circle" style="height:36px; width:36px; font-size:0.75em">
+                                                1450
+                                            </button>
+
+                                            <button class="btn btn-light circle" style="height:24px; width:24px">
+
+                                            </button>
+
+                                            <div class="alert alert-success" role="alert">
+                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="22px">
+                                                Success
+                                                <pre>Небольшое описание к уроку</pre>
+                                            </div>
+                                            <div class="alert alert-danger" role="alert">
+                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="22px">
+                                                Error
+                                                <pre>Небольшое описание к уроку</pre>
+                                            </div>
+                                            <div class="alert alert-warning" role="alert">
+                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="22px">
+                                                Warning
+                                                <pre>Небольшое описание к уроку</pre>
+                                            </div>
+                                            <div class="alert alert-primary" role="alert">
+                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="22px">
+                                                <object type="image/svg+xml" data="{{ asset('assets/icons/icon_checked.svg') }}" style="fill:green"></object>
+                                                Info
+                                                <pre>Небольшое описание к уроку</pre>
+                                            </div>
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                                                 <label class="custom-control-label" for="customCheck1">checkbox</label>
@@ -37,7 +91,7 @@
                                                 <input type="checkbox" class="custom-control-input" id="customSwitches">
                                                 <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
                                             </div>
-                                            <div class="custom-control custom-switch-success">
+                                            <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input" id="customSwitches2">
                                                 <label class="custom-control-label" for="customSwitches2">Toggle this switch element</label>
                                             </div>
@@ -47,7 +101,34 @@
                                             <span class="badge badge-light">LABEL</span>
                                             <span class="badge badge-secondary">LABEL</span>
                                             <span class="badge badge-warning">LABEL</span>
+                                            <span class="badge badge-warning" style="height:16px">Премиум</span>
+                                            <span class="badge-circ badge-warning">3</span>
+                                            <span class="badge-dot badge-warning"></span>
                                             <span class="badge badge-danger">LABEL</span>
+                                                <br><br>
+                                                <div class="progress">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <br>
+                                                <div class="progress" style="height:8px">
+                                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <br>
+                                                <div class="progress" style="height: 4px;">
+                                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <br>
+                                                <div class="progress" style="height: 2px;">
+                                                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <br>
+                                                <div class="progress" style="height:4px">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
+                                                <br>
+                                                <div class="progress" style="height:2px">
+                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                                                </div>
                                         </div>
                                     </div>
 

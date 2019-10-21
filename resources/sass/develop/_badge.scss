@@ -44,6 +44,22 @@
   @include border-radius($badge-pill-border-radius);
 }
 
+.badge-circ{
+    display: inline-block;
+    font-size: 0.6em;
+    padding-left: 0;
+    width: 16px;
+    height: 16px;
+    @include border-radius($badge-pill-border-radius);
+}
+
+.badge-dot{
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    @include border-radius($badge-pill-border-radius);
+}
+
 // Colors
 //
 // Contextual variations (linked badges get darker on :hover).

@@ -101,7 +101,7 @@ $theme-color-interval:      8% !default;
 $yiq-contrasted-threshold:  200 !default;
 
 // Customize the light and dark text colors for use in our YIQ color contrast function.
-$yiq-text-dark:             $gray-900 !default;
+$yiq-text-dark:             $gray-700 !default;
 $yiq-text-light:            $white !default;
 
 
@@ -111,7 +111,7 @@ $yiq-text-light:            $white !default;
 
 $enable-caret:                                true !default;
 $enable-rounded:                              true !default;
-$enable-shadows:                              true !default;
+$enable-shadows:                              false !default;
 $enable-gradients:                            true !default;
 $enable-transitions:                          true !default;
 $enable-prefers-reduced-motion-media-query:   true !default;
@@ -929,7 +929,7 @@ $toast-header-border-color:         rgba(0, 0, 0, .05) !default;
 $badge-height-fixed:                 20px !default;
 $badge-font-size:                   75% !default;
 $badge-font-weight:                 $font-weight-bold !default;
-$badge-padding-y:                   4px !default;
+$badge-padding-y:                   .3em !default;
 $badge-padding-x:                   .4em !default;
 $badge-border-radius:               $border-radius !default;
 
@@ -937,6 +937,7 @@ $badge-transition:                  $btn-transition !default;
 $badge-focus-width:                 $input-btn-focus-width !default;
 
 $badge-pill-padding-x:              .6em !default;
+$badge-circ-padding-x:              .3em !default;
 // Use a higher than normal value to ensure completely rounded edges when
 // customizing padding or font-size on labels.
 $badge-pill-border-radius:          10rem !default;
@@ -987,20 +988,20 @@ $modal-transition:                  transform .3s ease-out !default;
 $alert-padding-y:                   .75rem !default;
 $alert-padding-x:                   1.25rem !default;
 $alert-margin-bottom:               1rem !default;
-$alert-border-radius:               $border-radius !default;
+$alert-border-radius:               calc(#{$border-radius}*2) !default;
 $alert-link-font-weight:            $font-weight-bold !default;
 $alert-border-width:                $border-width !default;
 
-$alert-bg-level:                    -10 !default;
-$alert-border-level:                -9 !default;
-$alert-color-level:                 6 !default;
+$alert-bg-level:                    -11 !default;
+$alert-border-level:                -11 !default;
+$alert-color-level:                 0 !default;
 
 
 // Progress bars
 
 $progress-height:                   1rem !default;
 $progress-font-size:                $font-size-base * .75 !default;
-$progress-bg:                       $gray-200 !default;
+$progress-bg:                       rgba(200,200,200,0.4) !default;
 $progress-border-radius:            $border-radius !default;
 $progress-box-shadow:               inset 0 .1rem .1rem rgba($black, .1) !default;
 $progress-bar-color:                $white !default;
