@@ -42,6 +42,12 @@
                                                 <label class="custom-control-label" for="customSwitches2">Toggle this switch element</label>
                                             </div>
                                             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+
+                                            <span class="badge badge-success">LABEL</span>
+                                            <span class="badge badge-light">LABEL</span>
+                                            <span class="badge badge-secondary">LABEL</span>
+                                            <span class="badge badge-warning">LABEL</span>
+                                            <span class="badge badge-danger">LABEL</span>
                                         </div>
                                     </div>
 
