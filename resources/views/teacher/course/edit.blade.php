@@ -17,7 +17,90 @@
                                 <div class="col-md-12">
                                     <!-- Header section end -->
                                     <a class="site-btn-info-sm col-md-12"
-                                       href="{{ route('module.create', $course->id) }}">@lang('content.addnm')</a>
+                                       href="{{ route('module.create', $course->id) }}">@lang('content.addnm')
+                                    </a>
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#successModal">
+                                        show modal
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content bg-success">
+                                                <div class="modal-body">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <img  src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="24px">
+                                                    </button>
+                                                    <div class="modal-title">Сообщение об успехе </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#dangerModal">
+                                        show modal
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="dangerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content bg-danger">
+                                                <div class="modal-body">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <img  src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="24px">
+                                                    </button>
+                                                    <div class="modal-title">Сообщение об ошибке </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#warningModal">
+                                        show modal
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="warningModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="false">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content bg-warning">
+                                                <div class="modal-body">
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <img  src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="24px">
+                                                    </button>
+                                                    <div class="modal-title">Сообщение-предупреждение</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                        show modal
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content bg-primary">
+                                                <div class="modal-body">
+                                                    <button  class="close" data-dismiss="modal" >
+                                                        <!-- <span aria-hidden="true">&times;</span> -->
+                                                        <img  src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="24px">
+                                                    </button>
+                                                   <div class="modal-title">Информационное сообщение</div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="card" style="margin:0; padding: 0">
                                         <div class="card-body" style="margin:0;">
                                             <button class="btn btn-primary">Кнопка</button>
@@ -63,24 +146,27 @@
                                             </button>
 
                                             <div class="alert alert-success" role="alert">
-                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="22px">
-                                                Success
+                                                <h5 class="alert-heading" >
+                                                    Info
+                                                </h5>
                                                 <pre>Небольшое описание к уроку</pre>
                                             </div>
                                             <div class="alert alert-danger" role="alert">
-                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="22px">
-                                                Error
+                                                <h5 class="alert-heading" >
+                                                    Info
+                                                </h5>
                                                 <pre>Небольшое описание к уроку</pre>
                                             </div>
                                             <div class="alert alert-warning" role="alert">
-                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="22px">
-                                                Warning
+                                                <h5 class="alert-heading" >
+                                                    Info
+                                                </h5>
                                                 <pre>Небольшое описание к уроку</pre>
                                             </div>
                                             <div class="alert alert-primary" role="alert">
-                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="22px">
-                                                <object type="image/svg+xml" data="{{ asset('assets/icons/icon_checked.svg') }}" style="fill:green"></object>
-                                                Info
+                                                <h5 class="alert-heading" >
+                                                    Info
+                                                </h5>
                                                 <pre>Небольшое описание к уроку</pre>
                                             </div>
                                             <div class="custom-control custom-checkbox">
