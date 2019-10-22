@@ -8,7 +8,7 @@
   vertical-align: middle;
   user-select: none;
   background-color: transparent;
-  border: $btn-border-width solid transparent;
+  border: $btn-border-width solid;
   @include button-size($btn-padding-y, $btn-fixed-padding-x, $btn-font-size, $btn-line-height, $btn-border-radius);
   @include transition($btn-transition);
   height: $input-btn-fixed-height;
