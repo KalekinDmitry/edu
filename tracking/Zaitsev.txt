@@ -146,5 +146,9 @@
 -3 hours
 - modals, circle buttons, alert
 
+23-Oct
+-14 hours
+-[FRONT]sidebar, messages(invites), profile fix, make it all wark together, merge
+
 
 
