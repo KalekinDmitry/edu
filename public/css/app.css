@@ -391,38 +391,40 @@ h6,
 .h5,
 .h6 {
   margin-bottom: 0.5rem;
-  font-weight: 500;
+  font-family: Avenir Next Cyr;
+  font-weight: normal;
   line-height: 1.2;
+  color: #000000;
 }
 
 h1,
 .h1 {
-  font-size: 2.5rem;
+  font-size: 2rem;
 }
 
 h2,
 .h2 {
-  font-size: 2rem;
+  font-size: 1.25rem;
 }
 
 h3,
 .h3 {
-  font-size: 1.75rem;
+  font-size: 1.125rem;
 }
 
 h4,
 .h4 {
-  font-size: 1.5rem;
+  font-size: 1rem;
 }
 
 h5,
 .h5 {
-  font-size: 1.25rem;
+  font-size: 0.875rem;
 }
 
 h6,
 .h6 {
-  font-size: 1rem;
+  font-size: 0.8125rem;
 }
 
 .lead {
@@ -5818,6 +5820,7 @@ a.close.disabled {
   padding: 0.5rem 0.75rem;
   margin-bottom: 0;
   font-size: 1rem;
+  color: #000000;
   background-color: #f7f7f7;
   border-bottom: 1px solid #ebebeb;
   border-top-left-radius: calc(0.3rem - 1px);
