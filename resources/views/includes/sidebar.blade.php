@@ -1,5 +1,6 @@
 <div class="vertical-nav bg-dark" id="sidebar">
   <div class="py-4 px-3   pb-0 mb-0 bg-dark">
+  <button class="btn btn-primary" data-toggle="collapse" data-target="#navbarProfile"  style="padding-left: 0; margin-left: 8px; width: 184px">
     <div class="media d-flex align-items-center">
       <img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="24" class="mr-3 rounded-circle ">
       <div class="media-body p-0 m-0">
@@ -8,6 +9,7 @@
       </div>
       <img src="{{ asset('assets/icons/icon_threedots.svg') }}" style="opacity: 0.3" class="pb-1" width="4px">
     </div>
+  </button>
   </div>
 
   <hr class="pt-0 mt-0" style="background-color:white; opacity: 0.1">
@@ -25,11 +27,12 @@
     </li>
 
     <li class="nav-item  m-1 ml-2">
-        <a href="#" class="nav-link text-white font-weight-normal " style="opacity: 0.7; font-size:13px; line-height: 13px">
-            <img src="{{ asset('assets/icons/icon_courses.svg') }}" class="pb-1" width="16px">
-            <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-            Курсы
-        </a>
+    <a href="#" class="nav-link text-white font-weight-normal " style="opacity: 0.7; font-size:13px; line-height: 13px">
+                  <img src="{{ asset('assets/icons/icon_courses.svg') }}" class="pb-1" width="16px">
+                  <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                  Курсы
+    </a>
+       
     </li>
 
     <li class="nav-item  m-1 ml-2">
@@ -119,7 +122,7 @@
                 <div class="row" style="height:56px">
 
                     <p class="text-dark font-weight-bold pl-5 pt-3">
-                        <img class="mr-2 pb-1" style="opacity: 0.7" src="{{ asset('assets/icons/icon_menu.svg') }}" width="16px">
+                        <img class="mr-2 pb-1" style="opacity: 0.7" src="{{ asset('assets/icons/icon-triangleleftsm.svg') }}" width="16px">
                         Сообщения
                     </p>
                 </div>
@@ -228,6 +231,387 @@
 
 
 
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    <div class="collapse" id="navbarProfile">
+     
+            <div class="card col-md-12" style="border-radius:0">
+                <div class="row pb-6" style="height:56px">
+
+                    <p class="text-dark font-weight-bold pl-5 pt-3">
+                        <img class="mr-2" style="opacity: 0.7" src="{{ asset('assets/icons/icon-triangleleftsm.svg') }}" width="16px">
+                        Профиль
+                    </p>
+                </div>
+
+                
+                   <div class="container col-md-12">
+                        <div class="card mr-6" style="padding: 0; border:0; border-radius:4px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
+                            <div class="card-header d-flex text-dark pb-1 pt-2">
+                                
+                               
+                                <p class="text-dark font-weight-bold pl-5 pt-3" style="font-size:16px; line-height: 20px">Персональная информация</p>
+                            </div>
+                    <div class="card-body">
+                            <div class="row ml-0">
+
+                            <div class="container col-md-6 m-0">
+                            <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px">Имя</p>
+                            <input type="name" class="form-control text-dark" placeholder="Jason">
+                            <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px; margin-top: 20px">Фамилия</p>
+                            <input type="name" class="form-control" placeholder="Doe">
+                            <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px; margin-top: 20px">Пол</p>
+                            <input type="name" class="form-control" placeholder="Мужской">
+                            <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px; margin-top: 20px">Ваша временная зона (таймзона)</p>
+                            <input type="name" class="form-control" placeholder="Европа/Москва">
+                            <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px; margin-top: 20px">Email</p>
+                            <input type="name" class="form-control" placeholder="user@mail.com">
+                            </div>
+
+                            <div class="container col-md-6 m-0" style="text-align: right">
+                            <img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="160" class="mr-3 rounded-circle ">
+                            </div>
+
+                            </div>
+                     </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="container col-md-12">
+                        <div class="card mr-6" style="margin-top: 24px; padding: 0; border:0; border-radius:4px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
+                            <div class="card-header d-flex text-dark pb-1 pt-2">
+                                
+                               
+                                <p class="text-dark font-weight-bold pl-5 pt-3" style="font-size:16px; line-height: 20px">Опасная зона</p>
+                            </div>
+                    <div class="card-body">
+                            <div class="row ml-0">
+
+                            <div class="container col-md-4 m-0">
+                            <button class="btn btn-danger">Удалить аккаунт из системы</button>
+                            </div>
+
+                            <div class="container col-md-6 m-0">
+                            <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px">При удаление аккаунта пропадет весь ваш прогресс и активность,
+а также вы потеряете доступ к системе</p>
+                            </div>
+
+                            </div>
+                     </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+            
+     
     </div>
   <!-- Demo content -->
   {{-- <h2 class="display-4 text-white">Bootstrap vertical nav</h2>
