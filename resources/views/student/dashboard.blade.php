@@ -9,6 +9,14 @@
                     <div class="text-white">
                         <h3> @lang('content.invs') </h3>
                     </div>
+                    <div class="card" style="margin:0; padding: 0">
+                        <p class="h1">Heading 1</p>
+                        <p class="h2">Heading 2</p>
+                        <p class="h3">Heading 3</p>
+                        <p class="h4">Heading 4</p>
+                        <p class="h5">Paragraph 1</p>
+                        <p class="h6">Paragraph 2</p>                     
+                    </div>
                     @foreach($invites as $invite)
                         <div class="card" style="border: 0; padding: 0;">
                             <div class="card-header text-white "
