@@ -1731,7 +1731,7 @@ ol {
 }
 
 .contact-form {
-	/*padding-top: 70px;*/
+	padding-top: 70px;
 }
 
 .contact-form input,
@@ -1804,7 +1804,7 @@ ol {
 		width: calc(13.7% - 18px);
 	}
 	.user-panel {
-		/*margin-left: 80px;*/
+		margin-left: 80px;
 	}
 }
 
@@ -1812,8 +1812,8 @@ ol {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	.site-logo {
-		/*position: relative;
-		top: 40px;*/
+		position: relative;
+		top: 40px;
 	}
 	.multi-search-form input:nth-child(1) {
 		width: calc(29% - 18px);
@@ -1885,7 +1885,7 @@ ol {
 		overflow: visible;
 	}
 	.user-panel {
-		/*margin-left: 20px;*/
+		margin-left: 20px;
 	}
 	.nav-switch {
 		position: absolute;
@@ -2113,3 +2113,31 @@ section.lesson-section{
 	display: flex;
 	flex-wrap: wrap;
 }
+
+
+
+
+
+
+
+
+
+
+
+.vertical-nav {
+    min-width: 216px;
+    width: 216px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+  }
+
+
+  .page-content {
+    width: calc(100% - 216px);
+    margin-left: 216px;
+    transition: all 0.4s;
+  }

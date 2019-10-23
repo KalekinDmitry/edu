@@ -43,7 +43,8 @@
     <div class="loader"></div>
 </div>
 
-@include('includes.header')
+{{-- @include('includes.header') --}}
+@include('includes.sidebar')
 
 @yield('content')
 

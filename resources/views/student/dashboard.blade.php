@@ -2,8 +2,8 @@
 
 @section('content')
     <section class="invites-section set-bg fixed" style="height: 800px;"
-             data-setbg="{{config('static.static')}}/img/bg.jpg">
-        <div class="container" style="padding-top: 300px;">
+             data-setbg="#">
+        {{-- <div class="container" style="padding-top: 300px;">
             <div class="row justify-content-center">
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 col-xl-6">
                     <div class="text-white">
@@ -44,6 +44,6 @@
                     @endforeach
                 </div>
             </div>
-        </div>
+        </div> --}}
     </section>
 @endsection
