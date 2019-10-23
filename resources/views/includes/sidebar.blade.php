@@ -537,7 +537,7 @@
 
 
 
-    
+
 
 
 
@@ -578,6 +578,14 @@
 
                             <div class="container col-md-6 m-0" style="text-align: right">
                             <img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="160" class="mr-3 rounded-circle ">
+                            <div class="card row justify-content-end" style="width: 16rem; text-align: right">
+                                <ul class="list-group list-group-flush">
+                                <li class="list-group-item text-dark">Загрузить изображение</li>
+                                <li class="list-group-item text-dark">Фотография из Facebook</li>
+                                <li class="list-group-item text-dark">Gravatar</li>
+                                <li class="list-group-item text-dark">Удалить изображение</li>
+                                </ul>
+                            </div>
                             </div>
 
                             </div>
