@@ -46,7 +46,14 @@
 {{-- @include('includes.header') --}}
 @include('includes.sidebar')
 
-@yield('content')
+@if(!Request::is('user/login') && !Request::is('teacher/login'))
+    <div class="page-content" id="content">
+        @yield('content')
+    </div>
+@else
+    @yield('content')
+@endif
+
 
 @include('includes.footer')
 
