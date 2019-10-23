@@ -181,7 +181,7 @@
                                             method="post"
                                             enctype="multipart/form-data" style="margin-right: 5px;">
                                         <input type="hidden" name="_method" value="put">
-                                        <input type="hidden" name="newIncludedUsers[]" value="{{ Auth::user()->id }}">
+                                        <input type="hidden" name="newIncludedUsers[]" value="#">
                                         {{ csrf_field() }}
                                         <button class="btn btn-primary" type="submit"
                                                 value="update">@lang('content.flw')
