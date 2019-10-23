@@ -166,7 +166,7 @@
                 </div>
 
                 <div class="row mt-4 ml-4 mr-5">
-                    @foreach($invites as $invite)
+                    {{-- @foreach($invites as $invite) --}}
                         <div class="card col-md-9" style="padding: 0; border:0; border-radius:4px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
                             <div class="card-header d-flex text-white pb-1 pt-2"
                                     style="background: #185dd0; background: -webkit-gradient(linear, left top, right top, from(#185dd0), to(#7076fc)); background: linear-gradient(to right, #185dd0 0%, #7076fc 100%);">
@@ -175,9 +175,9 @@
                                 <p class="m-0 p-0 mt-2 font-weight-bold text-white" style="font-size:16px; line-height: 20px">Jason Doe</p>
                             </div>
                             <div class="card-body">
-                                <p class="text-dark" >{{ $invite->message_text }}</p>
+                                <p class="text-dark" >Здравствуйте! Я хотле бы вам предложить пройти курс по веб-рзаработке</p>
                                 <div class="d-flex flex-wrap">
-                                    <form action="{{ route('classroom.update', [$invite->classroom_id]) }}"
+                                    <form action="#"
                                             method="post"
                                             enctype="multipart/form-data" style="margin-right: 5px;">
                                         <input type="hidden" name="_method" value="put">
@@ -188,7 +188,7 @@
                                             <i class="fa fa-angle-right"></i></button>
                                     </form>
                                     <form onsubmit="if(confirm('Realy delete?')){return true}else{return false}"
-                                            action="{{ route('classroomInvite.destroy', ['classroom' => $invite->classroom_id, 'user' => $invite->user_id, 'invite' => $invite->id]) }}"
+                                            action="#"
                                             method="post">
                                         <input type="hidden" name="_method" value="delete">
                                         {{ csrf_field() }}
@@ -199,7 +199,7 @@
                             </div>
                         </div>
                         <br>
-                    @endforeach
+                    {{-- @endforeach --}}
                 </div>
 
                 <div class="row justify-content-end mt-4 ml-4 mr-5">
