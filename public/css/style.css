@@ -108,21 +108,15 @@ ol {
 	color: #f3e830;
 }
 
-/*.set-bg.fixed{
-	background-size: cover !important;
-	background-position: center;
+.set-bg.fixed{
 	background-attachment: fixed;
-}*/
+}
 
 .set-bg {
-	/*background-repeat: no-repeat;
-	background-size: cover;
-	background-position: top center;*/
-
 	background-repeat: no-repeat;
 	background-size: cover !important;
 	background-position: center center;
-	background-attachment: fixed;
+
 }
 
 .spad {
