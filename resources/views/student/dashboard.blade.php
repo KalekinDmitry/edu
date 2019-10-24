@@ -48,7 +48,7 @@
 
         <div  class="card col-md-7 py-0 px-0" style="border-radius:0; background-color: #FBFBFB ">
             <div class="row" style="background-color: white; padding:16px; margin: 0; box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.12)">
-                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="24" class="mr-3 rounded-circle ">
+                    <img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="24" height="24" class="mr-3 rounded-circle ">
                     <p class="m-0 p-0 font-weight-bold text-dark" style="font-size:16px; line-height: 20px">Jason Doe</p>
             </div>
 

@@ -11,7 +11,7 @@
                 <img src="{{ asset('assets/icons/icon_threedots.svg') }}" style="opacity: 0.3;" class="pb-1" width="4px">
             </a>
             <div class="dropdown-menu " style="border: 0; margin-left:-145px; margin-top: -50px" aria-labelledby="profileDropdown">
-                <a class="dropdown-item " href="{{ route('user_settings') }}">Проффиль</a>
+                <a class="dropdown-item " href="{{ route('user_settings') }}">Профиль</a>
                 <hr class="m-0 p-0">
                 <a class="dropdown-item " href="{{ route('user.logout') }}">Выйти</a>
             </div>

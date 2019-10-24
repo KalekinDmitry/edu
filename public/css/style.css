@@ -763,7 +763,7 @@ ol {
 }
 
 .hero-text {
-	padding-top: 330px;
+	padding-top: 100px;
 	/*padding-right: 50px;*/
 }
 
@@ -1270,8 +1270,8 @@ ol {
 ===============*/
 
 .page-top-section {
-	padding-top: 250px;
-	height: 434px;
+	padding-top: 100px;
+	/*height: 434px;*/
 	text-align: center;
 }
 

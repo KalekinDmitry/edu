@@ -44,9 +44,9 @@
 </div>
 
 {{-- @include('includes.header') --}}
-@include('includes.sidebar')
 
-@if(!Request::is('user/login') && !Request::is('teacher/login'))
+@if(!Request::is('user/login') && !Request::is('teacher/login')&&!Request::routeIs('home'))
+    @include('includes.sidebar')
     <div class="page-content" id="content">
         @yield('content')
     </div>
@@ -55,7 +55,7 @@
 @endif
 
 
-@include('includes.footer')
+{{--@include('includes.footer')--}}
 
 
 <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>

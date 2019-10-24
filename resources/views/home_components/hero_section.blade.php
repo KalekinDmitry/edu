@@ -1,4 +1,7 @@
 <section class="hero-section set-bg fixed" data-setbg="{{config('static.static')}}/img/bg.jpg">
+
+    @include('includes.header')
+
     <div class="container">
         <div class="row">
             <div class="col-lg-7">

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <section class="dashboard-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg">
+    <section class="dashboard-section set-bg" data-setbg="{{config('static.static')}}/img/bg.jpg" style="height: 100vh">
         <div class="container">
             <div class="d-flex-row justify-content-center">
                 <div class="col-md-12">
