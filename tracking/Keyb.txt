@@ -1,5 +1,5 @@
 The time for studying the framework, testing methods and direct work on the project is given. 
-The time spent trying to understand ìwhat is happening hereî is inappropriate and simply not fair.
+The time spent trying to understand ‚Äúwhat is happening here‚Äù is inappropriate and simply not fair.
 
 27.08.19 - 2h -|
 
@@ -44,3 +44,21 @@ The time spent trying to understand ìwhat is happening hereî is inappropriate an
 29.08.19 - 4h - The first successful simple tests
 
 30.09.19 - 4h - Finding information on how to test middleware, some more simple tests, the first real commit
+
+01.10.19 - 1h - 01-09 project structure change: controllers
+
+05.10.19 - 1h 
+
+07.10.19 - 2h
+
+09.10.19 - 1h
+
+13.10.19 - 2h - 13-20 project structure change: views
+
+14.10.19 - 2h
+
+16.10.19 - 2h
+
+19.10.19 - 1h
+
+20.10.19 - 1h
