@@ -14,13 +14,16 @@
           rel="stylesheet">
 
     <!-- Stylesheets -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
+    {{--<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}">--}}
     <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ mix("css/app.css")}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
+
+
     {{--<!-- bootstrap theme -->--}}
-    <link href="{{ asset('css/admin/bootstrap-theme.css') }}" rel="stylesheet">
+   {{-- <link href="{{ asset('css/admin/bootstrap-theme.css') }}" rel="stylesheet">--}}
     {{--<link rel="stylesheet" type="text/css" href="{{config('static.static')}}/font-awesome/4.2.0/css/font-awesome.min.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="{{config('static.static')}}/css/bootstrap.min.css">--}}
     {{--<link rel="stylesheet" type="text/css" href="{{config('static.static')}}/css/font-awesome.min.css">--}}
@@ -40,11 +43,19 @@
     <div class="loader"></div>
 </div>
 
-@include('includes.header')
+{{-- @include('includes.header') --}}
 
-@yield('content')
+@if(!Request::is('user/login') && !Request::is('teacher/login')&&!Request::routeIs('home'))
+    @include('includes.sidebar')
+    <div class="page-content" id="content">
+        @yield('content')
+    </div>
+@else
+    @yield('content')
+@endif
 
-@include('includes.footer')
+
+{{--@include('includes.footer')--}}
 
 
 <script src="{{ asset('js/jquery-3.2.1.min.js') }}"></script>

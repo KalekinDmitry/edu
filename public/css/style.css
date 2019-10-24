@@ -108,21 +108,15 @@ ol {
 	color: #f3e830;
 }
 
-/*.set-bg.fixed{
-	background-size: cover !important;
-	background-position: center;
+.set-bg.fixed{
 	background-attachment: fixed;
-}*/
+}
 
 .set-bg {
-	/*background-repeat: no-repeat;
-	background-size: cover;
-	background-position: top center;*/
-
 	background-repeat: no-repeat;
 	background-size: cover !important;
 	background-position: center center;
-	background-attachment: fixed;
+
 }
 
 .spad {
@@ -631,8 +625,8 @@ ol {
 }
 
 .loader {
-	width: 40px;
-	height: 40px;
+	width: 80px;
+	height: 80px;
 	position: absolute;
 	top: 50%;
 	left: 50%;
@@ -647,19 +641,19 @@ ol {
 	0% {
 		-webkit-transform: rotate(0deg);
 		transform: rotate(0deg);
-		border: 4px solid #f44336;
+		border: 4px solid #6665FF;
 		border-left-color: transparent;
 	}
 	50% {
 		-webkit-transform: rotate(180deg);
 		transform: rotate(180deg);
-		border: 4px solid #673ab7;
+		border: 4px solid #6665FF;
 		border-left-color: transparent;
 	}
 	100% {
 		-webkit-transform: rotate(360deg);
 		transform: rotate(360deg);
-		border: 4px solid #f44336;
+		border: 4px solid #6665FF;
 		border-left-color: transparent;
 	}
 }
@@ -763,7 +757,7 @@ ol {
 }
 
 .hero-text {
-	padding-top: 330px;
+	padding-top: 100px;
 	/*padding-right: 50px;*/
 }
 
@@ -1270,8 +1264,8 @@ ol {
 ===============*/
 
 .page-top-section {
-	padding-top: 250px;
-	height: 434px;
+	padding-top: 100px;
+	/*height: 434px;*/
 	text-align: center;
 }
 
@@ -1731,7 +1725,7 @@ ol {
 }
 
 .contact-form {
-	/*padding-top: 70px;*/
+	padding-top: 70px;
 }
 
 .contact-form input,
@@ -1804,7 +1798,7 @@ ol {
 		width: calc(13.7% - 18px);
 	}
 	.user-panel {
-		/*margin-left: 80px;*/
+		margin-left: 80px;
 	}
 }
 
@@ -1812,8 +1806,8 @@ ol {
 
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	.site-logo {
-		/*position: relative;
-		top: 40px;*/
+		position: relative;
+		top: 40px;
 	}
 	.multi-search-form input:nth-child(1) {
 		width: calc(29% - 18px);
@@ -1885,7 +1879,7 @@ ol {
 		overflow: visible;
 	}
 	.user-panel {
-		/*margin-left: 20px;*/
+		margin-left: 20px;
 	}
 	.nav-switch {
 		position: absolute;
@@ -2113,3 +2107,31 @@ section.lesson-section{
 	display: flex;
 	flex-wrap: wrap;
 }
+
+
+
+
+
+
+
+
+
+
+
+.vertical-nav {
+    min-width: 216px;
+    width: 216px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s;
+  }
+
+
+  .page-content {
+    width: calc(100% - 216px);
+    margin-left: 216px;
+    transition: all 0.4s;
+  }

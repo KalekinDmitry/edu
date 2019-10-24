@@ -8,7 +8,7 @@
 
 namespace App\Http\Controllers\Auth\Teacher;
 
-use App\Http\Controllers\Auth\Teacher\LoginController;
+use App\Http\Controllers\Teacher\Auth\LoginController;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Tests\TestCase;

@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <!-- Hero section -->
     @include('home_components.hero_section')
     <!-- Hero section end -->

@@ -22,61 +22,61 @@ Route::get('setlocale/{locale}', 'LocaleController@setLocale')->name('setLocale'
 
 // Users
 Route::prefix('user')->group(function () {
-    Route::get('/register', 'Auth\User\RegisterController@showRegisterForm')->name('user.showRegisterForm');
-    Route::post('register', 'Auth\User\RegisterController@register')->name('user.registerRequest');
+    Route::get('/register', 'Student\Auth\RegisterController@showRegisterForm')->name('user.showRegisterForm');
+    Route::post('register', 'Student\Auth\RegisterController@register')->name('user.registerRequest');
 
-    Route::get('/login', 'Auth\User\LoginController@showLoginForm')->name('user.showLoginForm');
-    Route::post('/login', 'Auth\User\LoginController@login')->name('user.loginRequest');
+    Route::get('/login', 'Student\Auth\LoginController@showLoginForm')->name('user.showLoginForm');
+    Route::post('/login', 'Student\Auth\LoginController@login')->name('user.loginRequest');
 
-    Route::get('/myaccount', 'UserController@edit')->name('user_settings');
-    Route::put('/myaccount/save', 'UserController@update')->name('user_settings_save');
+    Route::get('/myaccount', 'Student\UserController@edit')->name('user_settings');
+    Route::put('/myaccount/save', 'Student\UserController@update')->name('user_settings_save');
 
-    Route::get('/', 'UserController@index')->name('user.dashboard');
+    Route::get('/', 'Student\UserController@index')->name('user.dashboard');
 
-    Route::get('logout', 'Auth\User\LoginController@logout')->name('user.logout');
+    Route::get('logout', 'Student\Auth\LoginController@logout')->name('user.logout');
 });
 
 // Admins
 Route::prefix('admin')->group(function () {
-    Route::get('/login', 'Auth\Admin\LoginController@showLoginForm')->name('admin.showLoginForm');
-    Route::post('/login', 'Auth\Admin\LoginController@login')->name('admin.loginRequest');
-    Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    Route::get('/profile/{id}', 'AdminController@show')->name('admin_profile');
-    Route::get('/profile/edit', 'AdminController@edit')->name('admin_profile_settings');
-    Route::get('/tables/users', 'AdminController@showUsersList')->name('users.list');
-    Route::get('/tables/teachers', 'AdminController@showTeachersList')->name('teachers.list');
-    Route::get('/tables/admins', 'AdminController@showAdminsList')->name('admins.list');
+    Route::get('/login', 'Admin\Auth\LoginController@showLoginForm')->name('admin.showLoginForm');
+    Route::post('/login', 'Admin\Auth\LoginController@login')->name('admin.loginRequest');
+    Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
+    Route::get('/profile/{id}', 'Admin\AdminController@show')->name('admin_profile');
+    Route::get('/profile/edit', 'Admin\AdminController@edit')->name('admin_profile_settings');
+    Route::get('/tables/users', 'Admin\AdminController@showUsersList')->name('users.list');
+    Route::get('/tables/teachers', 'Admin\AdminController@showTeachersList')->name('teachers.list');
+    Route::get('/tables/admins', 'Admin\AdminController@showAdminsList')->name('admins.list');
 
-    Route::get('/logout', 'Auth\Admin\LoginController@logout')->name('admin.logout');
+    Route::get('/logout', 'Admin\Auth\LoginController@logout')->name('admin.logout');
 });
 
 // Teachers
 Route::prefix('teacher')->group(function () {
-    Route::get('/register', 'Auth\Teacher\RegisterController@showRegisterForm')->name('teacher.showRegisterForm');
-    Route::post('register', 'Auth\Teacher\RegisterController@register')->name('teacher.registerRequest');
+    Route::get('/register', 'Teacher\Auth\RegisterController@showRegisterForm')->name('teacher.showRegisterForm');
+    Route::post('register', 'Teacher\Auth\RegisterController@register')->name('teacher.registerRequest');
 
-    Route::get('/login', 'Auth\Teacher\LoginController@showLoginForm')->name('teacher.showLoginForm');
-    Route::post('/login', 'Auth\Teacher\LoginController@login')->name('teacher.loginRequest');
+    Route::get('/login', 'Teacher\Auth\LoginController@showLoginForm')->name('teacher.showLoginForm');
+    Route::post('/login', 'Teacher\Auth\LoginController@login')->name('teacher.loginRequest');
 
-    Route::get('/', 'TeacherController@index')->name('teacher.dashboard');
+    Route::get('/', 'Teacher\TeacherController@index')->name('teacher.dashboard');
 
-    Route::get('/myaccount', 'TeacherController@edit')->name('teacher_settings');
-    Route::put('/myaccount/save', 'TeacherController@update')->name('teacher_settings_save');
+    Route::get('/myaccount', 'Teacher\TeacherController@edit')->name('teacher_settings');
+    Route::put('/myaccount/save', 'Teacher\TeacherController@update')->name('teacher_settings_save');
 
-    Route::resource('/course', 'CourseController');
+    Route::resource('/course', 'Teacher\Course\CourseController');
 
-    Route::resource('/course/{course}/module', 'ModuleController');
-    Route::resource('/module/{module}/lesson', 'LessonController');
-    Route::resource('/lesson/{lesson}/textBlock', 'TextBlockController');
-    Route::resource('/lesson/{lesson}/videoBlock', 'VideoBlockController');
-    Route::resource('/lesson/{lesson}/taskBlock', 'TaskBlockController');
-    Route::resource('/taskBlock/{taskBlock}/simpleQuestion', 'SimpleQuestionController');
-    Route::resource('/taskBlock/{taskBlock}/testQuestion', 'TestQuestionController');
-    Route::resource('/testQuestion/{testQuestion}/testAnswer', 'TestAnswerController');
+    Route::resource('/course/{course}/module', 'Teacher\Module\ModuleController');
+    Route::resource('/module/{module}/lesson', 'Teacher\Lesson\LessonController');
+    Route::resource('/lesson/{lesson}/textBlock', 'Teacher\Blocks\TextBlockController');
+    Route::resource('/lesson/{lesson}/videoBlock', 'Teacher\Blocks\VideoBlockController');
+    Route::resource('/lesson/{lesson}/taskBlock', 'Teacher\Blocks\TaskBlockController');
+    Route::resource('/taskBlock/{taskBlock}/simpleQuestion', 'Teacher\TestAndQuestion\SimpleQuestionController');
+    Route::resource('/taskBlock/{taskBlock}/testQuestion', 'Teacher\TestAndQuestion\TestQuestionController');
+    Route::resource('/testQuestion/{testQuestion}/testAnswer', 'Teacher\TestAndQuestion\TestAnswerController');
 
-    Route::resource('/classroom', 'ClassroomController');
+    Route::resource('/classroom', 'Teacher\Classroom\ClassroomController');
 
-    Route::resource('/classroom/{classroom}/user/{user}/invite', 'ClassroomInviteController', [
+    Route::resource('/classroom/{classroom}/user/{user}/invite', 'Teacher\Classroom\ClassroomInviteController', [
         'names' => [
             'store' => 'classroomInvite.store',
             'create' => 'classroomInvite.create',
@@ -85,10 +85,10 @@ Route::prefix('teacher')->group(function () {
         ]
     ]);
 
-    Route::get('/logout', 'Auth\Teacher\LoginController@logout')->name('teacher.logout');
+    Route::get('/logout', 'Teacher\Auth\LoginController@logout')->name('teacher.logout');
 });
 
 
 // Redefinition of some routes (Elkin)
-Route::get('/course/{course}', 'CourseController@show')->name('course.show');
+Route::get('/course/{course}', 'Teacher\Course\CourseController@show')->name('course.show');
 //Route::put('/classroom/{classroom}', 'ClassroomController@update')->name('classroom.update');
