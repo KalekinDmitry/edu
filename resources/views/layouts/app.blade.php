@@ -10,8 +10,9 @@
     <link href="{{config('static.static')}}/img/favicon.ico" rel="shortcut icon"/>
 
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800"
-          rel="stylesheet">
+    {{-- <link href="https://fonts.googleapis.com/css?family=Raleway:400,400i,500,500i,600,600i,700,700i,800"
+          rel="stylesheet"> --}}
+          <link href="https://fonts.googleapis.com/css?family=PT+Sans+Caption&display=swap" rel="stylesheet">
 
     <!-- Stylesheets -->
     {{--<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">

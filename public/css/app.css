@@ -10176,6 +10176,10 @@ a.text-dark:focus {
   }
 }
 
+body {
+  font-family: "PT Sans Caption", sans-serif !important;
+}
+
 .btn {
   display: inline-block;
   font-weight: 400;
