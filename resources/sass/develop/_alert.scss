@@ -16,6 +16,9 @@
     //font-weight: $alert-link-font-weight;
   // Specified to prevent conflicts of changing $headings-color
   color: inherit;
+  text-align: start;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 // Provide class for links that match alerts
@@ -38,6 +41,7 @@
     right: 0;
     padding: $alert-padding-y $alert-padding-x;
     color: inherit;
+
   }
 }
 

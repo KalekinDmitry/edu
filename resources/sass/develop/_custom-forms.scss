@@ -12,6 +12,7 @@
   display: block;
   min-height: $font-size-base * $line-height-base;
   padding-left: $custom-control-gutter + $custom-control-indicator-size;
+  color: $dark;
 }
 
 .custom-control-inline {
@@ -113,6 +114,8 @@
     &::after {
       background-image: $custom-checkbox-indicator-icon-checked;
       background-size: $custom-checkbox-indicator-size;
+      background-position-x: $custom-checkbox-indicator-size*0.75;
+      background-position-y: $custom-checkbox-indicator-size*0.75;
     }
   }
 
@@ -136,6 +139,66 @@
     }
   }
 }
+
+
+
+
+
+
+.custom-checkbox-circle {
+
+    .custom-control-label::before {
+      @include border-radius($custom-checkbox-indicator-border-radius * 100);
+    }
+
+    .custom-control-input:checked ~ .custom-control-label {
+      &::after {
+        background-image: $custom-checkbox-indicator-icon-checked_thin;
+        background-size: $custom-checkbox-indicator-size;
+      }
+    }
+
+    .custom-control-input:indeterminate ~ .custom-control-label {
+      &::before {
+       // border-color: $custom-checkbox-indicator-indeterminate-border-color;
+        @include gradient-bg($custom-checkbox-indicator-indeterminate-bg);
+        @include box-shadow($custom-checkbox-indicator-indeterminate-box-shadow);
+      }
+      &::after {
+        background-image: $custom-checkbox-indicator-icon-indeterminate;
+      }
+    }
+
+    .custom-control-input:disabled {
+      &:checked ~ .custom-control-label::before {
+        background-color: $custom-control-indicator-checked-disabled-bg;
+      }
+      &:indeterminate ~ .custom-control-label::before {
+        background-color: $custom-control-indicator-checked-disabled-bg;
+      }
+    }
+  }
+
+$circle-checkbox-size: 24px;
+
+.checkbox-md .custom-control-label::before,
+.checkbox-md .custom-control-label::after {
+  width: $circle-checkbox-size;
+  height: $circle-checkbox-size;
+  margin-left: -$circle-checkbox-size/2;
+  //border-color: rgba(0,0,0,0.1);
+}
+.checkbox-md .custom-control-label {
+  padding-top: $circle-checkbox-size/6;
+ // padding-bottom: $circle-checkbox-size;
+  line-height: $circle-checkbox-size;
+}
+
+
+
+
+
+
 
 // Radios
 //

@@ -29,7 +29,7 @@
                                             <div class="modal-content bg-success">
                                                 <div class="modal-body">
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <img  src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="24px">
+                                                        <img  src="{{ asset('assets/icons/icon_close.svg') }}" width="16px">
                                                     </button>
                                                     <div class="modal-title">Сообщение об успехе </div>
                                                 </div>
@@ -50,7 +50,7 @@
                                             <div class="modal-content bg-danger">
                                                 <div class="modal-body">
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <img  src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="24px">
+                                                    <img  src="{{ asset('assets/icons/icon_close.svg') }}" width="16px">
                                                     </button>
                                                     <div class="modal-title">Сообщение об ошибке </div>
                                                 </div>
@@ -71,7 +71,7 @@
                                             <div class="modal-content bg-warning">
                                                 <div class="modal-body">
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <img  src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="24px">
+                                                    <img  src="{{ asset('assets/icons/icon_close.svg') }}"  width="16px">
                                                     </button>
                                                     <div class="modal-title">Сообщение-предупреждение</div>
                                                 </div>
@@ -93,10 +93,9 @@
                                                 <div class="modal-body">
                                                     <button  class="close" data-dismiss="modal" >
                                                         <!-- <span aria-hidden="true">&times;</span> -->
-                                                        <img  src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="24px">
+                                                        <img  src="{{ asset('assets/icons/icon_close.svg') }}"  width="16px">
                                                     </button>
-                                                   <div class="modal-title">Информационное сообщение</div>
-
+                                                    <div class="modal-title">Информационное сообщение </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -107,79 +106,117 @@
                                             <button class="btn btn-danger">Кнопка</button>
                                             <button class="btn btn-light">Кнопка</button>
                                             <button class="btn btn-light sqr">
-                                                <img src="{{ asset('assets/icons/icon_send.svg') }}" style="padding-bottom:2px" width="14px">
+                                                <img src="{{ asset('assets/icons/icon_send.svg') }}" >
                                             </button>
-                                            <button class="btn btn-primary circle">
-                                                <img src="{{ asset('assets/icons/icon_play.svg') }}" style="padding-left:6px; padding-bottom:2px" width="24px">
+                                            <button class="btn btn-primary circle-lx">
+                                                <img src="{{ asset('assets/icons/icon_play.svg') }}" >
                                             </button>
-                                            <button class="btn btn-primary circle" style="height:32px; width:32px">
-                                                <img src="{{ asset('assets/icons/icon_play.svg') }}" style="padding-left:4px; padding-bottom:2px" width="16px">
+                                            <button class="btn btn-primary circle-md" >
+                                                <img src="{{ asset('assets/icons/icon_play.svg') }}" >
                                             </button>
-                                            <button class="btn btn-primary circle" style="height:24px; width:24px">
-                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="16px">
+                                            <button class="btn btn-primary circle-sx" >
+                                                <img src="{{ asset('assets/icons/icon_checked_thin.svg') }}" >
                                             </button>
-                                            <button class="btn btn-danger circle" style="height:24px; width:24px">
-                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="16px">
+                                            <button class="btn btn-danger circle-sx" >
+                                                <img src="{{ asset('assets/icons/icon_checked_thin.svg') }}" >
                                             </button>
-                                            <button class="btn btn-success circle" style="height:24px; width:24px">
-                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:3px" width="16px">
+                                            <button class="btn btn-success circle-sx" >
+                                                <img src="{{ asset('assets/icons/icon_checked_thin.svg') }}" >
                                             </button>
-                                            <button class="btn btn-warning circle" style="height:28px; width:28px">
-                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="16px">
+                                            <button class="btn btn-warning circle-sm" >
+                                                <img src="{{ asset('assets/icons/icon_checked_thin.svg') }}" >
                                             </button>
-                                            <button class="btn btn-primary circle" style="height:28px; width:28px">
-                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="16px">
+                                            <button class="btn btn-primary circle-sm" >
+                                                <img src="{{ asset('assets/icons/icon_checked_thin.svg') }}" >
                                             </button>
-                                            <button class="btn btn-success circle" style="height:28px; width:28px; font-size: 0.75em">
+                                            <button class="btn btn-success circle-sm">
                                                 8.6
                                             </button>
-                                            <button class="btn btn-success circle" style="height:36px; width:36px">
-                                                <img src="{{ asset('assets/icons/icon_checked.svg') }}" style="padding-left:1px; padding-bottom:1px" width="22px">
+                                            <button class="btn btn-success circle-lg" >
+                                                <img src="{{ asset('assets/icons/icon_checked_thin.svg') }}" >
                                             </button>
 
-                                            <button class="btn btn-success circle" style="height:36px; width:36px; font-size:0.75em">
+                                            <button class="btn btn-success circle-lg" >
                                                 1450
                                             </button>
 
-                                            <button class="btn btn-light circle" style="height:24px; width:24px">
+                                            <button class="btn btn-light circle-sx">
 
                                             </button>
 
                                             <div class="alert alert-success" role="alert">
-                                                <h5 class="alert-heading" >
-                                                    Info
-                                                </h5>
-                                                <pre>Небольшое описание к уроку</pre>
+                                                <div class="row justify-content-left">
+                                                    <img  class="m-3 p-1" src="{{ asset('assets/icons/icon_checked_thin.svg') }}" width="32" style="fill: green">
+                                                    <div class="row justify-content-left col-md-10">
+                                                        <h5 class="alert-heading col-md-12">
+                                                            Info
+                                                        </h5>
+                                                        <pre>Небольшое описание к уроку</pre>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="alert alert-danger" role="alert">
-                                                <h5 class="alert-heading" >
-                                                    Info
-                                                </h5>
-                                                <pre>Небольшое описание к уроку</pre>
+                                                <div class="row justify-content-left">
+                                                    <img  class="m-3 p-1" src="{{ asset('assets/icons/icon_checked_thin.svg') }}" width="32" style="fill: green">
+                                                    <div class="row justify-content-left col-md-10">
+                                                        <h5 class="alert-heading col-md-12">
+                                                            Info
+                                                        </h5>
+                                                        <pre>Небольшое описание к уроку</pre>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="alert alert-warning" role="alert">
-                                                <h5 class="alert-heading" >
-                                                    Info
-                                                </h5>
-                                                <pre>Небольшое описание к уроку</pre>
+                                                <div class="row justify-content-left">
+                                                    <img  class="m-3 p-1" src="{{ asset('assets/icons/icon_checked_thin.svg') }}" width="32" style="fill: green">
+                                                    <div class="row justify-content-left col-md-10">
+                                                        <h5 class="alert-heading col-md-12">
+                                                            Info
+                                                        </h5>
+                                                        <pre>Небольшое описание к уроку</pre>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="alert alert-primary" role="alert">
-                                                <h5 class="alert-heading" >
-                                                    Info
-                                                </h5>
-                                                <pre>Небольшое описание к уроку</pre>
+                                                <div class="row justify-content-left">
+                                                    <img  class="m-3 p-1" src="{{ asset('assets/icons/icon_checked_thin.svg') }}" width="32" style="fill: green">
+                                                    <div class="row justify-content-left col-md-10">
+                                                        <h5 class="alert-heading col-md-12">
+                                                            Info
+                                                        </h5>
+                                                        <pre>Небольшое описание к уроку</pre>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="customCheck1">
                                                 <label class="custom-control-label" for="customCheck1">checkbox</label>
                                             </div>
-                                            <div class="custom-control custom-switch">
+
+
+
+
+                                            <div class="custom-control custom-checkbox-circle checkbox-md">
+                                                <input type="checkbox" class="custom-control-input " id="customCheck2">
+                                                <label class="custom-control-label" for="customCheck2">rounded checkbox</label>
+                                            </div>
+
+                                            <div class="custom-control custom-checkbox-circle checkbox-md">
+                                                <input type="checkbox" class="custom-control-input " id="customCheck3">
+                                                <label class="custom-control-label" for="customCheck3">rounded checkbox</label>
+                                            </div>
+
+
+
+
+
+                                            <div class="custom-control custom-switch ">
                                                 <input type="checkbox" class="custom-control-input" id="customSwitches">
-                                                <label class="custom-control-label" for="customSwitches">Toggle this switch element</label>
+                                                <label class="custom-control-label" for="customSwitches">Toggle</label>
                                             </div>
                                             <div class="custom-control custom-switch">
                                                 <input type="checkbox" class="custom-control-input" id="customSwitches2">
-                                                <label class="custom-control-label" for="customSwitches2">Toggle this switch element</label>
+                                                <label class="custom-control-label" for="customSwitches2">Toggle</label>
                                             </div>
                                             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
 

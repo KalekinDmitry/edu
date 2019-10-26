@@ -7,6 +7,60 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
+.sidebar {
+  min-width: 216px;
+  width: 216px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+}
+
+.sidebar a {
+  margin-left: 8px;
+  width: 184px;
+  padding-right: 4px;
+  padding-top: 8px;
+  padding-bottom: 5px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 13px;
+  opacity: 0.7;
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.sidebar a:focus {
+  background-color: rgba(255, 255, 255, 0.1);
+  opacity: 1;
+}
+
+.sidebar a img {
+  padding-bottom: 4px;
+}
+
+.sidebar #sidebar.active {
+  margin-left: -17rem;
+}
+
+.sidebar button {
+  font-size: 13px;
+  line-height: 13px;
+  margin-left: 8px;
+  width: 184px;
+  padding: 0;
+}
+
+.page-content {
+  width: calc(100% - 216px);
+  margin-left: 216px;
+  transition: all 0.4s;
+}
+
 :root {
   --blue: #6665FF;
   --blue-dark: #0F2037;
@@ -3134,6 +3188,7 @@ textarea.form-control.is-invalid {
   display: block;
   min-height: 1.5rem;
   padding-left: 1.5rem;
+  color: #0F2037;
 }
 
 .custom-control-inline {
@@ -3214,7 +3269,9 @@ textarea.form-control.is-invalid {
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
   background-image: url("/assets/icons/icon_checked.svg");
-  background-size: 60%;
+  background-size: 65%;
+  background-position-x: 48.75%;
+  background-position-y: 48.75%;
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
@@ -3233,6 +3290,44 @@ textarea.form-control.is-invalid {
 
 .custom-checkbox .custom-control-input:disabled:indeterminate ~ .custom-control-label::before {
   background-color: rgba(102, 101, 255, 0.5);
+}
+
+.custom-checkbox-circle .custom-control-label::before {
+  border-radius: 300px;
+}
+
+.custom-checkbox-circle .custom-control-input:checked ~ .custom-control-label::after {
+  background-image: url("/assets/icons/icon_checked_thin.svg");
+  background-size: 65%;
+}
+
+.custom-checkbox-circle .custom-control-input:indeterminate ~ .custom-control-label::before {
+  background: #6665FF linear-gradient(180deg, #7d7cff, #6665FF) repeat-x;
+  box-shadow: none;
+}
+
+.custom-checkbox-circle .custom-control-input:indeterminate ~ .custom-control-label::after {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 4 4'%3e%3cpath stroke='%23fff' d='M0 2h4'/%3e%3c/svg%3e");
+}
+
+.custom-checkbox-circle .custom-control-input:disabled:checked ~ .custom-control-label::before {
+  background-color: rgba(102, 101, 255, 0.5);
+}
+
+.custom-checkbox-circle .custom-control-input:disabled:indeterminate ~ .custom-control-label::before {
+  background-color: rgba(102, 101, 255, 0.5);
+}
+
+.checkbox-md .custom-control-label::before,
+.checkbox-md .custom-control-label::after {
+  width: 24px;
+  height: 24px;
+  margin-left: -12px;
+}
+
+.checkbox-md .custom-control-label {
+  padding-top: 4px;
+  line-height: 24px;
 }
 
 .custom-radio .custom-control-label::before {
@@ -4701,6 +4796,9 @@ a.badge-dark.focus {
 
 .alert-heading {
   color: inherit;
+  text-align: start;
+  margin-left: 0;
+  padding-left: 0;
 }
 
 .alert-link {
@@ -10339,17 +10437,73 @@ a.text-dark:focus {
 .sqr {
   height: 32px;
   width: 32px;
+  padding: 0 0 0 0;
+}
+
+.circle-lx {
+  height: 48px;
+  width: 48px;
+  border-radius: 9999px;
   padding: 0 0;
 }
 
-.circle {
-  height: 48px;
-  width: 48px;
-  border-radius: calc($input-btn-circle-diameter/2);
-  border-bottom-left-radius: 48px;
-  border-bottom-right-radius: 48px;
-  border-top-left-radius: 48px;
-  border-top-right-radius: 48px;
-  padding: 0 0;
+.circle-lx img {
+  margin-bottom: 1%;
+  margin-left: 14%;
+  width: 50%;
+}
+
+.circle-lg {
+  height: 36px;
+  width: 36px;
+  border-radius: 9999px;
+  padding: 0 0 0 0;
+  font-size: 75%;
+}
+
+.circle-lg img {
+  margin-bottom: 3%;
+  margin-left: 3%;
+  width: 60%;
+}
+
+.circle-md {
+  height: 32px;
+  width: 32px;
+  border-radius: 9999px;
+  padding: 0 0 0 0;
+}
+
+.circle-md img {
+  margin-bottom: 8%;
+  margin-left: 12%;
+  width: 50%;
+}
+
+.circle-sm {
+  height: 28px;
+  width: 28px;
+  border-radius: 9999px;
+  padding: 0 0 0 0;
+  font-size: 75%;
+}
+
+.circle-sm img {
+  margin-bottom: 3%;
+  margin-left: 3%;
+  width: 60%;
+}
+
+.circle-sx {
+  height: 24px;
+  width: 24px;
+  border-radius: 9999px;
+  padding: 0 0 0 0;
+}
+
+.circle-sx img {
+  margin-bottom: 16%;
+  margin-left: 3%;
+  width: 70%;
 }
 

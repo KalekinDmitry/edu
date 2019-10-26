@@ -43,17 +43,90 @@
 .sqr{
     height: $input-btn-fixed-height;
     width: $input-btn-fixed-width;
-    padding: 0 0;
+    padding: 0 0 0 0;
 }
 
-.circle{
-    height: $input-btn-circle-diameter;
-    width: $input-btn-circle-diameter;
-    border-radius: $input-btn-circle-radius;
-    border-bottom-left-radius: $input-btn-circle-diameter;
-    border-bottom-right-radius: $input-btn-circle-diameter;
-    border-top-left-radius: $input-btn-circle-diameter;
-    border-top-right-radius: $input-btn-circle-diameter;
+
+
+.circle-lx{
+    height: 48px;
+    width: 48px;
+    border-radius: 9999px;
     padding: 0 0;
 
+    img{
+        margin-bottom: 1%;
+        margin-left: 14%;
+        width:50%;
+    }
+    // border-bottom-left-radius: $input-btn-circle-diameter;
+    // border-bottom-right-radius: $input-btn-circle-diameter;
+    // border-top-left-radius: $input-btn-circle-diameter;
+    // border-top-right-radius: $input-btn-circle-diameter;
+}
+
+.circle-lg{
+    height: 36px;
+    width: 36px;
+    border-radius: 9999px;
+    padding: 0 0 0 0;
+    font-size: 75%;
+    img{
+        margin-bottom: 3%;
+        margin-left: 3%;
+        width:60%;
+    }
+    // border-bottom-left-radius: $input-btn-circle-diameter;
+    // border-bottom-right-radius: $input-btn-circle-diameter;
+    // border-top-left-radius: $input-btn-circle-diameter;
+    // border-top-right-radius: $input-btn-circle-diameter;
+}
+
+.circle-md{
+    height: 32px;
+    width: 32px;
+    border-radius: 9999px;
+    padding: 0 0 0 0;
+    img{
+        margin-bottom: 8%;
+        margin-left: 12%;
+        width:50%;
+    }
+    // border-bottom-left-radius: $input-btn-circle-diameter;
+    // border-bottom-right-radius: $input-btn-circle-diameter;
+    // border-top-left-radius: $input-btn-circle-diameter;
+    // border-top-right-radius: $input-btn-circle-diameter;
+}
+
+.circle-sm{
+    height: 28px;
+    width: 28px;
+    border-radius: 9999px;
+    padding: 0 0 0 0;
+    font-size: 75%;
+    img{
+        margin-bottom: 3%;
+        margin-left: 3%;
+        width:60%;
+    }
+    // border-bottom-left-radius: $input-btn-circle-diameter;
+    // border-bottom-right-radius: $input-btn-circle-diameter;
+    // border-top-left-radius: $input-btn-circle-diameter;
+    // border-top-right-radius: $input-btn-circle-diameter;
+}
+
+.circle-sx{
+    height: 24px;
+    width: 24px;
+    border-radius: 9999px;
+    padding: 0 0 0 0;
+    img{
+        margin-bottom: 16%;
+        margin-left: 3%;
+        width:70%;
+    }
+    // border-bottom-left-radius: $input-btn-circle-diameter;
+    // border-bottom-right-radius: $input-btn-circle-diameter;
+    // border-top-left-radius: $input-btn-circle-diameter;
+    // border-top-right-radius: $input-btn-circle-diameter;
 }
