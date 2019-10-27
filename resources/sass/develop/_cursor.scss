@@ -1,0 +1,7 @@
+.draggable {
+    cursor: url("assets/icons/icon_cursordraggable.svg"), grab;
+}
+
+.draggable:active {
+    cursor: url("assets/icons/icon_cursordraggableactive.svg"), grabbing;
+}
