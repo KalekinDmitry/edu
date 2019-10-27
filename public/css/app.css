@@ -117,6 +117,16 @@
   background-color: transparent;
 }
 
+.draggable {
+  cursor: url(/images/icon_cursordraggable.svg?6e177af1682c3cf336760675a125f1f8), -webkit-grab;
+  cursor: url(/images/icon_cursordraggable.svg?6e177af1682c3cf336760675a125f1f8), grab;
+}
+
+.draggable:active {
+  cursor: url(/images/icon_cursordraggableactive.svg?bac2ddc3fdaa09a48c0af0faf89ffb69), -webkit-grabbing;
+  cursor: url(/images/icon_cursordraggableactive.svg?bac2ddc3fdaa09a48c0af0faf89ffb69), grabbing;
+}
+
 :root {
   --blue: #6665FF;
   --blue-dark: #0F2037;
@@ -501,7 +511,7 @@ h6,
 .h5,
 .h6 {
   margin-bottom: 0.5rem;
-  font-family: Avenir Next Cyr;
+  font-family: "PT Sans Caption", sans-serif;
   font-weight: normal;
   line-height: 1.2;
   color: #000000;
