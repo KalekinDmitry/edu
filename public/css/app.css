@@ -21,26 +21,31 @@
 .sidebar a {
   margin-left: 8px;
   width: 184px;
-  padding-right: 4px;
+  padding-right: 0px;
   padding-top: 8px;
   padding-bottom: 5px;
   border-radius: 4px;
   font-size: 13px;
   line-height: 13px;
   opacity: 0.7;
+  transition: 0.3s;
 }
 
 .sidebar a:hover {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(255, 255, 255, 0.1);
+  transition: all 0.3s;
 }
 
 .sidebar a:focus {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.2);
   opacity: 1;
+  transition: 0.2s;
 }
 
 .sidebar a img {
   padding-bottom: 4px;
+  margin-right: -8px;
+  padding-right: 0px;
 }
 
 .sidebar #sidebar.active {
@@ -48,11 +53,25 @@
 }
 
 .sidebar button {
-  font-size: 13px;
-  line-height: 13px;
   margin-left: 8px;
   width: 184px;
+  padding-right: 0px;
+  padding-top: 8px;
+  padding-bottom: 5px;
+  font-size: 13px;
+  line-height: 13px;
+  padding-left: 0;
+}
+
+.sidebar button .row {
   padding: 0;
+  margin: 0;
+}
+
+.sidebar button img {
+  margin-right: -6px;
+  margin-left: 15px;
+  padding-right: 0px;
 }
 
 .page-content {

@@ -12,23 +12,28 @@
     a{
         margin-left:8px;
         width: 184px;
-        padding-right:4px;
+        padding-right:0px;
         padding-top: 8px;
         padding-bottom: 5px;
         border-radius: 4px;
         font-size: 13px;
         line-height: 13px;
         opacity: 0.7;
+        transition: 0.3s;
         &:hover{
-            background-color: rgba(255,255,255,0.05);
+            background-color: rgba(255,255,255,0.1);
+            transition: all .3s;
         }
         &:focus{
-            background-color: rgba(255,255,255,0.1);
+            background-color: rgba(255,255,255,0.2);
             opacity: 1.0;
+            transition: .2s;
         }
 
         img{
             padding-bottom: 4px;
+            margin-right:-8px;
+            padding-right:0px;
         }
     }
 
@@ -38,13 +43,24 @@
 
 
     button{
-        font-size:13px;
-        line-height: 13px;
-        margin-left: 8px;
+        margin-left:8px;
         width: 184px;
-        padding: 0;
+        padding-right:0px;
+        padding-top: 8px;
+        padding-bottom: 5px;
+        font-size: 13px;
+        line-height: 13px;
+        padding-left:0;
+        .row{
+            padding:0;
+            margin:0;
+        }
+        img{
+            margin-right:-6px;
+            margin-left:15px;
+            padding-right:0px;
+        }
     }
-
   }
 
 

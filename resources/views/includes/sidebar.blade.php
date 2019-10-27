@@ -45,11 +45,11 @@
     @else
         @if(Request::is('user'))
             <li class="nav-item m-1 ml-2">
-                <button class="btn btn-primary" >
-                    <div class="col-md-9 col-sm-9 col-sx-9 text-white font-weight-normal" >
-                            <img src="{{ asset('assets/icons/icon_messages.svg') }}" width="16px">
-                            <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-                            Сообщения
+                <button class="btn btn-primary text-white font-weight-normal" >
+                    <div class="class row justify-content-left">
+                        <img src="{{ asset('assets/icons/icon_messages.svg') }}" width="16px">
+                        <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                        Сообщения
                     </div>
                 </button>
             </li>
