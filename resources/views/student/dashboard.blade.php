@@ -7,7 +7,7 @@
 
                 <p class="text-dark font-weight-bold pl-5 pt-3">
                         <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4">
-                            <img class="mr-2 pb-1" style="opacity: 0.7" src="{{ asset('assets/icons/icon_menu.svg') }}" width="16px">
+                            <img class="mr-2 pb-1" style="opacity: 0.7" src="{{ asset('assets/icons/icon-triangleleftsm.svg') }}" width="16px">
                             Сообщения
                         </button>
                 </p>
