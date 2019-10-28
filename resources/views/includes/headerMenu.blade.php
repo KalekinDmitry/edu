@@ -44,7 +44,7 @@
 @endif
 
 @if (Request::is('user') || Request::is('user/*'))
-    @auth('web')
+    @auth('student')
         <div class="dropdown">
             <button class="site-btn-danger-sm col-md-7" type="button" id="dropdownMenuButton" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
@@ -53,7 +53,7 @@
             </button>
             <div class="dropdown-menu" style="background-color: #3B3444" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" style="background-color: #3B3444"
-                   href="{{ route('user_settings') }}"><strong>@lang('content.profile')</strong></a>
+                   href="{{ route('user.settings') }}"><strong>@lang('content.profile')</strong></a>
                 <a class="dropdown-item" style="background-color: #3B3444"
                    href="{{ route('user.dashboard')}}">Dashboard</a>
                 {{--<a class="dropdown-item" style="background-color: #3B3444"--}}
@@ -78,7 +78,7 @@
             </button>
             <div class="dropdown-menu" style="background-color: #3B3444" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" style="background-color: #3B3444"
-                   href="{{ route('teacher_settings') }}"><strong>@lang('content.profile')</strong></a>
+                   href="{{ route('teacher.settings') }}"><strong>@lang('content.profile')</strong></a>
                 <a class="dropdown-item" style="background-color: #3B3444"
                    href="{{ route('teacher.dashboard') }}">@lang('content.tchdash')</a>
                 <a class="dropdown-item" style="background-color: #3B3444"

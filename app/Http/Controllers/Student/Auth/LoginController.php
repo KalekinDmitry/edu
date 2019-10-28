@@ -36,7 +36,7 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout','userLogout');
+        $this->middleware('guest:student')->except('logout','userLogout');
     }
 
     public function showLoginForm()
@@ -52,7 +52,7 @@ class LoginController extends Controller
             'password' => ['required', 'min:6'],
         ]);
 
-        if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+        if (Auth::guard('student')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
             return redirect('/user');
         }
 
@@ -61,7 +61,7 @@ class LoginController extends Controller
 
     public function logout()
     {
-        Auth::guard('web')->logout();
+        Auth::guard('student')->logout();
 
         return redirect('/');
     }

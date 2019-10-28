@@ -8,7 +8,7 @@
                 <a class="dropdown-item"
                     href="{{ route('user.showLoginForm') }}">@lang('content.asus')</a>
             @else
-                @auth('web')
+                @auth('student')
                     <a class="dropdown-item"
                         href="{{ route('user.dashboard') }}">@lang('content.asus')</a>
                 @endauth

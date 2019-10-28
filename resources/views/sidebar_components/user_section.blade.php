@@ -16,7 +16,7 @@
                     <hr class="m-0 p-0">
                     <a class="dropdown-item " href="{{ route('teacher.logout') }}">Выйти</a>
                 @elseif(Request::is('user') || Request::is('user/*'))
-                    <a class="dropdown-item " href="{{ route('user_settings') }}">Профиль</a>
+                    <a class="dropdown-item " href="{{ route('user.settings') }}">Профиль</a>
                     <hr class="m-0 p-0">
                     <a class="dropdown-item " href="{{ route('user.logout') }}">Выйти</a>
                 @endif

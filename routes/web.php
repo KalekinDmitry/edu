@@ -28,8 +28,8 @@ Route::prefix('user')->group(function () {
     Route::get('/login', 'Student\Auth\LoginController@showLoginForm')->name('user.showLoginForm');
     Route::post('/login', 'Student\Auth\LoginController@login')->name('user.loginRequest');
 
-    Route::get('/myaccount', 'Student\UserController@edit')->name('user_settings');
-    Route::put('/myaccount/save', 'Student\UserController@update')->name('user_settings_save');
+    Route::get('/myaccount', 'Student\UserController@edit')->name('user.settings');
+    Route::put('/myaccount/save', 'Student\UserController@update')->name('user.settings_save');
 
     Route::get('/', 'Student\UserController@index')->name('user.dashboard');
 
@@ -41,8 +41,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/login', 'Admin\Auth\LoginController@showLoginForm')->name('admin.showLoginForm');
     Route::post('/login', 'Admin\Auth\LoginController@login')->name('admin.loginRequest');
     Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
-    Route::get('/profile/{id}', 'Admin\AdminController@show')->name('admin_profile');
-    Route::get('/profile/edit', 'Admin\AdminController@edit')->name('admin_profile_settings');
+    Route::get('/profile/{id}', 'Admin\AdminController@show')->name('admin.profile');
+    Route::get('/profile/edit', 'Admin\AdminController@edit')->name('admin.profile_settings');
     Route::get('/tables/users', 'Admin\AdminController@showUsersList')->name('users.list');
     Route::get('/tables/teachers', 'Admin\AdminController@showTeachersList')->name('teachers.list');
     Route::get('/tables/admins', 'Admin\AdminController@showAdminsList')->name('admins.list');
@@ -60,8 +60,8 @@ Route::prefix('teacher')->group(function () {
 
     Route::get('/', 'Teacher\TeacherController@index')->name('teacher.dashboard');
 
-    Route::get('/myaccount', 'Teacher\TeacherController@edit')->name('teacher_settings');
-    Route::put('/myaccount/save', 'Teacher\TeacherController@update')->name('teacher_settings_save');
+    Route::get('/myaccount', 'Teacher\TeacherController@edit')->name('teacher.settings');
+    Route::put('/myaccount/save', 'Teacher\TeacherController@update')->name('teacher.settings_save');
 
     Route::resource('/course', 'Teacher\Course\CourseController');
 
