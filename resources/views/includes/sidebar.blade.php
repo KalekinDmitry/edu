@@ -1,5 +1,5 @@
 
-@if(!Request::is('user/login') && !Request::is('teacher/login'))
+@if(!Request::is('user/login') && !Request::is('teacher/login') && !Request::is('user/register') && !Request::is('teacher/register'))
 <div class="sidebar bg-dark" id="sidebar">
   <div class="py-4 px-3   pb-0 mb-0 bg-dark">
         @if (Request::is('/')|| Request::is('course/*'))
@@ -46,7 +46,7 @@
         @if(Request::is('user'))
             <li class="nav-item m-1 ml-2">
                 <button class="btn btn-primary text-white font-weight-normal" >
-                    <div class="class row justify-content-left">
+                    <div class="row justify-content-left">
                         <img src="{{ asset('assets/icons/icon_messages.svg') }}" width="16px">
                         <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
                         Сообщения

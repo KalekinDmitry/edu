@@ -50,12 +50,12 @@
                                 <img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="160" height="160" class="mr-3 rounded-circle ">
                             </div>
                             <div class="row justify-content-end mr-0">
-                                <div class="card mt-3" style="width: 192px; text-align: left">
-                                    <ul class="list-group list-group-flush py-0 px-0">
-                                        <li class="list-group-item text-dark" style="font-size: 12px">Загрузить изображение</li>
-                                        <li class="list-group-item text-dark"style="font-size: 12px">Фотография из Facebook</li>
-                                        <li class="list-group-item text-dark"style="font-size: 12px">Gravatar</li>
-                                        <li class="list-group-item text-dark"style="font-size: 12px">Удалить изображение</li>
+                                <div class="card mt-3" style="width: 192px; text-align: left; border: 0">
+                                    <ul class="list-group list-group-flush py-0 px-0" style="box-shadow: 0px 4px 24px rgba(0,0,0,0.12)">
+                                        <li class="list-group-item text-dark" style="font-size: 12px; border: 0">Загрузить изображение</li>
+                                        <li class="list-group-item text-dark"style="font-size: 12px; border: 0">Фотография из Facebook</li>
+                                        <li class="list-group-item text-dark"style="font-size: 12px; border: 0">Gravatar</li>
+                                        <li class="list-group-item text-dark"style="font-size: 12px; border: 0">Удалить изображение</li>
                                     </ul>
                                 </div>
                             </div>

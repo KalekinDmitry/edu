@@ -16,8 +16,8 @@
 
     <!-- Stylesheets -->
     {{--<link rel="stylesheet" type="text/css" href="{{ asset('css/bootstrap.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}">--}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/font-awesome.min.css') }}">--}}
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/flaticon.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/owl.carousel.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ mix("css/app.css")}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/style.css') }}">
@@ -46,7 +46,7 @@
 
 {{-- @include('includes.header') --}}
 
-@if(!Request::is('user/login') && !Request::is('teacher/login')&&!Request::routeIs('home'))
+@if(!Request::is('user/login') && !Request::is('teacher/login')&&!Request::routeIs('home') && !Request::is('user/register') && !Request::is('teacher/register'))
     @include('includes.sidebar')
     <div class="page-content" id="content">
         @yield('content')

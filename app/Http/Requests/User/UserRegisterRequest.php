@@ -45,7 +45,7 @@ class UserRegisterRequest extends FormRequest
 
             'password.required' => 'Enter password',
             'password.min' => 'Password is to short',
-            'password.confirmed' => 'Paswords is not mathc'
+            // 'password.confirmed' => 'Paswords is not mathc'
         ];
     }
 }
