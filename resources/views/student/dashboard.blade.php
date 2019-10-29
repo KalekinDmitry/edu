@@ -5,11 +5,11 @@
         <div class="card messages-panel" style="border-radius:0; height:100vh">
             <div class="row" style="height:56px">
 
-                <p class="text-dark font-weight-bold pl-5 pt-3">
-                        <button id="sidebarCollapse" type="button" class="btn btn-light bg-white rounded-pill shadow-sm px-4 mb-4">
+                <p class="text-dark font-weight-bold pl-2 pt-3">
+                        <a id="sidebarCollapse" class="px-4 mb-4">
                             <img class="mr-2 pb-1" style="opacity: 0.7" src="{{ asset('assets/icons/icon-triangleleftsm.svg') }}" width="16px">
                             Сообщения
-                        </button>
+                        </a>
                 </p>
             </div>
 
