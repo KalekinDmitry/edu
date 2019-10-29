@@ -1,0 +1,19 @@
+.page-content {
+    width: calc(100% - 216px);
+    margin-left: 216px;
+    transition: all 0.4s;
+}
+
+.lesson-panel, .messages-panel{
+    width: 36.25%;
+    min-width: 464px;
+}
+
+.lesson-content, .correspondence-panel{
+    width: 100% - 36.25%;
+    min-width: 816px;
+}
+
+.courses-panel, .course-panel, .proffile-panel, .subscriptions-panel, .news-panel, .authentication-panel, .error-panel, .empty-lesson-panel, .payment-panel, .mobile{
+    width:100%;
+}
