@@ -12,8 +12,6 @@
             </div>
         </div>
     </section> --}}
-
-
     <div class="card col-md-12 m-0" style="border-radius:0; background-color:#f6f6f6">
         <div class="row pb-6 m-0" style="height:56px">
 
@@ -32,18 +30,38 @@
                 <div class="card-body">
                     <div class="row ml-0">
 
-                        <div class="container col-md-6 m-0">
-                            <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px">Имя</p>
-                            <input type="name" class="form-control font-weight-bold text-dark" style="font-size:13px; line-height: 16px" placeholder="Jason">
-                            <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px; margin-top: 20px">Фамилия</p>
-                            <input type="name" class="form-control font-weight-bold " style="font-size:13px; line-height: 16px" placeholder="Doe">
-                            <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px; margin-top: 20px">Пол</p>
-                            <input type="name" class="form-control font-weight-bold " style="font-size:13px; line-height: 16px" placeholder="Мужской">
-                            <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px; margin-top: 20px">Ваша временная зона (таймзона)</p>
-                            <input type="name" class="form-control font-weight-bold " style="font-size:13px; line-height: 16px" placeholder="Европа/Москва">
-                            <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px; margin-top: 20px">Email</p>
-                            <input type="name" class="form-control font-weight-bold " style="font-size:13px; line-height: 16px" placeholder="user@mail.com">
-                        </div>
+                        <form class="form-horizontal card-body"
+{{--                              action="{{route('user.settings_save', $user)}}"--}}
+                                action="#"
+{{--                              method="post"--}}
+                              enctype="multipart/form-data">
+                            <input type="hidden" name="_method" value="put">
+                            {{ csrf_field() }}
+                            <div class="container col-md-6 m-0">
+                                <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px">Имя</p>
+                                <input type="name" name="name" class="form-control font-weight-bold text-dark"
+                                       value="{{$user->name ?? ""}}"
+                                       style="font-size:13px; line-height: 16px" placeholder="Jason">
+
+                                <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px; margin-top: 20px">Фамилия</p>
+                                <input type="name" class="form-control font-weight-bold " style="font-size:13px; line-height: 16px" placeholder="Doe">
+
+                                <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px; margin-top: 20px">Пол</p>
+                                <input type="name" class="form-control font-weight-bold " style="font-size:13px; line-height: 16px" placeholder="Мужской">
+
+                                <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px; margin-top: 20px">Ваша временная зона (таймзона)</p>
+                                <input type="name" class="form-control font-weight-bold " style="font-size:13px; line-height: 16px" placeholder="Европа/Москва">
+
+                                <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px; margin-top: 20px">Email</p>
+                                <input type="name" name="email" class="form-control font-weight-bold "
+                                       value="{{$user->email ?? ""}}"
+                                       style="font-size:13px; line-height: 16px" placeholder="user@mail.com">
+                            </div>
+                            <div class="row justify-content-start m-3">
+                                <button type="submit" class="btn btn-primary">Сохранить</button>
+                            </div>
+                        </form>
+
 
                         <div class="container col-md-6 m-0" style="text-align: right">
                             <div class="row justify-content-end m-0 p-0">
@@ -83,7 +101,7 @@
                         </div>
 
                     </div>
-                 </div>
+                </div>
             </div>
         </div>
     </div>

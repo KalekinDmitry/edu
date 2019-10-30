@@ -10,7 +10,7 @@
 </li>
 @else
 <li class="nav-item  m-1 ml-2">
-    <a href="#" class="nav-link text-white font-weight-normal " >
+    <a href="{{route('teacher.dashboard')}}" class="nav-link text-white font-weight-normal " >
         <img src="{{ asset('assets/icons/icon_hat.svg') }}"  width="16px">
         <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
         Курсы
