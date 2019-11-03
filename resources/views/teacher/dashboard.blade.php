@@ -131,7 +131,7 @@
                             </a>
                             <div class="dropdown">
                                 <div class="dropdown-menu p-0" style="font-size:13px; border: 0; box-shadow: 0px 2px 4px rgba(0,0,0,0.1); margin-left:-512px; margin-top: -32px" aria-labelledby="courseSettingsDropdown">
-                                    <a href="#" class="dropdown-item">Информация о курсе</a>
+                                    <a href="{{ route('course.edit',  [$course->id] )}}" class="dropdown-item">Информация о курсе</a>
                                     <a href="#" class="dropdown-item">Содержимое курса</a>
                                     <a href="#" class="dropdown-item">Студенты</a>
                                     <a href="#" class="dropdown-item">Доступы</a>

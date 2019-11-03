@@ -1,6 +1,3 @@
-<form class="form m-0 p-0" action="{{route('course.store')}}" method="post" enctype="multipart/form-data">
-    <input type="hidden" name="_token" value="{{ csrf_token() }}">
-    <div class="card-body" style="min-width:548px; max-width: 548px">
 
         <div class="form-group">
             <label for="title">@lang('content.headline')</label>
@@ -37,7 +34,7 @@
             <label for="video">@lang('content.linktovideo')</label>
             <input type="text" class="form-control" id="video" maxlength="300"
                    placeholder="Вставьте ссылка на видео youtube"
-                      name="video">{{$course->video ?? ""}}</input>
+                      name="video" value="{{$course->video ?? ""}}">
         </div>
         <div class="form-group">
             <label for="cost">@lang('content.setcrsprice')</label>
@@ -55,10 +52,4 @@
             </div>
         </div>
 
-        <div class="row justify-content-left mx-0">
-            <button class="btn btn-primary mr-1"  type="submit">Создать курс</button>
-            <button class="btn btn-light">Сбросить</button>
-        </div>
 
-    </div>
-</form>

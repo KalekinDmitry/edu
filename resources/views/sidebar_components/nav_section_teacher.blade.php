@@ -1,12 +1,14 @@
-@if(Request::is('teacher'))
+@if(Request::is('teacher') || Request::is('teacher/course/*'))
 <li class="nav-item m-1 ml-2">
-    <button class="btn btn-primary text-white font-weight-normal">
-        <div class="row justify-content-left">
-            <img src="{{ asset('assets/icons/icon_hat.svg') }}" width="16px">
-            <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-            Курсы
-        </div>
-    </button>
+    <form class="p-0 m-0" action="{{route('teacher.dashboard')}}">
+        <button class="btn btn-primary text-white font-weight-normal" type="submit">
+            <div class="row justify-content-left">
+                <img src="{{ asset('assets/icons/icon_hat.svg') }}" width="16px">
+                <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
+                Курсы
+            </div>
+        </button>
+    </form>
 </li>
 @else
 <li class="nav-item  m-1 ml-2">

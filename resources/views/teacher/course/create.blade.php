@@ -61,7 +61,16 @@
                         <div class="card-header text-dark bg-white" >
                             Название и описание
                         </div>
-                        @include('teacher.course.partials.form')
+                        <form class="form m-0 p-0" action="{{route('course.store')}}" method="post" enctype="multipart/form-data">
+                            <div class="card-body" style="min-width:548px; max-width: 548px">
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                @include('teacher.course.partials.form')
+                                <div class="row justify-content-left mx-0">
+                                    <button class="btn btn-primary mr-1"  type="submit">Создать курс</button>
+                                    <button class="btn btn-light">Сбросить</button>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
