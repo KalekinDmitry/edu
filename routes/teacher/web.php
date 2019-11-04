@@ -25,7 +25,7 @@ Route::put('/profile/save', 'TeacherController@update')->name('settings_save');
 Route::resource('/course', 'CourseController');
 Route::resource('/module', 'ModuleController');
 Route::resource('/lesson', 'LessonController');
-Route::resource('/lesson/{lesson}/textBlock', 'Blocks\TextBlockController');
+Route::resource('/block/text', 'Blocks\TextBlockController');
 Route::resource('/lesson/{lesson}/videoBlock', 'Blocks\VideoBlockController');
 Route::resource('/lesson/{lesson}/taskBlock', 'Blocks\TaskBlockController');
 Route::resource('/taskBlock/{taskBlock}/simpleQuestion', 'TestAndQuestion\SimpleQuestionController');

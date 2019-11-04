@@ -11,7 +11,7 @@
 
 @foreach($course->modules() as $module)
     <form onsubmit="if(confirm('Delete module?')){return true}else{return false}"
-          action="{{route('teacher.module.destroy', [$course, $module])}}"
+          action="{{route('teacher.module.destroy', [$module])}}"
           method="post" class="form-group">
         <input type="hidden" name="_method" value="Delete">
         {{ csrf_field() }}
@@ -27,15 +27,15 @@
     </form>
     @foreach($module->lessons() as $lesson)
         <div class="d-flex justify-content-around align-items-center form-group">
-            <a href="{{ route('teacher.lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"
+            <a href="{{ route('teacher.lesson.show', [$lesson->id]) }}"
                class="">{{ $lesson->title }}
             </a>
             <a class="btn btn-primary icon-24 ml-auto"
-               href="{{route('teacher.lesson.edit', [$module->id, $lesson->id])}}"><i class="fa fa-edit"></i>
+               href="{{route('teacher.lesson.edit', [$lesson->id])}}"><i class="fa fa-edit"></i>
             </a>
             <form style="padding: 0"
                   onsubmit="if(confirm('Delete module?')){return true}else{return false}"
-                  action="{{route('teacher.lesson.destroy', [$module, $lesson])}}"
+                  action="{{route('teacher.lesson.destroy', [$lesson])}}"
                   method="post">
                 <input type="hidden" name="_method" value="Delete">
                 {{ csrf_field() }}

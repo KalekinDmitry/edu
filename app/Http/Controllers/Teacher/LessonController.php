@@ -41,7 +41,7 @@ class LessonController extends Controller
     public function update(Request $request, Lesson $lesson)
     {
         $lesson->update($request->all());
-        return redirect()->route('teacher.module.edit', [$lesson->module_id]);
+        return redirect()->route('teacher.lesson.edit', [$lesson->id]);
     }
 
     public function destroy(Lesson $lesson)
