@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('teacher.layouts.app')
 
 @section('content')
 <div class="card col-md-12 m-0" style="border-radius:0; background-color:#f6f6f6">
