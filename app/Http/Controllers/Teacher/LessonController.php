@@ -9,12 +9,6 @@ use Illuminate\Http\Request;
 
 class LessonController extends Controller
 {
-
-    public function __construct()
-    {
-        $this->middleware('auth:teacher');
-    }
-
     public function index()
     {
         //
@@ -31,7 +25,7 @@ class LessonController extends Controller
             ->fill($request->input())
             ->forceFill(['module_id' => $request->module_id])
             ->save();
-        return redirect()->route('course.edit', [$request->module_id]);
+        return redirect()->route('teacher.module.edit', [$request->module_id]);
     }
 
     public function show(Lesson $lesson)

@@ -30,7 +30,7 @@ class StoreRequest extends FormRequest
     {
         return [
             'name' =>       'required|string',
-            'course_id' =>  'required|exists:'.Course::TABLE,
+            'course_id' =>  'required|exists:'.Course::TABLE.',id',
         ];
     }
 }

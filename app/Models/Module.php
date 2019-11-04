@@ -20,8 +20,14 @@ class Module extends Model
 
     public const TABLE = "modules";
 
+    /**
+     * @var string
+     */
     protected $table = self::TABLE;
 
+    /**
+     * @var array
+     */
     protected $fillable = [
         'name'
     ];
@@ -34,11 +40,17 @@ class Module extends Model
         });
     }
 
+    /**
+     * @return Model|\Illuminate\Database\Eloquent\Relations\BelongsTo|null|object|Course
+     */
     public function course()
     {
-        return $this->belongsTo('App\Models\Course', 'course_id', 'id')->get();
+        return $this->belongsTo('App\Models\Course', 'course_id', 'id')->first();
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Collection|Lesson[]
+     */
     public function lessons()
     {
         return $this->hasMany("App\Models\Lesson", "module_id", "id")->get();

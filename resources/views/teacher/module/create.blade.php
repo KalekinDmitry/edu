@@ -1,4 +1,9 @@
+{{--
 @extends('teacher.layouts.app')
+
+@section('title')
+    Создание модуля
+@endsection
 
 @section('content')
 
@@ -13,7 +18,7 @@
         </div>
 
 
-    <form class="contact-form" action="{{ route('teacher.module.store', $course->id) }}" method="POST" enctype="multipart/form-data">
+    <form class="contact-form" action="{{ route('teacher.module.store') }}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="row justify-content-center">
 
@@ -35,3 +40,5 @@
 </section>
 
 @endsection
+
+--}}

@@ -31,10 +31,10 @@ class StoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'module_id' => 'required|exists:' . Module::TABLE,
+            'module_id' => 'required|exists:' . Module::TABLE.',id',
             'title' => 'required|string',
-            'excerpt' => 'nullable|string',
-            'is_published' => 'bool',
+            //'excerpt' => 'nullable|string',
+            //'is_published' => 'nullable|bool',
         ];
     }
 }

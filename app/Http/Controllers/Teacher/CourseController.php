@@ -17,7 +17,7 @@ class CourseController extends Controller
     {
         $classrooms = Classroom::where('teacher_id', Auth::guard("teacher")->user()->id)->get();
         $courses = Course::where('created_by', Auth::guard("teacher")->user()->id)->get();
-        return view('teacher.dashboard', ['classrooms' => $classrooms, 'courses' => $courses]);
+        return view('teacher.course.index', ['classrooms' => $classrooms, 'courses' => $courses]);
     }
 
     public function create()
@@ -58,13 +58,8 @@ class CourseController extends Controller
 
     public function edit(Course $course)
     {
-        $modules = Module::where('course_id', $course->id)->get();
-        foreach ($modules as $module) {
-            $module->lessons = Lesson::where('module_id', $module->id)->get();
-        }
         return view('teacher.course.edit', [
             'course' => $course,
-            'modules' => $modules,
             'delimiter' => ''
         ]);
     }

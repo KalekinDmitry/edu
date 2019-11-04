@@ -386,7 +386,7 @@ $btn-fixed-padding-x:                     12px !default;
 
 
 $input-btn-circle-diameter:              48px;
-$input-btn-circle-radius:                calc($input-btn-circle-diameter/2);
+$input-btn-circle-radius:                $input-btn-circle-diameter/2;
 // Buttons + Forms
 //
 // Shared variables that are reassigned to `$input-` and `$btn-` specific variables.

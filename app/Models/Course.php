@@ -6,7 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 /**
- * @property mixed created_by
+ * @property int id
+ * @property int created_by
+ * @property int cost
+ * @property string title
+ * @property string slug
+ * @property string description
+ * @property string description_short
+ * @property string tags
+ * @property string image
+ * @property string video
+ * @property \DateTime created_at
+ * @property \DateTime updated_at
  */
 class Course extends Model
 {
@@ -28,9 +39,9 @@ class Course extends Model
         return $this->belongsTo('App\Models\Teacher', 'created_by', 'id');
     }
 
-    public function lessons()
+    public function modules()
     {
-        return $this->hasMany('App\Models\Lesson', 'course_id');
+        return $this->hasMany("App\Models\Module","course_id","id")->get();
     }
 
     public function classrooms()

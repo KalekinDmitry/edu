@@ -44,7 +44,7 @@ class ModuleController extends Controller
         (new Module())
             ->forceFill(["name" => $request->name, "course_id" => $request->course_id])
             ->save();
-        return redirect()->route('course.edit', $request->course_id);
+        return redirect()->route('teacher.course.edit', $request->course_id);
     }
 
     /**
@@ -81,7 +81,7 @@ class ModuleController extends Controller
     public function update(UpdateRequest $request, Module $module)
     {
         $module->update(["name" => $request->name]);
-        return redirect()->route('course.edit', [$module->course_id]);
+        return redirect()->route('teacher.module.edit', [$module->id]);
     }
 
     /**

@@ -7,159 +7,6 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-.sidebar {
-  min-width: 216px;
-  width: 216px;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
-  transition: all 0.4s;
-}
-
-.sidebar a {
-  margin-left: 8px;
-  width: 184px;
-  padding-right: 0px;
-  padding-top: 8px;
-  padding-bottom: 5px;
-  border-radius: 4px;
-  font-size: 13px;
-  line-height: 13px;
-  opacity: 0.7;
-  transition: 0.3s;
-  height: 32px;
-}
-
-.sidebar a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  margin-left: 16px;
-  transition: all 0.3s;
-}
-
-.sidebar a:focus {
-  background-color: rgba(255, 255, 255, 0.2);
-  opacity: 1;
-  transition: 0.2s;
-}
-
-.sidebar a img {
-  padding-bottom: 4px;
-  margin-right: -8px;
-  padding-right: 0px;
-}
-
-.sidebar #sidebar.active {
-  margin-left: -17rem;
-}
-
-.sidebar button {
-  margin-left: 8px;
-  width: 184px;
-  padding-right: 0px;
-  padding-top: 7px;
-  padding-bottom: 5px;
-  font-size: 13px;
-  line-height: 16px;
-  padding-left: 0;
-  transition: 0.3s;
-}
-
-.sidebar button:hover {
-  transition: 0.2s;
-  margin-left: 16px;
-}
-
-.sidebar button .row {
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar button img {
-  margin-right: -6px;
-  margin-left: 15px;
-  padding-right: 0px;
-}
-
-.page-content {
-  width: calc(100% - 216px);
-  margin-left: 216px;
-  transition: all 0.4s;
-}
-
-.lesson-panel,
-.messages-panel {
-  width: 36.25%;
-  min-width: 464px;
-}
-
-.lesson-content,
-.correspondence-panel {
-  width: 63.75%;
-  min-width: 816px;
-}
-
-.courses-panel,
-.course-panel,
-.proffile-panel,
-.subscriptions-panel,
-.news-panel,
-.authentication-panel,
-.error-panel,
-.empty-lesson-panel,
-.payment-panel,
-.mobile {
-  width: 100%;
-}
-
-::-webkit-scrollbar {
-  background-color: transparent;
-  overflow: visible;
-  width: 7px;
-  height: 18px;
-}
-
-::-webkit-scollbar-track {
-  background-color: transparent;
-  display: none;
-  opacity: 0;
-}
-
-::-webkit-scrollbar-track-piece {
-  background-color: transparent;
-  background: transparent;
-  display: none;
-}
-
-::-webkit-scrollbar-thumb {
-  height: 11px;
-  width: 7px;
-  background-clip: padding-box;
-  border-radius: 7px;
-  background-color: rgba(0, 0, 0, 0.46);
-}
-
-::-webkit-scrollbar-button {
-  width: 0;
-  height: 0;
-  display: none;
-}
-
-::-webkit-scrollbar-corner {
-  background-color: transparent;
-}
-
-.draggable {
-  cursor: url(/images/icon_cursordraggable.svg?6e177af1682c3cf336760675a125f1f8), -webkit-grab;
-  cursor: url(/images/icon_cursordraggable.svg?6e177af1682c3cf336760675a125f1f8), grab;
-}
-
-.draggable:active {
-  cursor: url(/images/icon_cursordraggableactive.svg?bac2ddc3fdaa09a48c0af0faf89ffb69), -webkit-grabbing;
-  cursor: url(/images/icon_cursordraggableactive.svg?bac2ddc3fdaa09a48c0af0faf89ffb69), grabbing;
-}
-
 :root {
   --blue: #6665FF;
   --blue-dark: #0F2037;
@@ -10633,5 +10480,193 @@ body {
   background-color: rgba(255, 255, 255, 0.3);
   opacity: 1;
   transition: 0.1s;
+}
+
+.sidebar {
+  min-width: 216px;
+  width: 216px;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+}
+
+.sidebar a {
+  margin-left: 8px;
+  width: 184px;
+  padding-right: 0px;
+  padding-top: 8px;
+  padding-bottom: 5px;
+  border-radius: 4px;
+  font-size: 13px;
+  line-height: 13px;
+  opacity: 0.7;
+  transition: 0.3s;
+  height: 32px;
+}
+
+.sidebar a:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  margin-left: 16px;
+  transition: all 0.3s;
+}
+
+.sidebar a:focus {
+  background-color: rgba(255, 255, 255, 0.2);
+  opacity: 1;
+  transition: 0.2s;
+}
+
+.sidebar a img {
+  padding-bottom: 4px;
+  margin-right: -8px;
+  padding-right: 0px;
+}
+
+.sidebar #sidebar.active {
+  margin-left: -17rem;
+}
+
+.sidebar button {
+  margin-left: 8px;
+  width: 184px;
+  padding-right: 0px;
+  padding-top: 7px;
+  padding-bottom: 5px;
+  font-size: 13px;
+  line-height: 16px;
+  padding-left: 0;
+  transition: 0.3s;
+}
+
+.sidebar button:hover {
+  transition: 0.2s;
+  margin-left: 16px;
+}
+
+.sidebar button .row {
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar button img {
+  margin-right: -6px;
+  margin-left: 15px;
+  padding-right: 0px;
+}
+
+.page-content {
+  width: calc(100% - 216px);
+  margin-left: 216px;
+  transition: all 0.4s;
+  background-color: #f8f9fa;
+  min-height: 100%;
+}
+
+.lesson-panel,
+.messages-panel {
+  width: 36.25%;
+  min-width: 464px;
+}
+
+.lesson-content,
+.correspondence-panel {
+  width: 63.75%;
+  min-width: 816px;
+}
+
+.courses-panel,
+.course-panel,
+.proffile-panel,
+.subscriptions-panel,
+.news-panel,
+.authentication-panel,
+.error-panel,
+.empty-lesson-panel,
+.payment-panel,
+.mobile {
+  width: 100%;
+}
+
+.icon-24 {
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  font-size: 0.6rem;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.icon-32 {
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  font-size: 0.7rem;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.icon-40 {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 0.8rem;
+  text-align: center;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+::-webkit-scrollbar {
+  background-color: transparent;
+  overflow: visible;
+  width: 7px;
+  height: 18px;
+}
+
+::-webkit-scollbar-track {
+  background-color: transparent;
+  display: none;
+  opacity: 0;
+}
+
+::-webkit-scrollbar-track-piece {
+  background-color: transparent;
+  background: transparent;
+  display: none;
+}
+
+::-webkit-scrollbar-thumb {
+  height: 11px;
+  width: 7px;
+  background-clip: padding-box;
+  border-radius: 7px;
+  background-color: rgba(0, 0, 0, 0.46);
+}
+
+::-webkit-scrollbar-button {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+.draggable {
+  cursor: url(/images/icon_cursordraggable.svg?6e177af1682c3cf336760675a125f1f8), -webkit-grab;
+  cursor: url(/images/icon_cursordraggable.svg?6e177af1682c3cf336760675a125f1f8), grab;
+}
+
+.draggable:active {
+  cursor: url(/images/icon_cursordraggableactive.svg?bac2ddc3fdaa09a48c0af0faf89ffb69), -webkit-grabbing;
+  cursor: url(/images/icon_cursordraggableactive.svg?bac2ddc3fdaa09a48c0af0faf89ffb69), grabbing;
 }
 

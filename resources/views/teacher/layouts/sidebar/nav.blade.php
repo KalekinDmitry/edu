@@ -1,15 +1,17 @@
-<li class="nav-item  m-1 ml-2">
+<li class="nav-item m-2">
     <a href="{{ route('home') }}" class="nav-link text-white font-weight-normal ">
-        <img src="{{ asset('assets/icons/icon_home.svg') }}" width="16px">
-        <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-        Главная
+        <i class="fas fa-home"></i> Главная
     </a>
 </li>
 
-<li class="nav-item  m-1 ml-2">
+<li class="nav-item m-2">
+    <a href="{{ route('teacher.dashboard') }}" class="nav-link text-white font-weight-normal ">
+        <i class="fas fa-tachometer-alt"></i> Панель учителя
+    </a>
+</li>
+
+<li class="nav-item m-2">
     <a href="{{route('teacher.course.index')}}" class="nav-link text-white font-weight-normal " >
-        <img src="{{ asset('assets/icons/icon_hat.svg') }}"  width="16px">
-        <i class="fa fa-th-large mr-3 text-primary fa-fw"></i>
-        Курсы
+        <i class="fas fa-graduation-cap"></i> Курсы
     </a>
 </li>
