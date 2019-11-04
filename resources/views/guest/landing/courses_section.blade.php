@@ -28,7 +28,7 @@
                     </figure>
                     <div class="course-content">
                         <div class="cc-text">
-                            <h5><a href="{{route('course.show', $course->id)}}">{{ $course->title }}</a></h5>
+                            <h5><a href="{{route('teacher.course.show', $course->id)}}">{{ $course->title }}</a></h5>
                             <p>{{ $course->description_short }}</p>
                             <span><i class="flaticon-student-2"></i>20</span>
                             <span><i class="flaticon-placeholder"></i>3</span>
@@ -43,7 +43,7 @@
                         <div class="seller-info">
                             <div class="seller-pic set-bg" data-setbg="">[Profile avatar]</div>
                             {{--<h6><a style="color: #fff"--}}
-                                   {{--href="{{ route('user_profile', $course->teacher->id) }}">By {{$course->teacher->name}}</a>,--}}
+                                   {{--href="{{ route('student_profile', $course->teacher->id) }}">By {{$course->teacher->name}}</a>,--}}
                                 {{--<span>[who is]</span></h6>--}}
                         </div>
                     </div>

@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
@@ -10,6 +10,10 @@ use Illuminate\Support\Str;
  */
 class Course extends Model
 {
+    public const TABLE = "courses";
+
+    protected $table = self::TABLE;
+
     // Mass assigned
     protected $fillable = ['title', 'slug', 'description_short', 'description', 'tags', 'image', 'video', 'created_by', 'cost'];
 

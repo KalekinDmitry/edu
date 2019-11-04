@@ -2,10 +2,10 @@
 
 namespace App\Policies;
 
-use App\Models\Teacher;
-use App\Course;
+use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\Module;
+use App\Models\Teacher;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class LessonPolicy

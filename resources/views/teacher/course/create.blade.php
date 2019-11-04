@@ -13,7 +13,7 @@
 {{--                        <h2 style="margin-top: 10px;"><strong--}}
 {{--                                    style="padding-left: 20px;">@lang('content.creature')</strong></h2>--}}
 {{--                    </div>--}}
-{{--                    <form class="form-horizontal card-body" action="{{route('course.store')}}" method="post"--}}
+{{--                    <form class="form-horizontal card-body" action="{{route('teacher.course.store')}}" method="post"--}}
 {{--                          enctype="multipart/form-data" style="padding: 32.5px;">--}}
 {{--                        <input type="hidden" name="_token" value="{{ csrf_token() }}">--}}
 

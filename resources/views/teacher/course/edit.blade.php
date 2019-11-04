@@ -17,7 +17,7 @@
                                 <div class="col-md-12">
                                     <!-- Header section end -->
                                     <a class="site-btn-info-sm col-md-12"
-                                       href="{{ route('module.create', $course->id) }}">@lang('content.addnm')
+                                       href="{{ route('teacher.module.create', $course->id) }}">@lang('content.addnm')
                                     </a>
                                     <button type="button" class="btn btn-success" data-toggle="modal" data-target="#successModal">
                                         show modal
@@ -261,7 +261,7 @@
                                 @foreach($modules as $module)
                                     <div class="col-md-12">
                                         <form onsubmit="if(confirm('Delete module?')){return true}else{return false}"
-                                              action="{{route('module.destroy', [$course, $module])}}" method="post">
+                                              action="{{route('teacher.module.destroy', [$course, $module])}}" method="post">
                                             <input type="hidden" name="_method" value="Delete">
                                             {{ csrf_field() }}
                                             <div class="row">
@@ -269,7 +269,7 @@
                                                     📂 {{$module->position + 1}}
                                                     . {{$module->name}}</h5>
                                                 <a class="site-btn-hollow col-md-3"
-                                                   href="{{route('module.edit', [$course->id, $module->id])}}"><i
+                                                   href="{{route('teacher.module.edit', [$course->id, $module->id])}}"><i
                                                             class="fa fa-edit"></i>@lang('content.edit')</a>
                                                 <button type="submit" class="site-btn-danger-sm col-md-1">X</button>
                                             </div>
@@ -279,15 +279,15 @@
                                             @foreach($module->lessons as $lesson)
                                                 <div class="row">
                                                     <a style="border-width: 1px"
-                                                       href="{{ route('lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"
+                                                       href="{{ route('teacher.lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"
                                                        style="font-size: 14px;"
                                                        class="list-group-item list-group-item-action col-md-8">📄{{ $lesson->title }}</a>
                                                     <a class="site-btn-hollow col-md-3"
-                                                       href="{{route('lesson.edit', [$module->id, $lesson->id])}}"><i
+                                                       href="{{route('teacher.lesson.edit', [$module->id, $lesson->id])}}"><i
                                                                 class="fa fa-edit"></i></a>
                                                     <form style="padding: 0" class="col-md-1"
                                                           onsubmit="if(confirm('Delete module?')){return true}else{return false}"
-                                                          action="{{route('lesson.destroy', [$module, $lesson])}}"
+                                                          action="{{route('teacher.lesson.destroy', [$module, $lesson])}}"
                                                           method="post">
                                                         <input type="hidden" name="_method" value="Delete">
                                                         {{ csrf_field() }}
@@ -298,7 +298,7 @@
                                             @endforeach
                                             <div class="row">
                                                 <a class="site-btn-info col-md-12"
-                                                   href="{{ route('lesson.create', $module->id) }}">✚</a>
+                                                   href="{{ route('teacher.lesson.create', $module->id) }}">✚</a>
                                             </div>
                                         </div>
                                     </div>
@@ -308,7 +308,7 @@
                                 <!-- course -->
                                 <div class="course-item featured">
                                     <form class="form-horizontal card-body"
-                                          action="{{route('course.update', $course)}}"
+                                          action="{{route('teacher.course.update', $course)}}"
                                           method="post"
                                           enctype="multipart/form-data">
                                         <input type="hidden" name="_method" value="put">

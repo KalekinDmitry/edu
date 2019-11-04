@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Teacher\Classroom;
+namespace App\Http\Controllers\Teacher;
 
-use App\User;
-use App\Course;
-use App\Models\Classroom;
-use Illuminate\Support\Str;
-use Illuminate\Http\Request;
-use App\Models\ClassroomInvite;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use App\Models\Classroom;
+use App\Models\ClassroomInvite;
+use App\Models\Course;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class ClassroomController extends Controller
 {
@@ -39,7 +39,7 @@ class ClassroomController extends Controller
     {
         $notIncludedUsers = User::get();
 
-        $notIncludedCourses = Course::where('created_by', Auth::user()->id)->get();
+        $notIncludedCourses = Course::where('created_by', Auth::guard("teacher")->user()->id)->get();
 
         return view('teacher.classroom.create', [
             'users' => $notIncludedUsers,
@@ -55,7 +55,7 @@ class ClassroomController extends Controller
      */
     public function store(Request $request)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         $classroom = Classroom::create($request->input());
         $classroom->slug = Str::slug($classroom->name);
         $classroom->teacher_id = $teacher->id;
@@ -94,7 +94,7 @@ class ClassroomController extends Controller
      */
     public function edit(Classroom $classroom)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
 
 
         if ($teacher->can('edit', $classroom)) {
@@ -111,7 +111,7 @@ class ClassroomController extends Controller
             $includedCourses = $classroom->courses()->get();
 
             $includedCoursesID = $classroom->courses()->pluck('courses.id')->toArray();
-            $notIncludedCourses = Course::where('created_by', Auth::user()->id)->get()->except($includedCoursesID);
+            $notIncludedCourses = Course::where('created_by', Auth::guard("teacher")->user()->id)->get()->except($includedCoursesID);
 
             //some users may be included to this course, but not being deleted ivite message.
             //So we need to see this users, to know is invite message was made correctly
@@ -145,7 +145,7 @@ class ClassroomController extends Controller
      */
     public function update(Request $request, Classroom $classroom)
     {
-        //$teacher = Auth::user();
+        //$teacher = Auth::guard("teacher")->user();
         //if($teacher->can('update', $classroom)){
 
         //dd($request->input('newIncludedUsers'));
@@ -189,7 +189,7 @@ class ClassroomController extends Controller
      */
     public function destroy(Classroom $classroom)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         if ($teacher->can('destroy', $classroom)) {
             $classroom->delete();
             return redirect()->route('teacher.dashboard');

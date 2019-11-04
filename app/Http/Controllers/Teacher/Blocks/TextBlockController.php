@@ -33,7 +33,7 @@ class TextBlockController extends Controller
      */
     public function create(Lesson $lesson)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         if($teacher->can('create', [TextBlock::class, $lesson])){
             return view('teacher.lesson.text.create', ['lesson' => $lesson]);
         }else {
@@ -51,7 +51,7 @@ class TextBlockController extends Controller
      */
     public function store(Request $request, Lesson $lesson)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
 
         if($teacher->can('store', [TextBlock::class, $lesson])){
 
@@ -90,7 +90,7 @@ class TextBlockController extends Controller
      */
     public function edit(Lesson $lesson, TextBlock $textBlock)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         //dd($lesson, $course, $teacher);
         //dd($textBlock, $teacher);
         if($teacher->can('edit', [$textBlock])){
@@ -109,7 +109,7 @@ class TextBlockController extends Controller
      */
     public function update(Request $request, Lesson $lesson, TextBlock $textBlock)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         if($teacher->can('update', [$textBlock])){
             $textBlock->update($request->input());
             $textBlock->save();
@@ -128,7 +128,7 @@ class TextBlockController extends Controller
      */
     public function destroy(Lesson $lesson, TextBlock $textBlock)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         if($teacher->can('destroy', [$textBlock])){
             $textBlock->delete();
             return redirect()->route('lesson.edit', [$lesson->module_id, $lesson->id]);

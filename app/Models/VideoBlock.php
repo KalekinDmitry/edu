@@ -9,6 +9,10 @@ class VideoBlock extends Model
 {
     use SoftDeletes;
 
+    public const TABLE = "video_blocks";
+
+    protected $table = self::TABLE;
+
     protected $fillable = [
         'link', 'position', 'lesson_id'
     ];

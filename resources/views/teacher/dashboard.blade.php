@@ -21,7 +21,7 @@
                             Новый курс
                         </div>
                         Добавте черновик нового курса. В любой момент вы его сможете наполнить уроками.
-                        <form class="m-0 p-0" action="{{ route('course.create') }}">
+                        <form class="m-0 p-0" action="{{ route('teacher.course.create') }}">
                             <button type="submit" class="btn btn-primary mb-0 col-md-12" style="font-size:13px">
                                 Создать курс
                             </button>
@@ -49,7 +49,7 @@
                                     <hr class="m-0">
                                     <form class="form-group col-md-12 px-0 m-0 d-flex-row"
                                         onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
-                                        action="{{ route('course.destroy', [$course->id]) }}" method="post">
+                                        action="{{ route('teacher.course.destroy', [$course->id]) }}" method="post">
                                         <input type="hidden" name="_method" value="Delete">
                                         {{ csrf_field() }}
                                         <button type="submit" style="background-color:rgba(0,0,0,0); color:red" class="dropdown-item">Удалить курс</button>

@@ -12,6 +12,10 @@ class Teacher extends Authenticatable
 {
     use Notifiable;
 
+    public const TABLE = "teachers";
+
+    protected $table = self::TABLE;
+
     protected $guard = 'teacher';
     /**
      * The attributes that are mass assignable.
@@ -38,7 +42,7 @@ class Teacher extends Authenticatable
 
     public function courses()
     {
-        return $this->hasMany('App\Course', 'created_by');
+        return $this->hasMany('App\Models\Course', 'created_by');
     }
 
     /**

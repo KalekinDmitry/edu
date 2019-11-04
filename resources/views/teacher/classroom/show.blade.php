@@ -32,10 +32,10 @@
                         @endforeach
                     </ul>
                     <form onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
-                          action="{{ route('classroom.destroy', [$classroom->id]) }}" method="post">
+                          action="{{ route('teacher.classroom.destroy', [$classroom->id]) }}" method="post">
                         <input type="hidden" name="_method" value="delete">
                         {{ csrf_field() }}
-                        <a href="{{ route('classroom.edit',[$classroom->id]) }}"
+                        <a href="{{ route('teacher.classroom.edit',[$classroom->id]) }}"
                            class="site-btn col-md-4">@lang('content.edclass')</a>
                         <button type="submit" class="site-btn-danger col-md-4">@lang('content.delclassrm')</button>
 

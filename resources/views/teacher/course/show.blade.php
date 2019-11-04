@@ -36,10 +36,10 @@
             <div class="row">
                 <div class="col col-3">
                     <form onsubmit="if(confirm('@lang('content.cnfrmdel')?')){return true}else{return false}"
-                          action="{{route('course.destroy', $course)}}" method="post">
+                          action="{{route('teacher.course.destroy', $course)}}" method="post">
                         <input type="hidden" name="_method" value="Delete">
                         {{ csrf_field() }}
-                        <a class="site-btn-hollow col-md-5" href="{{route('course.edit', $course->id)}}"><i
+                        <a class="site-btn-hollow col-md-5" href="{{route('teacher.course.edit', $course->id)}}"><i
                                     class="fa fa-edit">@lang('content.edit')</i></a>
                         <button type="submit" class="site-btn-danger-sm col-md-6">@lang('content.del')</button>
 
@@ -57,7 +57,7 @@
                             . {{$module->name}}</h5>
                         <div class="list-group">
                             @foreach($module->lessons as $lesson)
-                                <a href="{{ route('lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"
+                                <a href="{{ route('teacher.lesson.show', ['course'=>$course->id, 'lesson'=>$lesson->id]) }}"
                                    style="font-size: 14px;"
                                    class="list-group-item list-group-item-action ">📄{{ $lesson->title }}</a>
                             @endforeach
@@ -119,7 +119,7 @@
                                         <div class="seller-info">
                                             <div class="seller-pic set-bg" data-setbg="">[@lang('content.profav')]</div>
                                             <h6><a style="color: #fff"
-                                                   href="{{ route('user_settings', $course->teacher->id) }}">@lang('content.by') {{$course->teacher->name}}</a>,
+                                                   href="{{ route('student_settings', $course->teacher->id) }}">@lang('content.by') {{$course->teacher->name}}</a>,
                                                 <span>[@lang('content.wi')]</span></h6>
                                         </div>
                                     </div>

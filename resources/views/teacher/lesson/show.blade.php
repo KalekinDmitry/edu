@@ -12,16 +12,6 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-md-7 col-sm-9" style="color:white">
-            {{-- <div class="container" style="background-color:darkgrey">
-                <h3> {{ $lesson->excerpt }}</h3>
-            </div>
-            <br>
-            <div class="container" style="background-color:white">
-                <br>
-                <h5> {{ $lesson->content_html }}</h5>
-                <br>
-            </div> --}}
-
             <div class="card">
                 <div class="card-body">
                     <div class="card-header" style="color:darkslategray">
@@ -48,10 +38,10 @@
                     </div>
                     <br>
                     <form  onsubmit="if(confirm('@lang('content.reallydel')?')){return true}else{return false}"
-                        action="{{ route('lesson.destroy', [$module->id, $lesson->id]) }}" method="post">
+                        action="{{ route('teacher.lesson.destroy', [$lesson->module_id, $lesson->id]) }}" method="post">
                         <input type="hidden" name="_method" value="Delete">
                         {{ csrf_field() }}
-                        <a href="{{ route('lesson.edit',[$module->id, $lesson->id]) }}" class="site-btn col-md-4">@lang('content.edles')</a>
+                        <a href="{{ route('teacher.lesson.edit',[$lesson->module_id, $lesson->id]) }}" class="site-btn col-md-4">@lang('content.edles')</a>
                         <button type="submit" class="site-btn-danger col-md-4">@lang('content.delles')</button>
                     </form>
 

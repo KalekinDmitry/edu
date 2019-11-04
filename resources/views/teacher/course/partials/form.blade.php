@@ -1,4 +1,4 @@
-<form class="form m-0 p-0" action="{{route('course.store')}}" method="post" enctype="multipart/form-data">
+<form class="form m-0 p-0" action="{{route('teacher.course.store')}}" method="post" enctype="multipart/form-data">
     <input type="hidden" name="_token" value="{{ csrf_token() }}">
     <div class="card-body" style="min-width:548px; max-width: 548px">
 

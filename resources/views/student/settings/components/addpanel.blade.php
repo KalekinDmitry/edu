@@ -114,7 +114,7 @@
                                 <div class="panel-body bio-graph-info">
                                     <h1>@lang('content.editdata')</h1>
                                     <form class="form-horizontal card-body"
-                                          action="{{route('user_settings_save', $user)}}"
+                                          action="{{route('student_settings_save', $user)}}"
                                           method="post"
                                           enctype="multipart/form-data">
                                         <input type="hidden" name="_method" value="put">

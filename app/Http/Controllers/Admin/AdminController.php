@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use App\Models\Teacher;
-use App\User;
+use App\Models\User;
 use Auth;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 
 
 class AdminController extends Controller

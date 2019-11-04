@@ -8,7 +8,7 @@
         </button>
         <div class="dropdown-menu" style="background-color: #3B3444" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" style="background-color: #3B3444"
-               href="{{ route('user.showLoginForm') }}">@lang('content.asus')</a>
+               href="{{ route('student.showLoginForm') }}">@lang('content.asus')</a>
             <a class="dropdown-item" style="background-color: #3B3444"
                href="{{ route('teacher.showLoginForm') }}">@lang('content.astch')</a>
         </div>
@@ -22,7 +22,7 @@
         </button>
         <div class="dropdown-menu" style="background-color: #3B3444" aria-labelledby="dropdownMenuButton">
             <a class="dropdown-item" style="background-color: #3B3444"
-               href="{{ route('user.showRegisterForm') }}">@lang('content.asus')</a>
+               href="{{ route('student.showRegisterForm') }}">@lang('content.asus')</a>
             <a class="dropdown-item" style="background-color: #3B3444"
                href="{{ route('teacher.showRegisterForm') }}">@lang('content.astch')</a>
         </div>

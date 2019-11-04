@@ -10,7 +10,7 @@
             </div>
 
             <div class="card-body">
-                <form method="POST" action="{{ route('user.loginRequest') }}" class="contact-form m-0 p-0">
+                <form method="POST" action="{{ route('student.loginRequest') }}" class="contact-form m-0 p-0">
                     @csrf
                     <p class="text-grey font-weight-bold" style="font-size:13px; line-height: 20px; margin-top: 20px">
                         Email</p>
@@ -55,7 +55,7 @@
             </div>
 
             <div class="card-footer text-dark" style="font-size:13px; height:128px">
-                <a href="{{ route('user.showRegisterForm') }}" class="btn btn-light text-dark col-md-12 my-2"
+                <a href="{{ route('student.showRegisterForm') }}" class="btn btn-light text-dark col-md-12 my-2"
                    style="font-size:14px; padding-top:9px; height:40px">
                     Зарегистрироваться
                 </a>

@@ -2,10 +2,10 @@
 
 namespace App\Policies;
 
-use App\User;
+use App\Models\Course;
 use App\Models\Module;
 use App\Models\Teacher;
-use App\Course;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class ModulePolicy
@@ -27,7 +27,7 @@ class ModulePolicy
      * Determine whether the user can view the course.
      *
      * @param Teacher $teacher
-     * @param  \App\Course $course
+     * @param  \App\Models\Course $course
      * @return mixed
      */
     public function view(Teacher $teacher, Course $course)

@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Teacher;
 
-use Auth;
-use App\Course;
-use App\Models\Teacher;
-use App\Models\Classroom;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
+use App\Models\Classroom;
+use App\Models\Course;
+use App\Models\Teacher;
+use Auth;
+use Illuminate\Http\Request;
 
 class TeacherController extends Controller
 {
@@ -29,14 +28,14 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $classrooms = Classroom::where('teacher_id', Auth::user()->id)->get();
-        $courses = Course::where('created_by', Auth::user()->id)->get();
+        $classrooms = Classroom::where('teacher_id', Auth::guard("teacher")->user()->id)->get();
+        $courses = Course::where('created_by', Auth::guard("teacher")->user()->id)->get();
         return view('teacher.dashboard', ['classrooms' => $classrooms, 'courses' => $courses]);
     }
 
     public function edit()
     {
-        $teacher = Teacher::where('id', Auth::user()->id)->first();
+        $teacher = Teacher::where('id', Auth::guard("teacher")->user()->id)->first();
         return view('teacher.settings.edit', [
             'teacher' => $teacher,
         ]);
@@ -44,7 +43,7 @@ class TeacherController extends Controller
 
     public function update(Request $request)
     {
-        $teacher = Teacher::where('id', Auth::user()->id)->first();
+        $teacher = Teacher::where('id', Auth::guard("teacher")->user()->id)->first();
         $teacher->name = $request->name;
         $teacher->email = $request->email;
         $teacher->save();

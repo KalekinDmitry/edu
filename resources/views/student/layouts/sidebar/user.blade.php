@@ -13,9 +13,9 @@
         </a>
         <div class="dropdown-menu " style="border: 0; margin-left:-145px; margin-top: -50px"
              aria-labelledby="profileDropdown">
-            <a class="dropdown-item " href="{{ route('user.settings') }}">Профиль</a>
+            <a class="dropdown-item " href="{{ route('student.settings') }}">Профиль</a>
             <hr class="m-0 p-0">
-            <a class="dropdown-item " href="{{ route('user.logout') }}">Выйти</a>
+            <a class="dropdown-item " href="{{ route('student.logout') }}">Выйти</a>
         </div>
     </div>
 </div>

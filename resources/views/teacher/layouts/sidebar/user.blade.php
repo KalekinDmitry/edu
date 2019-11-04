@@ -3,9 +3,9 @@
          class="mr-3 rounded-circle ">
     <div class="media-body p-0 m-0">
         <p class="m-0 p-0 font-weight-bold text-light"
-           style="font-size:11px; line-height: 12px">{{ Auth::user()->name }}</p>
+           style="font-size:11px; line-height: 12px">{{ Auth::guard("teacher")->user()->name }}</p>
         <p class="font-weight-light text-muted m-0 p-0"
-           style="font-size:11px; line-height: 12px">{{ Auth::user()->email}}</p>
+           style="font-size:11px; line-height: 12px">{{ Auth::guard("teacher")->user()->email}}</p>
     </div>
     <div class="dropdown">
         <a href="#" class="p-4" id="profileDropdown" data-toggle="dropdown" aria-haspopup="ture" aria-expanded="false">

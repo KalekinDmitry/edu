@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\Student\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Teacher\TeacherRegisterRequest;
 use App\Http\Requests\User\UserRegisterRequest;
-use App\Models\Teacher;
-use App\User;
+use App\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
 class RegisterController extends Controller
@@ -68,7 +65,7 @@ class RegisterController extends Controller
     /**
      * Create a new user instance after a valid registration.
      * @param  array $data
-     * @return \App\User
+     * @return \App\Models\User
      */
     protected function create(array $data)
     {

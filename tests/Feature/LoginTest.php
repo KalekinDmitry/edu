@@ -4,7 +4,7 @@ namespace Tests\Feature;
 
 use App\Models\Admin;
 use App\Models\Teacher;
-use App\User;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;

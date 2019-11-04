@@ -10,6 +10,10 @@ class SimpleQuestion extends Model
 {
     use SoftDeletes;
 
+    public const TABLE = "simple_questions";
+
+    protected $table = self::TABLE;
+
     protected $fillable = [
         'task_block_id', 'text', 'keywords', 'image_link'
     ];

@@ -24,7 +24,7 @@
                     <span class="menu-arrow arrow_carrot-right"></span>
                 </a>
                 <ul class="sub">
-                    <li><a class="" href="{{ route('users.list') }}">@lang('content.usrs')</a></li>
+                    <li><a class="" href="{{ route('students.list') }}">@lang('content.usrs')</a></li>
                     <li><a class="" href="{{ route('teachers.list') }}">@lang('content.tchrs')</a></li>
                     <li><a class="" href="{{ route('admins.list') }}">@lang('content.adms')</a></li>
                 </ul>

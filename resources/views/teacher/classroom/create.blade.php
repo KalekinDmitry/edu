@@ -13,11 +13,11 @@
                                     style="padding-left: 20px;">@lang('content.crclassrm')</strong></h2>
                     </div>
                     <div class="card-body">
-                        <form class="contact-form" action="{{ route('classroom.store') }}" method="POST"
+                        <form class="contact-form" action="{{ route('teacher.classroom.store') }}" method="POST"
                               style="padding-left: 20px; padding-right: 20px"
                               enctype="multipart/form-data">
                             <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="hidden" name="teacher_id" value="{{ Auth::user()->id }}">
+                            <input type="hidden" name="teacher_id" value="{{ Auth::guard("teacher")->user()->id }}">
                             <input type="hidden" name="slug" value="slug">
 
                             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12" style="padding: 0;">

@@ -39,7 +39,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapWebStudentRoutes();
+        $this->mapWebTeacherRoutes();
     }
 
     /**
@@ -69,5 +70,35 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
             ->namespace($this->namespace)
             ->group(base_path('routes/web.php'));
+    }
+
+    protected function mapWebStudentRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace.'\Student')
+            ->prefix("student")
+            ->as("student.")
+            ->group(base_path('routes/user/web.php'));
+
+        Route::middleware('web')
+            ->namespace($this->namespace.'\Student\Auth')
+            ->prefix("student/auth")
+            ->as("student.")
+            ->group(base_path('routes/user/web-auth.php'));
+    }
+
+    protected function mapWebTeacherRoutes()
+    {
+        Route::middleware('web')
+            ->namespace($this->namespace.'\Teacher')
+            ->prefix("teacher")
+            ->as("teacher.")
+            ->group(base_path('routes/teacher/web.php'));
+
+        Route::middleware('web')
+            ->namespace($this->namespace.'\Teacher\Auth')
+            ->prefix("teacher/auth")
+            ->as("teacher.")
+            ->group(base_path('routes/teacher/web-auth.php'));
     }
 }

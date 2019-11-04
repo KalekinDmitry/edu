@@ -9,6 +9,10 @@ class TextBlock extends Model
 {
     use SoftDeletes;
 
+    public const TABLE = "text_blocks";
+
+    protected $table = self::TABLE;
+
     protected $fillable = [
         'lesson_id', 'position', 'content'
     ];

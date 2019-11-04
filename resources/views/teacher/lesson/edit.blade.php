@@ -1,3 +1,6 @@
+<?php use App\Models\Lesson;
+/** @var Lesson $lesson */?>
+
 @extends('teacher.layouts.app')
 
 @section('content')
@@ -35,18 +38,18 @@
                                     <button class="site-btn-hollow col-md-12" type="submit" value="create">✚ @lang('content.task')</button>
                                 </form>
                             </div>
-                            @foreach($steps->textBlocks as $textBlock)
+                            @foreach($lesson->texts() as $block)
                                 <div class="d-flex">
                                     <a style="border-width: 1px;font-size: 14px;"
-                                       href="{{ route('textBlock.show', ['lesson'=>$lesson->id, 'textBlock'=>$textBlock->id]) }}"
-                                       class="list-group-item list-group-item-action col-md-6">{{ $textBlock->position + 1 }}
+                                       href="{{ route('textBlock.show', ['lesson'=>$lesson->id, 'textBlock'=>$block->id]) }}"
+                                       class="list-group-item list-group-item-action col-md-6">{{ $block->position + 1 }}
                                         : @lang('content.txt')</a>
                                     <a class="site-btn-hollow col-md-3"
-                                       href="{{route('textBlock.edit', [$lesson->id, $textBlock->id])}}"><i
+                                       href="{{route('textBlock.edit', [$lesson->id, $block->id])}}"><i
                                                 class="fa fa-edit"></i></a>
                                     <form class="col-md-3 p-0"
                                           onsubmit="if(confirm('Delete step?')){return true}else{return false}"
-                                          action="{{route('textBlock.destroy', [$lesson, $textBlock])}}" method="post">
+                                          action="{{route('textBlock.destroy', [$lesson, $block])}}" method="post">
                                         <input type="hidden" name="_method" value="Delete">
                                         {{ csrf_field() }}
                                         <button type="submit" class="site-btn-danger w-100">X</button>
@@ -54,18 +57,18 @@
                                 </div>
                             @endforeach
 
-                            @foreach($steps->videoBlocks as $videoBlock)
+                            @foreach($lesson->videos() as $block)
                                 <div class="d-flex">
                                     <a style="font-size: 14px;border-width: 1px"
-                                       href="{{ route('videoBlock.show', ['lesson'=>$lesson->id, 'videoBlock'=>$videoBlock->id]) }}"
-                                       class="list-group-item list-group-item-action col-md-6">{{ $videoBlock->position + 1 }}
+                                       href="{{ route('videoBlock.show', ['lesson'=>$lesson->id, 'videoBlock'=>$block->id]) }}"
+                                       class="list-group-item list-group-item-action col-md-6">{{ $block->position + 1 }}
                                         : @lang('content.vid')</a>
                                     <a class="site-btn-hollow col-md-3"
-                                       href="{{route('videoBlock.edit', [$lesson->id, $videoBlock->id])}}"><i
+                                       href="{{route('videoBlock.edit', [$lesson->id, $block->id])}}"><i
                                                 class="fa fa-edit"></i></a>
                                     <form class="col-md-3 p-0"
                                           onsubmit="if(confirm('Delete step?')){return true}else{return false}"
-                                          action="{{route('videoBlock.destroy', [$lesson, $videoBlock])}}"
+                                          action="{{route('videoBlock.destroy', [$lesson, $block])}}"
                                           method="post">
                                         <input type="hidden" name="_method" value="Delete">
                                         {{ csrf_field() }}
@@ -74,18 +77,18 @@
                                 </div>
                             @endforeach
 
-                            @foreach($steps->taskBlocks as $taskBlock)
+                            @foreach($lesson->tasks() as $block)
                                 <div class="d-flex">
                                     <a style="font-size: 14px;border-width: 1px"
-                                       href="{{ route('taskBlock.show', ['lesson'=>$lesson->id, 'taskBlock'=>$taskBlock->id]) }}"
-                                       class="list-group-item list-group-item-action col-md-6">{{ $taskBlock->position + 1 }}
+                                       href="{{ route('taskBlock.show', ['lesson'=>$lesson->id, 'taskBlock'=>$block->id]) }}"
+                                       class="list-group-item list-group-item-action col-md-6">{{ $block->position + 1 }}
                                         : @lang('content.task')</a>
                                     <a class="site-btn-hollow col-md-3"
-                                       href="{{route('taskBlock.edit', [$lesson->id, $taskBlock->id])}}"><i
+                                       href="{{route('taskBlock.edit', [$lesson->id, $block->id])}}"><i
                                                 class="fa fa-edit"></i></a>
                                     <form class="col-md-3 p-0"
                                           onsubmit="if(confirm('Delete step?')){return true}else{return false}"
-                                          action="{{route('taskBlock.destroy', [$lesson, $taskBlock])}}"
+                                          action="{{route('taskBlock.destroy', [$lesson, $block])}}"
                                           method="post">
                                         <input type="hidden" name="_method" value="Delete">
                                         {{ csrf_field() }}
@@ -97,7 +100,7 @@
 
 
                         <form style="padding: 0" class="contact-form col-md-7"
-                              action="{{ route('lesson.update', [$module->id, $lesson->id]) }}" method="POST"
+                              action="{{ route('teacher.lesson.update', [$lesson->module_id, $lesson->id]) }}" method="POST"
                               enctype="multipart/form-data">
                             <input type="hidden" name="_method" value="put">
                             {{ csrf_field() }}
@@ -107,7 +110,7 @@
                                     <input type="text" maxlength="64" name="title" placeholder="@lang('content.ltitle')"
                                            value="{{ $lesson->title ?? "" }}" required>
                                     <input type="hidden" name="slug" value="{{ $lesson->slug ?? ""}}">
-                                    <input type="hidden" name="module_id" value="{{ $module->id }}">
+                                    <input type="hidden" name="module_id" value="{{ $lesson->module_id }}">
                                 </div>
                                 <div class="col-md-12">
                                     <input type="text" maxlength="256" name="excerpt"
