@@ -47,7 +47,7 @@
                     <button class="btn btn-primary" style="font-size:13px; width:110px; background-color:#3c5a9a">
                         <div class="row justify-content-center">
                             <img src="{{ asset('assets/icons/icon_facebook.svg') }}" width="16px">
-                            <i class="fa fa-th-large mr-2 text-primary fa-fw"></i>
+
                             Фейсбук
                         </div>
                     </button>
@@ -57,7 +57,7 @@
                     <button class="btn btn-primary " style="font-size:13px; width:110px; background-color:#2aa3ef">
                         <div class="row justify-content-center">
                             <img src="{{ asset('assets/icons/icon_twitter.svg') }}" width="16px">
-                            <i class="fa fa-th-large mr-2 text-primary fa-fw"></i>
+
                             Твиттер
                         </div>
                     </button>
@@ -67,7 +67,7 @@
                     <button class="btn btn-primary " style="font-size:13px; width:110px; background-color:#4c77a6">
                         <div class="row justify-content-center">
                             <img src="{{ asset('assets/icons/icon_VK.svg') }}" width="16px">
-                            <i class="fa fa-th-large mr-2 text-primary fa-fw"></i>
+
                             Вконтакте
                         </div>
                     </button>

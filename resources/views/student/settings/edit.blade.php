@@ -1,28 +1,13 @@
 @extends('student.layouts.app')
 
+@section('title')
+    Профиль
+@endsection
+
 @section('content')
-    {{-- <section class="content-section set-bg fixed"
-             data-setbg="{{config('static.static')}}/img/bg.jpg">
-        <div class="container" style="padding-top: 200px;min-height: 100vh;">
-            <div class="row">
-                <section class="wrapper">
-                    @include('student.settings.settings_components.owninformation')
-                    @include('student.settings.settings_components.addpanel')
-                </section>
-            </div>
-        </div>
-    </section> --}}
-    <div class="card col-md-12 m-0" style="border-radius:0; background-color:#f6f6f6">
-        <div class="row pb-6 m-0" style="height:56px">
-
-            <p class="text-dark font-weight-bold pl-2 pt-3" style="opacity: 0.5">
-                <img class="mr-4 ml-0"  src="{{ asset('assets/icons/icon-triangleleftsm.svg') }}" width="20px">
-                Профиль
-            </p>
-        </div>
 
 
-        <div class="container col-md-12 ml-4">
+        <div class="container-fluid">
             <div class="card mr-6" style="padding: 0; border:0; border-radius:4px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
                 <div class="card-header d-flex text-dark pb-1 pt-2" style="background-color:white">
                     <p class="text-dark font-weight-bold pl-3 pt-3" style="font-size:16px; line-height: 20px">Персональная информация</p>
@@ -83,11 +68,10 @@
                 </div>
             </div>
         </div>
-        <br>
-        <div class="container col-md-12 ml-4">
+        <div class="container-fluid">
             <div class="card mr-6 mb-3" style="margin-top: 24px; padding: 0; border:0; border-radius:4px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
                 <div class="card-header d-flex text-dark pb-1 pt-2" style="background-color:white">
-                    <p class="text-dark font-weight-bold pl-5 pt-3" style="font-size:16px; line-height: 20px">Опасная зона</p>
+                    <p class="text-dark font-weight-bold pl-3 pt-3" style="font-size:16px; line-height: 20px">Опасная зона</p>
                 </div>
                 <div class="card-body">
                     <div class="row ml-0">
@@ -104,5 +88,4 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection

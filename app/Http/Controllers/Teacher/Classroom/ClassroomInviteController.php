@@ -108,7 +108,7 @@ class ClassroomInviteController extends Controller
         //dd($invite);
 
         $invite->delete();
-        return redirect()->route('user.dashboard');
+        return redirect()->route('student.dashboard');
         //TODO: возможно необходимо перенести эту функцию в классрум контроллер студента
     }
 }

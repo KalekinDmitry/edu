@@ -16,27 +16,27 @@
 @import "./original/code";
 @import "./original/grid";
 @import "./original/tables";
-@import "./develop/forms";
+@import "./custom/forms";
 //@import "./original/buttons";
 @import "./original/transitions";
 @import "./original/dropdown";
 @import "./original/button-group";
 @import "./original/input-group";
-@import "./develop/custom-forms";
-@import "./develop/nav";
+@import "./custom/custom-forms";
+@import "./custom/nav";
 @import "./original/navbar";
-@import "./develop/card";
+@import "./custom/card";
 @import "./original/breadcrumb";
 @import "./original/pagination";
-@import "./develop/badge";
+@import "./custom/badge";
 @import "./original/jumbotron";
-@import "./develop/alert";
+@import "./custom/alert";
 @import "./original/progress";
 @import "./original/media";
 @import "./original/list-group";
-@import "./develop/close";
+@import "./custom/close";
 @import "./original/toasts";
-@import "./develop/modal";
+@import "./custom/modal";
 @import "./original/tooltip";
 @import "./original/popover";
 @import "./original/carousel";
@@ -44,12 +44,6 @@
 @import "./original/utilities";
 @import "./original/print";
 
-
-
-
-
-
-@import "./develop/layouts";
 
 body {
     font-family: 'PT Sans Caption', sans-serif !important;

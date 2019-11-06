@@ -28,7 +28,7 @@ class LoginController extends Controller
      * Where to redirect users after login.
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/student'; // route('student.dashboard');
 
     /**
      * Create a new controller instance.
@@ -41,7 +41,6 @@ class LoginController extends Controller
 
     public function showLoginForm()
     {
-//        dd(allOf());
         return view('student.auth.login');
     }
 
@@ -53,10 +52,10 @@ class LoginController extends Controller
         ]);
 
         if (Auth::guard('student')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
-            return redirect('/user');
+            return redirect()->route('student.dashboard');
         }
 
-        return redirect('/user');
+        return redirect()->route('student.dashboard');
     }
 
     public function logout()

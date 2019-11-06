@@ -28,7 +28,7 @@ class RegisterController extends Controller
      * Where to redirect users after registration.
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/student'; // route('student.dashboard');
 
     /**
      * Create a new controller instance.
@@ -59,7 +59,7 @@ class RegisterController extends Controller
 
         $this->guard()->login($user);
 
-        return redirect('/user');
+        return redirect()->route('student.dashboard');
     }
 
     /**

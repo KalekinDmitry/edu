@@ -1,17 +1,23 @@
 @extends('student.layouts.app')
 
+@section('title')
+    Сообщения
+@endsection
+
+@section('content')
+    <div class="card">
+
+        <div class="card-body text-dark">
+            Статистика пользователя
+        </div>
+
+    </div>
+@endsection
+
+{{-- СТАРЫЙ ЧАТ. СТАТИК ШАБЛОН.
 @section('content')
     <div class="row ml-0">
         <div class="card messages-panel" style="border-radius:0; height:100vh">
-            <div class="row" style="height:56px">
-
-                <p class="text-dark font-weight-bold pl-2 pt-3">
-                        <a id="sidebarCollapse" class="px-4 mb-4">
-                            <img class="mr-2 pb-1" style="opacity: 0.7" src="{{ asset('assets/icons/icon-triangleleftsm.svg') }}" width="16px">
-                            Сообщения
-                        </a>
-                </p>
-            </div>
 
             <input class="form-control form-control-lg" style="height: 64px; font-size:15px; border-radius:0; border-left: 0; border-right:0; background-color:#FBFBFB"type="text" placeholder="Поиск">
 
@@ -60,7 +66,9 @@
                         <div class="card col-md-9 mb-3" style="padding: 0; border:0; border-radius:4px; box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);">
                             <div class="card-header d-flex text-white pb-1 pt-2"
                                     style="background: #185dd0; background: -webkit-gradient(linear, left top, right top, from(#185dd0), to(#7076fc)); background: linear-gradient(to right, #185dd0 0%, #7076fc 100%);">
-                                {{-- <p class="mb-0 pb-0 font-weight-bold">{{ $invite->message_title }}</p> --}}
+                                --}}
+{{-- <p class="mb-0 pb-0 font-weight-bold">{{ $invite->message_title }}</p> --}}{{--
+
                                 <img src="https://res.cloudinary.com/mhmd/image/upload/v1556074849/avatar-1_tcnd60.png" alt="..." width="32" class="mr-3 rounded-circle ">
                                 <p class="m-0 p-0 mt-2 font-weight-bold text-white" style="font-size:16px; line-height: 20px">{{$invite->message_title}}</p>
                             </div>
@@ -126,3 +134,4 @@
         </div>
     </div>
 @endsection
+--}}
