@@ -15,6 +15,7 @@
 
     <div class="row justify-content-center m-5" >
         <div class="col-md-6 m-0">
+            <h5>Уроки</h5>
             @foreach($lessons as $lesson)
                 <div class="card col-md-12 my-3" style="border:0; box-shadow: 0px 2px 4px rgba(0,0,0,0.1)">
                     <div class="card-body row">
@@ -34,7 +35,7 @@
                 <div class="card-body row justify-content-end">
                     <p class="col-md-8 text-muted font-weight-normal">Добавьте новый урок</p>
                     <form action="{{route('lesson.create', $module->id) }}" class="m-0 p-0">
-                        <button class="btn btn-primary my-3">Создать</button>
+                        <button class="btn btn-primary my-3">Добавить</button>
                     </form>
                 </div>
             </div>

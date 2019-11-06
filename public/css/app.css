@@ -82,37 +82,6 @@
   padding-right: 0px;
 }
 
-.page-content {
-  width: calc(100% - 216px);
-  margin-left: 216px;
-  transition: all 0.4s;
-}
-
-.lesson-panel,
-.messages-panel {
-  width: 36.25%;
-  min-width: 464px;
-}
-
-.lesson-content,
-.correspondence-panel {
-  width: 63.75%;
-  min-width: 816px;
-}
-
-.courses-panel,
-.course-panel,
-.proffile-panel,
-.subscriptions-panel,
-.news-panel,
-.authentication-panel,
-.error-panel,
-.empty-lesson-panel,
-.payment-panel,
-.mobile {
-  width: 100%;
-}
-
 ::-webkit-scrollbar {
   background-color: transparent;
   overflow: visible;
@@ -4321,7 +4290,7 @@ textarea.form-control.is-invalid {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   border-radius: 3px;
 }
 
@@ -10280,6 +10249,41 @@ a.text-dark:focus {
     color: inherit;
     border-color: #dee2e6;
   }
+}
+
+.page-content {
+  width: calc(100% - 216px);
+  margin-left: 216px;
+  transition: all 0.4s;
+  box-shadow: none;
+}
+
+.lesson-panel,
+.messages-panel {
+  width: 36.25%;
+  margin: 0;
+  box-shadow: none;
+}
+
+.lesson-content,
+.correspondence-panel {
+  width: 63.75%;
+  margin: 0;
+  box-shadow: none;
+}
+
+.courses-panel,
+.course-panel,
+.proffile-panel,
+.subscriptions-panel,
+.news-panel,
+.authentication-panel,
+.error-panel,
+.empty-lesson-panel,
+.payment-panel,
+.mobile {
+  width: 100%;
+  box-shadow: none;
 }
 
 body {
