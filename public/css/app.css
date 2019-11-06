@@ -10133,6 +10133,10 @@ body {
   font-family: "PT Sans Caption", sans-serif !important;
 }
 
+svg {
+  fill: currentColor;
+}
+
 .btn {
   display: inline-block;
   font-weight: 400;

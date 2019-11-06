@@ -3,6 +3,7 @@
 @extends('teacher.layouts.app')
 
 @section('title')
+    <img class="mr-2" style="opacity: 0.7; margin-top:-8px" src="{{ asset('assets/icons/icon-triangleleftsm.svg') }}" width="24px">
     @lang('content.emod'): {{ $module->name }}
 @endsection
 
@@ -20,127 +21,50 @@
             </div>
         </nav>
         <div class="tab-content text-dark card-body bg-white" id="nav-tabContent">
-
-            {{-- Информация --}}
             <div class="tab-pane fade show active" id="nav-info" role="tabpanel" aria-labelledby="nav-info-tab">
                 <div class="d-flex">
-                    <form class="d-flex"
-                          action="{{route('teacher.module.update', $module)}}"
-                          method="post"
-                          enctype="multipart/form-data">
+                    <form class="form col-md-6 my-5" action="{{ route('teacher.module.update', [$module->id]) }}" method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="put">
-                        @csrf
-                        <input class="form-control mr-2" type="text" name="name" placeholder="Название модуля"
-                               value="{{$module->name}}">
-                        <button class="btn btn-success">
-                            Обновить
-                        </button>
+                        {{ csrf_field() }}
+                        <input class="form-control col-md-12" type="text" maxlength="64" name="name" placeholder="Module title" value="{{ $module->name }}" required>
+                        <input type="hidden" name="course_id" value="{{ $module->course_id}}">
+                        <input type="hidden" name="position" value = "{{ $module->position }}">
+                        <button class = "btn btn-primary col-md-4 my-3" type="submit" value="update">@lang('content.update')</button>
                     </form>
                 </div>
             </div>
 
-            {{-- Содержание --}}
+
             <div class="tab-pane fade" id="nav-content" role="tabpanel" aria-labelledby="nav-content-tab">
-
-                <div class="d-flex form-group">
-                    <form class="d-flex" action="{{route("teacher.lesson.store")}}" method="post">
-                        @csrf
-                        <input type="hidden" name="module_id" value="{{$module->id}}">
-                        <input class="form-control mr-2" type="text" name="title" placeholder="Название урока">
-                        <button class="btn btn-success">
-                            Добавить
-                        </button>
-                    </form>
-                </div>
-
-
-                @foreach($module->lessons() as $lesson)
-                    <form onsubmit="if(confirm('Delete lesson?')){return true}else{return false}"
-                          action="{{route('teacher.lesson.destroy', [$lesson])}}"
-                          method="post" class="form-group">
-                        <input type="hidden" name="_method" value="Delete">
-                        @csrf
-                        <div class="d-flex">
-                            <h5 class="d-flex align-items-center">{{$lesson->title}}</h5>
-                            <a class="btn btn-primary icon-32 ml-auto"
-                               href="{{route('teacher.lesson.edit', [$lesson->id])}}">
-                                <i class="fa fa-edit"></i>
-                            </a>
-                            <button class="btn btn-danger icon-32 ml-2" type="submit">
-                                <i class="far fa-trash-alt"></i>
-                            </button>
-                        </div>
-                    </form>
-                @endforeach
-
-
-            </div>
-
-        </div>
-
-    </div>
-
-    {{--
-        <div class="row justify-content-center">
-            <div class="card col-md-8">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="list-group col-md-4">
-                            <div class="row justify-content-center">
-                                <h5>@lang('content.lessons')</h5>
-                            </div>
-                            <br>
-                            @foreach($module->lessons() as $lesson)
-                                <div class="row">
-                                    <a style="border-width: 1px"
-                                       href="{{ route('teacher.lesson.show', ['course'=>$module->course()->id, 'lesson'=>$lesson->id]) }}"
-                                       style="font-size: 14px;"
-                                       class="list-group-item list-group-item-action col-md-8">📄{{ $lesson->title }}</a>
-                                    <a class="site-btn-hollow col-md-2"
-                                       href="{{route('teacher.lesson.edit', [$module->id, $lesson->id])}}"><i
-                                                class="fa fa-edit"></i></a>
-                                    <form class="col-md-2" style="padding: 0"
-                                          onsubmit="if(confirm('Delete module?')){return true}else{return false}"
-                                          action="{{route('teacher.lesson.destroy', [$module, $lesson])}}"
-                                          method="post">
-                                        <input type="hidden" name="_method" value="Delete">
-                                        {{ csrf_field() }}
-                                        <button type="submit" class="site-btn-danger col-md-12">X</button>
-                                    </form>
-                                </div>
-                            @endforeach
-                            <div class="row">
-                                <a class="site-btn-info col-md-12"
-                                   href="{{ route('teacher.lesson.create', $module->id) }}">✚</a>
-                            </div>
-                        </div>
-
-
-                        <form class="contact-form col-md-8"
-                              action="{{ route('teacher.module.update', [$module->course()->id, $module->id]) }}"
-                              method="POST" enctype="multipart/form-data">
-                            <input type="hidden" name="_method" value="put">
-                            {{ csrf_field() }}
-                            <div class="row justify-content-center">
-                                <input class="col-md-7" type="text" maxlength="64" name="name"
-                                       placeholder="Module title" value="{{ $module->name }}" required>
-                                <input type="hidden" name="course_id" value="{{ $module->course_id}}">
-                                <input type="hidden" name="position" value="{{ $module->position }}">
-                                <div class="col-md-7">
-                                    <button class="site-btn col-md-4" type="submit"
-                                            value="update">@lang('content.update')<i class="fa fa-angle-right"></i>
+                <div style="width:512px">
+                    @foreach($module->lessons() as $lesson)
+                        <div class="card col-md-12 my-3" style="border:0; box-shadow: 0px 2px 4px rgba(0,0,0,0.1)">
+                            <div class="card-body row">
+                                <a class="col-md-7 m-0 mt-2 p-0" href="{{ route('teacher.lesson.show', [$lesson->id]) }}">{{ $lesson->title }}</a>
+                                <form class="m-0 p-0" action="{{route('teacher.lesson.edit', [$lesson->id])}}">
+                                    <button class="btn btn-light m-1 " style="font-size:13px; line-height: 28px">Редактировать</button>
+                                </form>
+                                <form class="col-md-1 m-1 p-0" style="padding: 0" onsubmit="if(confirm('Delete module?')){return true}else{return false}" action="{{route('teacher.lesson.destroy', [$lesson])}}" method="post">
+                                    <input type="hidden" name="_method" value="Delete">
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-danger" style="color:white">
+                                        <img class="mr-2"  src="{{ asset('assets/icons/icon_delete.svg') }}" style="opacity: 0.5; color:white; margin-top:-4px" width="24px">
                                     </button>
-                                </div>
-
+                                </form>
                             </div>
-                        </form>
+                        </div>
+                    @endforeach
+
+                    <div class="card col-md-12 my-3" style="background-color: #fbfbfb; border-width: 1px; border-style: dashed; border-color: rgba(0,0,0,0.1); box-shadow: none;">
+                        <div class="card-body row justify-content-end">
+                            <p class="col-md-8 text-muted font-weight-normal">Добавьте новый урок</p>
+                            <form action="{{route('teacher.lesson.create', $module->id) }}" class="m-0 p-0">
+                                <button class="btn btn-primary my-3">Добавить</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>--}}
-
-
-
-
-
+        </div>
+    </div>
 @endsection

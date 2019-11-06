@@ -13,14 +13,13 @@
         </div>
 
 
-    <form class="contact-form" action="{{ route('teacher.lesson.store', $module->id) }}" method="POST" enctype="multipart/form-data">
+    <form class="contact-form" action="{{ route('teacher.lesson.store') }}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <div class="row justify-content-center">
 
                 <div class="col-md-7">
                     <input type="text" maxlength="64" name="title" placeholder="@lang('content.ltitle')"  required>
                     <input type="hidden" name="slug">
-                    <input type="hidden" name="module_id" value="{{ $module->id }}">
                     <input type="hidden" name="position" value = "0">
                 </div>
                 <div class="col-md-7">

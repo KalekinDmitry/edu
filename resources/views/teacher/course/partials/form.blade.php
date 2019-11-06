@@ -51,7 +51,7 @@
         <input type="text" class="form-control font-weight-bold text-dark"
                placeholder="Ссылка на изображение курса">
     </div>
-    <div class="card p-3 my-3" style="border-style: dashed">
+    <div class="card p-3 my-3" style="border-style: dashed; border-width:1px; border-color:rgba(0,0,0,0.1); box-shadow:none">
         <div class="row justify-content-center pt-3">
             <img class="mr-2" style="opacity: 0.3" src="{{ asset('assets/icons/icon_downloadcloud.svg') }}"
                  width="22px">

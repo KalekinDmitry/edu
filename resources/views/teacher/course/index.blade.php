@@ -1,6 +1,7 @@
 @extends('teacher.layouts.app')
 
 @section('title')
+    <img class="mr-2" style="opacity: 0.7; margin-top:-4px" src="{{ asset('assets/icons/icon-triangleleftsm.svg') }}" width="24px">
     Мои курсы
 @endsection
 

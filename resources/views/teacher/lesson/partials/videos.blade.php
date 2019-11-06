@@ -1,4 +1,4 @@
-<div class="d-flex form-group">
+a<div class="d-flex form-group">
     <a class="site-btn-hollow col-md-4"
        href="{{ route('teacher.videoBlock.create', $lesson->id) }}">✚ @lang('content.vid')</a>
 </div>
