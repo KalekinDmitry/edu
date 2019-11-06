@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('teacher.layouts.app')
 
 @section('content')
 
@@ -13,7 +13,7 @@
         </div>
     </div>
 
-    <form class="contact-form" action="{{ route('classroomInvite.store', ['classroom' => $classroom->id, 'user'=>$user->id]) }}" method="POST" enctype="multipart/form-data">
+    <form class="contact-form" action="{{ route('teacher.classroomInvite.store', ['classroom' => $classroom->id, 'user'=>$user->id]) }}" method="POST" enctype="multipart/form-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
         <input type="hidden" name="classroom_id" value="{{ $classroom->id }}">
         <input type="hidden" name="user_id" value = "{{ $user->id }}">

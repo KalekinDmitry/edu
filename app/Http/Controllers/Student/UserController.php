@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Student;
 
-use App\User;
-use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Models\ClassroomInvite;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\Controller;
 
 class UserController extends Controller
 {

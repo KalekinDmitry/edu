@@ -9,6 +9,11 @@ class TaskBlock extends Model
 {
     use SoftDeletes;
 
+
+    public const TABLE = "task_blocks";
+
+    protected $table = self::TABLE;
+
     protected $fillable = [
         'retries_count', 'position', 'cost', 'lesson_id'
     ];

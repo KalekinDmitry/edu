@@ -33,7 +33,7 @@ class TaskBlockController extends Controller
      */
     public function create(Lesson $lesson)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         //dd($lesson, $teacher);
         if($teacher->can('create', [TaskBlock::class, $lesson])){
             return view('teacher.lesson.task.create', ['lesson' => $lesson]);
@@ -52,7 +52,7 @@ class TaskBlockController extends Controller
      */
     public function store(Request $request, Lesson $lesson)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
 
         if($teacher->can('store', [TaskBlock::class, $lesson])){
 
@@ -97,7 +97,7 @@ class TaskBlockController extends Controller
      */
     public function edit(Lesson $lesson, TaskBlock $taskBlock)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         //dd($lesson, $course, $teacher);
 
         if($teacher->can('edit', [$taskBlock])){
@@ -125,7 +125,7 @@ class TaskBlockController extends Controller
      */
     public function update(Request $request, Lesson $lesson, TaskBlock $taskBlock)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         if($teacher->can('update', [$taskBlock])){
             $taskBlock->update($request->input());
             $taskBlock->save();
@@ -144,7 +144,7 @@ class TaskBlockController extends Controller
      */
     public function destroy(Lesson $lesson, TaskBlock $taskBlock)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         if($teacher->can('destroy', [$taskBlock])){
             $taskBlock->delete();
             return redirect()->route('lesson.edit', [$lesson->module_id, $lesson->id]);

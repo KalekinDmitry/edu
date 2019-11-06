@@ -9,6 +9,10 @@ class TestQuestion extends Model
 {
     use SoftDeletes;
 
+    public const TABLE = "test_questions";
+
+    protected $table = self::TABLE;
+
     protected $fillable = [
         'task_block_id', 'text', 'correct_count', 'wrong_count', 'image_link'
     ];

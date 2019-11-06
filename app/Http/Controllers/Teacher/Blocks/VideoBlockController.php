@@ -32,7 +32,7 @@ class VideoBlockController extends Controller
      */
     public function create(Lesson $lesson)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         if($teacher->can('create', [VideoBlock::class, $lesson])){
             return view('teacher.lesson.video.create', ['lesson' => $lesson]);
         }else {
@@ -50,7 +50,7 @@ class VideoBlockController extends Controller
      */
     public function store(Request $request, Lesson $lesson)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
 
         if($teacher->can('store', [VideoBlock::class, $lesson])){
 
@@ -89,7 +89,7 @@ class VideoBlockController extends Controller
      */
     public function edit(Lesson $lesson, VideoBlock $videoBlock)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         //dd($lesson, $course, $teacher);
         if($teacher->can('edit', [$videoBlock])){
             return view('teacher.lesson.video.edit', ['videoBlock' => $videoBlock, 'lesson' => $lesson]);
@@ -107,7 +107,7 @@ class VideoBlockController extends Controller
      */
     public function update(Request $request, Lesson $lesson, VideoBlock $videoBlock)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         if($teacher->can('update', [$videoBlock])){
             $videoBlock->update($request->input());
             $videoBlock->save();
@@ -128,7 +128,7 @@ class VideoBlockController extends Controller
      */
     public function destroy(Lesson $lesson, VideoBlock $videoBlock)
     {
-        $teacher = Auth::user();
+        $teacher = Auth::guard("teacher")->user();
         if($teacher->can('destroy', [$videoBlock])){
             $videoBlock->delete();
             return redirect()->route('lesson.edit', [$lesson->module_id, $lesson->id]);

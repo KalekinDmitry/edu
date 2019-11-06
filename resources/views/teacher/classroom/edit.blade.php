@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('teacher.layouts.app')
 
 @section('content')
 
@@ -18,7 +18,7 @@
                     <div class="card-title h4" style="color:darkslategray">
                         <strong>@lang('content.edclass'): {{ $classroom->name }}</strong>
                     </div>
-                    <form class="contact-form pt-4" action="{{ route('classroom.update', [$classroom->id]) }}"
+                    <form class="contact-form pt-4" action="{{ route('teacher.classroom.update', [$classroom->id]) }}"
                           method="POST" enctype="multipart/form-data">
                         <input type="hidden" name="_method" value="put">
                         {{ csrf_field() }}
@@ -147,7 +147,7 @@
                                             <div class="col-md-8">
                                                 {{ $NIuser->name }}
                                             </div>
-                                            <a href="{{ route('classroomInvite.create', ['classrom' => $classroom->id, 'user' => $NIuser->id])}}"
+                                            <a href="{{ route('teacher.classroomInvite.create', ['classrom' => $classroom->id, 'user' => $NIuser->id])}}"
                                                 class="btn btn-secondary col-md-2">invite</a>
                                         </div>
                                     @endforeach

@@ -9,7 +9,10 @@ class Admin extends Authenticatable
 {
     use Notifiable;
 
+    public const TABLE = "admins";
+
     protected $guard = 'admin';
+    protected $table = self::TABLE;
 
     /**
      * The attributes that are mass assignable.
@@ -40,6 +43,6 @@ class Admin extends Authenticatable
 
     public function courses()
     {
-        return $this->hasMany('App\Course', 'created_by');
+        return $this->hasMany('App\Models\Course', 'created_by');
     }
 }

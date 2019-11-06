@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('student.layouts.app')
 
 @section('content')
     {{-- <section class="content-section set-bg fixed"
@@ -31,7 +31,7 @@
                     <div class="row ml-0">
 
                         <form class="form-horizontal card-body"
-{{--                              action="{{route('user.settings_save', $user)}}"--}}
+{{--                              action="{{route('student.settings_save', $user)}}"--}}
                                 action="#"
 {{--                              method="post"--}}
                               enctype="multipart/form-data">

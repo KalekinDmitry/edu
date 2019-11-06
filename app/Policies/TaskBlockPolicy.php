@@ -2,12 +2,10 @@
 
 namespace App\Policies;
 
-use App\User;
-use App\Models\TaskBlock;
 use App\Models\Lesson;
-use App\Models\Module;
+use App\Models\TaskBlock;
 use App\Models\Teacher;
-use App\Course;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TaskBlockPolicy
@@ -29,7 +27,7 @@ class TaskBlockPolicy
     * Determine whether the user can view the course.
     *
     * @param Teacher $teacher
-    * @param  \App\Course $course
+    * @param  \App\Models\Course $course
     * @return mixed
     */
    public function view(Teacher $teacher, TaskBlock $textBlock)

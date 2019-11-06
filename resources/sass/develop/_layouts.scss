@@ -2,6 +2,8 @@
     width: calc(100% - 216px);
     margin-left: 216px;
     transition: all 0.4s;
+    background-color: $gray-100;
+    min-height: 100%;
     box-shadow: none;
 }
 
@@ -22,4 +24,37 @@
 .courses-panel, .course-panel, .proffile-panel, .subscriptions-panel, .news-panel, .authentication-panel, .error-panel, .empty-lesson-panel, .payment-panel, .mobile{
     width:100%;
     box-shadow: none;
+}
+
+.icon-24{
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    font-size: .6rem;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.icon-32{
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    font-size: .7rem;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.icon-40{
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    font-size: .8rem;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center;
 }

@@ -2,12 +2,10 @@
 
 namespace App\Policies;
 
-use App\User;
-use App\Models\TextBlock;
 use App\Models\Lesson;
-use App\Models\Module;
 use App\Models\Teacher;
-use App\Course;
+use App\Models\TextBlock;
+use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class TextBlockPolicy
@@ -29,7 +27,7 @@ class TextBlockPolicy
      * Determine whether the user can view the course.
      *
      * @param Teacher $teacher
-     * @param  \App\Course $course
+     * @param  \App\Models\Course $course
      * @return mixed
      */
     public function view(Teacher $teacher, TextBlock $textBlock)

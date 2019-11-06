@@ -4,9 +4,7 @@ namespace App\Http\Controllers\Teacher\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Teacher\TeacherRegisterRequest;
-use App\Http\Requests\User\UserRegisterRequest;
 use App\Models\Teacher;
-use App\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Auth;

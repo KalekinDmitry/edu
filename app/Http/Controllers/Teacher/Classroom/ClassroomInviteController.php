@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\Teacher\Classroom;
 
-use App\User;
-use App\Models\Classroom;
-use Illuminate\Http\Request;
-use App\Models\ClassroomInvite;
 use App\Http\Controllers\Controller;
+use App\Models\Classroom;
+use App\Models\ClassroomInvite;
+use App\Models\User;
+use Illuminate\Http\Request;
 
 class ClassroomInviteController extends Controller
 {
