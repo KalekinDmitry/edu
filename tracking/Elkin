@@ -33,4 +33,6 @@ September 22(2 hour): Routes and controllers fix (access policies);
 September 28(4 hours): Login views (Frontend); Bugfix;
 September 29(5 hours): Register views (Frontend); Creating a common style for login and register views; 
 September 30(6 hours): One style reworking input forms, buttons, layouts (Frontend); Cleaning the Public folder from unnecessary styles;
-October 1(5 hour): A lot of small frontend fixes (preparation for the show); 
+October 1(5 hour): A lot of small frontend fixes (preparation for the show);
+
+October 29(4 hour): User->student: Student guard, Controller editing, Model creation, Dictionary editing;
