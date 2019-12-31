@@ -20,15 +20,15 @@ class Handler extends ExceptionHandler
         }
 
         if($request->is('admin') || $request->is('admin/*')){
-            return redirect()->guest('/admin/login');
+            return redirect()->guest('/admin/auth/login');
         }
 
         if($request->is('teacher') || $request->is('teacher/*')){
-            return redirect()->guest('/teacher/login');
+            return redirect()->guest('/teacher/auth/login');
         }
 
-        if($request->is('student') || $request->is('user/*')){
-            return redirect()->guest('/user/login');
+        if($request->is('student') || $request->is('student/*')){
+            return redirect()->guest('/student/auth/login');
         }
 
 //         if($request->is('user') || $request->is('user/*')){
